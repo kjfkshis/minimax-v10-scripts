@@ -1329,7 +1329,13 @@ const aZpcvyD_mnWYN_qgEq=DHk$uTvcFuLEMnixYuADkCeA;let SI$acY=[],ZTQj$LF$o=[],ttu
 // == HÀM CHUẨN HÓA VĂN BẢN TRƯỚC KHI GỬI CHUNK ==
 // =======================================================
 function normalizeChunkText(text) {
-    if (!text || typeof text !== 'string') return text;
+    if (!text || typeof text !== 'string') {
+        console.warn('[normalizeChunkText] Text không hợp lệ:', text);
+        return text;
+    }
+    
+    // DEBUG: Đảm bảo hàm được gọi
+    console.log('[normalizeChunkText] Bắt đầu chuẩn hóa, độ dài:', text.length);
     
     // Lấy thời gian hiện tại theo format [HH:MM:SS]
     const now = new Date();
@@ -1938,7 +1944,10 @@ async function uSTZrHUt_IC() {
         // == CHUẨN HÓA VĂN BẢN TRƯỚC KHI GỬI CHUNK ==
         // =======================================================
         // Áp dụng chuẩn hóa cho chunk trước khi gửi
+        // DEBUG: Đảm bảo hàm được gọi
+        console.log(`[DEBUG] Đang chuẩn hóa chunk ${ttuo$y_KhCV + 1}, độ dài: ${SI$acY[ttuo$y_KhCV].length}`);
         const chunkText = normalizeChunkText(SI$acY[ttuo$y_KhCV]);
+        console.log(`[DEBUG] Sau chuẩn hóa, độ dài: ${chunkText.length}`);
         
         // Đặt text đã chuẩn hóa vào ô input ẩn
         rUxbIRagbBVychZ$GfsogD[tQqGbytKzpHwhGmeQJucsrq(0x24c)] = chunkText;
