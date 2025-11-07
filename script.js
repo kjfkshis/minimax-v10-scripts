@@ -1357,13 +1357,16 @@ function normalizeChunkText(text) {
         // Loại bỏ khoảng trắng ở đầu và cuối
         .trim();
     
-    // Log debug message với thông tin chi tiết
+    // Log debug message với thông tin chi tiết - LUÔN HIỂN THỊ
     addLogEntry(`[${timeStr}] 🧩 Debug: văn bản chuẩn hóa (${originalLength} → ${normalized.length} ký tự)`, 'info');
     
     // Log thông tin nếu có thay đổi
     if (normalized !== text) {
         const removedCount = originalLength - normalized.length;
         addLogEntry(`🧩 Đã loại bỏ ${removedCount} ký tự đặc biệt (quotes, apostrophes, ký tự lạ)`, 'info');
+    } else {
+        // Log thông báo nếu không có thay đổi (để đảm bảo hàm đã chạy)
+        addLogEntry(`🧩 Văn bản không cần chuẩn hóa (không có ký tự đặc biệt)`, 'info');
     }
     
     return normalized;
@@ -1879,13 +1882,6 @@ async function uSTZrHUt_IC() {
     }
 
     nWHrScjZnIyNYzztyEWwM(ttuo$y_KhCV, SI$acY[tQqGbytKzpHwhGmeQJucsrq(0x216)]);
-    
-    // =======================================================
-    // == CHUẨN HÓA VĂN BẢN TRƯỚC KHI GỬI CHUNK ==
-    // =======================================================
-    // Áp dụng chuẩn hóa cho chunk trước khi gửi
-    const normalizedChunkText = normalizeChunkText(SI$acY[ttuo$y_KhCV]);
-    rUxbIRagbBVychZ$GfsogD[tQqGbytKzpHwhGmeQJucsrq(0x24c)] = normalizedChunkText;
 
     // Khởi tạo hệ thống theo dõi chunk
     if (typeof window.chunkStatus === 'undefined') window.chunkStatus = [];
