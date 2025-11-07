@@ -1,4 +1,4 @@
-﻿// ==UserScript==
+// ==UserScript==
 // @name         DUC LOI - Clone Voice (Không cần API) - Modded
 // @namespace    mmx-secure
 // @version      1.1.0
@@ -1325,6 +1325,50 @@ const aZpcvyD_mnWYN_qgEq=DHk$uTvcFuLEMnixYuADkCeA;let SI$acY=[],ZTQj$LF$o=[],ttu
     return chunks.filter(c => c.length > 0);
 }
 
+// =======================================================
+// == HÀM CHUẨN HÓA VĂN BẢN TRƯỚC KHI GỬI CHUNK ==
+// =======================================================
+function normalizeChunkText(text) {
+    if (!text || typeof text !== 'string') return text;
+    
+    // Lấy thời gian hiện tại theo format [HH:MM:SS]
+    const now = new Date();
+    const timeStr = now.toLocaleTimeString('vi-VN', { hour12: false });
+    
+    // Lưu độ dài ban đầu
+    const originalLength = text.length;
+    
+    // Bước 1: Loại bỏ các loại dấu ngoặc kép và nháy đơn (gây lỗi tiếng lạ)
+    let normalized = text
+        // Loại bỏ tất cả các loại dấu ngoặc kép (straight, curly, smart quotes)
+        .replace(/["""""]/g, '')
+        // Loại bỏ tất cả các loại dấu nháy đơn (straight, curly, smart quotes)
+        .replace(/['''']/g, '')
+        // Loại bỏ các ký tự control và invisible (có thể gây lỗi)
+        .replace(/[\u0000-\u001F\u007F-\u009F]/g, '');
+    
+    // Bước 2: Chỉ giữ lại chữ cái (tiếng Việt + tiếng Anh), số, dấu câu, khoảng trắng
+    // Dấu câu được phép: . , ! ? ; : ( ) [ ] { } … - — –
+    // Ký tự tiếng Việt: \u00C0-\u1EF9 (các ký tự có dấu)
+    normalized = normalized
+        .replace(/[^\w\s\u00C0-\u1EF9.,!?;:()[\]{}…\-—–]/g, '')
+        // Chuẩn hóa khoảng trắng: nhiều khoảng trắng liên tiếp thành 1
+        .replace(/\s+/g, ' ')
+        // Loại bỏ khoảng trắng ở đầu và cuối
+        .trim();
+    
+    // Log debug message với thông tin chi tiết
+    addLogEntry(`[${timeStr}] 🧩 Debug: văn bản chuẩn hóa (${originalLength} → ${normalized.length} ký tự)`, 'info');
+    
+    // Log thông tin nếu có thay đổi
+    if (normalized !== text) {
+        const removedCount = originalLength - normalized.length;
+        addLogEntry(`🧩 Đã loại bỏ ${removedCount} ký tự đặc biệt (quotes, apostrophes, ký tự lạ)`, 'info');
+    }
+    
+    return normalized;
+}
+
 // Hàm tách chunk thông minh mới - ưu tiên theo đoạn văn
 function smartSplitter(text, maxLength = 700) {
     // Lấy giá trị từ công tắc chunk size
@@ -1835,7 +1879,13 @@ async function uSTZrHUt_IC() {
     }
 
     nWHrScjZnIyNYzztyEWwM(ttuo$y_KhCV, SI$acY[tQqGbytKzpHwhGmeQJucsrq(0x216)]);
-    rUxbIRagbBVychZ$GfsogD[tQqGbytKzpHwhGmeQJucsrq(0x24c)] = SI$acY[ttuo$y_KhCV];
+    
+    // =======================================================
+    // == CHUẨN HÓA VĂN BẢN TRƯỚC KHI GỬI CHUNK ==
+    // =======================================================
+    // Áp dụng chuẩn hóa cho chunk trước khi gửi
+    const normalizedChunkText = normalizeChunkText(SI$acY[ttuo$y_KhCV]);
+    rUxbIRagbBVychZ$GfsogD[tQqGbytKzpHwhGmeQJucsrq(0x24c)] = normalizedChunkText;
 
     // Khởi tạo hệ thống theo dõi chunk
     if (typeof window.chunkStatus === 'undefined') window.chunkStatus = [];
@@ -1888,12 +1938,18 @@ async function uSTZrHUt_IC() {
         // ANTI-DETECTION: Thêm delay ngẫu nhiên trước khi đặt text
         await new Promise(resolve => setTimeout(resolve, Math.random() * 1000 + 500));
         
-        // Đặt text vào ô input ẩn
-        rUxbIRagbBVychZ$GfsogD[tQqGbytKzpHwhGmeQJucsrq(0x24c)] = SI$acY[ttuo$y_KhCV];
+        // =======================================================
+        // == CHUẨN HÓA VĂN BẢN TRƯỚC KHI GỬI CHUNK ==
+        // =======================================================
+        // Áp dụng chuẩn hóa cho chunk trước khi gửi
+        const chunkText = normalizeChunkText(SI$acY[ttuo$y_KhCV]);
+        
+        // Đặt text đã chuẩn hóa vào ô input ẩn
+        rUxbIRagbBVychZ$GfsogD[tQqGbytKzpHwhGmeQJucsrq(0x24c)] = chunkText;
 
         // Cập nhật progress bar
         nWHrScjZnIyNYzztyEWwM(ttuo$y_KhCV, SI$acY[tQqGbytKzpHwhGmeQJucsrq(0x216)]);
-        addLogEntry(`📦 [Chunk ${ttuo$y_KhCV + 1}/${SI$acY.length}] Đang gửi đi... (độ dài: ${SI$acY[ttuo$y_KhCV].length})`, 'info');
+        addLogEntry(`📦 [Chunk ${ttuo$y_KhCV + 1}/${SI$acY.length}] Đang gửi đi... (độ dài: ${chunkText.length} ký tự sau chuẩn hóa)`, 'info');
 
         // ANTI-DETECTION: Thêm delay ngẫu nhiên trước khi click
         await new Promise(resolve => setTimeout(resolve, Math.random() * 2000 + 1000));
@@ -4260,5 +4316,4 @@ async function waitForVoiceModelReady() {
         if (errorObserver) {
             errorObserver.disconnect();
         }
-
     });
