@@ -1,27 +1,4 @@
-// ==UserScript==
-// @name         DUC LOI - Clone Voice (Không cần API) - Modded
-// @namespace    mmx-secure
-// @version      2.1.0
-// @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại & Đổi văn bản hàng loạt.
-// @author       HUỲNH ĐỨC LỢI ( Zalo: 0835795597) - Đã chỉnh sửa
-// @match        https://www.minimax.io/audio*
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=minimax.io
-// @run-at       document-end
-// @grant        GM_xmlhttpRequest
-// @grant        GM_registerMenuCommand
-// @grant        GM_addStyle
-// @require      https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js
-// @connect      unpkg.com
-// @connect      cdn.jsdelivr.net
-// @connect      cloud.appwrite.io
-// ==/UserScript==
 
-
-/* ========================================================================== */
-/* BẢN QUYỀN PHẦN MỀM THUỘC VỀ: HUỲNH ĐỨC LỢI         */
-/* FB: @BĐỨC LỢI                                       */
-/* ZALO: 0835795597                                      */
-/* ========================================================================== */
 
 
 (function () {
@@ -4350,3 +4327,4 @@ async function waitForVoiceModelReady() {
             errorObserver.disconnect();
         }
     });
+
