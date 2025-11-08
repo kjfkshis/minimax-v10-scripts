@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DUC LOI - Clone Voice (Không cần API) - Modded
 // @namespace    mmx-secure
-// @version      3.0.0
+// @version      4.0.0
 // @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại & Đổi văn bản hàng loạt.
 // @author       HUỲNH ĐỨC LỢI ( Zalo: 0835795597) - Đã chỉnh sửa
 // @match        https://www.minimax.io/audio*
@@ -848,7 +848,7 @@ button:disabled {
         
         <div id="gemini-quota-display" style="color: #8be9fd; font-weight: bold; margin-left: 15px; margin-top: 10px; font-size: 14px;">Đang tải quota...</div>
         </div> 
-    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 2.1.0 - Update: 24/08/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
+    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 4.0.0 - Update: 25/12/2024 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
     <div class="text-input-options">
         <div class="input-tabs">
             <button id="text-tab" class="tab-btn active">Nhập trực tiếp</button>
@@ -1402,16 +1402,15 @@ function normalizeChunkText(text) {
     }
 }
 
-// Hàm tách chunk thông minh mới - ưu tiên theo đoạn văn
+// Hàm tách chunk thông minh - luôn dùng hàm tách chunk cũ
 function smartSplitter(text, maxLength = 700) {
     // Lấy giá trị từ công tắc chunk size
     const chunkSizeToggle = document.getElementById('chunk-size-toggle');
     const useLargeChunks = chunkSizeToggle ? chunkSizeToggle.checked : false;
     const actualMaxLength = useLargeChunks ? 900 : 700;
 
-    const finalChunks = [];
     if (!text || typeof text !== 'string') {
-        return finalChunks;
+        return [];
     }
 
     // Chuẩn hóa xuống dòng (Windows \r\n -> \n) và thay <br> thành xuống dòng
@@ -1419,58 +1418,14 @@ function smartSplitter(text, maxLength = 700) {
         .replace(/\r\n/g, '\n')
         .replace(/\r/g, '\n')
         .replace(/<br\s*\/?>(?=\s*\n?)/gi, '\n')
-        .replace(/\u00A0/g, ' ');
+        .replace(/\u00A0/g, ' ')
+        .trim();
 
-    // Tách văn bản thành các đoạn dựa trên 2 (hoặc nhiều hơn) dấu xuống dòng
-    // (regex này có nghĩa là: 1 dấu \n, theo sau là 0 hoặc nhiều khoảng trắng, rồi lại 1 dấu \n)
-    let paragraphs = normalized.split(/\n\s*\n+/);
-    paragraphs = paragraphs.map(p => p.trim()).filter(p => p.length > 0);
-    addLogEntry(`🧩 Smart split: phát hiện ${paragraphs.length} đoạn văn`, 'info');
-    addLogEntry(`🧩 Debug: văn bản chuẩn hóa có ${normalized.length} ký tự`, 'info');
-    addLogEntry(`🧩 Debug: có chứa \\n: ${normalized.includes('\n')}`, 'info');
+    // Luôn gọi hàm tách chunk cũ với toàn bộ văn bản đã chuẩn hóa
+    addLogEntry(`🧠 Áp dụng tách chunk thông minh (smartSplitter)`, 'info');
+    const chunks = NrfPVBbJv_Dph$tazCpJ(normalized, 600, 500, actualMaxLength);
 
-    // Fallback: nếu vì lý do nào đó không phát hiện được đoạn nào, thử tách theo từng dòng có nội dung
-    if (paragraphs.length === 1 && normalized.includes('\n')) {
-        const lines = normalized.split(/\n+/).map(l => l.trim()).filter(l => l.length > 0);
-        if (lines.length > 1) {
-            addLogEntry(`🧩 Smart split fallback: dùng tách theo dòng (${lines.length} dòng)`, 'warning');
-            paragraphs = lines;
-        }
-    }
-
-    // Nếu vẫn chỉ có 1 đoạn, thử tách theo dòng đơn lẻ
-    if (paragraphs.length === 1) {
-        const singleLines = normalized.split(/\n/).map(l => l.trim()).filter(l => l.length > 0);
-        if (singleLines.length > 1) {
-            addLogEntry(`🧩 Smart split fallback 2: dùng tách theo dòng đơn (${singleLines.length} dòng)`, 'warning');
-            paragraphs = singleLines;
-        }
-    }
-
-    for (const para of paragraphs) {
-        const trimmedPara = para.trim();
-
-        if (trimmedPara.length === 0) {
-            continue; // Bỏ qua các đoạn trống
-        }
-
-        // TRƯỜNG HỢP 1: Đoạn văn đủ ngắn (< actualMaxLength ký tự)
-        if (trimmedPara.length <= actualMaxLength) {
-            finalChunks.push(trimmedPara);
-
-        // TRƯỜNG HỢP 2: Đoạn văn quá dài (> actualMaxLength ký tự)
-        } else {
-            // Nếu đoạn này quá dài, chúng ta sẽ dùng lại hàm tách CŨ
-            // (NrfPVBbJv_Dph$tazCpJ) để chia nhỏ chính đoạn này.
-            addLogEntry(`🧠 Đoạn văn dài ${trimmedPara.length} ký tự, đang chia nhỏ...`, 'info');
-            const subChunks = NrfPVBbJv_Dph$tazCpJ(trimmedPara, 600, 500, actualMaxLength);
-
-            // Thêm các chunk con vào kết quả cuối cùng
-            finalChunks.push(...subChunks);
-        }
-    }
-
-    return finalChunks.filter(c => c.length > 0);
+    return chunks.filter(c => c.length > 0);
 }
 
 function dExAbhXwTJeTJBIjWr(EARfsfSN_QdgxH){const tENdSoNDV_gGwQKLZv$sYaZKhl=AP$u_huhInYfTj,T$dCpaznIPQ_UPNPAquzJhwHya=document[tENdSoNDV_gGwQKLZv$sYaZKhl(0x207)](tENdSoNDV_gGwQKLZv$sYaZKhl(0x263));for(const uUautBCIQlQydFiAF of T$dCpaznIPQ_UPNPAquzJhwHya){if(uUautBCIQlQydFiAF[tENdSoNDV_gGwQKLZv$sYaZKhl(0x273)][tENdSoNDV_gGwQKLZv$sYaZKhl(0x1d4)]()[tENdSoNDV_gGwQKLZv$sYaZKhl(0x1d1)]()===EARfsfSN_QdgxH[tENdSoNDV_gGwQKLZv$sYaZKhl(0x1d1)]())return KxTOuAJu(uUautBCIQlQydFiAF);}return![];}function s_BrlXXxPOJaBMKQX(){const Qhhztv_Emh_V=AP$u_huhInYfTj,qEJFmmYaq_ZY$ADPfvGUAMIlmIC=document[Qhhztv_Emh_V(0x1de)](Qhhztv_Emh_V(0x1c2)),IhdbQcdDHJpPksT$$OGFBBMT=document[Qhhztv_Emh_V(0x1cd)](Qhhztv_Emh_V(0x1e0)),rxGCINQSAqsWepsnWTGJOpnkL=document[Qhhztv_Emh_V(0x1cd)](Qhhztv_Emh_V(0x251));if(qEJFmmYaq_ZY$ADPfvGUAMIlmIC){qEJFmmYaq_ZY$ADPfvGUAMIlmIC[Qhhztv_Emh_V(0x1c7)]='';if(IhdbQcdDHJpPksT$$OGFBBMT){const wdZDFYMevO_$Lwy=document[Qhhztv_Emh_V(0x25a)](Qhhztv_Emh_V(0x23c));wdZDFYMevO_$Lwy[Qhhztv_Emh_V(0x1f1)]=IhdbQcdDHJpPksT$$OGFBBMT[Qhhztv_Emh_V(0x1f1)],wdZDFYMevO_$Lwy[Qhhztv_Emh_V(0x23e)]=Qhhztv_Emh_V(0x245),qEJFmmYaq_ZY$ADPfvGUAMIlmIC[Qhhztv_Emh_V(0x1eb)](wdZDFYMevO_$Lwy);}if(rxGCINQSAqsWepsnWTGJOpnkL){const MTKrudpbV$ZIhmZO=document[Qhhztv_Emh_V(0x25a)](Qhhztv_Emh_V(0x1be));MTKrudpbV$ZIhmZO['id']=Qhhztv_Emh_V(0x257),MTKrudpbV$ZIhmZO[Qhhztv_Emh_V(0x273)]=Qhhztv_Emh_V(0x1e9)+rxGCINQSAqsWepsnWTGJOpnkL[Qhhztv_Emh_V(0x273)][Qhhztv_Emh_V(0x1d4)](),qEJFmmYaq_ZY$ADPfvGUAMIlmIC[Qhhztv_Emh_V(0x1eb)](MTKrudpbV$ZIhmZO);}}}async function tt__SfNwBHDebpWJOqrSTR(){const VCAHyXsrERcpXVhFPxmgdBjjh=AP$u_huhInYfTj;
@@ -4346,3 +4301,4 @@ async function waitForVoiceModelReady() {
             errorObserver.disconnect();
         }
     });
+
