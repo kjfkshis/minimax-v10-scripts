@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DUC LOI - Clone Voice (Không cần API) - Modded
 // @namespace    mmx-secure
-// @version      10.0.0
+// @version      11.0.0
 // @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại & Đổi văn bản hàng loạt.
 // @author       HUỲNH ĐỨC LỢI ( Zalo: 0835795597) - Đã chỉnh sửa
 // @match        https://www.minimax.io/audio*
@@ -848,7 +848,7 @@ button:disabled {
         
         <div id="gemini-quota-display" style="color: #8be9fd; font-weight: bold; margin-left: 15px; margin-top: 10px; font-size: 14px;">Đang tải quota...</div>
         </div> 
-    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 10.0.0 - Update: 25/12/2024 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
+    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 11.0.0 - Update: 25/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
     <div class="text-input-options">
         <div class="input-tabs">
             <button id="text-tab" class="tab-btn active">Nhập trực tiếp</button>
@@ -4094,13 +4094,55 @@ async function waitForVoiceModelReady() {
     // Tên khóa điều khiển vòng lặp reload
     const RELOAD_LOOP_KEY = 'mmx_auto_reload_until_gmail_login_v1';
     
-    // Nếu trước đó đã bật vòng lặp reload và vẫn chưa đăng nhập -> tiếp tục reload ngay
+    // Hàm khóa nút tải lên và ghi log lỗi khi chưa đăng nhập Gmail
+    function disableUploadAndLogError() {
+        // Ghi lỗi vào log
+        if (typeof addLogEntry === 'function') {
+            addLogEntry('❌ Lỗi: Chưa đăng nhập Gmail vào trang Minimax. Vui lòng đăng nhập Gmail để sử dụng tool.', 'error');
+        }
+        
+        // Khóa nút tải lên file
+        const fileInput = document.getElementById('gemini-file-input');
+        if (fileInput) {
+            fileInput.disabled = true;
+            fileInput.style.opacity = '0.5';
+            fileInput.style.cursor = 'not-allowed';
+        }
+        
+        // Khóa nút tải lên cấu hình
+        const uploadBtn = document.getElementById('gemini-upload-btn');
+        if (uploadBtn) {
+            uploadBtn.disabled = true;
+            uploadBtn.style.opacity = '0.5';
+            uploadBtn.style.cursor = 'not-allowed';
+        }
+    }
+    
+    // Hàm bật lại nút tải lên khi đã đăng nhập
+    function enableUpload() {
+        const fileInput = document.getElementById('gemini-file-input');
+        if (fileInput) {
+            fileInput.disabled = false;
+            fileInput.style.opacity = '1';
+            fileInput.style.cursor = 'pointer';
+        }
+        
+        const uploadBtn = document.getElementById('gemini-upload-btn');
+        if (uploadBtn) {
+            uploadBtn.disabled = false;
+            uploadBtn.style.opacity = '1';
+            uploadBtn.style.cursor = 'pointer';
+        }
+    }
+    
+    // Nếu trước đó đã bật vòng lặp reload và vẫn chưa đăng nhập -> khóa nút và ghi log
     try {
         if (localStorage.getItem(RELOAD_LOOP_KEY) === '1' && !checkGmailLogin()) {
-            location.reload();
+            disableUploadAndLogError();
         } else if (checkGmailLogin()) {
-            // Đã đăng nhập thì tắt cờ vòng lặp
+            // Đã đăng nhập thì tắt cờ vòng lặp và bật lại nút
             localStorage.removeItem(RELOAD_LOOP_KEY);
+            enableUpload();
         }
     } catch (e) {}
 
@@ -4108,12 +4150,13 @@ async function waitForVoiceModelReady() {
     setTimeout(() => {
         if (checkGmailLogin()) {
             try { localStorage.removeItem(RELOAD_LOOP_KEY); } catch (e) {}
+            enableUpload();
             return;
         }
 
-        // Chưa đăng nhập -> bật cờ và reset ngay lập tức
+        // Chưa đăng nhập -> khóa nút và ghi log lỗi
         try { localStorage.setItem(RELOAD_LOOP_KEY, '1'); } catch (e) {}
-        location.reload();
+        disableUploadAndLogError();
     }, 3000);
 
     // =================================================================
@@ -4290,4 +4333,3 @@ async function waitForVoiceModelReady() {
             errorObserver.disconnect();
         }
     });
-
