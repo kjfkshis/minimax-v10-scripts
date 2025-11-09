@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DUC LOI - Clone Voice (Không cần API) - Modded
 // @namespace    mmx-secure
-// @version      11.0.0
+// @version      12.0.0
 // @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại & Đổi văn bản hàng loạt.
 // @author       HUỲNH ĐỨC LỢI ( Zalo: 0835795597) - Đã chỉnh sửa
 // @match        https://www.minimax.io/audio*
@@ -848,7 +848,7 @@ button:disabled {
         
         <div id="gemini-quota-display" style="color: #8be9fd; font-weight: bold; margin-left: 15px; margin-top: 10px; font-size: 14px;">Đang tải quota...</div>
         </div> 
-    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 11.0.0 - Update: 25/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
+    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 12.0.0 - Update: 25/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
     <div class="text-input-options">
         <div class="input-tabs">
             <button id="text-tab" class="tab-btn active">Nhập trực tiếp</button>
@@ -1006,16 +1006,58 @@ button:disabled {
                     </div>
                 </div>
                 <div class="punctuation-setting-row">
-                    <label for="pause-newline">Xuống dòng</label>
+                    <label for="pause-question">Dấu chấm hỏi [?]</label>
                     <div style="display: flex; align-items: center; gap: 8px; margin-left: -10px;">
                         <label class="switch">
-                            <input type="checkbox" id="toggle-newline">
+                            <input type="checkbox" id="toggle-question">
                             <span class="slider round"></span>
                         </label>
                         <div class="punctuation-input-group" style="width: 120px;">
-                            <button class="adjust-btn" data-target="pause-newline" data-step="-0.1">-</button>
-                            <input type="number" id="pause-newline" step="0.1" min="0" style="width: 50px; font-size: 12px;">
-                            <button class="adjust-btn" data-target="pause-newline" data-step="0.1">+</button>
+                            <button class="adjust-btn" data-target="pause-question" data-step="-0.1">-</button>
+                            <input type="number" id="pause-question" step="0.1" min="0" style="width: 50px; font-size: 12px;">
+                            <button class="adjust-btn" data-target="pause-question" data-step="0.1">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="punctuation-setting-row">
+                    <label for="pause-exclamation">Dấu chấm than [!]</label>
+                    <div style="display: flex; align-items: center; gap: 8px; margin-left: -10px;">
+                        <label class="switch">
+                            <input type="checkbox" id="toggle-exclamation">
+                            <span class="slider round"></span>
+                        </label>
+                        <div class="punctuation-input-group" style="width: 120px;">
+                            <button class="adjust-btn" data-target="pause-exclamation" data-step="-0.1">-</button>
+                            <input type="number" id="pause-exclamation" step="0.1" min="0" style="width: 50px; font-size: 12px;">
+                            <button class="adjust-btn" data-target="pause-exclamation" data-step="0.1">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="punctuation-setting-row">
+                    <label for="pause-colon">Dấu hai chấm [:]</label>
+                    <div style="display: flex; align-items: center; gap: 8px; margin-left: -10px;">
+                        <label class="switch">
+                            <input type="checkbox" id="toggle-colon">
+                            <span class="slider round"></span>
+                        </label>
+                        <div class="punctuation-input-group" style="width: 120px;">
+                            <button class="adjust-btn" data-target="pause-colon" data-step="-0.1">-</button>
+                            <input type="number" id="pause-colon" step="0.1" min="0" style="width: 50px; font-size: 12px;">
+                            <button class="adjust-btn" data-target="pause-colon" data-step="0.1">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="punctuation-setting-row">
+                    <label for="pause-ellipsis">Dấu ba chấm [...]</label>
+                    <div style="display: flex; align-items: center; gap: 8px; margin-left: -10px;">
+                        <label class="switch">
+                            <input type="checkbox" id="toggle-ellipsis">
+                            <span class="slider round"></span>
+                        </label>
+                        <div class="punctuation-input-group" style="width: 120px;">
+                            <button class="adjust-btn" data-target="pause-ellipsis" data-step="-0.1">-</button>
+                            <input type="number" id="pause-ellipsis" step="0.1" min="0" style="width: 50px; font-size: 12px;">
+                            <button class="adjust-btn" data-target="pause-ellipsis" data-step="0.1">+</button>
                         </div>
                     </div>
                 </div>
@@ -2592,14 +2634,20 @@ async function waitForVoiceModelReady() {
                 period: modal.querySelector('#pause-period'),
                 comma: modal.querySelector('#pause-comma'),
                 semicolon: modal.querySelector('#pause-semicolon'),
-                newline: modal.querySelector('#pause-newline')
+                question: modal.querySelector('#pause-question'),
+                exclamation: modal.querySelector('#pause-exclamation'),
+                colon: modal.querySelector('#pause-colon'),
+                ellipsis: modal.querySelector('#pause-ellipsis')
             };
 
             const toggles = {
                 period: modal.querySelector('#toggle-period'),
                 comma: modal.querySelector('#toggle-comma'),
                 semicolon: modal.querySelector('#toggle-semicolon'),
-                newline: modal.querySelector('#toggle-newline')
+                question: modal.querySelector('#toggle-question'),
+                exclamation: modal.querySelector('#toggle-exclamation'),
+                colon: modal.querySelector('#toggle-colon'),
+                ellipsis: modal.querySelector('#toggle-ellipsis')
             };
 
             const STORAGE_KEY = 'DUC_LOI_PUNCTUATION_SETTINGS_V2';
@@ -2607,11 +2655,17 @@ async function waitForVoiceModelReady() {
                 period: 0.7,
                 comma: 0.3,
                 semicolon: 0.5,
-                newline: 0.5,
+                question: 0.8,
+                exclamation: 0.8,
+                colon: 0.4,
+                ellipsis: 0.6,
                 periodEnabled: false,
                 commaEnabled: false,
                 semicolonEnabled: false,
-                newlineEnabled: false
+                questionEnabled: false,
+                exclamationEnabled: false,
+                colonEnabled: false,
+                ellipsisEnabled: false
             };
 
             // Cải tiến: Đọc trạng thái trực tiếp từ UI thay vì từ localStorage
@@ -2620,7 +2674,10 @@ async function waitForVoiceModelReady() {
                 const isAnyToggleActive = (toggles.period.checked && parseFloat(inputs.period.value) > 0) ||
                                           (toggles.comma.checked && parseFloat(inputs.comma.value) > 0) ||
                                           (toggles.semicolon.checked && parseFloat(inputs.semicolon.value) > 0) ||
-                                          (toggles.newline.checked && parseFloat(inputs.newline.value) > 0);
+                                          (toggles.question.checked && parseFloat(inputs.question.value) > 0) ||
+                                          (toggles.exclamation.checked && parseFloat(inputs.exclamation.value) > 0) ||
+                                          (toggles.colon.checked && parseFloat(inputs.colon.value) > 0) ||
+                                          (toggles.ellipsis.checked && parseFloat(inputs.ellipsis.value) > 0);
 
                 if (isAnyToggleActive) {
                     startQueueBtn.style.display = 'none';
@@ -2673,11 +2730,17 @@ async function waitForVoiceModelReady() {
                     period: parseFloat(inputs.period.value) || 0,
                     comma: parseFloat(inputs.comma.value) || 0,
                     semicolon: parseFloat(inputs.semicolon.value) || 0,
-                    newline: parseFloat(inputs.newline.value) || 0,
+                    question: parseFloat(inputs.question.value) || 0,
+                    exclamation: parseFloat(inputs.exclamation.value) || 0,
+                    colon: parseFloat(inputs.colon.value) || 0,
+                    ellipsis: parseFloat(inputs.ellipsis.value) || 0,
                     periodEnabled: toggles.period.checked,
                     commaEnabled: toggles.comma.checked,
                     semicolonEnabled: toggles.semicolon.checked,
-                    newlineEnabled: toggles.newline.checked
+                    questionEnabled: toggles.question.checked,
+                    exclamationEnabled: toggles.exclamation.checked,
+                    colonEnabled: toggles.colon.checked,
+                    ellipsisEnabled: toggles.ellipsis.checked
                 };
                 localStorage.setItem(STORAGE_KEY, JSON.stringify(settingsToSave));
 
@@ -2725,7 +2788,10 @@ async function waitForVoiceModelReady() {
                 if (settings.periodEnabled && settings.period > 0) textToProcess = textToProcess.replace(/\./g, ` ${mapDurationToPauseString(settings.period)} `);
                 if (settings.commaEnabled && settings.comma > 0) textToProcess = textToProcess.replace(/,/g, ` ${mapDurationToPauseString(settings.comma)} `);
                 if (settings.semicolonEnabled && settings.semicolon > 0) textToProcess = textToProcess.replace(/;/g, ` ${mapDurationToPauseString(settings.semicolon)} `);
-                if (settings.newlineEnabled && settings.newline > 0) textToProcess = textToProcess.replace(/\n/g, ` ${mapDurationToPauseString(settings.newline)} `);
+                if (settings.questionEnabled && settings.question > 0) textToProcess = textToProcess.replace(/\?/g, ` ${mapDurationToPauseString(settings.question)} `);
+                if (settings.exclamationEnabled && settings.exclamation > 0) textToProcess = textToProcess.replace(/!/g, ` ${mapDurationToPauseString(settings.exclamation)} `);
+                if (settings.colonEnabled && settings.colon > 0) textToProcess = textToProcess.replace(/:/g, ` ${mapDurationToPauseString(settings.colon)} `);
+                if (settings.ellipsisEnabled && settings.ellipsis > 0) textToProcess = textToProcess.replace(/\.\.\./g, ` ${mapDurationToPauseString(settings.ellipsis)} `);
                 textToProcess = textToProcess.replace(/\s+/g, ' ').trim();
                 mainTextarea.value = textToProcess;
                 mainTextarea.dispatchEvent(new Event('input', { bubbles: true }));
@@ -2980,6 +3046,11 @@ async function waitForVoiceModelReady() {
                     const matchedText = match[0];
                     const start = match.index;
                     const end = match.index + matchedText.length;
+
+                    // Bỏ qua dấu ba chấm (...) - không phát hiện như lỗi
+                    if (matchedText === '...') {
+                        continue;
+                    }
 
                     // Phân loại loại lỗi
                     let type = 'Dấu câu trùng lặp';
