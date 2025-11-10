@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         DUC LOI - Clone Voice (Không cần API) - Modded
 // @namespace    mmx-secure
-// @version      13.1.0
-// @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại & Đổi văn bản hàng loạt.
+// @version      14.0.0
+// @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại, Đổi văn bản hàng loạt & Thiết lập dấu câu (bao gồm dấu xuống dòng).
 // @author       HUỲNH ĐỨC LỢI ( Zalo: 0835795597) - Đã chỉnh sửa
 // @match        https://www.minimax.io/audio*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=minimax.io
@@ -921,7 +921,7 @@ button:disabled {
         
         <div id="gemini-quota-display" style="color: #8be9fd; font-weight: bold; margin-left: 15px; margin-top: 10px; font-size: 14px;">Đang tải quota...</div>
         </div> 
-    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 13.1.0 - Update: 25/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div id="gemini-col-2-left">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
+    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 14.0 - Update: 26/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div id="gemini-col-2-left">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
     <div class="text-input-options">
         <div class="input-tabs">
             <button id="text-tab" class="tab-btn active">Nhập trực tiếp</button>
@@ -1130,6 +1130,20 @@ button:disabled {
                             <button class="adjust-btn" data-target="pause-ellipsis" data-step="-0.1">-</button>
                             <input type="number" id="pause-ellipsis" step="0.1" min="0" style="width: 50px; font-size: 12px;">
                             <button class="adjust-btn" data-target="pause-ellipsis" data-step="0.1">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="punctuation-setting-row">
+                    <label for="pause-newline">Dấu xuống dòng [\n]</label>
+                    <div style="display: flex; align-items: center; gap: 8px; margin-left: -10px;">
+                        <label class="switch">
+                            <input type="checkbox" id="toggle-newline">
+                            <span class="slider round"></span>
+                        </label>
+                        <div class="punctuation-input-group" style="width: 120px;">
+                            <button class="adjust-btn" data-target="pause-newline" data-step="-0.1">-</button>
+                            <input type="number" id="pause-newline" step="0.1" min="0" style="width: 50px; font-size: 12px;">
+                            <button class="adjust-btn" data-target="pause-newline" data-step="0.1">+</button>
                         </div>
                     </div>
                 </div>
@@ -2160,20 +2174,91 @@ async function uSTZrHUt_IC() {
     const Yy_yaGQ$LW = document[VFmk$UVEL(0x1cd)](VFmk$UVEL(0x256));
     if (!Yy_yaGQ$LW) return;
 
-    // Logic đơn giản: Chỉ chờ kết quả
-    Srnj$swt = setTimeout(() => {
+    // Logic với cơ chế làm sạch web và retry khi timeout
+    Srnj$swt = setTimeout(async () => {
         const uINqLNrLfJbc = VFmk$UVEL;
         if (xlgJHLP$MATDT$kTXWV) xlgJHLP$MATDT$kTXWV[uINqLNrLfJbc(0x24e)](); // Dừng observer cũ
-        addLogEntry(`❌ [Chunk ${ttuo$y_KhCV + 1}] Timeout. Bỏ qua chunk này.`, 'error');
-        // Đánh dấu chunk này là thất bại
-        window.chunkStatus[ttuo$y_KhCV] = 'failed';
-        if (!window.failedChunks.includes(ttuo$y_KhCV)) {
-            window.failedChunks.push(ttuo$y_KhCV);
+        
+        // Khởi tạo retry count cho timeout nếu chưa có
+        if (typeof window.timeoutRetryCount === 'undefined') window.timeoutRetryCount = {};
+        if (typeof window.timeoutRetryCount[ttuo$y_KhCV] === 'undefined') window.timeoutRetryCount[ttuo$y_KhCV] = 0;
+        
+        const MAX_TIMEOUT_RETRIES = 5;
+        window.timeoutRetryCount[ttuo$y_KhCV]++;
+        
+        if (window.timeoutRetryCount[ttuo$y_KhCV] <= MAX_TIMEOUT_RETRIES) {
+            addLogEntry(`🔄 [Chunk ${ttuo$y_KhCV + 1}] Timeout. Thử lại lần ${window.timeoutRetryCount[ttuo$y_KhCV]}/${MAX_TIMEOUT_RETRIES}...`, 'warning');
+            
+            // THÊM RESET WEB KHI TIMEOUT - Tương tự như logic trong uSTZrHUt_IC
+            addLogEntry(`🔄 Đang reset web về trạng thái ban đầu...`, 'info');
+            addLogEntry(`🔄 Đang khôi phục web về trạng thái như lúc gửi chunk thành công...`, 'info');
+            
+            try {
+                // Tìm và click nút "Regenerate" hoặc "Tạo lại" để reset web
+                const regenerateButtons = document.querySelectorAll('button, .ant-btn');
+                let foundRegenerate = false;
+                
+                for (const btn of regenerateButtons) {
+                    const btnText = (btn.textContent || '').toLowerCase().trim();
+                    if (btnText.includes('regenerate') || btnText.includes('tạo lại') ||
+                        btnText.includes('generate') || btnText.includes('tạo')) {
+                        if (btn.offsetParent !== null && !btn.disabled) {
+                            addLogEntry(`🔄 Tìm thấy nút "${btn.textContent}" - đang reset...`, 'info');
+                            btn.click();
+                            foundRegenerate = true;
+                            break;
+                        }
+                    }
+                }
+                
+                if (foundRegenerate) {
+                    // Chờ web xử lý reset
+                    addLogEntry(`⏳ Chờ web xử lý reset...`, 'info');
+                    await new Promise(resolve => setTimeout(resolve, 3000));
+                    
+                    // Clear textarea để đảm bảo trạng thái sạch
+                    const textarea = document.getElementById('gemini-hidden-text-for-request');
+                    if (textarea) {
+                        textarea.value = '';
+                        addLogEntry(`🧹 Đã clear textarea`, 'info');
+                    }
+                    
+                    // Chờ thêm một chút để web ổn định
+                    await new Promise(resolve => setTimeout(resolve, 2000));
+                    addLogEntry(`✅ Web đã được reset thành công!`, 'success');
+                } else {
+                    addLogEntry(`⚠️ Không tìm thấy nút reset, thử tìm nút khác...`, 'warning');
+                    // Tìm bất kỳ nút nào có thể reset
+                    const anyButton = document.querySelector('.clone-voice-ux-v2 button, .clone-voice-ux-v2 .ant-btn');
+                    if (anyButton && anyButton.offsetParent !== null && !anyButton.disabled) {
+                        addLogEntry(`🔄 Sử dụng nút "${anyButton.textContent}" để reset...`, 'info');
+                        anyButton.click();
+                        await new Promise(resolve => setTimeout(resolve, 3000));
+                        addLogEntry(`✅ Web đã được reset bằng nút khác!`, 'success');
+                    } else {
+                        addLogEntry(`❌ Không tìm thấy nút nào để reset web`, 'error');
+                    }
+                }
+            } catch (resetError) {
+                addLogEntry(`❌ Lỗi khi reset web: ${resetError.message}`, 'error');
+            }
+            
+            // Thử lại chunk này sau khi đã làm sạch web
+            setTimeout(uSTZrHUt_IC, 2000 * window.timeoutRetryCount[ttuo$y_KhCV]); // Chờ lâu hơn sau mỗi lần thử
+        } else {
+            addLogEntry(`🚫 [Chunk ${ttuo$y_KhCV + 1}] Timeout sau ${MAX_TIMEOUT_RETRIES} lần thử. Bỏ qua chunk này.`, 'error');
+            // Đánh dấu chunk này là thất bại
+            window.chunkStatus[ttuo$y_KhCV] = 'failed';
+            if (!window.failedChunks.includes(ttuo$y_KhCV)) {
+                window.failedChunks.push(ttuo$y_KhCV);
+            }
+            // Reset retry count cho chunk này
+            window.timeoutRetryCount[ttuo$y_KhCV] = 0;
+            ttuo$y_KhCV++; // Chuyển sang chunk tiếp theo
+            addLogEntry(`➡️ Chuyển sang chunk ${ttuo$y_KhCV + 1}...`, 'info');
+            addLogEntry(`📊 Trạng thái: ${window.chunkStatus.filter(s => s === 'success' || s === 'failed').length}/${SI$acY.length} chunks đã xử lý`, 'info');
+            setTimeout(uSTZrHUt_IC, 2000); // Tiếp tục với chunk tiếp theo
         }
-        ttuo$y_KhCV++; // Chuyển sang chunk tiếp theo
-        addLogEntry(`➡️ Chuyển sang chunk ${ttuo$y_KhCV + 1}...`, 'info');
-        addLogEntry(`📊 Trạng thái: ${window.chunkStatus.filter(s => s === 'success' || s === 'failed').length}/${SI$acY.length} chunks đã xử lý`, 'info');
-        setTimeout(uSTZrHUt_IC, 2000); // Tiếp tục với chunk tiếp theo
     }, parseFloat(0x11a62) + -0x13f58 + 0x19b * parseInt(0xf2));
 
     xlgJHLP$MATDT$kTXWV = new MutationObserver(async (w$KFkMtMom_agF, GrmINfCyEsyqJbigpyT) => {
@@ -2187,6 +2272,10 @@ async function uSTZrHUt_IC() {
                     // Log khi thành công
                     addLogEntry(`✅ [Chunk ${ttuo$y_KhCV + 1}/${SI$acY.length}] Xử lý thành công!`, 'success');
                     window.retryCount = 0; // Reset bộ đếm retry khi thành công
+                    // Reset timeout retry count cho chunk này khi thành công
+                    if (typeof window.timeoutRetryCount !== 'undefined' && window.timeoutRetryCount[ttuo$y_KhCV] !== undefined) {
+                        window.timeoutRetryCount[ttuo$y_KhCV] = 0;
+                    }
                     window.chunkStatus[ttuo$y_KhCV] = 'success'; // Đánh dấu chunk này đã thành công
 
                     // Nếu đang trong giai đoạn kiểm tra cuối, loại bỏ chunk này khỏi danh sách thất bại
@@ -2709,7 +2798,8 @@ async function waitForVoiceModelReady() {
                 question: modal.querySelector('#pause-question'),
                 exclamation: modal.querySelector('#pause-exclamation'),
                 colon: modal.querySelector('#pause-colon'),
-                ellipsis: modal.querySelector('#pause-ellipsis')
+                ellipsis: modal.querySelector('#pause-ellipsis'),
+                newline: modal.querySelector('#pause-newline')
             };
 
             const toggles = {
@@ -2719,7 +2809,8 @@ async function waitForVoiceModelReady() {
                 question: modal.querySelector('#toggle-question'),
                 exclamation: modal.querySelector('#toggle-exclamation'),
                 colon: modal.querySelector('#toggle-colon'),
-                ellipsis: modal.querySelector('#toggle-ellipsis')
+                ellipsis: modal.querySelector('#toggle-ellipsis'),
+                newline: modal.querySelector('#toggle-newline')
             };
 
             const STORAGE_KEY = 'DUC_LOI_PUNCTUATION_SETTINGS_V2';
@@ -2731,13 +2822,15 @@ async function waitForVoiceModelReady() {
                 exclamation: 0.8,
                 colon: 0.4,
                 ellipsis: 0.6,
+                newline: 0.5,
                 periodEnabled: false,
                 commaEnabled: false,
                 semicolonEnabled: false,
                 questionEnabled: false,
                 exclamationEnabled: false,
                 colonEnabled: false,
-                ellipsisEnabled: false
+                ellipsisEnabled: false,
+                newlineEnabled: false
             };
 
             // Cải tiến: Đọc trạng thái trực tiếp từ UI thay vì từ localStorage
@@ -2749,7 +2842,8 @@ async function waitForVoiceModelReady() {
                                           (toggles.question.checked && parseFloat(inputs.question.value) > 0) ||
                                           (toggles.exclamation.checked && parseFloat(inputs.exclamation.value) > 0) ||
                                           (toggles.colon.checked && parseFloat(inputs.colon.value) > 0) ||
-                                          (toggles.ellipsis.checked && parseFloat(inputs.ellipsis.value) > 0);
+                                          (toggles.ellipsis.checked && parseFloat(inputs.ellipsis.value) > 0) ||
+                                          (toggles.newline.checked && parseFloat(inputs.newline.value) > 0);
 
                 if (isAnyToggleActive) {
                     startQueueBtn.style.display = 'none';
@@ -2806,13 +2900,15 @@ async function waitForVoiceModelReady() {
                     exclamation: parseFloat(inputs.exclamation.value) || 0,
                     colon: parseFloat(inputs.colon.value) || 0,
                     ellipsis: parseFloat(inputs.ellipsis.value) || 0,
+                    newline: parseFloat(inputs.newline.value) || 0,
                     periodEnabled: toggles.period.checked,
                     commaEnabled: toggles.comma.checked,
                     semicolonEnabled: toggles.semicolon.checked,
                     questionEnabled: toggles.question.checked,
                     exclamationEnabled: toggles.exclamation.checked,
                     colonEnabled: toggles.colon.checked,
-                    ellipsisEnabled: toggles.ellipsis.checked
+                    ellipsisEnabled: toggles.ellipsis.checked,
+                    newlineEnabled: toggles.newline.checked
                 };
                 localStorage.setItem(STORAGE_KEY, JSON.stringify(settingsToSave));
 
@@ -2864,6 +2960,12 @@ async function waitForVoiceModelReady() {
                 if (settings.exclamationEnabled && settings.exclamation > 0) textToProcess = textToProcess.replace(/!/g, ` ${mapDurationToPauseString(settings.exclamation)} `);
                 if (settings.colonEnabled && settings.colon > 0) textToProcess = textToProcess.replace(/:/g, ` ${mapDurationToPauseString(settings.colon)} `);
                 if (settings.ellipsisEnabled && settings.ellipsis > 0) textToProcess = textToProcess.replace(/\.\.\./g, ` ${mapDurationToPauseString(settings.ellipsis)} `);
+                // Thay thế dấu xuống dòng (\n, \r\n, hoặc \r)
+                if (settings.newlineEnabled && settings.newline > 0) {
+                    textToProcess = textToProcess.replace(/\r\n/g, ` ${mapDurationToPauseString(settings.newline)} `);
+                    textToProcess = textToProcess.replace(/\n/g, ` ${mapDurationToPauseString(settings.newline)} `);
+                    textToProcess = textToProcess.replace(/\r/g, ` ${mapDurationToPauseString(settings.newline)} `);
+                }
                 textToProcess = textToProcess.replace(/\s+/g, ' ').trim();
                 mainTextarea.value = textToProcess;
                 mainTextarea.dispatchEvent(new Event('input', { bubbles: true }));
