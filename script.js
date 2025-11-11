@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DUC LOI - Clone Voice (Không cần API) - Modded
 // @namespace    mmx-secure
-// @version      18.0
+// @version      19.0
 // @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại, Đổi văn bản hàng loạt & Thiết lập dấu câu (bao gồm dấu xuống dòng).
 // @author       HUỲNH ĐỨC LỢI ( Zalo: 0835795597) - Đã chỉnh sửa
 // @match        https://www.minimax.io/audio*
@@ -1564,8 +1564,9 @@ function normalizeChunkText(text) {
         // Bước 1: Chỉ loại bỏ ký tự điều khiển và ký tự không hợp lệ
         // GIỮ LẠI TẤT CẢ ký tự Unicode (tiếng Việt, Nhật, Hàn, Trung, Thái, Ả Rập, v.v.)
         let normalized = text
-            // Loại bỏ các ký tự control và invisible (có thể gây lỗi)
-            .replace(/[\u0000-\u001F\u007F-\u009F]/g, '')
+            // Loại bỏ các ký tự control và invisible (có thể gây lỗi),
+            // NHƯNG GIỮ \t (09), \n (0A), \r (0D) để còn chuyển về một khoảng trắng sau đó
+            .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F-\u009F]/g, '')
             // Xóa tất cả dấu * nếu có
             .replace(/\*/g, '')
             // Xóa tất cả dấu "" nếu có (bao gồm dấu nháy đơn và nháy kép "xéo")
