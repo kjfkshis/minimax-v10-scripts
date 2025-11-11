@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DUC LOI - Clone Voice (Không cần API) - Modded
 // @namespace    mmx-secure
-// @version      17.0
+// @version      18.0
 // @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại, Đổi văn bản hàng loạt & Thiết lập dấu câu (bao gồm dấu xuống dòng).
 // @author       HUỲNH ĐỨC LỢI ( Zalo: 0835795597) - Đã chỉnh sửa
 // @match        https://www.minimax.io/audio*
@@ -55,7 +55,7 @@
 /* Log Section Styles */
 .log-section{background:#44475a;border:1px solid #27304a;border-radius:4px;padding:15px;margin-top:15px}
 .log-section h2{font-size:16px;font-weight:700;margin-bottom:10px;color:#bd93f9}
-.log-container{background:#282a36;border:1px solid #6272a4;border-radius:4px;padding:10px;max-height:200px;overflow-y:auto;margin-bottom:10px}
+.log-container{background:#282a36;border:1px solid #6272a4;border-radius:4px;padding:10px;max-height:25vh;overflow-y:auto;margin-bottom:10px}
 .log-container::-webkit-scrollbar{width:6px}
 .log-container::-webkit-scrollbar-track{background:#282a36}
 .log-container::-webkit-scrollbar-thumb{background:#6272a4;border-radius:3px}
@@ -146,7 +146,7 @@
 }
 
 #audio-list-container {
-    max-height: 200px;
+    max-height: 30vh;
     overflow-y: auto;
     background: #282a36;
     border: 1px solid #6272a4;
@@ -256,7 +256,7 @@
 
 /* Danh sách lỗi dấu câu */
 #punctuation-issues-list {
-    max-height: 300px;
+    max-height: 35vh;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #6272a4 #282a36;
@@ -482,13 +482,17 @@ body {
 }
 
 #gemini-col-1 {
-    width: 22% !important;
-    min-width: 280px !important;
+    width: 24% !important;
+    min-width: 200px !important;
+    flex: 0 0 24% !important;
+    max-width: 24% !important;
 }
 
 #gemini-col-2 {
-    width: 56% !important;
+    width: calc(52% - 32px) !important;
     min-width: 400px !important;
+    flex: 0 0 calc(52% - 32px) !important;
+    max-width: calc(52% - 32px) !important;
 }
 
 /* Two-column layout for gemini-col-2 */
@@ -552,6 +556,92 @@ body {
     box-sizing: border-box !important;
 }
 
+/* Make main container and columns adapt both width and height */
+#gemini-main-container {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    min-height: 100vh !important;
+}
+.gemini-column {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 0 !important;
+}
+
+#gemini-col-1 .column-content,
+#gemini-col-2 .column-content {
+    flex: 1 1 auto !important;
+    overflow: auto !important;
+    min-height: 0 !important;
+}
+
+/* Adaptive heights for key components */
+#gemini-main-textarea {
+    width: 100% !important;
+    min-height: 160px !important;
+    height: clamp(180px, 40vh, 560px) !important;
+    resize: vertical !important;
+}
+
+/* Responsive: adjust columns for medium screens */
+@media (max-width: 1200px) {
+    #gemini-col-1 {
+        width: 36% !important;
+        min-width: 200px !important;
+        flex: 0 0 36% !important;
+        max-width: 36% !important;
+    }
+    #gemini-col-2 {
+        width: calc(28% - 32px) !important;
+        min-width: 380px !important;
+        flex: 0 0 calc(28% - 32px) !important;
+        max-width: calc(28% - 32px) !important;
+    }
+    #gemini-col-3 {
+        width: 36% !important;
+        min-width: 200px !important;
+        flex: 0 0 36% !important;
+        max-width: 36% !important;
+    }
+}
+
+/* Responsive: stack main columns on small screens */
+@media (max-width: 900px) {
+    #gemini-col-1,
+    #gemini-col-2 {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+}
+
+/* Responsive: stack inner two-column layout for content area */
+@media (max-width: 992px) {
+    #gemini-col-2 .column-content {
+        flex-direction: column !important;
+        padding: 16px !important;
+    }
+    #gemini-col-2-right {
+        flex: 1 1 auto !important;
+        max-width: 100% !important;
+    }
+}
+
+/* Responsive: tighter paddings for very small screens */
+@media (max-width: 600px) {
+    #gemini-main-container {
+        padding: 10px !important;
+        gap: 10px !important;
+    }
+    .column-header {
+        padding: 12px 14px !important;
+    }
+    #gemini-col-2 .column-content {
+        padding: 12px !important;
+        gap: 12px !important;
+    }
+}
+
 #waveform-play-pause {
     flex: 0 0 auto !important;
     min-width: 50px !important;
@@ -565,8 +655,10 @@ body {
 }
 
 #gemini-col-3 {
-    width: 22% !important;
-    min-width: 280px !important;
+    width: 24% !important;
+    min-width: 200px !important;
+    flex: 0 0 24% !important;
+    max-width: 24% !important;
 }
 
 /* Enhanced Headers */
@@ -921,7 +1013,7 @@ button:disabled {
         
         <div id="gemini-quota-display" style="color: #8be9fd; font-weight: bold; margin-left: 15px; margin-top: 10px; font-size: 14px;">Đang tải quota...</div>
         </div> 
-    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 17.0 - Update: 27/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div id="gemini-col-2-left">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
+    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 18.0 - Update: 27/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div id="gemini-col-2-left">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
     <div class="text-input-options">
         <div class="input-tabs">
             <button id="text-tab" class="tab-btn active">Nhập trực tiếp</button>
@@ -981,6 +1073,14 @@ button:disabled {
             💡 Khi bật: Ưu tiên tách tại dòng trống. Khi tắt: Bỏ qua dòng trống, tách theo dấu câu.<br>
             🔧 Chunk mặc định: 900 ký tự
         </small>
+    </div>
+
+    <div class="section" style="margin-top: 10px;">
+        <h4>Tốc độ xuất (0.5–2.0)</h4>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <input id="gemini-speed-input" type="number" min="0.5" max="2" step="0.05" value="1.0" style="width: 120px; padding: 6px; background: #2d3748; color: #f8f8f2; border: 1px solid #4a5568; border-radius: 6px;">
+            <small style="color:#a0aec0;">1.0 = bình thường; xử lý sau khi ghép</small>
+        </div>
     </div>
 
 <button id="gemini-merge-btn">Ghép đoạn hội thoại</button> <button id="gemini-start-queue-btn" disabled>Bắt đầu tạo âm thanh</button> <button id="apply-punctuation-btn" style="display:none; background-color: #ffb86c; color: #282a36; margin-top: 10px;">Áp dụng thiết lập dấu câu</button> <button id="gemini-pause-btn" style="display:none;">Tạm dừng</button> <button id="gemini-stop-btn" style="display:none;">Dừng hẳn</button> <div id="gemini-progress-container" style="display:none;"><div id="gemini-progress-bar"></div><span id="gemini-progress-label">0%</span></div> <div id="gemini-final-result" style="display:none;"> <h4>Kết quả cuối cùng</h4> <div id="gemini-time-taken"></div> <div id="gemini-waveform"></div> <div id="waveform-controls" style="display:none;"><button id="waveform-play-pause">▶️</button><a id="gemini-download-merged-btn" href="#" download="merged_output.mp3">Tải xuống âm thanh</a><button id="gemini-download-chunks-btn" style="display: none; background-color: #ffb86c; color: #282a36;">Tải các chunk (ZIP)</button></div> </div> </div> </div> </div> <div id="gemini-col-3" class="gemini-column"> <div class="column-header"><h3></h3></div> <div class="column-content banner-column"> <div class="section"> <button id="open-audio-manager-btn" style="background-color: #8be9fd; color: #282a36; width: 100%; padding: 14px 20px; border: none; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; transition: all 0.3s ease; margin-bottom: 15px;">📂 Mở Kho Âm Thanh (Online)</button> </div><div id="batch-replace-section"><h4>Đổi văn bản hàng loạt</h4><div id="batch-replace-pairs"></div><div id="batch-replace-actions"><button id="add-replace-pair-btn" title="Thêm cặp từ">+</button><button id="execute-replace-btn">Thực hiện đổi</button></div></div> <button id="open-punctuation-settings-btn">Thiết lập dấu câu</button> </div> </div>     <textarea id="gemini-hidden-text-for-request" style="display:none;"></textarea>
@@ -1588,6 +1688,85 @@ if (window.chunkBlobs && window.chunkBlobs.length > 0) {
     }
 }
 const InRdxToeqTDyPgDGZb=new Blob(finalBlobs,{'type':VCAHyXsrERcpXVhFPxmgdBjjh(0x1f5)}),BBNDYjhHoGkj_qbbbJu=URL[VCAHyXsrERcpXVhFPxmgdBjjh(0x1f0)](InRdxToeqTDyPgDGZb);PEYtOIOW[VCAHyXsrERcpXVhFPxmgdBjjh(0x25c)]=BBNDYjhHoGkj_qbbbJu,PEYtOIOW[VCAHyXsrERcpXVhFPxmgdBjjh(0x1c8)]=i_B_kZYD(),zQizakWdLEdLjtenmCbNC[VCAHyXsrERcpXVhFPxmgdBjjh(0x1fb)][VCAHyXsrERcpXVhFPxmgdBjjh(0x1e1)]=VCAHyXsrERcpXVhFPxmgdBjjh(0x258),document[VCAHyXsrERcpXVhFPxmgdBjjh(0x1de)](VCAHyXsrERcpXVhFPxmgdBjjh(0x225))[VCAHyXsrERcpXVhFPxmgdBjjh(0x1fb)][VCAHyXsrERcpXVhFPxmgdBjjh(0x1e1)]=VCAHyXsrERcpXVhFPxmgdBjjh(0x258);if(n_WwsStaC$jzsWjOIjRqedTG)n_WwsStaC$jzsWjOIjRqedTG[VCAHyXsrERcpXVhFPxmgdBjjh(0x26c)]();typeof WaveSurfer===VCAHyXsrERcpXVhFPxmgdBjjh(0x24d)&&await new Promise(dyvridmApUsyBfpYIHkxv=>setTimeout(dyvridmApUsyBfpYIHkxv,parseInt(0xf61)+Math.ceil(-parseInt(0x1e0))+-parseInt(0xb8d))),n_WwsStaC$jzsWjOIjRqedTG=WaveSurfer[VCAHyXsrERcpXVhFPxmgdBjjh(0x240)]({'container':VCAHyXsrERcpXVhFPxmgdBjjh(0x274),'waveColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x26a),'progressColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x228),'cursorColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x20c),'barWidth':0x3,'barRadius':0x3,'cursorWidth':0x1,'height':0x64,'barGap':0x3}),n_WwsStaC$jzsWjOIjRqedTG[VCAHyXsrERcpXVhFPxmgdBjjh(0x1d5)](BBNDYjhHoGkj_qbbbJu),n_WwsStaC$jzsWjOIjRqedTG['on'](VCAHyXsrERcpXVhFPxmgdBjjh(0x1d6),()=>{const Ipo_CDaCvNEfh=VCAHyXsrERcpXVhFPxmgdBjjh;XvyPnqSRdJtYjSxingI[Ipo_CDaCvNEfh(0x1c7)]='⏸️';}),n_WwsStaC$jzsWjOIjRqedTG['on'](VCAHyXsrERcpXVhFPxmgdBjjh(0x22d),()=>{const NdVplyNSVhdzFR=VCAHyXsrERcpXVhFPxmgdBjjh;XvyPnqSRdJtYjSxingI[NdVplyNSVhdzFR(0x1c7)]='▶️';});
+
+// HẬU XỬ LÝ: ĐỔI TỐC ĐỘ (ffmpeg.wasm) NẾU NGƯỜI DÙNG CHỌN KHÁC 1.0
+try {
+    const speedInput = document.getElementById('gemini-speed-input');
+    const targetSpeed = speedInput ? parseFloat(speedInput.value) : 1.0;
+    if (!isNaN(targetSpeed) && targetSpeed !== 1.0) {
+        addLogEntry(`🎚️ Đang đổi tốc độ âm thanh sang ${targetSpeed}x...`, 'info');
+        // Tạm khóa UI tải về/ẩn waveform cho tới khi xử lý xong
+        try {
+            const downloadBtn = document.getElementById('gemini-download-merged-btn');
+            const controls = document.getElementById('waveform-controls');
+            const wave = document.getElementById('gemini-waveform');
+            if (downloadBtn) {
+                downloadBtn.textContent = 'Đang đổi tốc độ…';
+                downloadBtn.style.pointerEvents = 'none';
+                downloadBtn.style.opacity = '0.6';
+                downloadBtn.href = 'javascript:void(0)';
+            }
+            if (controls) controls.style.display = 'none';
+            if (wave) wave.innerHTML = '';
+        } catch (_e) {}
+        // Lazy-load ffmpeg.wasm nếu chưa có
+        if (!window.FFmpeg) {
+            await new Promise((resolve, reject) => {
+                const s = document.createElement('script');
+                s.src = 'https://unpkg.com/@ffmpeg/ffmpeg@0.12.6/dist/ffmpeg.min.js';
+                s.onload = resolve;
+                s.onerror = () => reject(new Error('Không tải được ffmpeg.wasm'));
+                document.head.appendChild(s);
+            });
+        }
+        const { createFFmpeg, fetchFile } = window.FFmpeg;
+        if (!window.__ffmpegInstance) {
+            window.__ffmpegInstance = createFFmpeg({ log: false });
+            await window.__ffmpegInstance.load();
+        }
+        const ffmpeg = window.__ffmpegInstance;
+        // Ghi file input
+        const inputName = 'input.mp3';
+        ffmpeg.FS('writeFile', inputName, await fetchFile(InRdxToeqTDyPgDGZb));
+        // Chọn tên và codec đầu ra
+        let outputName = 'output.mp3';
+        try {
+            await ffmpeg.run('-i', inputName, '-filter:a', `atempo=${targetSpeed}`, '-c:a', 'libmp3lame', outputName);
+        } catch (e) {
+            // Fallback sang m4a nếu build không có libmp3lame
+            outputName = 'output.m4a';
+            await ffmpeg.run('-i', inputName, '-filter:a', `atempo=${targetSpeed}`, '-c:a', 'aac', outputName);
+        }
+        const data = ffmpeg.FS('readFile', outputName);
+        const outMime = outputName.endsWith('.m4a') ? 'audio/mp4' : 'audio/mpeg';
+        const spedBlob = new Blob([data.buffer], { type: outMime });
+        const spedUrl = URL.createObjectURL(spedBlob);
+        // Cập nhật nút tải về và waveform
+        const baseName = (typeof i_B_kZYD === 'function') ? i_B_kZYD().replace(/\.(mp3|m4a|wav|ogg)$/i, '') : 'merged_output';
+        const finalFileName = `${baseName}_speed-${targetSpeed}${outputName.endsWith('.m4a') ? '.m4a' : '.mp3'}`;
+        PEYtOIOW[VCAHyXsrERcpXVhFPxmgdBjjh(0x25c)] = spedUrl; // href
+        PEYtOIOW[VCAHyXsrERcpXVhFPxmgdBjjh(0x1c8)] = finalFileName; // download
+        if (n_WwsStaC$jzsWjOIjRqedTG) {
+            try { n_WwsStaC$jzsWjOIjRqedTG.destroy(); } catch (_e) {}
+        }
+        n_WwsStaC$jzsWjOIjRqedTG = WaveSurfer[VCAHyXsrERcpXVhFPxmgdBjjh(0x240)]({'container':VCAHyXsrERcpXVhFPxmgdBjjh(0x274),'waveColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x26a),'progressColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x228),'cursorColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x20c),'barWidth':0x3,'barRadius':0x3,'cursorWidth':0x1,'height':0x64,'barGap':0x3});
+        n_WwsStaC$jzsWjOIjRqedTG[VCAHyXsrERcpXVhFPxmgdBjjh(0x1d5)](spedUrl);
+        // Mở lại UI
+        try {
+            const downloadBtn = document.getElementById('gemini-download-merged-btn');
+            const controls = document.getElementById('waveform-controls');
+            if (downloadBtn) {
+                downloadBtn.textContent = 'Tải xuống âm thanh';
+                downloadBtn.style.pointerEvents = 'auto';
+                downloadBtn.style.opacity = '1';
+            }
+            if (controls) controls.style.display = '';
+        } catch (_e) {}
+        addLogEntry('✅ Đổi tốc độ âm thanh thành công!', 'success');
+    }
+} catch (e) {
+    addLogEntry(`⚠️ Bỏ qua đổi tốc độ (lỗi: ${e.message})`, 'warning');
+}
 
         // --- BẮT ĐẦU NÂNG CẤP: THÊM NÚT TẢI CHUNKS (ZIP) ---
         try {
