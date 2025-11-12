@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DUC LOI - Clone Voice (Không cần API) - Modded
 // @namespace    mmx-secure
-// @version      20.0
+// @version      21.0
 // @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại, Đổi văn bản hàng loạt & Thiết lập dấu câu (bao gồm dấu xuống dòng).
 // @author       HUỲNH ĐỨC LỢI ( Zalo: 0835795597) - Đã chỉnh sửa
 // @match        https://www.minimax.io/audio*
@@ -1013,7 +1013,7 @@ button:disabled {
         
         <div id="gemini-quota-display" style="color: #8be9fd; font-weight: bold; margin-left: 15px; margin-top: 10px; font-size: 14px;">Đang tải quota...</div>
         </div> 
-    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 20.0 - Update: 27/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div id="gemini-col-2-left">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
+    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 21.0 - Update: 27/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div id="gemini-col-2-left">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
     <div class="text-input-options">
         <div class="input-tabs">
             <button id="text-tab" class="tab-btn active">Nhập trực tiếp</button>
@@ -2086,6 +2086,8 @@ async function uSTZrHUt_IC() {
     if (typeof window.isFinalCheck === 'undefined') window.isFinalCheck = false;
     if (typeof window.retryCount === 'undefined') window.retryCount = 0;
     if (typeof window.totalRetryAttempts === 'undefined') window.totalRetryAttempts = 0;
+    // Theo dõi lỗi chunk 1 để kiểm tra cấu hình
+    if (typeof window.chunk1Failed === 'undefined') window.chunk1Failed = false;
 
     // Đảm bảo mảng chunkStatus có đủ phần tử
     while (window.chunkStatus.length < SI$acY.length) {
@@ -2381,8 +2383,65 @@ async function uSTZrHUt_IC() {
             if (!window.failedChunks.includes(ttuo$y_KhCV)) {
                 window.failedChunks.push(ttuo$y_KhCV);
             }
+            
+            // KIỂM TRA LỖI CẤU HÌNH: Nếu chunk 1 (index 0) lỗi, đánh dấu
+            if (ttuo$y_KhCV === 0) {
+                window.chunk1Failed = true;
+                addLogEntry(`⚠️ [Chunk 1] Đã bị lỗi. Sẽ kiểm tra chunk 2...`, 'warning');
+            }
+            
             window.retryCount = 0; // Reset bộ đếm retry
             ttuo$y_KhCV++; // Chuyển sang chunk tiếp theo
+            
+            // KIỂM TRA LỖI CẤU HÌNH: Nếu chunk 1 đã lỗi và chunk 2 (index 1) cũng lỗi
+            if (window.chunk1Failed && ttuo$y_KhCV === 1) {
+                addLogEntry(`🚨 [LỖI CẤU HÌNH] Chunk 1 đã lỗi và Chunk 2 cũng không render thành công!`, 'error');
+                addLogEntry(`💡 Tool yêu cầu: Vui lòng F5 (Refresh) trang và thao tác lại từ đầu!`, 'error');
+                
+                // Hiển thị thông báo lỗi cấu hình
+                if (typeof Swal !== 'undefined') {
+                    Swal.fire({
+                        title: '🚨 Lỗi Cấu Hình',
+                        html: `
+                            <div style="text-align: left;">
+                                <p><strong>Chunk 1 và Chunk 2 đều không render thành công!</strong></p>
+                                <hr>
+                                <p><strong>⚠️ Nguyên nhân có thể:</strong></p>
+                                <ul>
+                                    <li>Cấu hình web chưa đúng</li>
+                                    <li>File âm thanh chưa được tải lên đúng cách</li>
+                                    <li>Trạng thái web không ổn định</li>
+                                </ul>
+                                <hr>
+                                <p><strong>💡 Giải pháp:</strong></p>
+                                <ol>
+                                    <li>Nhấn <strong>F5</strong> để refresh trang</li>
+                                    <li>Tải lại file âm thanh</li>
+                                    <li>Thao tác lại từ đầu</li>
+                                </ol>
+                                <hr>
+                                <p style="color: #ff6b6b;"><strong>Lưu ý:</strong> Tính năng này chỉ áp dụng cho chunk 1. Các chunk khác không bị ảnh hưởng.</p>
+                            </div>
+                        `,
+                        icon: 'error',
+                        width: '600px',
+                        confirmButtonText: 'Đã hiểu - Sẽ F5',
+                        confirmButtonColor: '#ff6b6b',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+                
+                // Reset flag sau khi hiển thị thông báo
+                window.chunk1Failed = false;
+                return; // Dừng xử lý
+            }
+            
+            // KIỂM TRA LỖI CẤU HÌNH: Nếu chunk 1 đã lỗi và đang chuyển sang chunk 2
+            if (window.chunk1Failed && ttuo$y_KhCV === 1) {
+                addLogEntry(`⚠️ [Chunk 2] Đang kiểm tra cấu hình... Nếu chunk 2 cũng không render thành công, tool sẽ yêu cầu F5.`, 'warning');
+            }
+            
             addLogEntry(`➡️ Chuyển sang chunk ${ttuo$y_KhCV + 1}...`, 'info');
             addLogEntry(`📊 Trạng thái: ${window.chunkStatus.filter(s => s === 'success' || s === 'failed').length}/${SI$acY.length} chunks đã xử lý`, 'info');
             setTimeout(uSTZrHUt_IC, 2000); // Tiếp tục với chunk tiếp theo
@@ -2471,9 +2530,66 @@ async function uSTZrHUt_IC() {
             if (!window.failedChunks.includes(ttuo$y_KhCV)) {
                 window.failedChunks.push(ttuo$y_KhCV);
             }
+            
+            // KIỂM TRA LỖI CẤU HÌNH: Nếu chunk 1 (index 0) timeout, đánh dấu
+            if (ttuo$y_KhCV === 0) {
+                window.chunk1Failed = true;
+                addLogEntry(`⚠️ [Chunk 1] Đã timeout. Sẽ kiểm tra chunk 2...`, 'warning');
+            }
+            
+            // KIỂM TRA LỖI CẤU HÌNH: Nếu chunk 1 đã lỗi và chunk 2 (index 1) cũng timeout
+            if (window.chunk1Failed && ttuo$y_KhCV === 1) {
+                addLogEntry(`🚨 [LỖI CẤU HÌNH] Chunk 1 đã lỗi và Chunk 2 cũng không render thành công!`, 'error');
+                addLogEntry(`💡 Tool yêu cầu: Vui lòng F5 (Refresh) trang và thao tác lại từ đầu!`, 'error');
+                
+                // Hiển thị thông báo lỗi cấu hình
+                if (typeof Swal !== 'undefined') {
+                    Swal.fire({
+                        title: '🚨 Lỗi Cấu Hình',
+                        html: `
+                            <div style="text-align: left;">
+                                <p><strong>Chunk 1 và Chunk 2 đều không render thành công!</strong></p>
+                                <hr>
+                                <p><strong>⚠️ Nguyên nhân có thể:</strong></p>
+                                <ul>
+                                    <li>Cấu hình web chưa đúng</li>
+                                    <li>File âm thanh chưa được tải lên đúng cách</li>
+                                    <li>Trạng thái web không ổn định</li>
+                                </ul>
+                                <hr>
+                                <p><strong>💡 Giải pháp:</strong></p>
+                                <ol>
+                                    <li>Nhấn <strong>F5</strong> để refresh trang</li>
+                                    <li>Tải lại file âm thanh</li>
+                                    <li>Thao tác lại từ đầu</li>
+                                </ol>
+                                <hr>
+                                <p style="color: #ff6b6b;"><strong>Lưu ý:</strong> Tính năng này chỉ áp dụng cho chunk 1. Các chunk khác không bị ảnh hưởng.</p>
+                            </div>
+                        `,
+                        icon: 'error',
+                        width: '600px',
+                        confirmButtonText: 'Đã hiểu - Sẽ F5',
+                        confirmButtonColor: '#ff6b6b',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+                
+                // Reset flag sau khi hiển thị thông báo
+                window.chunk1Failed = false;
+                return; // Dừng xử lý
+            }
+            
             // Reset retry count cho chunk này
             window.timeoutRetryCount[ttuo$y_KhCV] = 0;
             ttuo$y_KhCV++; // Chuyển sang chunk tiếp theo
+            
+            // KIỂM TRA LỖI CẤU HÌNH: Nếu chunk 1 đã lỗi và đang chuyển sang chunk 2
+            if (window.chunk1Failed && ttuo$y_KhCV === 1) {
+                addLogEntry(`⚠️ [Chunk 2] Đang kiểm tra cấu hình... Nếu chunk 2 cũng không render thành công, tool sẽ yêu cầu F5.`, 'warning');
+            }
+            
             addLogEntry(`➡️ Chuyển sang chunk ${ttuo$y_KhCV + 1}...`, 'info');
             addLogEntry(`📊 Trạng thái: ${window.chunkStatus.filter(s => s === 'success' || s === 'failed').length}/${SI$acY.length} chunks đã xử lý`, 'info');
             setTimeout(uSTZrHUt_IC, 2000); // Tiếp tục với chunk tiếp theo
@@ -2496,6 +2612,12 @@ async function uSTZrHUt_IC() {
                         window.timeoutRetryCount[ttuo$y_KhCV] = 0;
                     }
                     window.chunkStatus[ttuo$y_KhCV] = 'success'; // Đánh dấu chunk này đã thành công
+                    
+                    // Reset flag chunk1Failed nếu chunk 1 thành công
+                    if (ttuo$y_KhCV === 0) {
+                        window.chunk1Failed = false;
+                        addLogEntry(`✅ [Chunk 1] Đã thành công - Reset flag kiểm tra cấu hình`, 'success');
+                    }
 
                     // Nếu đang trong giai đoạn kiểm tra cuối, loại bỏ chunk này khỏi danh sách thất bại
                     if (window.isFinalCheck && window.failedChunks.includes(ttuo$y_KhCV)) {
@@ -4468,6 +4590,7 @@ async function waitForVoiceModelReady() {
 
             // Reset hệ thống theo dõi chunk của cơ chế legacy
             window.chunkStatus = new Array(SI$acY.length).fill('pending');
+            window.chunk1Failed = false; // Reset flag kiểm tra lỗi cấu hình chunk 1
             window.failedChunks = [];
             window.isFinalCheck = false;
             window.retryCount = 0;
