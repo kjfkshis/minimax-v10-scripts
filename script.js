@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DUC LOI - Clone Voice (Không cần API) - Modded
 // @namespace    mmx-secure
-// @version      25.0
+// @version      22.0
 // @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại, Đổi văn bản hàng loạt & Thiết lập dấu câu (bao gồm dấu xuống dòng).
 // @author       HUỲNH ĐỨC LỢI ( Zalo: 0835795597) - Đã chỉnh sửa
 // @match        https://www.minimax.io/audio*
@@ -68,31 +68,6 @@
 .log-entry.error{color:#f55}
 .clear-log-btn{width:100%;background-color:#f55;color:#f8f8f2;padding:8px;border:none;border-radius:4px;font-weight:700;cursor:pointer;transition:background-color .2s ease}
 .clear-log-btn:hover{background-color:#e44}
-
-/* START: Styles for History Section */
-.history-section{background:#44475a;border:1px solid #27304a;border-radius:4px;padding:15px;margin-top:15px}
-.history-section h4{margin:0 0 10px;color:#bd93f9;font-size:14px;border-bottom:1px solid #6272a4;padding-bottom:5px;display:flex;justify-content:space-between;align-items:center}
-.history-list{max-height:50vh;overflow-y:auto;margin-bottom:10px}
-.history-list::-webkit-scrollbar{width:6px}
-.history-list::-webkit-scrollbar-track{background:#282a36}
-.history-list::-webkit-scrollbar-thumb{background:#6272a4;border-radius:3px}
-.history-list::-webkit-scrollbar-thumb:hover{background:#bd93f9}
-.history-item{background:#282a36;border:1px solid #6272a4;border-radius:4px;padding:10px;margin-bottom:8px;transition:all 0.2s ease}
-.history-item:hover{background:#3b3d4a;border-color:#bd93f9}
-.history-item-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
-.history-item-name{color:#8be9fd;font-weight:600;font-size:13px;word-break:break-word;flex:1}
-.history-item-actions{display:flex;gap:5px}
-.history-item-btn{background:#6272a4;color:#f8f8f2;border:none;padding:4px 8px;border-radius:3px;cursor:pointer;font-size:11px;transition:all 0.2s ease}
-.history-item-btn:hover{background:#bd93f9;transform:scale(1.05)}
-.history-item-btn.download{background:#50fa7b;color:#282a36}
-.history-item-btn.download:hover{background:#48e06e}
-.history-item-btn.delete{background:#f55;color:#f8f8f2}
-.history-item-btn.delete:hover{background:#e44}
-.history-item-info{color:#94a3b8;font-size:11px;display:flex;justify-content:space-between;margin-top:5px}
-.history-empty{text-align:center;color:#6272a4;padding:20px;font-style:italic}
-.clear-history-btn{width:100%;background-color:#f55;color:#f8f8f2;padding:8px;border:none;border-radius:4px;font-weight:700;cursor:pointer;transition:background-color .2s ease;margin-top:10px}
-.clear-history-btn:hover{background-color:#e44}
-/* END: Styles for History Section */
 
 /* START: Styles for Punctuation Settings Modal */
 #open-punctuation-settings-btn { margin-top: 20px; background-color: #6272a4; color: #f8f8f2; }
@@ -1038,7 +1013,7 @@ button:disabled {
         
         <div id="gemini-quota-display" style="color: #8be9fd; font-weight: bold; margin-left: 15px; margin-top: 10px; font-size: 14px;">Đang tải quota...</div>
         </div> 
-    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 25.0 - Update: 27/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div id="gemini-col-2-left">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
+    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 22.0 - Update: 27/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div id="gemini-col-2-left">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
     <div class="text-input-options">
         <div class="input-tabs">
             <button id="text-tab" class="tab-btn active">Nhập trực tiếp</button>
@@ -1100,7 +1075,7 @@ button:disabled {
         </small>
     </div>
 
-<button id="gemini-merge-btn">Ghép đoạn hội thoại</button> <button id="gemini-start-queue-btn" disabled>Bắt đầu tạo âm thanh</button> <button id="apply-punctuation-btn" style="display:none; background-color: #ffb86c; color: #282a36; margin-top: 10px;">Áp dụng thiết lập dấu câu</button> <button id="gemini-pause-btn" style="display:none;">Tạm dừng</button> <button id="gemini-stop-btn" style="display:none;">Dừng hẳn</button> <div id="gemini-progress-container" style="display:none;"><div id="gemini-progress-bar"></div><span id="gemini-progress-label">0%</span></div> <div id="gemini-final-result" style="display:none;"> <h4>Kết quả cuối cùng</h4> <div id="gemini-time-taken"></div> <div id="gemini-waveform"></div> <div id="waveform-controls" style="display:none;"><button id="waveform-play-pause">▶️</button><a id="gemini-download-merged-btn" href="#" download="merged_output.mp3">Tải xuống âm thanh</a><button id="gemini-download-chunks-btn" style="display: none; background-color: #ffb86c; color: #282a36;">Tải các chunk (ZIP)</button></div> </div> </div> </div> </div> <div id="gemini-col-3" class="gemini-column"> <div class="column-header"><h3>Tiện ích & Lịch sử</h3></div> <div class="column-content banner-column"> <div class="section"> <button id="open-audio-manager-btn" style="background-color: #8be9fd; color: #282a36; width: 100%; padding: 14px 20px; border: none; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; transition: all 0.3s ease; margin-bottom: 15px;">📂 Mở Kho Âm Thanh (Online)</button> </div><div id="batch-replace-section"><h4>Đổi văn bản hàng loạt</h4><div id="batch-replace-pairs"></div><div id="batch-replace-actions"><button id="add-replace-pair-btn" title="Thêm cặp từ">+</button><button id="execute-replace-btn">Thực hiện đổi</button></div></div> <button id="open-punctuation-settings-btn">Thiết lập dấu câu</button> <div class="history-section"> <h4>📚 Lịch sử file đã ghép <span id="history-count" style="color: #8be9fd; font-size: 12px; font-weight: normal;">(0)</span></h4> <div id="history-list" class="history-list"> <div class="history-empty">Chưa có lịch sử</div> </div> <button id="clear-history-btn" class="clear-history-btn">🗑️ Xóa tất cả lịch sử</button> </div> </div> </div>     <textarea id="gemini-hidden-text-for-request" style="display:none;"></textarea>
+<button id="gemini-merge-btn">Ghép đoạn hội thoại</button> <button id="gemini-start-queue-btn" disabled>Bắt đầu tạo âm thanh</button> <button id="apply-punctuation-btn" style="display:none; background-color: #ffb86c; color: #282a36; margin-top: 10px;">Áp dụng thiết lập dấu câu</button> <button id="gemini-pause-btn" style="display:none;">Tạm dừng</button> <button id="gemini-stop-btn" style="display:none;">Dừng hẳn</button> <div id="gemini-progress-container" style="display:none;"><div id="gemini-progress-bar"></div><span id="gemini-progress-label">0%</span></div> <div id="gemini-final-result" style="display:none;"> <h4>Kết quả cuối cùng</h4> <div id="gemini-time-taken"></div> <div id="gemini-waveform"></div> <div id="waveform-controls" style="display:none;"><button id="waveform-play-pause">▶️</button><a id="gemini-download-merged-btn" href="#" download="merged_output.mp3">Tải xuống âm thanh</a><button id="gemini-download-chunks-btn" style="display: none; background-color: #ffb86c; color: #282a36;">Tải các chunk (ZIP)</button></div> </div> </div> </div> </div> <div id="gemini-col-3" class="gemini-column"> <div class="column-header"><h3></h3></div> <div class="column-content banner-column"> <div class="section"> <button id="open-audio-manager-btn" style="background-color: #8be9fd; color: #282a36; width: 100%; padding: 14px 20px; border: none; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; transition: all 0.3s ease; margin-bottom: 15px;">📂 Mở Kho Âm Thanh (Online)</button> </div><div id="batch-replace-section"><h4>Đổi văn bản hàng loạt</h4><div id="batch-replace-pairs"></div><div id="batch-replace-actions"><button id="add-replace-pair-btn" title="Thêm cặp từ">+</button><button id="execute-replace-btn">Thực hiện đổi</button></div></div> <button id="open-punctuation-settings-btn">Thiết lập dấu câu</button> </div> </div>     <textarea id="gemini-hidden-text-for-request" style="display:none;"></textarea>
 
     <!-- Modal Kho Âm Thanh Online -->
     <div id="audio-manager-modal" class="punctuation-modal" style="display:none;">
@@ -1350,16 +1325,6 @@ button:disabled {
 
     // Log functionality
     function addLogEntry(message, type = 'info') {
-        // BẢO MẬT: Chỉ hiển thị log chunk (thành công/thất bại) và thông báo lỗi
-        const messageLower = message.toLowerCase();
-        const isChunkRelated = messageLower.includes('chunk') || messageLower.includes('re-chunk') || messageLower.includes('chunks');
-        const isError = type === 'error';
-        
-        // Chỉ hiển thị nếu là log liên quan đến chunk hoặc là lỗi
-        if (!isChunkRelated && !isError) {
-            return; // Ẩn log để tăng bảo mật
-        }
-        
         const logContainer = document.getElementById('log-container');
         if (logContainer) {
             const logEntry = document.createElement('div');
@@ -1380,224 +1345,12 @@ button:disabled {
 
 
     // Add event listener for clear log button
-    // NÂNG CẤP: Xử lý cả trường hợp DOM đã sẵn sàng (khi F5) và chưa sẵn sàng
-    // Flag để tránh gọi nhiều lần - đặt ở window để các hàm khác có thể truy cập
-    if (typeof window.historyInitialized === 'undefined') {
-        window.historyInitialized = false;
-    }
-    
-    function setupEventListeners() {
+    document.addEventListener('DOMContentLoaded', function() {
         const clearLogBtn = document.getElementById('clear-log-btn');
         if (clearLogBtn) {
-            // Xóa listener cũ nếu có để tránh duplicate
-            const newBtn = clearLogBtn.cloneNode(true);
-            clearLogBtn.parentNode.replaceChild(newBtn, clearLogBtn);
-            newBtn.addEventListener('click', clearLog);
+            clearLogBtn.addEventListener('click', clearLog);
         }
-        
-        // Khởi tạo lịch sử (chỉ một lần)
-        if (!window.historyInitialized && typeof initHistory === 'function') {
-            window.historyInitialized = true;
-            initHistory();
-        }
-    }
-    
-    // Kiểm tra xem DOM đã sẵn sàng chưa
-    if (document.readyState === 'loading') {
-        // DOM chưa sẵn sàng, đợi DOMContentLoaded
-        document.addEventListener('DOMContentLoaded', setupEventListeners);
-    } else {
-        // DOM đã sẵn sàng (đã load xong hoặc đang interactive)
-        // Đợi một chút để đảm bảo HTML đã được inject
-        setTimeout(setupEventListeners, 100);
-    }
-    
-    // Backup: Đảm bảo lịch sử được load sau khi HTML được inject
-    // Sử dụng MutationObserver để đợi element history-list xuất hiện
-    function ensureHistoryLoaded() {
-        const historyList = document.getElementById('history-list');
-        if (historyList && typeof initHistory === 'function' && !window.historyInitialized) {
-            // Element đã có, gọi initHistory (chỉ một lần)
-            window.historyInitialized = true;
-            initHistory();
-        } else if (!historyList) {
-            // Element chưa có, đợi thêm một chút (tối đa 5 giây)
-            if (typeof ensureHistoryLoaded.retryCount === 'undefined') {
-                ensureHistoryLoaded.retryCount = 0;
-            }
-            ensureHistoryLoaded.retryCount++;
-            if (ensureHistoryLoaded.retryCount < 25) { // 25 * 200ms = 5 giây
-                setTimeout(ensureHistoryLoaded, 200);
-            }
-        }
-    }
-    
-    // Gọi sau khi HTML được inject (sau 500ms để đảm bảo)
-    setTimeout(ensureHistoryLoaded, 500);
-    
-    // Cũng dùng MutationObserver để theo dõi khi element xuất hiện
-    if (typeof MutationObserver !== 'undefined') {
-        const observer = new MutationObserver((mutations, obs) => {
-            const historyList = document.getElementById('history-list');
-            if (historyList && typeof renderHistory === 'function' && !window.historyInitialized) {
-                // Chỉ gọi một lần khi element xuất hiện
-                window.historyInitialized = true;
-                obs.disconnect();
-                // Đợi thêm một chút để đảm bảo tất cả đã sẵn sàng
-                setTimeout(() => {
-                    if (typeof initHistory === 'function') {
-                        initHistory();
-                    }
-                }, 100);
-            }
-        });
-        
-        // Bắt đầu quan sát
-        if (document.body) {
-            observer.observe(document.body, {
-                childList: true,
-                subtree: true
-            });
-        }
-        
-        // Tự động dừng sau 10 giây để tránh memory leak
-        setTimeout(() => observer.disconnect(), 10000);
-    }
-    
-    // =======================================================
-    // == PHẦN QUẢN LÝ UI LỊCH SỬ ==
-    // =======================================================
-    
-    /**
-     * Render danh sách lịch sử
-     */
-    async function renderHistory() {
-        try {
-            const historyList = document.getElementById('history-list');
-            const historyCount = document.getElementById('history-count');
-            
-            if (!historyList) return;
-            
-            const history = await getAllHistory();
-            
-            // Cập nhật số lượng
-            if (historyCount) {
-                historyCount.textContent = `(${history.length})`;
-            }
-            
-            // Xóa nội dung cũ
-            historyList.innerHTML = '';
-            
-            if (history.length === 0) {
-                historyList.innerHTML = '<div class="history-empty">Chưa có lịch sử</div>';
-                return;
-            }
-            
-            // Render từng item
-            history.forEach(item => {
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'history-item';
-                itemDiv.setAttribute('data-id', item.id);
-                
-                const fileSizeMB = (item.fileSize / (1024 * 1024)).toFixed(2);
-                const itemFilename = item.filename || 'audio_da_tao.mp3';
-                
-                itemDiv.innerHTML = `
-                    <div class="history-item-header">
-                        <div class="history-item-name" title="${itemFilename}">${itemFilename}</div>
-                        <div class="history-item-actions">
-                            <button class="history-item-btn download" data-id="${item.id}" title="Tải xuống">⬇️</button>
-                            <button class="history-item-btn delete" data-id="${item.id}" title="Xóa">🗑️</button>
-                        </div>
-                    </div>
-                    <div class="history-item-info">
-                        <span>📅 ${item.dateString || new Date(item.timestamp).toLocaleString('vi-VN')}</span>
-                        <span>💾 ${fileSizeMB} MB</span>
-                    </div>
-                `;
-                
-                historyList.appendChild(itemDiv);
-            });
-            
-            // Thêm event listeners cho các nút
-            historyList.querySelectorAll('.history-item-btn.download').forEach(btn => {
-                btn.addEventListener('click', async (e) => {
-                    const id = parseInt(e.target.getAttribute('data-id'));
-                    await downloadFromHistory(id);
-                });
-            });
-            
-            historyList.querySelectorAll('.history-item-btn.delete').forEach(btn => {
-                btn.addEventListener('click', async (e) => {
-                    const id = parseInt(e.target.getAttribute('data-id'));
-                    const itemToDelete = history.find(h => h.id === id);
-                    const filename = itemToDelete ? itemToDelete.filename : 'file này';
-                    if (confirm(`Bạn có chắc muốn xóa "${filename}" khỏi lịch sử?`)) {
-                        await deleteFromHistory(id);
-                        await renderHistory(); // Render lại
-                    }
-                });
-            });
-            
-        } catch (error) {
-            console.error('Lỗi khi render lịch sử:', error);
-            addLogEntry(`❌ Lỗi khi tải lịch sử: ${error.message}`, 'error');
-        }
-    }
-    
-    /**
-     * Tải file từ lịch sử
-     */
-    async function downloadFromHistory(id) {
-        try {
-            const item = await getHistoryItem(id);
-            if (!item) {
-                addLogEntry('❌ Không tìm thấy file trong lịch sử', 'error');
-                return;
-            }
-            
-            const url = URL.createObjectURL(item.blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = item.filename.endsWith('.mp3') ? item.filename : item.filename + '.mp3';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            
-            addLogEntry(`✅ Đã tải "${item.filename}" từ lịch sử`, 'success');
-        } catch (error) {
-            addLogEntry(`❌ Lỗi khi tải file từ lịch sử: ${error.message}`, 'error');
-        }
-    }
-    
-    /**
-     * Khởi tạo lịch sử
-     */
-    function initHistory() {
-        // Render lịch sử khi load
-        renderHistory();
-        
-        // Event listener cho nút xóa tất cả
-        const clearHistoryBtn = document.getElementById('clear-history-btn');
-        if (clearHistoryBtn) {
-            clearHistoryBtn.addEventListener('click', async () => {
-                if (confirm('Bạn có chắc muốn xóa TẤT CẢ lịch sử? Hành động này không thể hoàn tác!')) {
-                    try {
-                        await clearAllHistory();
-                        await renderHistory();
-                        addLogEntry('✅ Đã xóa tất cả lịch sử', 'success');
-                    } catch (error) {
-                        addLogEntry(`❌ Lỗi khi xóa lịch sử: ${error.message}`, 'error');
-                    }
-                }
-            });
-        }
-    }
-    
-    // =======================================================
-    // == KẾT THÚC PHẦN QUẢN LÝ UI LỊCH SỬ ==
-    // =======================================================
+    });
 
 // =======================================================
 // == PHẦN QUẢN LÝ INDEXEDDB CHO CHUNKS ==
@@ -1748,198 +1501,6 @@ async function clearChunkDB() {
         // Không throw error để không làm gián đoạn quá trình
     }
 }
-
-// =======================================================
-// == PHẦN QUẢN LÝ LỊCH SỬ INDEXEDDB ==
-// =======================================================
-
-const HISTORY_DB_NAME = 'AudioHistoryDB';
-const HISTORY_STORE_NAME = 'history';
-const HISTORY_DB_VERSION = 1;
-
-/**
- * Mở kết nối IndexedDB để lưu trữ lịch sử
- * @returns {Promise<IDBDatabase>}
- */
-function openHistoryDB() {
-    return new Promise((resolve, reject) => {
-        const request = indexedDB.open(HISTORY_DB_NAME, HISTORY_DB_VERSION);
-        
-        request.onerror = () => {
-            console.error('❌ Lỗi mở History IndexedDB: ' + request.error);
-            reject(request.error);
-        };
-        
-        request.onsuccess = () => {
-            resolve(request.result);
-        };
-        
-        request.onupgradeneeded = (event) => {
-            const db = event.target.result;
-            if (!db.objectStoreNames.contains(HISTORY_STORE_NAME)) {
-                const objectStore = db.createObjectStore(HISTORY_STORE_NAME, { keyPath: 'id', autoIncrement: true });
-                objectStore.createIndex('timestamp', 'timestamp', { unique: false });
-                objectStore.createIndex('filename', 'filename', { unique: false });
-                console.log('✅ Đã tạo object store cho lịch sử trong IndexedDB');
-            }
-        };
-    });
-}
-
-/**
- * Lưu file âm thanh đã ghép thành công vào lịch sử
- * @param {string} filename - Tên file
- * @param {Blob} audioBlob - Blob chứa dữ liệu audio
- * @param {number} fileSize - Kích thước file (bytes)
- * @returns {Promise<number>} ID của bản ghi đã lưu
- */
-async function saveToHistory(filename, audioBlob, fileSize) {
-    try {
-        const db = await openHistoryDB();
-        const transaction = db.transaction([HISTORY_STORE_NAME], 'readwrite');
-        const store = transaction.objectStore(HISTORY_STORE_NAME);
-        
-        const historyItem = {
-            filename: filename,
-            blob: audioBlob,
-            fileSize: fileSize,
-            timestamp: Date.now(),
-            dateString: new Date().toLocaleString('vi-VN')
-        };
-        
-        return new Promise((resolve, reject) => {
-            const request = store.add(historyItem);
-            request.onsuccess = () => {
-                addLogEntry(`📝 Đã lưu "${filename}" vào lịch sử (ID: ${request.result})`, 'success');
-                resolve(request.result);
-            };
-            request.onerror = () => {
-                addLogEntry(`❌ Lỗi lưu lịch sử: ${request.error}`, 'error');
-                reject(request.error);
-            };
-        });
-    } catch (error) {
-        addLogEntry(`❌ Lỗi khi lưu lịch sử: ${error.message}`, 'error');
-        throw error;
-    }
-}
-
-/**
- * Lấy tất cả lịch sử từ IndexedDB (sắp xếp mới nhất trước)
- * @returns {Promise<Array>} Mảng các item lịch sử
- */
-async function getAllHistory() {
-    try {
-        const db = await openHistoryDB();
-        const transaction = db.transaction([HISTORY_STORE_NAME], 'readonly');
-        const store = transaction.objectStore(HISTORY_STORE_NAME);
-        const index = store.index('timestamp');
-        
-        return new Promise((resolve, reject) => {
-            const request = index.getAll();
-            
-            request.onsuccess = () => {
-                const history = request.result;
-                // Sắp xếp mới nhất trước
-                history.sort((a, b) => b.timestamp - a.timestamp);
-                db.close();
-                resolve(history);
-            };
-            
-            request.onerror = () => {
-                db.close();
-                reject(request.error);
-            };
-        });
-    } catch (error) {
-        console.error('❌ Lỗi khi đọc lịch sử:', error);
-        throw error;
-    }
-}
-
-/**
- * Xóa một item khỏi lịch sử
- * @param {number} id - ID của item cần xóa
- * @returns {Promise<void>}
- */
-async function deleteFromHistory(id) {
-    try {
-        const db = await openHistoryDB();
-        const transaction = db.transaction([HISTORY_STORE_NAME], 'readwrite');
-        const store = transaction.objectStore(HISTORY_STORE_NAME);
-        
-        return new Promise((resolve, reject) => {
-            const request = store.delete(id);
-            request.onsuccess = () => {
-                addLogEntry(`🗑️ Đã xóa item khỏi lịch sử (ID: ${id})`, 'info');
-                resolve();
-            };
-            request.onerror = () => {
-                reject(request.error);
-            };
-        });
-    } catch (error) {
-        addLogEntry(`❌ Lỗi khi xóa lịch sử: ${error.message}`, 'error');
-        throw error;
-    }
-}
-
-/**
- * Xóa tất cả lịch sử
- * @returns {Promise<void>}
- */
-async function clearAllHistory() {
-    try {
-        const db = await openHistoryDB();
-        const transaction = db.transaction([HISTORY_STORE_NAME], 'readwrite');
-        const store = transaction.objectStore(HISTORY_STORE_NAME);
-        
-        return new Promise((resolve, reject) => {
-            const request = store.clear();
-            request.onsuccess = () => {
-                addLogEntry('🧹 Đã xóa tất cả lịch sử', 'info');
-                resolve();
-            };
-            request.onerror = () => {
-                reject(request.error);
-            };
-        });
-    } catch (error) {
-        addLogEntry(`❌ Lỗi khi xóa tất cả lịch sử: ${error.message}`, 'error');
-        throw error;
-    }
-}
-
-/**
- * Lấy một item từ lịch sử theo ID
- * @param {number} id - ID của item
- * @returns {Promise<Object>} Item lịch sử
- */
-async function getHistoryItem(id) {
-    try {
-        const db = await openHistoryDB();
-        const transaction = db.transaction([HISTORY_STORE_NAME], 'readonly');
-        const store = transaction.objectStore(HISTORY_STORE_NAME);
-        
-        return new Promise((resolve, reject) => {
-            const request = store.get(id);
-            request.onsuccess = () => {
-                db.close();
-                resolve(request.result);
-            };
-            request.onerror = () => {
-                db.close();
-                reject(request.error);
-            };
-        });
-    } catch (error) {
-        throw error;
-    }
-}
-
-// =======================================================
-// == KẾT THÚC PHẦN QUẢN LÝ LỊCH SỬ INDEXEDDB ==
-// =======================================================
 
 // =======================================================
 // == KẾT THÚC PHẦN QUẢN LÝ INDEXEDDB ==
@@ -2297,22 +1858,7 @@ try {
         return;
     }
 }
-const InRdxToeqTDyPgDGZb=new Blob(finalBlobs,{'type':VCAHyXsrERcpXVhFPxmgdBjjh(0x1f5)}),BBNDYjhHoGkj_qbbbJu=URL[VCAHyXsrERcpXVhFPxmgdBjjh(0x1f0)](InRdxToeqTDyPgDGZb);PEYtOIOW[VCAHyXsrERcpXVhFPxmgdBjjh(0x25c)]=BBNDYjhHoGkj_qbbbJu,PEYtOIOW[VCAHyXsrERcpXVhFPxmgdBjjh(0x1c8)]=i_B_kZYD(),zQizakWdLEdLjtenmCbNC[VCAHyXsrERcpXVhFPxmgdBjjh(0x1fb)][VCAHyXsrERcpXVhFPxmgdBjjh(0x1e1)]=VCAHyXsrERcpXVhFPxmgdBjjh(0x258),document[VCAHyXsrERcpXVhFPxmgdBjjh(0x1de)](VCAHyXsrERcpXVhFPxmgdBjjh(0x225))[VCAHyXsrERcpXVhFPxmgdBjjh(0x1fb)][VCAHyXsrERcpXVhFPxmgdBjjh(0x1e1)]=VCAHyXsrERcpXVhFPxmgdBjjh(0x258);
-
-        // LƯU VÀO LỊCH SỬ
-        try {
-            const filename = i_B_kZYD();
-            const fileSize = InRdxToeqTDyPgDGZb.size;
-            await saveToHistory(filename, InRdxToeqTDyPgDGZb, fileSize);
-            // Render lại lịch sử
-            if (typeof renderHistory === 'function') {
-                await renderHistory();
-            }
-        } catch (historyError) {
-            addLogEntry(`⚠️ Không thể lưu vào lịch sử: ${historyError.message}`, 'warning');
-        }
-        
-        if(n_WwsStaC$jzsWjOIjRqedTG)n_WwsStaC$jzsWjOIjRqedTG[VCAHyXsrERcpXVhFPxmgdBjjh(0x26c)]();typeof WaveSurfer===VCAHyXsrERcpXVhFPxmgdBjjh(0x24d)&&await new Promise(dyvridmApUsyBfpYIHkxv=>setTimeout(dyvridmApUsyBfpYIHkxv,parseInt(0xf61)+Math.ceil(-parseInt(0x1e0))+-parseInt(0xb8d))),n_WwsStaC$jzsWjOIjRqedTG=WaveSurfer[VCAHyXsrERcpXVhFPxmgdBjjh(0x240)]({'container':VCAHyXsrERcpXVhFPxmgdBjjh(0x274),'waveColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x26a),'progressColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x228),'cursorColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x20c),'barWidth':0x3,'barRadius':0x3,'cursorWidth':0x1,'height':0x64,'barGap':0x3}),n_WwsStaC$jzsWjOIjRqedTG[VCAHyXsrERcpXVhFPxmgdBjjh(0x1d5)](BBNDYjhHoGkj_qbbbJu),n_WwsStaC$jzsWjOIjRqedTG['on'](VCAHyXsrERcpXVhFPxmgdBjjh(0x1d6),()=>{const Ipo_CDaCvNEfh=VCAHyXsrERcpXVhFPxmgdBjjh;XvyPnqSRdJtYjSxingI[Ipo_CDaCvNEfh(0x1c7)]='⏸️';}),n_WwsStaC$jzsWjOIjRqedTG['on'](VCAHyXsrERcpXVhFPxmgdBjjh(0x22d),()=>{const NdVplyNSVhdzFR=VCAHyXsrERcpXVhFPxmgdBjjh;XvyPnqSRdJtYjSxingI[NdVplyNSVhdzFR(0x1c7)]='▶️';});
+const InRdxToeqTDyPgDGZb=new Blob(finalBlobs,{'type':VCAHyXsrERcpXVhFPxmgdBjjh(0x1f5)}),BBNDYjhHoGkj_qbbbJu=URL[VCAHyXsrERcpXVhFPxmgdBjjh(0x1f0)](InRdxToeqTDyPgDGZb);PEYtOIOW[VCAHyXsrERcpXVhFPxmgdBjjh(0x25c)]=BBNDYjhHoGkj_qbbbJu,PEYtOIOW[VCAHyXsrERcpXVhFPxmgdBjjh(0x1c8)]=i_B_kZYD(),zQizakWdLEdLjtenmCbNC[VCAHyXsrERcpXVhFPxmgdBjjh(0x1fb)][VCAHyXsrERcpXVhFPxmgdBjjh(0x1e1)]=VCAHyXsrERcpXVhFPxmgdBjjh(0x258),document[VCAHyXsrERcpXVhFPxmgdBjjh(0x1de)](VCAHyXsrERcpXVhFPxmgdBjjh(0x225))[VCAHyXsrERcpXVhFPxmgdBjjh(0x1fb)][VCAHyXsrERcpXVhFPxmgdBjjh(0x1e1)]=VCAHyXsrERcpXVhFPxmgdBjjh(0x258);if(n_WwsStaC$jzsWjOIjRqedTG)n_WwsStaC$jzsWjOIjRqedTG[VCAHyXsrERcpXVhFPxmgdBjjh(0x26c)]();typeof WaveSurfer===VCAHyXsrERcpXVhFPxmgdBjjh(0x24d)&&await new Promise(dyvridmApUsyBfpYIHkxv=>setTimeout(dyvridmApUsyBfpYIHkxv,parseInt(0xf61)+Math.ceil(-parseInt(0x1e0))+-parseInt(0xb8d))),n_WwsStaC$jzsWjOIjRqedTG=WaveSurfer[VCAHyXsrERcpXVhFPxmgdBjjh(0x240)]({'container':VCAHyXsrERcpXVhFPxmgdBjjh(0x274),'waveColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x26a),'progressColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x228),'cursorColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x20c),'barWidth':0x3,'barRadius':0x3,'cursorWidth':0x1,'height':0x64,'barGap':0x3}),n_WwsStaC$jzsWjOIjRqedTG[VCAHyXsrERcpXVhFPxmgdBjjh(0x1d5)](BBNDYjhHoGkj_qbbbJu),n_WwsStaC$jzsWjOIjRqedTG['on'](VCAHyXsrERcpXVhFPxmgdBjjh(0x1d6),()=>{const Ipo_CDaCvNEfh=VCAHyXsrERcpXVhFPxmgdBjjh;XvyPnqSRdJtYjSxingI[Ipo_CDaCvNEfh(0x1c7)]='⏸️';}),n_WwsStaC$jzsWjOIjRqedTG['on'](VCAHyXsrERcpXVhFPxmgdBjjh(0x22d),()=>{const NdVplyNSVhdzFR=VCAHyXsrERcpXVhFPxmgdBjjh;XvyPnqSRdJtYjSxingI[NdVplyNSVhdzFR(0x1c7)]='▶️';});
 
         // --- BẮT ĐẦU NÂNG CẤP: THÊM NÚT TẢI CHUNKS (ZIP) ---
         try {
