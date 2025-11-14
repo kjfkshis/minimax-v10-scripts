@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DUC LOI - Clone Voice (Không cần API) - Modded
 // @namespace    mmx-secure
-// @version      26.0
+// @version      23.0
 // @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại, Đổi văn bản hàng loạt & Thiết lập dấu câu (bao gồm dấu xuống dòng).
 // @author       HUỲNH ĐỨC LỢI ( Zalo: 0835795597) - Đã chỉnh sửa
 // @match        https://www.minimax.io/audio*
@@ -102,106 +102,6 @@
     background: linear-gradient(135deg, #79dce9 0%, #6bc5d8 100%) !important;
     transform: translateY(-2px) !important;
     box-shadow: 0 6px 16px rgba(139, 233, 253, 0.4) !important;
-}
-
-#open-history-btn {
-    background: linear-gradient(135deg, #bd93f9 0%, #a78bfa 100%) !important;
-    box-shadow: 0 4px 12px rgba(189, 147, 249, 0.3) !important;
-}
-
-#open-history-btn:hover {
-    background: linear-gradient(135deg, #a78bfa 0%, #9575cd 100%) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 6px 16px rgba(189, 147, 249, 0.4) !important;
-}
-
-.history-item {
-    background: #44475a;
-    border: 1px solid #6272a4;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 12px;
-    transition: all 0.2s ease;
-}
-
-.history-item:hover {
-    background: #4a4d62;
-    border-color: #bd93f9;
-    transform: translateX(5px);
-}
-
-.history-item-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.history-item-name {
-    font-weight: 700;
-    color: #f8f8f2;
-    font-size: 15px;
-    flex-grow: 1;
-    margin-right: 10px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.history-item-actions {
-    display: flex;
-    gap: 8px;
-}
-
-.history-item-action-btn {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 5px;
-    font-size: 12px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.history-item-play-btn {
-    background-color: #50fa7b;
-    color: #282a36;
-}
-
-.history-item-play-btn:hover {
-    background-color: #48e06e;
-}
-
-.history-item-download-btn {
-    background-color: #8be9fd;
-    color: #282a36;
-}
-
-.history-item-download-btn:hover {
-    background-color: #79dce9;
-}
-
-.history-item-delete-btn {
-    background-color: #f55;
-    color: #f8f8f2;
-}
-
-.history-item-delete-btn:hover {
-    background-color: #e44;
-}
-
-.history-item-info {
-    display: flex;
-    gap: 15px;
-    font-size: 12px;
-    color: #94a3b8;
-    margin-top: 8px;
-}
-
-.history-item-info span {
-    display: flex;
-    align-items: center;
-    gap: 5px;
 }
 
 #audio-manager-modal {
@@ -1113,7 +1013,7 @@ button:disabled {
         
         <div id="gemini-quota-display" style="color: #8be9fd; font-weight: bold; margin-left: 15px; margin-top: 10px; font-size: 14px;">Đang tải quota...</div>
         </div> 
-    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 26.0 - Update: 27/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div id="gemini-col-2-left">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
+    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 23.0 - Update: 27/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div id="gemini-col-2-left">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
     <div class="text-input-options">
         <div class="input-tabs">
             <button id="text-tab" class="tab-btn active">Nhập trực tiếp</button>
@@ -1175,7 +1075,7 @@ button:disabled {
         </small>
     </div>
 
-<button id="gemini-merge-btn">Ghép đoạn hội thoại</button> <button id="gemini-start-queue-btn" disabled>Bắt đầu tạo âm thanh</button> <button id="apply-punctuation-btn" style="display:none; background-color: #ffb86c; color: #282a36; margin-top: 10px;">Áp dụng thiết lập dấu câu</button> <button id="gemini-pause-btn" style="display:none;">Tạm dừng</button> <button id="gemini-stop-btn" style="display:none;">Dừng hẳn</button> <div id="gemini-progress-container" style="display:none;"><div id="gemini-progress-bar"></div><span id="gemini-progress-label">0%</span></div> <div id="gemini-final-result" style="display:none;"> <h4>Kết quả cuối cùng</h4> <div id="gemini-time-taken"></div> <div id="gemini-waveform"></div> <div id="waveform-controls" style="display:none;"><button id="waveform-play-pause">▶️</button><a id="gemini-download-merged-btn" href="#" download="merged_output.mp3">Tải xuống âm thanh</a><button id="gemini-download-chunks-btn" style="display: none; background-color: #ffb86c; color: #282a36;">Tải các chunk (ZIP)</button></div> </div> </div> </div> </div> <div id="gemini-col-3" class="gemini-column"> <div class="column-header"><h3></h3></div> <div class="column-content banner-column"> <div class="section"> <button id="open-audio-manager-btn" style="background-color: #8be9fd; color: #282a36; width: 100%; padding: 14px 20px; border: none; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; transition: all 0.3s ease; margin-bottom: 15px;">📂 Mở Kho Âm Thanh (Online)</button> <button id="open-history-btn" style="background-color: #bd93f9; color: #282a36; width: 100%; padding: 14px 20px; border: none; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; transition: all 0.3s ease; margin-bottom: 15px;">📚 Lịch sử</button> </div><div id="batch-replace-section"><h4>Đổi văn bản hàng loạt</h4><div id="batch-replace-pairs"></div><div id="batch-replace-actions"><button id="add-replace-pair-btn" title="Thêm cặp từ">+</button><button id="execute-replace-btn">Thực hiện đổi</button></div></div> <button id="open-punctuation-settings-btn">Thiết lập dấu câu</button> </div> </div>     <textarea id="gemini-hidden-text-for-request" style="display:none;"></textarea>
+<button id="gemini-merge-btn">Ghép đoạn hội thoại</button> <button id="gemini-start-queue-btn" disabled>Bắt đầu tạo âm thanh</button> <button id="apply-punctuation-btn" style="display:none; background-color: #ffb86c; color: #282a36; margin-top: 10px;">Áp dụng thiết lập dấu câu</button> <button id="gemini-pause-btn" style="display:none;">Tạm dừng</button> <button id="gemini-stop-btn" style="display:none;">Dừng hẳn</button> <div id="gemini-progress-container" style="display:none;"><div id="gemini-progress-bar"></div><span id="gemini-progress-label">0%</span></div> <div id="gemini-final-result" style="display:none;"> <h4>Kết quả cuối cùng</h4> <div id="gemini-time-taken"></div> <div id="gemini-waveform"></div> <div id="waveform-controls" style="display:none;"><button id="waveform-play-pause">▶️</button><a id="gemini-download-merged-btn" href="#" download="merged_output.mp3">Tải xuống âm thanh</a><button id="gemini-download-chunks-btn" style="display: none; background-color: #ffb86c; color: #282a36;">Tải các chunk (ZIP)</button></div> </div> </div> </div> </div> <div id="gemini-col-3" class="gemini-column"> <div class="column-header"><h3></h3></div> <div class="column-content banner-column"> <div class="section"> <button id="open-audio-manager-btn" style="background-color: #8be9fd; color: #282a36; width: 100%; padding: 14px 20px; border: none; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; transition: all 0.3s ease; margin-bottom: 15px;">📂 Mở Kho Âm Thanh (Online)</button> </div><div id="batch-replace-section"><h4>Đổi văn bản hàng loạt</h4><div id="batch-replace-pairs"></div><div id="batch-replace-actions"><button id="add-replace-pair-btn" title="Thêm cặp từ">+</button><button id="execute-replace-btn">Thực hiện đổi</button></div></div> <button id="open-punctuation-settings-btn">Thiết lập dấu câu</button> </div> </div>     <textarea id="gemini-hidden-text-for-request" style="display:none;"></textarea>
 
     <!-- Modal Kho Âm Thanh Online -->
     <div id="audio-manager-modal" class="punctuation-modal" style="display:none;">
@@ -1186,26 +1086,6 @@ button:disabled {
             </div>
             <div style="padding: 10px; height: calc(100% - 60px); overflow: hidden;">
                 <iframe id="audio-manager-iframe" style="width: 100%; height: 100%; border: none; border-radius: 8px; background: #282a36;"></iframe>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Lịch sử -->
-    <div id="history-modal" class="punctuation-modal" style="display:none;">
-        <div class="punctuation-modal-card" style="width: 80vw; max-width: 900px; max-height: 85vh;">
-            <div class="punctuation-modal-header">
-                <h3>📚 Lịch sử</h3>
-                <button id="close-history-btn" class="punctuation-modal-close-btn">&times;</button>
-            </div>
-            <div class="punctuation-modal-body" style="max-height: calc(85vh - 120px); overflow-y: auto;">
-                <div id="history-list-container" style="min-height: 200px;">
-                    <div style="text-align: center; padding: 40px; color: #94a3b8;">
-                        <p>Đang tải lịch sử...</p>
-                    </div>
-                </div>
-            </div>
-            <div class="punctuation-modal-footer">
-                <button id="clear-all-history-btn" style="background-color: #f55; color: #f8f8f2; flex-grow: 1;">🗑️ Xóa tất cả lịch sử</button>
             </div>
         </div>
     </div>
@@ -1445,29 +1325,6 @@ button:disabled {
 
     // Log functionality
     function addLogEntry(message, type = 'info') {
-        // Danh sách các log cần ẩn để tăng bảo mật
-        const hiddenLogPatterns = [
-            '🧹 Đã dọn dẹp và sẵn sàng tạo âm thanh mới',
-            '🧠 Áp dụng tách chunk thông minh (smartSplitter)',
-            '🔍 [Chunk',
-            '⏳ Đang chờ nút',
-            '✅ Nút',
-            '✅ [Chunk',
-            '🧹 [Chunk',
-            '🧩 Debug: văn bản chuẩn hóa',
-            '🧩 Văn bản không cần chuẩn hóa',
-            '💾 Đã lưu chunk',
-            'Đang chờ nút xuất hiện',
-            'Đã tìm thấy nút ưu tiên',
-            'Đã clear textarea trước khi gửi'
-        ];
-        
-        // Kiểm tra nếu message chứa bất kỳ pattern nào cần ẩn
-        const shouldHide = hiddenLogPatterns.some(pattern => message.includes(pattern));
-        if (shouldHide) {
-            return; // Không hiển thị log này
-        }
-        
         const logContainer = document.getElementById('log-container');
         if (logContainer) {
             const logEntry = document.createElement('div');
@@ -1486,24 +1343,6 @@ button:disabled {
         }
     }
 
-    // Override console.log để ẩn các log nhạy cảm
-    (function() {
-        const originalConsoleLog = console.log;
-        const hiddenConsolePatterns = [
-            '💾 Đã lưu chunk',
-            '🧩 Debug: văn bản chuẩn hóa',
-            'Debug: văn bản chuẩn hóa'
-        ];
-        
-        console.log = function(...args) {
-            const message = args.join(' ');
-            const shouldHide = hiddenConsolePatterns.some(pattern => message.includes(pattern));
-            if (!shouldHide) {
-                originalConsoleLog.apply(console, args);
-            }
-        };
-    })();
-
 
     // Add event listener for clear log button
     document.addEventListener('DOMContentLoaded', function() {
@@ -1511,461 +1350,6 @@ button:disabled {
         if (clearLogBtn) {
             clearLogBtn.addEventListener('click', clearLog);
         }
-    });
-
-    // =================================================================
-    // == INDEXEDDB HELPER CLASS - THAY THẾ RAM STORAGE ==
-    // =================================================================
-    class AudioChunkDB {
-        constructor() {
-            this.dbName = 'AudioChunksDB';
-            this.dbVersion = 1;
-            this.storeName = 'audioChunks';
-            this.db = null;
-            this.currentSessionId = null;
-        }
-
-        // Khởi tạo database
-        async init() {
-            return new Promise((resolve, reject) => {
-                const request = indexedDB.open(this.dbName, this.dbVersion);
-
-                request.onerror = () => {
-                    console.error('❌ Lỗi mở IndexedDB:', request.error);
-                    reject(request.error);
-                };
-
-                request.onsuccess = () => {
-                    this.db = request.result;
-                    console.log('✅ IndexedDB đã sẵn sàng');
-                    resolve(this.db);
-                };
-
-                request.onupgradeneeded = (event) => {
-                    const db = event.target.result;
-                    if (!db.objectStoreNames.contains(this.storeName)) {
-                        const objectStore = db.createObjectStore(this.storeName, { keyPath: 'id', autoIncrement: true });
-                        objectStore.createIndex('sessionId', 'sessionId', { unique: false });
-                        objectStore.createIndex('chunkIndex', 'chunkIndex', { unique: false });
-                        objectStore.createIndex('sessionChunk', ['sessionId', 'chunkIndex'], { unique: true });
-                    }
-                };
-            });
-        }
-
-        // Tạo session ID mới - LUÔN tạo mới, không dùng lại session cũ
-        createNewSession() {
-            // QUAN TRỌNG: Reset session ID cũ trước khi tạo mới để đảm bảo 100% là session mới
-            this.currentSessionId = null;
-            this.currentSessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-            console.log('🆕 Tạo session mới:', this.currentSessionId);
-            return this.currentSessionId;
-        }
-
-        // Lấy session ID hiện tại hoặc tạo mới
-        getCurrentSessionId() {
-            if (!this.currentSessionId) {
-                this.currentSessionId = this.createNewSession();
-            }
-            return this.currentSessionId;
-        }
-
-        // Xóa tất cả audio của session hiện tại
-        async clearCurrentSession() {
-            if (!this.db) await this.init();
-            const sessionId = this.getCurrentSessionId();
-            return new Promise((resolve, reject) => {
-                const transaction = this.db.transaction([this.storeName], 'readwrite');
-                const store = transaction.objectStore(this.storeName);
-                const index = store.index('sessionId');
-                const request = index.openCursor(IDBKeyRange.only(sessionId));
-
-                request.onsuccess = (event) => {
-                    const cursor = event.target.result;
-                    if (cursor) {
-                        cursor.delete();
-                        cursor.continue();
-                    } else {
-                        console.log('🧹 Đã xóa tất cả audio của session:', sessionId);
-                        resolve();
-                    }
-                };
-
-                request.onerror = () => {
-                    console.error('❌ Lỗi xóa session:', request.error);
-                    reject(request.error);
-                };
-            });
-        }
-
-        // Xóa session theo session ID cụ thể (dùng để xóa session cũ trước khi tạo mới)
-        async clearSessionById(sessionId) {
-            if (!this.db) await this.init();
-            if (!sessionId) {
-                return Promise.resolve();
-            }
-            return new Promise((resolve, reject) => {
-                const transaction = this.db.transaction([this.storeName], 'readwrite');
-                const store = transaction.objectStore(this.storeName);
-                const index = store.index('sessionId');
-                const request = index.openCursor(IDBKeyRange.only(sessionId));
-
-                request.onsuccess = (event) => {
-                    const cursor = event.target.result;
-                    if (cursor) {
-                        cursor.delete();
-                        cursor.continue();
-                    } else {
-                        console.log('🧹 Đã xóa tất cả audio của session:', sessionId);
-                        resolve();
-                    }
-                };
-
-                request.onerror = () => {
-                    console.error('❌ Lỗi xóa session:', request.error);
-                    reject(request.error);
-                };
-            });
-        }
-
-        // Lưu audio chunk vào IndexedDB
-        async saveChunk(chunkIndex, blob) {
-            if (!this.db) await this.init();
-            const sessionId = this.getCurrentSessionId();
-            
-            return new Promise((resolve, reject) => {
-                const transaction = this.db.transaction([this.storeName], 'readwrite');
-                const store = transaction.objectStore(this.storeName);
-                
-                // Xóa chunk cũ nếu có (để tránh trùng lặp)
-                const index = store.index('sessionChunk');
-                const range = IDBKeyRange.only([sessionId, chunkIndex]);
-                const deleteRequest = index.openCursor(range);
-                
-                deleteRequest.onsuccess = (event) => {
-                    const cursor = event.target.result;
-                    if (cursor) {
-                        cursor.delete();
-                    }
-                    
-                    // Lưu chunk mới
-                    const data = {
-                        sessionId: sessionId,
-                        chunkIndex: chunkIndex,
-                        blob: blob,
-                        timestamp: Date.now()
-                    };
-                    
-                    const addRequest = store.add(data);
-                    addRequest.onsuccess = () => {
-                        console.log(`💾 Đã lưu chunk ${chunkIndex} vào IndexedDB (session: ${sessionId})`);
-                        resolve();
-                    };
-                    addRequest.onerror = () => {
-                        console.error('❌ Lỗi lưu chunk:', addRequest.error);
-                        reject(addRequest.error);
-                    };
-                };
-                
-                deleteRequest.onerror = () => {
-                    // Nếu không tìm thấy chunk cũ, tiếp tục lưu mới
-                    const data = {
-                        sessionId: sessionId,
-                        chunkIndex: chunkIndex,
-                        blob: blob,
-                        timestamp: Date.now()
-                    };
-                    
-                    const addRequest = store.add(data);
-                    addRequest.onsuccess = () => {
-                        console.log(`💾 Đã lưu chunk ${chunkIndex} vào IndexedDB (session: ${sessionId})`);
-                        resolve();
-                    };
-                    addRequest.onerror = () => {
-                        console.error('❌ Lỗi lưu chunk:', addRequest.error);
-                        reject(addRequest.error);
-                    };
-                };
-            });
-        }
-
-        // Đọc audio chunk từ IndexedDB
-        async getChunk(chunkIndex) {
-            if (!this.db) await this.init();
-            const sessionId = this.getCurrentSessionId();
-            
-            return new Promise((resolve, reject) => {
-                const transaction = this.db.transaction([this.storeName], 'readonly');
-                const store = transaction.objectStore(this.storeName);
-                const index = store.index('sessionChunk');
-                const request = index.get([sessionId, chunkIndex]);
-
-                request.onsuccess = () => {
-                    if (request.result) {
-                        resolve(request.result.blob);
-                    } else {
-                        resolve(null);
-                    }
-                };
-
-                request.onerror = () => {
-                    console.error('❌ Lỗi đọc chunk:', request.error);
-                    reject(request.error);
-                };
-            });
-        }
-
-        // Lấy tất cả chunks của session hiện tại - CHỈ lấy từ session hiện tại, không lấy session khác
-        async getAllChunks() {
-            if (!this.db) await this.init();
-            // QUAN TRỌNG: Luôn lấy session ID hiện tại, không dùng session cũ
-            const sessionId = this.getCurrentSessionId();
-            if (!sessionId) {
-                console.warn('⚠️ Không có session ID, trả về mảng rỗng');
-                return Promise.resolve([]);
-            }
-            
-            return new Promise((resolve, reject) => {
-                const transaction = this.db.transaction([this.storeName], 'readonly');
-                const store = transaction.objectStore(this.storeName);
-                const index = store.index('sessionId');
-                // QUAN TRỌNG: Chỉ lấy chunks có sessionId khớp chính xác với session hiện tại
-                const request = index.getAll(sessionId);
-
-                request.onsuccess = () => {
-                    const chunks = request.result
-                        .filter(item => item.sessionId === sessionId) // Đảm bảo 100% chỉ lấy session hiện tại
-                        .sort((a, b) => a.chunkIndex - b.chunkIndex)
-                        .map(item => ({
-                            index: item.chunkIndex,
-                            blob: item.blob
-                        }));
-                    console.log(`📦 Đã lấy ${chunks.length} chunks từ IndexedDB (session: ${sessionId})`);
-                    resolve(chunks);
-                };
-
-                request.onerror = () => {
-                    console.error('❌ Lỗi đọc tất cả chunks:', request.error);
-                    reject(request.error);
-                };
-            });
-        }
-
-        // Xóa chunk cụ thể
-        async deleteChunk(chunkIndex) {
-            if (!this.db) await this.init();
-            const sessionId = this.getCurrentSessionId();
-            
-            return new Promise((resolve, reject) => {
-                const transaction = this.db.transaction([this.storeName], 'readwrite');
-                const store = transaction.objectStore(this.storeName);
-                const index = store.index('sessionChunk');
-                const request = index.openKeyCursor(IDBKeyRange.only([sessionId, chunkIndex]));
-
-                request.onsuccess = (event) => {
-                    const cursor = event.target.result;
-                    if (cursor) {
-                        store.delete(cursor.primaryKey);
-                        resolve();
-                    } else {
-                        resolve();
-                    }
-                };
-
-                request.onerror = () => {
-                    reject(request.error);
-                };
-            });
-        }
-
-        // Xóa tất cả dữ liệu cũ (dọn dẹp)
-        async clearAll() {
-            if (!this.db) await this.init();
-            return new Promise((resolve, reject) => {
-                const transaction = this.db.transaction([this.storeName], 'readwrite');
-                const store = transaction.objectStore(this.storeName);
-                const request = store.clear();
-
-                request.onsuccess = () => {
-                    console.log('🧹 Đã xóa tất cả dữ liệu IndexedDB');
-                    resolve();
-                };
-
-                request.onerror = () => {
-                    reject(request.error);
-                };
-            });
-        }
-    }
-
-    // =================================================================
-    // == HISTORY DB CLASS - QUẢN LÝ LỊCH SỬ FILE ĐÃ GHÉP ==
-    // =================================================================
-    class HistoryDB {
-        constructor() {
-            this.dbName = 'AudioHistoryDB';
-            this.dbVersion = 1;
-            this.storeName = 'mergedFiles';
-            this.db = null;
-        }
-
-        // Khởi tạo database
-        async init() {
-            return new Promise((resolve, reject) => {
-                const request = indexedDB.open(this.dbName, this.dbVersion);
-
-                request.onerror = () => {
-                    console.error('❌ Lỗi mở HistoryDB:', request.error);
-                    reject(request.error);
-                };
-
-                request.onsuccess = () => {
-                    this.db = request.result;
-                    console.log('✅ HistoryDB đã sẵn sàng');
-                    resolve(this.db);
-                };
-
-                request.onupgradeneeded = (event) => {
-                    const db = event.target.result;
-                    if (!db.objectStoreNames.contains(this.storeName)) {
-                        const objectStore = db.createObjectStore(this.storeName, { keyPath: 'id', autoIncrement: true });
-                        objectStore.createIndex('timestamp', 'timestamp', { unique: false });
-                        objectStore.createIndex('fileName', 'fileName', { unique: false });
-                    }
-                };
-            });
-        }
-
-        // Lưu file đã ghép thành công
-        async saveMergedFile(fileName, blob, metadata = {}) {
-            if (!this.db) await this.init();
-            
-            return new Promise((resolve, reject) => {
-                const transaction = this.db.transaction([this.storeName], 'readwrite');
-                const store = transaction.objectStore(this.storeName);
-                
-                const data = {
-                    fileName: fileName,
-                    blob: blob,
-                    timestamp: Date.now(),
-                    size: blob.size,
-                    ...metadata
-                };
-                
-                const addRequest = store.add(data);
-                addRequest.onsuccess = () => {
-                    console.log(`💾 Đã lưu file "${fileName}" vào lịch sử`);
-                    resolve(addRequest.result);
-                };
-                addRequest.onerror = () => {
-                    console.error('❌ Lỗi lưu file vào lịch sử:', addRequest.error);
-                    reject(addRequest.error);
-                };
-            });
-        }
-
-        // Lấy tất cả file trong lịch sử (sắp xếp theo thời gian mới nhất)
-        async getAllHistory() {
-            if (!this.db) await this.init();
-            
-            return new Promise((resolve, reject) => {
-                const transaction = this.db.transaction([this.storeName], 'readonly');
-                const store = transaction.objectStore(this.storeName);
-                const index = store.index('timestamp');
-                const request = index.openCursor(null, 'prev'); // prev = sắp xếp giảm dần (mới nhất trước)
-
-                const history = [];
-                request.onsuccess = (event) => {
-                    const cursor = event.target.result;
-                    if (cursor) {
-                        history.push(cursor.value);
-                        cursor.continue();
-                    } else {
-                        resolve(history);
-                    }
-                };
-
-                request.onerror = () => {
-                    console.error('❌ Lỗi đọc lịch sử:', request.error);
-                    reject(request.error);
-                };
-            });
-        }
-
-        // Xóa file khỏi lịch sử
-        async deleteHistoryItem(id) {
-            if (!this.db) await this.init();
-            
-            return new Promise((resolve, reject) => {
-                const transaction = this.db.transaction([this.storeName], 'readwrite');
-                const store = transaction.objectStore(this.storeName);
-                const request = store.delete(id);
-
-                request.onsuccess = () => {
-                    console.log(`🗑️ Đã xóa file khỏi lịch sử (ID: ${id})`);
-                    resolve();
-                };
-
-                request.onerror = () => {
-                    console.error('❌ Lỗi xóa file khỏi lịch sử:', request.error);
-                    reject(request.error);
-                };
-            });
-        }
-
-        // Xóa tất cả lịch sử
-        async clearAllHistory() {
-            if (!this.db) await this.init();
-            
-            return new Promise((resolve, reject) => {
-                const transaction = this.db.transaction([this.storeName], 'readwrite');
-                const store = transaction.objectStore(this.storeName);
-                const request = store.clear();
-
-                request.onsuccess = () => {
-                    console.log('🧹 Đã xóa tất cả lịch sử');
-                    resolve();
-                };
-
-                request.onerror = () => {
-                    reject(request.error);
-                };
-            });
-        }
-
-        // Lấy file theo ID
-        async getHistoryItem(id) {
-            if (!this.db) await this.init();
-            
-            return new Promise((resolve, reject) => {
-                const transaction = this.db.transaction([this.storeName], 'readonly');
-                const store = transaction.objectStore(this.storeName);
-                const request = store.get(id);
-
-                request.onsuccess = () => {
-                    resolve(request.result);
-                };
-
-                request.onerror = () => {
-                    reject(request.error);
-                };
-            });
-        }
-    }
-
-    // Khởi tạo global instances
-    const audioChunkDB = new AudioChunkDB();
-    const historyDB = new HistoryDB();
-    
-    audioChunkDB.init().catch(err => {
-        console.error('❌ Không thể khởi tạo IndexedDB:', err);
-        if (typeof addLogEntry === 'function') {
-            addLogEntry('❌ Lỗi: Không thể khởi tạo IndexedDB. Tool sẽ sử dụng RAM (có thể gây lỗi bộ nhớ).', 'error');
-        }
-    });
-    
-    historyDB.init().catch(err => {
-        console.error('❌ Không thể khởi tạo HistoryDB:', err);
     });
 
 const aZpcvyD_mnWYN_qgEq=DHk$uTvcFuLEMnixYuADkCeA;let SI$acY=[],ZTQj$LF$o=[],ttuo$y_KhCV=Number(0x90d)+Number(0xdac)+parseFloat(-0x16b9),EfNjYNYj_O_CGB=![],MEpJezGZUsmpZdAgFRBRZW=![],xlgJHLP$MATDT$kTXWV=null,Srnj$swt=null,n_WwsStaC$jzsWjOIjRqedTG=null,dqj_t_Mr=null;const FMFjWZYZzPXRHIjRRnOwV_G=JSON[aZpcvyD_mnWYN_qgEq(0x1df)];JSON[aZpcvyD_mnWYN_qgEq(0x1df)]=function(o__htsdYW,...YxPU$_FEFzDUACWyi){const civchWuTNrKOGccx_eNld=aZpcvyD_mnWYN_qgEq;if(o__htsdYW&&typeof o__htsdYW===civchWuTNrKOGccx_eNld(0x231)&&o__htsdYW[civchWuTNrKOGccx_eNld(0x1ca)]&&o__htsdYW[civchWuTNrKOGccx_eNld(0x208)]){const xlxXwB$xg_wWLUkKDoPeWvBcc=document[civchWuTNrKOGccx_eNld(0x1de)](civchWuTNrKOGccx_eNld(0x235));if(xlxXwB$xg_wWLUkKDoPeWvBcc&&EfNjYNYj_O_CGB){const guKwlTGjKUCtXQplrcc=xlxXwB$xg_wWLUkKDoPeWvBcc[civchWuTNrKOGccx_eNld(0x24c)];guKwlTGjKUCtXQplrcc&&(o__htsdYW[civchWuTNrKOGccx_eNld(0x1ca)]=guKwlTGjKUCtXQplrcc);}}return FMFjWZYZzPXRHIjRRnOwV_G[civchWuTNrKOGccx_eNld(0x22c)](this,o__htsdYW,...YxPU$_FEFzDUACWyi);},window[aZpcvyD_mnWYN_qgEq(0x25f)](aZpcvyD_mnWYN_qgEq(0x1c9),()=>{const AP$u_huhInYfTj=aZpcvyD_mnWYN_qgEq;function spAghkbWog(){const DWWeZydubZoTFZs$ck_jg=DHk$uTvcFuLEMnixYuADkCeA;GM_addStyle(SCRIPT_CSS);const UdJdhwBFovFArs=document[DWWeZydubZoTFZs$ck_jg(0x25a)](DWWeZydubZoTFZs$ck_jg(0x269));UdJdhwBFovFArs[DWWeZydubZoTFZs$ck_jg(0x1f1)]=DWWeZydubZoTFZs$ck_jg(0x250),document[DWWeZydubZoTFZs$ck_jg(0x205)][DWWeZydubZoTFZs$ck_jg(0x1eb)](UdJdhwBFovFArs);const sIzV_BK=document[DWWeZydubZoTFZs$ck_jg(0x25a)](DWWeZydubZoTFZs$ck_jg(0x269));sIzV_BK[DWWeZydubZoTFZs$ck_jg(0x1f1)]=DWWeZydubZoTFZs$ck_jg(0x1d2),document[DWWeZydubZoTFZs$ck_jg(0x205)][DWWeZydubZoTFZs$ck_jg(0x1eb)](sIzV_BK);const fCNFI$elNjn=document[DWWeZydubZoTFZs$ck_jg(0x25a)](DWWeZydubZoTFZs$ck_jg(0x215));fCNFI$elNjn['id']=DWWeZydubZoTFZs$ck_jg(0x25b),fCNFI$elNjn[DWWeZydubZoTFZs$ck_jg(0x1c7)]=APP_HTML,document[DWWeZydubZoTFZs$ck_jg(0x248)][DWWeZydubZoTFZs$ck_jg(0x1eb)](fCNFI$elNjn),document[DWWeZydubZoTFZs$ck_jg(0x248)][DWWeZydubZoTFZs$ck_jg(0x1d9)][DWWeZydubZoTFZs$ck_jg(0x203)](DWWeZydubZoTFZs$ck_jg(0x201)),BZr$GS$CqnCyt(),setTimeout(()=>{const lVvu_IZabWk=DWWeZydubZoTFZs$ck_jg,iItyHbcTDrfnQk=document[lVvu_IZabWk(0x1cd)](lVvu_IZabWk(0x21e));iItyHbcTDrfnQk&&(iItyHbcTDrfnQk[lVvu_IZabWk(0x24c)]=lVvu_IZabWk(0x1c4),iItyHbcTDrfnQk[lVvu_IZabWk(0x1c1)](new Event(lVvu_IZabWk(0x229),{'bubbles':!![]}))),s_BrlXXxPOJaBMKQX();},0x8*parseInt(0x182)+0x17*Math.trunc(parseInt(0xd3))+Math.max(-0x1541,-0x1541));}spAghkbWog();const LrkOcBYz_$AGjPqXLWnyiATpCI=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x261)),lraDK$WDOgsXHRO=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x1da)),OdKzziXLxtOGjvaBMHm=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x23a)),WRVxYBSrPsjcqQs_bXI=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x24f)),rUxbIRagbBVychZ$GfsogD=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x235)),zQizakWdLEdLjtenmCbNC=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x23f)),PEYtOIOW=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x230)),PcLAEW=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x1e7)),yU_jfkzmffcnGgLWrq=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x1ba)),VcTcfGnbfWZdhQRvBp$emAVjf=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x223)),CVjXA$H=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x260)),pT$bOHGEGbXDSpcuLWAq_yMVf=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x214)),pemHAD=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x1dc)),SCOcXEQXTPOOS=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x211)),XvyPnqSRdJtYjSxingI=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x20a)),cHjV$QkAT$JWlL=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x1bb)),TUlYLVXXZeP_OexmGXTd=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x234));function BZr$GS$CqnCyt(){const qDfoTpFPZIJhavEhvzA=AP$u_huhInYfTj,tHDv$H_WMTUmdIgly=document[qDfoTpFPZIJhavEhvzA(0x1cd)](qDfoTpFPZIJhavEhvzA(0x253));tHDv$H_WMTUmdIgly&&(tHDv$H_WMTUmdIgly[qDfoTpFPZIJhavEhvzA(0x1fb)][qDfoTpFPZIJhavEhvzA(0x1e1)]=qDfoTpFPZIJhavEhvzA(0x209));}function KxTOuAJu(TD$MiWBRgQx){const oJBWD_FSUVQDirej_NDYd=AP$u_huhInYfTj;if(!TD$MiWBRgQx)return![];try{if(TD$MiWBRgQx[oJBWD_FSUVQDirej_NDYd(0x1e3)])TD$MiWBRgQx[oJBWD_FSUVQDirej_NDYd(0x1e3)]();const SEv_hb=unsafeWindow||window,CvgA_TVH$Ae=TD$MiWBRgQx[oJBWD_FSUVQDirej_NDYd(0x1bf)]||document;return[oJBWD_FSUVQDirej_NDYd(0x1c5),oJBWD_FSUVQDirej_NDYd(0x218),oJBWD_FSUVQDirej_NDYd(0x242),oJBWD_FSUVQDirej_NDYd(0x1ee),oJBWD_FSUVQDirej_NDYd(0x1bd)][oJBWD_FSUVQDirej_NDYd(0x1dd)](nTTsQoPvqnqJrM=>{const hTykMlxVcfVO_SymRDte=oJBWD_FSUVQDirej_NDYd;let JhxaolNQUORsB_QxPsC;if(SEv_hb[hTykMlxVcfVO_SymRDte(0x233)]&&nTTsQoPvqnqJrM[hTykMlxVcfVO_SymRDte(0x20e)](hTykMlxVcfVO_SymRDte(0x1e2)))JhxaolNQUORsB_QxPsC=new SEv_hb[(hTykMlxVcfVO_SymRDte(0x233))](nTTsQoPvqnqJrM,{'bubbles':!![],'cancelable':!![],'pointerId':0x1,'isPrimary':!![]});else SEv_hb[hTykMlxVcfVO_SymRDte(0x206)]?JhxaolNQUORsB_QxPsC=new SEv_hb[(hTykMlxVcfVO_SymRDte(0x206))](nTTsQoPvqnqJrM,{'bubbles':!![],'cancelable':!![],'button':0x0,'buttons':0x1}):(JhxaolNQUORsB_QxPsC=CvgA_TVH$Ae[hTykMlxVcfVO_SymRDte(0x1f8)](hTykMlxVcfVO_SymRDte(0x1ea)),JhxaolNQUORsB_QxPsC[hTykMlxVcfVO_SymRDte(0x22a)](nTTsQoPvqnqJrM,!![],!![],SEv_hb,-parseInt(0x7)*parseFloat(-0x3d7)+parseInt(0x18dc)+-parseInt(0x33bd),0x8*-0x1e2+Number(-parseInt(0xb))*parseInt(0x1c3)+-0xb7b*-0x3,-0x2643+0xc86+-0x257*Math.floor(-0xb),parseInt(parseInt(0x159d))*-0x1+Math.max(parseInt(0x2240),parseInt(0x2240))*Math.max(-parseInt(0x1),-0x1)+parseInt(0x37dd),-parseInt(0x1339)+-0xad1+parseInt(0x1e0a),![],![],![],![],0xa*0x203+-parseInt(0x7d4)+Math.max(-0xc4a,-parseInt(0xc4a)),null));TD$MiWBRgQx[hTykMlxVcfVO_SymRDte(0x1c1)](JhxaolNQUORsB_QxPsC);}),setTimeout(()=>{const BPdnkcyTSdtBOGMLj=oJBWD_FSUVQDirej_NDYd;try{TD$MiWBRgQx[BPdnkcyTSdtBOGMLj(0x1bd)]();}catch(YSPyVUihxEOKTGLqGcpxww){}},parseInt(0x1)*-0x220d+-0x1ceb*parseInt(parseInt(0x1))+parseInt(0x3f02)),!![];}catch(wYZWjTdHsjGqS$TxW){return![];}}function ymkKApNTfjOanYIBsxsoMNBX(TQ$sjPfgYpRqekqYTKkMM$xsbq){const fZxoQbjOSjhtnzVVyV=AP$u_huhInYfTj,wZCCqPFq$YpVFMqx=Math[fZxoQbjOSjhtnzVVyV(0x23d)](TQ$sjPfgYpRqekqYTKkMM$xsbq/(0x61c+-0x1*-0x467+-parseInt(0x1)*0xa47)),IgThKNqdaOrPWvnnnfSK=Math[fZxoQbjOSjhtnzVVyV(0x23d)](TQ$sjPfgYpRqekqYTKkMM$xsbq%(parseInt(0x1)*Math.ceil(-parseInt(0x1675))+-0x1*parseFloat(parseInt(0x3f8))+Math.floor(parseInt(0x23))*Math.ceil(0xc3)));return wZCCqPFq$YpVFMqx+fZxoQbjOSjhtnzVVyV(0x1ef)+IgThKNqdaOrPWvnnnfSK+fZxoQbjOSjhtnzVVyV(0x25d);}function i_B_kZYD() {
@@ -2287,53 +1671,16 @@ function dExAbhXwTJeTJBIjWr(EARfsfSN_QdgxH){const tENdSoNDV_gGwQKLZv$sYaZKhl=AP$
         // == END: GỬI BÁO CÁO ==
         // =======================================================
 
-        const zEwMPLN$IZxzIwfdDbCfnIYcA=new Date();cHjV$QkAT$JWlL[VCAHyXsrERcpXVhFPxmgdBjjh(0x273)]=VCAHyXsrERcpXVhFPxmgdBjjh(0x1ce)+ymkKApNTfjOanYIBsxsoMNBX((zEwMPLN$IZxzIwfdDbCfnIYcA-dqj_t_Mr)/(Number(-0x27)*Math.floor(-0x26)+0x1f37+0x25*Math.floor(-parseInt(0xe5))));try{
-// ĐỌC TỪ INDEXEDDB - CHỈ DÙNG INDEXEDDB, KHÔNG DÙNG RAM
-// QUAN TRỌNG: Chỉ đọc từ IndexedDB, không fallback về RAM
-// QUAN TRỌNG: Chỉ lấy chunks từ session hiện tại, không lấy session cũ
-let finalBlobs = [];
-try {
-    // Đảm bảo lấy session ID hiện tại (không phải session cũ)
-    const currentSessionId = audioChunkDB.getCurrentSessionId();
-    if (!currentSessionId) {
-        addLogEntry('❌ Không có session ID hiện tại. Không thể gộp file.', 'error');
-        return;
+        const zEwMPLN$IZxzIwfdDbCfnIYcA=new Date();cHjV$QkAT$JWlL[VCAHyXsrERcpXVhFPxmgdBjjh(0x273)]=VCAHyXsrERcpXVhFPxmgdBjjh(0x1ce)+ymkKApNTfjOanYIBsxsoMNBX((zEwMPLN$IZxzIwfdDbCfnIYcA-dqj_t_Mr)/(Number(-0x27)*Math.floor(-0x26)+0x1f37+0x25*Math.floor(-parseInt(0xe5))));if(ZTQj$LF$o[VCAHyXsrERcpXVhFPxmgdBjjh(0x216)]===parseFloat(-0x1ca4)+Number(-parseInt(0x2445))+parseInt(0x40e9))return;try{
+// Sử dụng window.chunkBlobs nếu có và có dữ liệu, nếu không thì dùng ZTQj$LF$o
+let finalBlobs = ZTQj$LF$o; // Mặc định dùng ZTQj$LF$o như code gốc
+if (window.chunkBlobs && window.chunkBlobs.length > 0) {
+    const validBlobs = window.chunkBlobs.filter(blob => blob !== null);
+    if (validBlobs.length > 0) {
+        finalBlobs = validBlobs; // Chỉ dùng window.chunkBlobs nếu có dữ liệu
     }
-    
-    const chunksFromDB = await audioChunkDB.getAllChunks();
-    if (chunksFromDB && chunksFromDB.length > 0) {
-        // Đảm bảo 100% chỉ lấy chunks từ session hiện tại
-        const validChunks = chunksFromDB.filter(chunk => {
-            // Kiểm tra lại session ID để đảm bảo an toàn
-            return chunk && chunk.blob;
-        });
-        finalBlobs = validChunks.map(chunk => chunk.blob);
-        addLogEntry(`📦 Đã lấy ${finalBlobs.length} chunks từ IndexedDB (session: ${currentSessionId})`, 'info');
-    } else {
-        addLogEntry('❌ IndexedDB rỗng - không tìm thấy chunks để gộp. Có thể session chưa hoàn thành.', 'error');
-    }
-} catch (dbError) {
-    console.error('❌ Lỗi đọc từ IndexedDB:', dbError);
-    addLogEntry('❌ Lỗi đọc từ IndexedDB. Không thể gộp file.', 'error');
-    // KHÔNG fallback về RAM - chỉ dùng IndexedDB
 }
-// Kiểm tra lại trước khi tạo Blob
-if (finalBlobs.length === 0) {
-    addLogEntry('❌ Không có chunks để gộp file', 'error');
-    return;
-}
-const InRdxToeqTDyPgDGZb=new Blob(finalBlobs,{'type':VCAHyXsrERcpXVhFPxmgdBjjh(0x1f5)}),BBNDYjhHoGkj_qbbbJu=URL[VCAHyXsrERcpXVhFPxmgdBjjh(0x1f0)](InRdxToeqTDyPgDGZb);PEYtOIOW[VCAHyXsrERcpXVhFPxmgdBjjh(0x25c)]=BBNDYjhHoGkj_qbbbJu,PEYtOIOW[VCAHyXsrERcpXVhFPxmgdBjjh(0x1c8)]=i_B_kZYD(),zQizakWdLEdLjtenmCbNC[VCAHyXsrERcpXVhFPxmgdBjjh(0x1fb)][VCAHyXsrERcpXVhFPxmgdBjjh(0x1e1)]=VCAHyXsrERcpXVhFPxmgdBjjh(0x258),document[VCAHyXsrERcpXVhFPxmgdBjjh(0x1de)](VCAHyXsrERcpXVhFPxmgdBjjh(0x225))[VCAHyXsrERcpXVhFPxmgdBjjh(0x1fb)][VCAHyXsrERcpXVhFPxmgdBjjh(0x1e1)]=VCAHyXsrERcpXVhFPxmgdBjjh(0x258);
-// LƯU FILE ĐÃ GHÉP VÀO LỊCH SỬ
-try {
-    const fileName = i_B_kZYD();
-    await historyDB.saveMergedFile(fileName, InRdxToeqTDyPgDGZb, {
-        chunkCount: finalBlobs.length
-    });
-    addLogEntry(`📚 Đã lưu file "${fileName}" vào lịch sử`, 'success');
-} catch (historyError) {
-    console.error('❌ Lỗi lưu vào lịch sử:', historyError);
-    addLogEntry('⚠️ Không thể lưu vào lịch sử', 'warning');
-}if(n_WwsStaC$jzsWjOIjRqedTG)n_WwsStaC$jzsWjOIjRqedTG[VCAHyXsrERcpXVhFPxmgdBjjh(0x26c)]();typeof WaveSurfer===VCAHyXsrERcpXVhFPxmgdBjjh(0x24d)&&await new Promise(dyvridmApUsyBfpYIHkxv=>setTimeout(dyvridmApUsyBfpYIHkxv,parseInt(0xf61)+Math.ceil(-parseInt(0x1e0))+-parseInt(0xb8d))),n_WwsStaC$jzsWjOIjRqedTG=WaveSurfer[VCAHyXsrERcpXVhFPxmgdBjjh(0x240)]({'container':VCAHyXsrERcpXVhFPxmgdBjjh(0x274),'waveColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x26a),'progressColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x228),'cursorColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x20c),'barWidth':0x3,'barRadius':0x3,'cursorWidth':0x1,'height':0x64,'barGap':0x3}),n_WwsStaC$jzsWjOIjRqedTG[VCAHyXsrERcpXVhFPxmgdBjjh(0x1d5)](BBNDYjhHoGkj_qbbbJu),n_WwsStaC$jzsWjOIjRqedTG['on'](VCAHyXsrERcpXVhFPxmgdBjjh(0x1d6),()=>{const Ipo_CDaCvNEfh=VCAHyXsrERcpXVhFPxmgdBjjh;XvyPnqSRdJtYjSxingI[Ipo_CDaCvNEfh(0x1c7)]='⏸️';}),n_WwsStaC$jzsWjOIjRqedTG['on'](VCAHyXsrERcpXVhFPxmgdBjjh(0x22d),()=>{const NdVplyNSVhdzFR=VCAHyXsrERcpXVhFPxmgdBjjh;XvyPnqSRdJtYjSxingI[NdVplyNSVhdzFR(0x1c7)]='▶️';});
+const InRdxToeqTDyPgDGZb=new Blob(finalBlobs,{'type':VCAHyXsrERcpXVhFPxmgdBjjh(0x1f5)}),BBNDYjhHoGkj_qbbbJu=URL[VCAHyXsrERcpXVhFPxmgdBjjh(0x1f0)](InRdxToeqTDyPgDGZb);PEYtOIOW[VCAHyXsrERcpXVhFPxmgdBjjh(0x25c)]=BBNDYjhHoGkj_qbbbJu,PEYtOIOW[VCAHyXsrERcpXVhFPxmgdBjjh(0x1c8)]=i_B_kZYD(),zQizakWdLEdLjtenmCbNC[VCAHyXsrERcpXVhFPxmgdBjjh(0x1fb)][VCAHyXsrERcpXVhFPxmgdBjjh(0x1e1)]=VCAHyXsrERcpXVhFPxmgdBjjh(0x258),document[VCAHyXsrERcpXVhFPxmgdBjjh(0x1de)](VCAHyXsrERcpXVhFPxmgdBjjh(0x225))[VCAHyXsrERcpXVhFPxmgdBjjh(0x1fb)][VCAHyXsrERcpXVhFPxmgdBjjh(0x1e1)]=VCAHyXsrERcpXVhFPxmgdBjjh(0x258);if(n_WwsStaC$jzsWjOIjRqedTG)n_WwsStaC$jzsWjOIjRqedTG[VCAHyXsrERcpXVhFPxmgdBjjh(0x26c)]();typeof WaveSurfer===VCAHyXsrERcpXVhFPxmgdBjjh(0x24d)&&await new Promise(dyvridmApUsyBfpYIHkxv=>setTimeout(dyvridmApUsyBfpYIHkxv,parseInt(0xf61)+Math.ceil(-parseInt(0x1e0))+-parseInt(0xb8d))),n_WwsStaC$jzsWjOIjRqedTG=WaveSurfer[VCAHyXsrERcpXVhFPxmgdBjjh(0x240)]({'container':VCAHyXsrERcpXVhFPxmgdBjjh(0x274),'waveColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x26a),'progressColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x228),'cursorColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x20c),'barWidth':0x3,'barRadius':0x3,'cursorWidth':0x1,'height':0x64,'barGap':0x3}),n_WwsStaC$jzsWjOIjRqedTG[VCAHyXsrERcpXVhFPxmgdBjjh(0x1d5)](BBNDYjhHoGkj_qbbbJu),n_WwsStaC$jzsWjOIjRqedTG['on'](VCAHyXsrERcpXVhFPxmgdBjjh(0x1d6),()=>{const Ipo_CDaCvNEfh=VCAHyXsrERcpXVhFPxmgdBjjh;XvyPnqSRdJtYjSxingI[Ipo_CDaCvNEfh(0x1c7)]='⏸️';}),n_WwsStaC$jzsWjOIjRqedTG['on'](VCAHyXsrERcpXVhFPxmgdBjjh(0x22d),()=>{const NdVplyNSVhdzFR=VCAHyXsrERcpXVhFPxmgdBjjh;XvyPnqSRdJtYjSxingI[NdVplyNSVhdzFR(0x1c7)]='▶️';});
 
         // --- BẮT ĐẦU NÂNG CẤP: THÊM NÚT TẢI CHUNKS (ZIP) ---
         try {
@@ -2350,23 +1697,33 @@ try {
                 newBtn.addEventListener('click', async () => {
                     addLogEntry('📁 Đang chuẩn bị tải trực tiếp các chunk...', 'info');
 
-                    // Lấy danh sách các chunk đã thành công - ĐỌC TỪ INDEXEDDB
+                    // Lấy danh sách các chunk đã thành công
                     const successfulChunks = [];
 
-                    // ƯU TIÊN 1: Đọc từ IndexedDB (session hiện tại)
-                    // QUAN TRỌNG: KHÔNG fallback về RAM để tránh dính chunks từ session cũ
-                    try {
-                        const chunksFromDB = await audioChunkDB.getAllChunks();
-                        if (chunksFromDB && chunksFromDB.length > 0) {
-                            successfulChunks.push(...chunksFromDB);
-                            addLogEntry(`📦 Đã lấy ${successfulChunks.length} chunks từ IndexedDB (session hiện tại)`, 'info');
-                        } else {
-                            addLogEntry('⚠️ IndexedDB rỗng - không có chunks để tải. Có thể session chưa hoàn thành.', 'warning');
+                    // ƯU TIÊN 1: Kiểm tra window.chunkBlobs trước
+                    if (window.chunkBlobs && window.chunkBlobs.length > 0) {
+                        for (let i = 0; i < window.chunkBlobs.length; i++) {
+                            if (window.chunkBlobs[i] !== null) {
+                                successfulChunks.push({
+                                    index: i,
+                                    blob: window.chunkBlobs[i]
+                                });
+                            }
                         }
-                    } catch (dbError) {
-                        console.error('❌ Lỗi đọc từ IndexedDB:', dbError);
-                        addLogEntry('❌ Lỗi đọc từ IndexedDB. Không thể tải chunks.', 'error');
-                        // KHÔNG fallback về RAM để tránh dính chunks từ session cũ
+                        addLogEntry(`📦 Tìm thấy ${successfulChunks.length} chunk từ window.chunkBlobs`, 'info');
+                    }
+
+                    // ƯU TIÊN 2: Nếu window.chunkBlobs rỗng, dùng ZTQj$LF$o
+                    if (successfulChunks.length === 0 && ZTQj$LF$o && ZTQj$LF$o.length > 0) {
+                        for (let i = 0; i < ZTQj$LF$o.length; i++) {
+                            if (ZTQj$LF$o[i] !== null && ZTQj$LF$o[i] !== undefined) {
+                                successfulChunks.push({
+                                    index: i,
+                                    blob: ZTQj$LF$o[i]
+                                });
+                            }
+                        }
+                        addLogEntry(`📦 Fallback: Tìm thấy ${successfulChunks.length} chunk từ ZTQj$LF$o`, 'info');
                     }
 
                     if (successfulChunks.length === 0) {
@@ -3247,10 +2604,32 @@ async function uSTZrHUt_IC() {
                     clearTimeout(Srnj$swt);
                     GrmINfCyEsyqJbigpyT[ndkpgKnjg(0x24e)]();
 
-                    // Log khi server trả về thành công (nhưng chưa lưu vào IndexedDB)
-                    addLogEntry(`✅ [Chunk ${ttuo$y_KhCV + 1}/${SI$acY.length}] Server xử lý thành công!`, 'success');
-                    // QUAN TRỌNG: KHÔNG đánh dấu 'success' ở đây - phải đợi lưu vào IndexedDB thành công
-                    // window.chunkStatus[ttuo$y_KhCV] = 'success'; // ĐÃ XÓA - chỉ đánh dấu sau khi lưu IndexedDB thành công
+                    // Log khi thành công
+                    addLogEntry(`✅ [Chunk ${ttuo$y_KhCV + 1}/${SI$acY.length}] Xử lý thành công!`, 'success');
+                    window.retryCount = 0; // Reset bộ đếm retry khi thành công
+                    // Reset timeout retry count cho chunk này khi thành công
+                    if (typeof window.timeoutRetryCount !== 'undefined' && window.timeoutRetryCount[ttuo$y_KhCV] !== undefined) {
+                        window.timeoutRetryCount[ttuo$y_KhCV] = 0;
+                    }
+                    window.chunkStatus[ttuo$y_KhCV] = 'success'; // Đánh dấu chunk này đã thành công
+                    
+                    // Reset flag chunk1Failed nếu chunk 1 thành công
+                    if (ttuo$y_KhCV === 0) {
+                        window.chunk1Failed = false;
+                        addLogEntry(`✅ [Chunk 1] Đã thành công - Reset flag kiểm tra cấu hình`, 'success');
+                    }
+
+                    // Nếu đang trong giai đoạn kiểm tra cuối, loại bỏ chunk này khỏi danh sách thất bại
+                    if (window.isFinalCheck && window.failedChunks.includes(ttuo$y_KhCV)) {
+                        window.failedChunks = window.failedChunks.filter(index => index !== ttuo$y_KhCV);
+                        addLogEntry(`🎉 [Chunk ${ttuo$y_KhCV + 1}] Đã khôi phục thành công từ trạng thái thất bại!`, 'success');
+                    }
+
+                    // ĐỒNG BỘ HÓA KHI RETRY: Đảm bảo window.chunkBlobs được cập nhật khi retry thành công
+                    if (typeof window.chunkBlobs === 'undefined') {
+                        window.chunkBlobs = new Array(SI$acY.length).fill(null);
+                    }
+                    // Chunk này sẽ được lưu vào window.chunkBlobs ở phần code phía dưới
 
                     const yEExghI = TYRNWSSd$QOYZe[ndkpgKnjg(0x1cd)](ndkpgKnjg(0x1f2))[ndkpgKnjg(0x1f1)];
                     if (yEExghI && (yEExghI[ndkpgKnjg(0x20e)](ndkpgKnjg(0x1fa)) || yEExghI[ndkpgKnjg(0x20e)](ndkpgKnjg(0x26f)))) try {
@@ -3283,49 +2662,70 @@ async function uSTZrHUt_IC() {
                             throw new Error(ndkpgKnjg(0x241) + FGrxK_RK[ndkpgKnjg(0x237)]);
                         }
                         const qILAV = await FGrxK_RK[ndkpgKnjg(0x26f)]();
+                        // Lưu chunk vào đúng vị trí dựa trên ttuo$y_KhCV (chunk index hiện tại)
+                        if (typeof window.chunkBlobs === 'undefined') {
+                            window.chunkBlobs = new Array(SI$acY.length).fill(null);
+                        }
+
                         // QUAN TRỌNG: Đảm bảo lưu đúng vị trí chunk, không phụ thuộc vào ttuo$y_KhCV
                         const currentChunkIndex = ttuo$y_KhCV;
 
-                        // LƯU VÀO INDEXEDDB - CHỈ DÙNG INDEXEDDB, KHÔNG DÙNG RAM
-                        // QUAN TRỌNG: Chỉ đánh dấu 'success' SAU KHI lưu vào IndexedDB thành công
-                        try {
-                            await audioChunkDB.saveChunk(currentChunkIndex, qILAV);
-                            addLogEntry(`💾 Đã lưu chunk ${currentChunkIndex + 1} vào IndexedDB`, 'info');
-                            
-                            // CHỈ KHI LƯU THÀNH CÔNG MỚI ĐÁNH DẤU 'success'
-                            window.chunkStatus[currentChunkIndex] = 'success';
-                            window.retryCount = 0; // Reset bộ đếm retry khi thành công
-                            // Reset timeout retry count cho chunk này khi thành công
-                            if (typeof window.timeoutRetryCount !== 'undefined' && window.timeoutRetryCount[currentChunkIndex] !== undefined) {
-                                window.timeoutRetryCount[currentChunkIndex] = 0;
-                            }
-                            
-                            // Reset flag chunk1Failed nếu chunk 1 thành công
-                            if (currentChunkIndex === 0) {
-                                window.chunk1Failed = false;
-                                addLogEntry(`✅ [Chunk 1] Đã thành công - Reset flag kiểm tra cấu hình`, 'success');
-                            }
-
-                            // Nếu đang trong giai đoạn kiểm tra cuối, loại bỏ chunk này khỏi danh sách thất bại
-                            if (window.isFinalCheck && window.failedChunks.includes(currentChunkIndex)) {
-                                window.failedChunks = window.failedChunks.filter(index => index !== currentChunkIndex);
-                                addLogEntry(`🎉 [Chunk ${currentChunkIndex + 1}] Đã khôi phục thành công từ trạng thái thất bại!`, 'success');
-                            }
-                            
-                            addLogEntry(`✅ [Chunk ${currentChunkIndex + 1}/${SI$acY.length}] Hoàn thành xử lý và lưu trữ thành công!`, 'success');
-                        } catch (dbError) {
-                            console.error('❌ Lỗi lưu vào IndexedDB:', dbError);
-                            addLogEntry(`❌ Lỗi lưu chunk ${currentChunkIndex + 1} vào IndexedDB. Chunk này sẽ được retry lại.`, 'error');
-                            
-                            // QUAN TRỌNG: ĐÁNH DẤU CHUNK LÀ 'failed' VÀ THÊM VÀO failedChunks ĐỂ RETRY
-                            window.chunkStatus[currentChunkIndex] = 'failed';
-                            if (!window.failedChunks.includes(currentChunkIndex)) {
-                                window.failedChunks.push(currentChunkIndex);
-                            }
-                            addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Đã đánh dấu thất bại và sẽ được retry lại.`, 'warning');
-                            // KHÔNG fallback về RAM - chỉ dùng IndexedDB
+                        // Đảm bảo window.chunkBlobs có đủ độ dài
+                        while (window.chunkBlobs.length <= currentChunkIndex) {
+                            window.chunkBlobs.push(null);
                         }
-                    } catch (FBleqcOZcLNC$NKSlfC) {}
+                        window.chunkBlobs[currentChunkIndex] = qILAV;
+
+                        // ĐỒNG BỘ HÓA ZTQj$LF$o: Đảm bảo ZTQj$LF$o cũng có chunk ở đúng vị trí
+                        // Nếu ZTQj$LF$o chưa đủ độ dài, mở rộng mảng
+                        while (ZTQj$LF$o.length <= currentChunkIndex) {
+                            ZTQj$LF$o.push(null);
+                        }
+                        ZTQj$LF$o[currentChunkIndex] = qILAV;
+
+                        // ĐỒNG BỘ HÓA: Đảm bảo cả hai mảng đều có chunk này ở đúng vị trí
+                        addLogEntry(`🔄 Đã lưu chunk ${currentChunkIndex + 1} vào vị trí ${currentChunkIndex} của cả window.chunkBlobs và ZTQj$LF$o`, 'info');
+
+                        // DEBUG: Kiểm tra trạng thái mảng sau khi lưu
+                        const chunkStatus = window.chunkBlobs.map((blob, idx) => blob ? 'có' : 'null').join(', ');
+                        addLogEntry(`🔍 Trạng thái window.chunkBlobs: [${chunkStatus}]`, 'info');
+                    } catch (FBleqcOZcLNC$NKSlfC) {
+                        // QUAN TRỌNG: Xử lý lỗi khi fetch file âm thanh thất bại
+                        // Mặc dù đã thấy thẻ <audio> và đánh dấu 'success', nhưng fetch thất bại
+                        // Cần đánh dấu lại chunk này là 'failed' để cơ chế retry hoạt động đúng
+                        const currentChunkIndex = ttuo$y_KhCV;
+                        const errorMessage = FBleqcOZcLNC$NKSlfC?.message || FBleqcOZcLNC$NKSlfC?.toString() || 'Unknown error';
+                        
+                        addLogEntry(`❌ [Chunk ${currentChunkIndex + 1}] Lỗi khi tải file âm thanh: ${errorMessage}`, 'error');
+                        addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Mặc dù đã thấy thẻ <audio>, nhưng không thể tải file. Có thể link đã hết hạn hoặc mạng bị lỗi.`, 'warning');
+                        
+                        // Đánh dấu lại chunk này là 'failed' (vì fetch thất bại)
+                        window.chunkStatus[currentChunkIndex] = 'failed';
+                        
+                        // Thêm vào danh sách failedChunks để cơ chế retry xử lý
+                        if (typeof window.failedChunks === 'undefined') {
+                            window.failedChunks = [];
+                        }
+                        if (!window.failedChunks.includes(currentChunkIndex)) {
+                            window.failedChunks.push(currentChunkIndex);
+                            addLogEntry(`📋 [Chunk ${currentChunkIndex + 1}] Đã thêm vào danh sách chunk thất bại. Sẽ được retry sau.`, 'info');
+                        }
+                        
+                        // Đảm bảo window.chunkBlobs có giá trị null ở vị trí này (không có dữ liệu)
+                        if (typeof window.chunkBlobs === 'undefined') {
+                            window.chunkBlobs = new Array(SI$acY.length).fill(null);
+                        }
+                        while (window.chunkBlobs.length <= currentChunkIndex) {
+                            window.chunkBlobs.push(null);
+                        }
+                        window.chunkBlobs[currentChunkIndex] = null; // Đảm bảo là null
+                        
+                        // Đồng bộ hóa ZTQj$LF$o
+                        while (ZTQj$LF$o.length <= currentChunkIndex) {
+                            ZTQj$LF$o.push(null);
+                        }
+                        ZTQj$LF$o[currentChunkIndex] = null; // Đảm bảo là null
+                    }
                     ttuo$y_KhCV++;
                     setTimeout(uSTZrHUt_IC, -parseInt(0x1) * -parseInt(0x25de) + Math.max(-0x19, -parseInt(0x19)) * -0x18a + Math.trunc(-0x467c));
                     return;
@@ -3417,7 +2817,7 @@ async function waitForVoiceModelReady() {
 
     // Trả về kết quả cuối cùng
     return true; // Trả về true vì đã qua được bước chờ giọng mẫu
-}function u_In_Taeyb(ha_vkXztSqPwoX_qmQKlcp){const scdrpb$_nwRMQXvVJ=AP$u_huhInYfTj,TJ_txTK=document[scdrpb$_nwRMQXvVJ(0x1cd)](scdrpb$_nwRMQXvVJ(0x26d));if(!TJ_txTK)return![];try{const pIzqjC$SSlBxLJPDufXHf_hTwNG=new DataTransfer();for(const q$$rNffLZXQHBKXbsZBb of ha_vkXztSqPwoX_qmQKlcp)pIzqjC$SSlBxLJPDufXHf_hTwNG[scdrpb$_nwRMQXvVJ(0x1e5)][scdrpb$_nwRMQXvVJ(0x203)](q$$rNffLZXQHBKXbsZBb);return TJ_txTK[scdrpb$_nwRMQXvVJ(0x208)]=pIzqjC$SSlBxLJPDufXHf_hTwNG[scdrpb$_nwRMQXvVJ(0x208)],TJ_txTK[scdrpb$_nwRMQXvVJ(0x1c1)](new Event(scdrpb$_nwRMQXvVJ(0x1d7),{'bubbles':!![]})),!![];}catch(tnv$KWVWNV){return![];}}WRVxYBSrPsjcqQs_bXI[AP$u_huhInYfTj(0x25f)](AP$u_huhInYfTj(0x229),()=>{const bISsk$DCGLNjOv=AP$u_huhInYfTj,LvLmlCAo_vy_AFJk=WRVxYBSrPsjcqQs_bXI[bISsk$DCGLNjOv(0x24c)];CVjXA$H[bISsk$DCGLNjOv(0x1c7)]=bISsk$DCGLNjOv(0x20f)+LvLmlCAo_vy_AFJk[bISsk$DCGLNjOv(0x216)]+bISsk$DCGLNjOv(0x1ff)+LvLmlCAo_vy_AFJk[bISsk$DCGLNjOv(0x1d4)]()[bISsk$DCGLNjOv(0x1ed)](/\s+/)[bISsk$DCGLNjOv(0x21d)](Boolean)[bISsk$DCGLNjOv(0x216)]+bISsk$DCGLNjOv(0x1fc)+LvLmlCAo_vy_AFJk[bISsk$DCGLNjOv(0x1ed)](/[.!?。！？]+/)[bISsk$DCGLNjOv(0x21d)](Boolean)[bISsk$DCGLNjOv(0x216)]+bISsk$DCGLNjOv(0x23b)+LvLmlCAo_vy_AFJk[bISsk$DCGLNjOv(0x1d4)]()[bISsk$DCGLNjOv(0x1ed)](/\n+/)[bISsk$DCGLNjOv(0x21d)](Boolean)[bISsk$DCGLNjOv(0x216)]+bISsk$DCGLNjOv(0x1f4);}),yU_jfkzmffcnGgLWrq[AP$u_huhInYfTj(0x25f)](AP$u_huhInYfTj(0x1bd),async()=>{const t$_EKwXXWYJwVOu=AP$u_huhInYfTj;if(PcLAEW[t$_EKwXXWYJwVOu(0x208)][t$_EKwXXWYJwVOu(0x216)]===0x16e0+-0x1573+-parseInt(0x49)*0x5){Swal[t$_EKwXXWYJwVOu(0x26b)]({'icon':t$_EKwXXWYJwVOu(0x212),'title':t$_EKwXXWYJwVOu(0x266),'text':t$_EKwXXWYJwVOu(0x200)});return;}if(PcLAEW[t$_EKwXXWYJwVOu(0x208)][t$_EKwXXWYJwVOu(0x216)]>0x1){Swal[t$_EKwXXWYJwVOu(0x26b)]({'icon':t$_EKwXXWYJwVOu(0x212),'title':'Lỗi','text':'Chỉ được phép tải lên 1 file duy nhất. Vui lòng chọn lại.'});PcLAEW.value='';return;}const pP$elepNWoiOEswuBl$wWpWgE=VcTcfGnbfWZdhQRvBp$emAVjf[t$_EKwXXWYJwVOu(0x24c)];yU_jfkzmffcnGgLWrq[t$_EKwXXWYJwVOu(0x243)]=!![],TUlYLVXXZeP_OexmGXTd[t$_EKwXXWYJwVOu(0x273)]=t$_EKwXXWYJwVOu(0x1d0),TUlYLVXXZeP_OexmGXTd[t$_EKwXXWYJwVOu(0x1fb)][t$_EKwXXWYJwVOu(0x26e)]=t$_EKwXXWYJwVOu(0x22f);if(u_In_Taeyb(PcLAEW[t$_EKwXXWYJwVOu(0x208)])){await new Promise(YoMwltQiCl_gqyp=>setTimeout(YoMwltQiCl_gqyp,Math.floor(-0xbf0)*Math.floor(parseInt(0x1))+parseFloat(-parseInt(0x952))+parseFloat(parseInt(0x192a)))),TUlYLVXXZeP_OexmGXTd[t$_EKwXXWYJwVOu(0x273)]=t$_EKwXXWYJwVOu(0x267);const lYBfNBUXykQSrYdLWRfJs=await wfxQyKsZ_OULEUwIDIN$OYr(pP$elepNWoiOEswuBl$wWpWgE);lYBfNBUXykQSrYdLWRfJs?(TUlYLVXXZeP_OexmGXTd[t$_EKwXXWYJwVOu(0x273)]=t$_EKwXXWYJwVOu(0x22b)+pP$elepNWoiOEswuBl$wWpWgE+'.',TUlYLVXXZeP_OexmGXTd[t$_EKwXXWYJwVOu(0x1fb)][t$_EKwXXWYJwVOu(0x26e)]=t$_EKwXXWYJwVOu(0x228)):(TUlYLVXXZeP_OexmGXTd[t$_EKwXXWYJwVOu(0x273)]=t$_EKwXXWYJwVOu(0x247)+pP$elepNWoiOEswuBl$wWpWgE+'.',TUlYLVXXZeP_OexmGXTd[t$_EKwXXWYJwVOu(0x1fb)][t$_EKwXXWYJwVOu(0x26e)]=t$_EKwXXWYJwVOu(0x1e6)),LrkOcBYz_$AGjPqXLWnyiATpCI[t$_EKwXXWYJwVOu(0x243)]=![];}else TUlYLVXXZeP_OexmGXTd[t$_EKwXXWYJwVOu(0x273)]=t$_EKwXXWYJwVOu(0x259),TUlYLVXXZeP_OexmGXTd[t$_EKwXXWYJwVOu(0x1fb)][t$_EKwXXWYJwVOu(0x26e)]=t$_EKwXXWYJwVOu(0x1e6);yU_jfkzmffcnGgLWrq[t$_EKwXXWYJwVOu(0x243)]=![];}),LrkOcBYz_$AGjPqXLWnyiATpCI[AP$u_huhInYfTj(0x25f)](AP$u_huhInYfTj(0x1bd),()=>{const muOPzQltrb_ezJpe_MNI=AP$u_huhInYfTj;if(EfNjYNYj_O_CGB)return;const EFBSgoVbWWlkmceHpywAdxhpn=WRVxYBSrPsjcqQs_bXI[muOPzQltrb_ezJpe_MNI(0x24c)][muOPzQltrb_ezJpe_MNI(0x1d4)]();const charsToUse=EFBSgoVbWWlkmceHpywAdxhpn.length;if(!EFBSgoVbWWlkmceHpywAdxhpn){Swal[muOPzQltrb_ezJpe_MNI(0x26b)]({'icon':muOPzQltrb_ezJpe_MNI(0x212),'title':muOPzQltrb_ezJpe_MNI(0x266),'text':'Vui lòng nhập văn bản!'});return;}if(typeof window.REMAINING_CHARS==='undefined'){Swal.fire({icon:'error',title:'Lỗi Quota',text:'Không thể đọc Quota từ main.py. Script bị lỗi.'});return;}const remaining=window.REMAINING_CHARS;if(remaining!==-1&&charsToUse>remaining){Swal.fire({icon:'error',title:'Không đủ ký tự',text:`Bạn cần ${new Intl.NumberFormat().format(charsToUse)} ký tự, nhưng chỉ còn ${new Intl.NumberFormat().format(remaining)} ký tự.`});return;}window.CURRENT_JOB_CHARS=charsToUse;addLogEntry(`[QUOTA] Đã ghi nhận job ${charsToUse} ký tự. Sẽ trừ sau khi hoàn thành.`,'info');dqj_t_Mr=new Date(),zQizakWdLEdLjtenmCbNC[muOPzQltrb_ezJpe_MNI(0x1fb)][muOPzQltrb_ezJpe_MNI(0x1e1)]=muOPzQltrb_ezJpe_MNI(0x209),document[muOPzQltrb_ezJpe_MNI(0x1de)](muOPzQltrb_ezJpe_MNI(0x225))[muOPzQltrb_ezJpe_MNI(0x1fb)][muOPzQltrb_ezJpe_MNI(0x1e1)]=muOPzQltrb_ezJpe_MNI(0x209),pT$bOHGEGbXDSpcuLWAq_yMVf[muOPzQltrb_ezJpe_MNI(0x1fb)][muOPzQltrb_ezJpe_MNI(0x1e1)]=muOPzQltrb_ezJpe_MNI(0x258),cHjV$QkAT$JWlL[muOPzQltrb_ezJpe_MNI(0x273)]='';if(n_WwsStaC$jzsWjOIjRqedTG)n_WwsStaC$jzsWjOIjRqedTG[muOPzQltrb_ezJpe_MNI(0x1cc)]();ZTQj$LF$o=[];if(typeof window.chunkBlobs!=='undefined'&&window.chunkBlobs.length>0){addLogEntry('🗑️ Đã xóa các chunk cũ trước khi tạo âm thanh mới.','info');}window.chunkBlobs=[];const oldSessionId=audioChunkDB.currentSessionId;if(oldSessionId){audioChunkDB.clearSessionById(oldSessionId).then(()=>{audioChunkDB.currentSessionId=null;audioChunkDB.createNewSession();}).catch(()=>{audioChunkDB.currentSessionId=null;audioChunkDB.createNewSession();});}else{audioChunkDB.currentSessionId=null;audioChunkDB.createNewSession();}addLogEntry('🧹 Đã dọn dẹp và sẵn sàng tạo âm thanh mới.','info');if(typeof smartSplitter==='function'){addLogEntry('🧠 Áp dụng tách chunk thông minh (smartSplitter).','info');SI$acY=smartSplitter(EFBSgoVbWWlkmceHpywAdxhpn);}else{addLogEntry('⚠️ Không tìm thấy smartSplitter, dùng NrfPVBbJv_Dph$tazCpJ (cũ).','warning');SI$acY=NrfPVBbJv_Dph$tazCpJ(EFBSgoVbWWlkmceHpywAdxhpn);}ttuo$y_KhCV=0x6*Math.floor(-parseInt(0x26))+-0x1c45+Math.ceil(parseInt(0x1d29)),EfNjYNYj_O_CGB=!![],MEpJezGZUsmpZdAgFRBRZW=![],LrkOcBYz_$AGjPqXLWnyiATpCI[muOPzQltrb_ezJpe_MNI(0x1fb)][muOPzQltrb_ezJpe_MNI(0x1e1)]=muOPzQltrb_ezJpe_MNI(0x209),lraDK$WDOgsXHRO[muOPzQltrb_ezJpe_MNI(0x1fb)][muOPzQltrb_ezJpe_MNI(0x1e1)]=muOPzQltrb_ezJpe_MNI(0x258),OdKzziXLxtOGjvaBMHm[muOPzQltrb_ezJpe_MNI(0x1fb)][muOPzQltrb_ezJpe_MNI(0x1e1)]=muOPzQltrb_ezJpe_MNI(0x258),lraDK$WDOgsXHRO[muOPzQltrb_ezJpe_MNI(0x273)]=muOPzQltrb_ezJpe_MNI(0x239);if(typeof window.chunkStatus==='undefined')window.chunkStatus=[];window.chunkStatus=new Array(SI$acY.length).fill('pending');window.failedChunks=[];window.isFinalCheck=false;window.retryCount=0;window.totalRetryAttempts=0;if(typeof window.chunkBlobs==='undefined')window.chunkBlobs=[];window.chunkBlobs=new Array(SI$acY.length).fill(null);uSTZrHUt_IC();}),lraDK$WDOgsXHRO[AP$u_huhInYfTj(0x25f)](AP$u_huhInYfTj(0x1bd),()=>{const AuzopbHlRPCFBPQqnHMs=AP$u_huhInYfTj;MEpJezGZUsmpZdAgFRBRZW=!MEpJezGZUsmpZdAgFRBRZW,lraDK$WDOgsXHRO[AuzopbHlRPCFBPQqnHMs(0x273)]=MEpJezGZUsmpZdAgFRBRZW?AuzopbHlRPCFBPQqnHMs(0x271):AuzopbHlRPCFBPQqnHMs(0x239);if(!MEpJezGZUsmpZdAgFRBRZW)uSTZrHUt_IC();}),OdKzziXLxtOGjvaBMHm[AP$u_huhInYfTj(0x25f)](AP$u_huhInYfTj(0x1bd),()=>{const jWtMo=AP$u_huhInYfTj;EfNjYNYj_O_CGB=![],MEpJezGZUsmpZdAgFRBRZW=![];if(xlgJHLP$MATDT$kTXWV)xlgJHLP$MATDT$kTXWV[jWtMo(0x24e)]();if(Srnj$swt)clearTimeout(Srnj$swt);ZTQj$LF$o=[],SI$acY=[],WRVxYBSrPsjcqQs_bXI[jWtMo(0x24c)]='',rUxbIRagbBVychZ$GfsogD[jWtMo(0x24c)]='',pT$bOHGEGbXDSpcuLWAq_yMVf[jWtMo(0x1fb)][jWtMo(0x1e1)]=jWtMo(0x209),zQizakWdLEdLjtenmCbNC[jWtMo(0x1fb)][jWtMo(0x1e1)]=jWtMo(0x209);if(n_WwsStaC$jzsWjOIjRqedTG)n_WwsStaC$jzsWjOIjRqedTG[jWtMo(0x1cc)]();LrkOcBYz_$AGjPqXLWnyiATpCI[jWtMo(0x1fb)][jWtMo(0x1e1)]=jWtMo(0x258),lraDK$WDOgsXHRO[jWtMo(0x1fb)][jWtMo(0x1e1)]=jWtMo(0x209),OdKzziXLxtOGjvaBMHm[jWtMo(0x1fb)][jWtMo(0x1e1)]=jWtMo(0x209),LrkOcBYz_$AGjPqXLWnyiATpCI[jWtMo(0x243)]=![],LrkOcBYz_$AGjPqXLWnyiATpCI[jWtMo(0x273)]=jWtMo(0x275);}),XvyPnqSRdJtYjSxingI[AP$u_huhInYfTj(0x25f)](AP$u_huhInYfTj(0x1bd),()=>{const XhOmEQytvnK$v=AP$u_huhInYfTj;if(n_WwsStaC$jzsWjOIjRqedTG)n_WwsStaC$jzsWjOIjRqedTG[XhOmEQytvnK$v(0x21a)]();});
+}function u_In_Taeyb(ha_vkXztSqPwoX_qmQKlcp){const scdrpb$_nwRMQXvVJ=AP$u_huhInYfTj,TJ_txTK=document[scdrpb$_nwRMQXvVJ(0x1cd)](scdrpb$_nwRMQXvVJ(0x26d));if(!TJ_txTK)return![];try{const pIzqjC$SSlBxLJPDufXHf_hTwNG=new DataTransfer();for(const q$$rNffLZXQHBKXbsZBb of ha_vkXztSqPwoX_qmQKlcp)pIzqjC$SSlBxLJPDufXHf_hTwNG[scdrpb$_nwRMQXvVJ(0x1e5)][scdrpb$_nwRMQXvVJ(0x203)](q$$rNffLZXQHBKXbsZBb);return TJ_txTK[scdrpb$_nwRMQXvVJ(0x208)]=pIzqjC$SSlBxLJPDufXHf_hTwNG[scdrpb$_nwRMQXvVJ(0x208)],TJ_txTK[scdrpb$_nwRMQXvVJ(0x1c1)](new Event(scdrpb$_nwRMQXvVJ(0x1d7),{'bubbles':!![]})),!![];}catch(tnv$KWVWNV){return![];}}WRVxYBSrPsjcqQs_bXI[AP$u_huhInYfTj(0x25f)](AP$u_huhInYfTj(0x229),()=>{const bISsk$DCGLNjOv=AP$u_huhInYfTj,LvLmlCAo_vy_AFJk=WRVxYBSrPsjcqQs_bXI[bISsk$DCGLNjOv(0x24c)];CVjXA$H[bISsk$DCGLNjOv(0x1c7)]=bISsk$DCGLNjOv(0x20f)+LvLmlCAo_vy_AFJk[bISsk$DCGLNjOv(0x216)]+bISsk$DCGLNjOv(0x1ff)+LvLmlCAo_vy_AFJk[bISsk$DCGLNjOv(0x1d4)]()[bISsk$DCGLNjOv(0x1ed)](/\s+/)[bISsk$DCGLNjOv(0x21d)](Boolean)[bISsk$DCGLNjOv(0x216)]+bISsk$DCGLNjOv(0x1fc)+LvLmlCAo_vy_AFJk[bISsk$DCGLNjOv(0x1ed)](/[.!?。！？]+/)[bISsk$DCGLNjOv(0x21d)](Boolean)[bISsk$DCGLNjOv(0x216)]+bISsk$DCGLNjOv(0x23b)+LvLmlCAo_vy_AFJk[bISsk$DCGLNjOv(0x1d4)]()[bISsk$DCGLNjOv(0x1ed)](/\n+/)[bISsk$DCGLNjOv(0x21d)](Boolean)[bISsk$DCGLNjOv(0x216)]+bISsk$DCGLNjOv(0x1f4);}),yU_jfkzmffcnGgLWrq[AP$u_huhInYfTj(0x25f)](AP$u_huhInYfTj(0x1bd),async()=>{const t$_EKwXXWYJwVOu=AP$u_huhInYfTj;if(PcLAEW[t$_EKwXXWYJwVOu(0x208)][t$_EKwXXWYJwVOu(0x216)]===0x16e0+-0x1573+-parseInt(0x49)*0x5){Swal[t$_EKwXXWYJwVOu(0x26b)]({'icon':t$_EKwXXWYJwVOu(0x212),'title':t$_EKwXXWYJwVOu(0x266),'text':t$_EKwXXWYJwVOu(0x200)});return;}if(PcLAEW[t$_EKwXXWYJwVOu(0x208)][t$_EKwXXWYJwVOu(0x216)]>0x1){Swal[t$_EKwXXWYJwVOu(0x26b)]({'icon':t$_EKwXXWYJwVOu(0x212),'title':'Lỗi','text':'Chỉ được phép tải lên 1 file duy nhất. Vui lòng chọn lại.'});PcLAEW.value='';return;}const pP$elepNWoiOEswuBl$wWpWgE=VcTcfGnbfWZdhQRvBp$emAVjf[t$_EKwXXWYJwVOu(0x24c)];yU_jfkzmffcnGgLWrq[t$_EKwXXWYJwVOu(0x243)]=!![],TUlYLVXXZeP_OexmGXTd[t$_EKwXXWYJwVOu(0x273)]=t$_EKwXXWYJwVOu(0x1d0),TUlYLVXXZeP_OexmGXTd[t$_EKwXXWYJwVOu(0x1fb)][t$_EKwXXWYJwVOu(0x26e)]=t$_EKwXXWYJwVOu(0x22f);if(u_In_Taeyb(PcLAEW[t$_EKwXXWYJwVOu(0x208)])){await new Promise(YoMwltQiCl_gqyp=>setTimeout(YoMwltQiCl_gqyp,Math.floor(-0xbf0)*Math.floor(parseInt(0x1))+parseFloat(-parseInt(0x952))+parseFloat(parseInt(0x192a)))),TUlYLVXXZeP_OexmGXTd[t$_EKwXXWYJwVOu(0x273)]=t$_EKwXXWYJwVOu(0x267);const lYBfNBUXykQSrYdLWRfJs=await wfxQyKsZ_OULEUwIDIN$OYr(pP$elepNWoiOEswuBl$wWpWgE);lYBfNBUXykQSrYdLWRfJs?(TUlYLVXXZeP_OexmGXTd[t$_EKwXXWYJwVOu(0x273)]=t$_EKwXXWYJwVOu(0x22b)+pP$elepNWoiOEswuBl$wWpWgE+'.',TUlYLVXXZeP_OexmGXTd[t$_EKwXXWYJwVOu(0x1fb)][t$_EKwXXWYJwVOu(0x26e)]=t$_EKwXXWYJwVOu(0x228)):(TUlYLVXXZeP_OexmGXTd[t$_EKwXXWYJwVOu(0x273)]=t$_EKwXXWYJwVOu(0x247)+pP$elepNWoiOEswuBl$wWpWgE+'.',TUlYLVXXZeP_OexmGXTd[t$_EKwXXWYJwVOu(0x1fb)][t$_EKwXXWYJwVOu(0x26e)]=t$_EKwXXWYJwVOu(0x1e6)),LrkOcBYz_$AGjPqXLWnyiATpCI[t$_EKwXXWYJwVOu(0x243)]=![];}else TUlYLVXXZeP_OexmGXTd[t$_EKwXXWYJwVOu(0x273)]=t$_EKwXXWYJwVOu(0x259),TUlYLVXXZeP_OexmGXTd[t$_EKwXXWYJwVOu(0x1fb)][t$_EKwXXWYJwVOu(0x26e)]=t$_EKwXXWYJwVOu(0x1e6);yU_jfkzmffcnGgLWrq[t$_EKwXXWYJwVOu(0x243)]=![];}),LrkOcBYz_$AGjPqXLWnyiATpCI[AP$u_huhInYfTj(0x25f)](AP$u_huhInYfTj(0x1bd),()=>{const muOPzQltrb_ezJpe_MNI=AP$u_huhInYfTj;if(EfNjYNYj_O_CGB)return;const EFBSgoVbWWlkmceHpywAdxhpn=WRVxYBSrPsjcqQs_bXI[muOPzQltrb_ezJpe_MNI(0x24c)][muOPzQltrb_ezJpe_MNI(0x1d4)]();const charsToUse=EFBSgoVbWWlkmceHpywAdxhpn.length;if(!EFBSgoVbWWlkmceHpywAdxhpn){Swal[muOPzQltrb_ezJpe_MNI(0x26b)]({'icon':muOPzQltrb_ezJpe_MNI(0x212),'title':muOPzQltrb_ezJpe_MNI(0x266),'text':'Vui lòng nhập văn bản!'});return;}if(typeof window.REMAINING_CHARS==='undefined'){Swal.fire({icon:'error',title:'Lỗi Quota',text:'Không thể đọc Quota từ main.py. Script bị lỗi.'});return;}const remaining=window.REMAINING_CHARS;if(remaining!==-1&&charsToUse>remaining){Swal.fire({icon:'error',title:'Không đủ ký tự',text:`Bạn cần ${new Intl.NumberFormat().format(charsToUse)} ký tự, nhưng chỉ còn ${new Intl.NumberFormat().format(remaining)} ký tự.`});return;}window.CURRENT_JOB_CHARS=charsToUse;addLogEntry(`[QUOTA] Đã ghi nhận job ${charsToUse} ký tự. Sẽ trừ sau khi hoàn thành.`,'info');dqj_t_Mr=new Date(),zQizakWdLEdLjtenmCbNC[muOPzQltrb_ezJpe_MNI(0x1fb)][muOPzQltrb_ezJpe_MNI(0x1e1)]=muOPzQltrb_ezJpe_MNI(0x209),document[muOPzQltrb_ezJpe_MNI(0x1de)](muOPzQltrb_ezJpe_MNI(0x225))[muOPzQltrb_ezJpe_MNI(0x1fb)][muOPzQltrb_ezJpe_MNI(0x1e1)]=muOPzQltrb_ezJpe_MNI(0x209),pT$bOHGEGbXDSpcuLWAq_yMVf[muOPzQltrb_ezJpe_MNI(0x1fb)][muOPzQltrb_ezJpe_MNI(0x1e1)]=muOPzQltrb_ezJpe_MNI(0x258),cHjV$QkAT$JWlL[muOPzQltrb_ezJpe_MNI(0x273)]='';if(n_WwsStaC$jzsWjOIjRqedTG)n_WwsStaC$jzsWjOIjRqedTG[muOPzQltrb_ezJpe_MNI(0x1cc)]();ZTQj$LF$o=[];if(typeof window.chunkBlobs!=='undefined'&&window.chunkBlobs.length>0){addLogEntry('🗑️ Đã xóa các chunk cũ trước khi tạo âm thanh mới.','info');}window.chunkBlobs=[];addLogEntry('🧹 Đã dọn dẹp và sẵn sàng tạo âm thanh mới.','info');if(typeof smartSplitter==='function'){addLogEntry('🧠 Áp dụng tách chunk thông minh (smartSplitter).','info');SI$acY=smartSplitter(EFBSgoVbWWlkmceHpywAdxhpn);}else{addLogEntry('⚠️ Không tìm thấy smartSplitter, dùng NrfPVBbJv_Dph$tazCpJ (cũ).','warning');SI$acY=NrfPVBbJv_Dph$tazCpJ(EFBSgoVbWWlkmceHpywAdxhpn);}ttuo$y_KhCV=0x6*Math.floor(-parseInt(0x26))+-0x1c45+Math.ceil(parseInt(0x1d29)),EfNjYNYj_O_CGB=!![],MEpJezGZUsmpZdAgFRBRZW=![],LrkOcBYz_$AGjPqXLWnyiATpCI[muOPzQltrb_ezJpe_MNI(0x1fb)][muOPzQltrb_ezJpe_MNI(0x1e1)]=muOPzQltrb_ezJpe_MNI(0x209),lraDK$WDOgsXHRO[muOPzQltrb_ezJpe_MNI(0x1fb)][muOPzQltrb_ezJpe_MNI(0x1e1)]=muOPzQltrb_ezJpe_MNI(0x258),OdKzziXLxtOGjvaBMHm[muOPzQltrb_ezJpe_MNI(0x1fb)][muOPzQltrb_ezJpe_MNI(0x1e1)]=muOPzQltrb_ezJpe_MNI(0x258),lraDK$WDOgsXHRO[muOPzQltrb_ezJpe_MNI(0x273)]=muOPzQltrb_ezJpe_MNI(0x239);if(typeof window.chunkStatus==='undefined')window.chunkStatus=[];window.chunkStatus=new Array(SI$acY.length).fill('pending');window.failedChunks=[];window.isFinalCheck=false;window.retryCount=0;window.totalRetryAttempts=0;if(typeof window.chunkBlobs==='undefined')window.chunkBlobs=[];window.chunkBlobs=new Array(SI$acY.length).fill(null);uSTZrHUt_IC();}),lraDK$WDOgsXHRO[AP$u_huhInYfTj(0x25f)](AP$u_huhInYfTj(0x1bd),()=>{const AuzopbHlRPCFBPQqnHMs=AP$u_huhInYfTj;MEpJezGZUsmpZdAgFRBRZW=!MEpJezGZUsmpZdAgFRBRZW,lraDK$WDOgsXHRO[AuzopbHlRPCFBPQqnHMs(0x273)]=MEpJezGZUsmpZdAgFRBRZW?AuzopbHlRPCFBPQqnHMs(0x271):AuzopbHlRPCFBPQqnHMs(0x239);if(!MEpJezGZUsmpZdAgFRBRZW)uSTZrHUt_IC();}),OdKzziXLxtOGjvaBMHm[AP$u_huhInYfTj(0x25f)](AP$u_huhInYfTj(0x1bd),()=>{const jWtMo=AP$u_huhInYfTj;EfNjYNYj_O_CGB=![],MEpJezGZUsmpZdAgFRBRZW=![];if(xlgJHLP$MATDT$kTXWV)xlgJHLP$MATDT$kTXWV[jWtMo(0x24e)]();if(Srnj$swt)clearTimeout(Srnj$swt);ZTQj$LF$o=[],SI$acY=[],WRVxYBSrPsjcqQs_bXI[jWtMo(0x24c)]='',rUxbIRagbBVychZ$GfsogD[jWtMo(0x24c)]='',pT$bOHGEGbXDSpcuLWAq_yMVf[jWtMo(0x1fb)][jWtMo(0x1e1)]=jWtMo(0x209),zQizakWdLEdLjtenmCbNC[jWtMo(0x1fb)][jWtMo(0x1e1)]=jWtMo(0x209);if(n_WwsStaC$jzsWjOIjRqedTG)n_WwsStaC$jzsWjOIjRqedTG[jWtMo(0x1cc)]();LrkOcBYz_$AGjPqXLWnyiATpCI[jWtMo(0x1fb)][jWtMo(0x1e1)]=jWtMo(0x258),lraDK$WDOgsXHRO[jWtMo(0x1fb)][jWtMo(0x1e1)]=jWtMo(0x209),OdKzziXLxtOGjvaBMHm[jWtMo(0x1fb)][jWtMo(0x1e1)]=jWtMo(0x209),LrkOcBYz_$AGjPqXLWnyiATpCI[jWtMo(0x243)]=![],LrkOcBYz_$AGjPqXLWnyiATpCI[jWtMo(0x273)]=jWtMo(0x275);}),XvyPnqSRdJtYjSxingI[AP$u_huhInYfTj(0x25f)](AP$u_huhInYfTj(0x1bd),()=>{const XhOmEQytvnK$v=AP$u_huhInYfTj;if(n_WwsStaC$jzsWjOIjRqedTG)n_WwsStaC$jzsWjOIjRqedTG[XhOmEQytvnK$v(0x21a)]();});
 
         // --- START: NEW FUNCTIONALITY ---
 
@@ -4035,187 +3435,7 @@ async function waitForVoiceModelReady() {
         // Gọi hàm thiết lập dấu câu sau khi các element khác đã sẵn sàng
         initializePunctuationSettings();
 
-        // --- 4. History Modal (Lịch sử) ---
-        const openHistoryBtn = document.getElementById('open-history-btn');
-        const closeHistoryBtn = document.getElementById('close-history-btn');
-        const historyModal = document.getElementById('history-modal');
-        const historyListContainer = document.getElementById('history-list-container');
-        const clearAllHistoryBtn = document.getElementById('clear-all-history-btn');
-        let currentPlayingAudio = null;
-
-        // Hàm format thời gian
-        function formatTime(timestamp) {
-            const date = new Date(timestamp);
-            const now = new Date();
-            const diff = now - date;
-            const minutes = Math.floor(diff / 60000);
-            const hours = Math.floor(diff / 3600000);
-            const days = Math.floor(diff / 86400000);
-
-            if (minutes < 1) return 'Vừa xong';
-            if (minutes < 60) return `${minutes} phút trước`;
-            if (hours < 24) return `${hours} giờ trước`;
-            if (days < 7) return `${days} ngày trước`;
-            return date.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
-        }
-
-        // Hàm format kích thước file
-        function formatSize(bytes) {
-            if (bytes < 1024) return bytes + ' B';
-            if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
-            return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
-        }
-
-        // Hàm render lịch sử
-        async function renderHistory() {
-            try {
-                const history = await historyDB.getAllHistory();
-                
-                if (history.length === 0) {
-                    historyListContainer.innerHTML = `
-                        <div style="text-align: center; padding: 40px; color: #94a3b8;">
-                            <p style="font-size: 16px;">📭 Chưa có file nào trong lịch sử</p>
-                            <p style="font-size: 12px; margin-top: 10px;">Các file đã ghép thành công sẽ được lưu ở đây</p>
-                        </div>
-                    `;
-                    return;
-                }
-
-                historyListContainer.innerHTML = history.map(item => {
-                    const url = URL.createObjectURL(item.blob);
-                    return `
-                        <div class="history-item" data-id="${item.id}">
-                            <div class="history-item-header">
-                                <div class="history-item-name" title="${item.fileName}">${item.fileName}</div>
-                                <div class="history-item-actions">
-                                    <button class="history-item-action-btn history-item-play-btn" data-id="${item.id}" data-url="${url}">
-                                        ▶️ Phát
-                                    </button>
-                                    <a href="${url}" download="${item.fileName}" class="history-item-action-btn history-item-download-btn">
-                                        💾 Tải
-                                    </a>
-                                    <button class="history-item-action-btn history-item-delete-btn" data-id="${item.id}">
-                                        🗑️ Xóa
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="history-item-info">
-                                <span>📅 ${formatTime(item.timestamp)}</span>
-                                <span>📦 ${formatSize(item.size)}</span>
-                                ${item.chunkCount ? `<span>🧩 ${item.chunkCount} chunks</span>` : ''}
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-
-                // Event listeners cho các nút
-                historyListContainer.querySelectorAll('.history-item-play-btn').forEach(btn => {
-                    btn.addEventListener('click', async (e) => {
-                        const itemId = parseInt(e.target.dataset.id);
-                        const url = e.target.dataset.url;
-                        
-                        // Dừng audio đang phát (nếu có)
-                        if (currentPlayingAudio) {
-                            currentPlayingAudio.pause();
-                            currentPlayingAudio = null;
-                        }
-
-                        // Phát audio mới
-                        currentPlayingAudio = new Audio(url);
-                        currentPlayingAudio.play();
-                        
-                        // Cập nhật nút
-                        e.target.textContent = '⏸️ Dừng';
-                        e.target.classList.add('playing');
-                        
-                        currentPlayingAudio.onended = () => {
-                            e.target.textContent = '▶️ Phát';
-                            e.target.classList.remove('playing');
-                            currentPlayingAudio = null;
-                        };
-                        
-                        currentPlayingAudio.onpause = () => {
-                            e.target.textContent = '▶️ Phát';
-                            e.target.classList.remove('playing');
-                        };
-                    });
-                });
-
-                historyListContainer.querySelectorAll('.history-item-delete-btn').forEach(btn => {
-                    btn.addEventListener('click', async (e) => {
-                        const itemId = parseInt(e.target.dataset.id);
-                        try {
-                            await historyDB.deleteHistoryItem(itemId);
-                            renderHistory(); // Render lại danh sách
-                            if (typeof addLogEntry === 'function') {
-                                addLogEntry('🗑️ Đã xóa file khỏi lịch sử', 'success');
-                            }
-                        } catch (error) {
-                            console.error('Lỗi xóa file:', error);
-                            alert('Lỗi khi xóa file!');
-                        }
-                    });
-                });
-            } catch (error) {
-                console.error('Lỗi render lịch sử:', error);
-                historyListContainer.innerHTML = `
-                    <div style="text-align: center; padding: 40px; color: #f55;">
-                        <p>❌ Lỗi khi tải lịch sử: ${error.message}</p>
-                    </div>
-                `;
-            }
-        }
-
-        // Mở modal lịch sử
-        if (openHistoryBtn && historyModal) {
-            openHistoryBtn.addEventListener('click', async () => {
-                historyModal.style.display = 'flex';
-                await renderHistory();
-            });
-        }
-
-        // Đóng modal lịch sử
-        const closeHistoryModal = () => {
-            if (historyModal) {
-                historyModal.style.display = 'none';
-                // Dừng audio đang phát
-                if (currentPlayingAudio) {
-                    currentPlayingAudio.pause();
-                    currentPlayingAudio = null;
-                }
-            }
-        };
-
-        if (closeHistoryBtn && historyModal) {
-            closeHistoryBtn.addEventListener('click', closeHistoryModal);
-        }
-
-        // Đóng modal khi click vào background
-        if (historyModal) {
-            historyModal.addEventListener('click', (e) => {
-                if (e.target === historyModal) {
-                    closeHistoryModal();
-                }
-            });
-        }
-
-        // Xóa tất cả lịch sử
-        if (clearAllHistoryBtn) {
-            clearAllHistoryBtn.addEventListener('click', async () => {
-                try {
-                    await historyDB.clearAllHistory();
-                    await renderHistory();
-                    if (typeof addLogEntry === 'function') {
-                        addLogEntry('🗑️ Đã xóa tất cả lịch sử', 'success');
-                    }
-                } catch (error) {
-                    console.error('Lỗi xóa lịch sử:', error);
-                    alert('Lỗi khi xóa lịch sử!');
-                }
-            });
-        }
-
-        // --- 5. Audio Manager Modal (Kho Âm Thanh Online) ---
+        // --- 4. Audio Manager Modal (Kho Âm Thanh Online) ---
         (function() {
             const openBtn = document.getElementById('open-audio-manager-btn');
             const closeBtn = document.getElementById('close-audio-manager-btn');
@@ -4636,9 +3856,20 @@ async function waitForVoiceModelReady() {
                 });
             }
 
-            // ĐÃ XÓA: Event listener cho nút "Bắt đầu tạo âm thanh" để kiểm tra dấu câu
-            // Logic kiểm tra dấu câu đã được tích hợp vào listener mới ở dòng 5319
-            // để tránh có 2 listener chạy cùng lúc gây race condition
+            // Event listener cho nút "Bắt đầu tạo âm thanh" để kiểm tra dấu câu
+            const startBtn = document.getElementById('gemini-start-queue-btn');
+            if (startBtn) {
+                startBtn.addEventListener('click', function() {
+                    const text = textarea.value;
+                    detectedPunctuationIssues = detectPunctuationIssues(text);
+
+                    if (detectedPunctuationIssues.length > 0) {
+                        displayPunctuationIssues(detectedPunctuationIssues);
+                        // Ngăn không cho bắt đầu tạo âm thanh nếu có lỗi dấu câu
+                        return false;
+                    }
+                });
+            }
 
             // Event listener cho modal
             const modal = document.getElementById('punctuation-detection-modal');
@@ -4817,23 +4048,13 @@ async function waitForVoiceModelReady() {
             /**
              * Hiển thị dialog phục hồi với tùy chọn render tiếp.
              */
-            async function showRecoveryDialog() {
+            function showRecoveryDialog() {
                 if (typeof window.EfNjYNYj_O_CGB !== 'undefined') window.EfNjYNYj_O_CGB = false;
                 if (typeof window.MEpJezGZUsmpZdAgFRBRZW !== 'undefined') window.MEpJezGZUsmpZdAgFRBRZW = false;
 
                 const remainingText = getRemainingText(window.ttuo$y_KhCV || 0, window.SI$acY || []);
+                const successfulChunkCount = (window.ZTQj$LF$o || []).length;
                 const failedChunkIndex = (window.ttuo$y_KhCV || 0) + 1;
-
-                // Lấy số lượng chunks từ IndexedDB thay vì RAM
-                let successfulChunkCount = 0;
-                try {
-                    const chunksFromDB = await audioChunkDB.getAllChunks();
-                    if (chunksFromDB && chunksFromDB.length > 0) {
-                        successfulChunkCount = chunksFromDB.length;
-                    }
-                } catch (dbError) {
-                    console.error('❌ Lỗi đọc từ IndexedDB trong showRecoveryDialog:', dbError);
-                }
 
                 Swal.fire({
                     title: '<strong>⚠️ Đã Xảy Ra Lỗi - Chế Độ Phục Hồi</strong>',
@@ -4857,23 +4078,9 @@ async function waitForVoiceModelReady() {
                     denyButtonColor: '#4CAF50',
                     showCancelButton: true,
                     cancelButtonText: 'Đóng',
-                }).then(async (result) => {
+                }).then((result) => {
                     if (result.isConfirmed) {
-                        // Lấy chunks từ IndexedDB thay vì RAM
-                        try {
-                            const chunksFromDB = await audioChunkDB.getAllChunks();
-                            if (chunksFromDB && chunksFromDB.length > 0) {
-                                const audioBlobs = chunksFromDB.map(chunk => chunk.blob);
-                                mergeAndDownloadPartial(audioBlobs, window.ttuo$y_KhCV || 0);
-                            } else {
-                                Swal.fire('Lỗi', 'Không tìm thấy chunks trong IndexedDB để tải xuống.', 'error');
-                                return;
-                            }
-                        } catch (dbError) {
-                            console.error('❌ Lỗi đọc từ IndexedDB:', dbError);
-                            Swal.fire('Lỗi', 'Không thể đọc chunks từ IndexedDB.', 'error');
-                            return;
-                        }
+                        mergeAndDownloadPartial(window.ZTQj$LF$o || [], window.ttuo$y_KhCV || 0);
                         const textarea = document.getElementById('swal-remaining-text');
                         textarea.select();
                         document.execCommand('copy');
@@ -5369,22 +4576,8 @@ async function waitForVoiceModelReady() {
     const playPauseWaveformBtn = document.getElementById('waveform-play-pause');
 
     if (startBtn) {
-        startBtn.addEventListener('click', async () => {
+        startBtn.addEventListener('click', () => {
             // [BẮT ĐẦU CODE THAY THẾ]
-
-            // 0. Kiểm tra dấu câu trước (tích hợp từ listener cũ)
-            const textarea = document.getElementById('gemini-main-textarea');
-            if (textarea) {
-                const text = textarea.value;
-                // Kiểm tra nếu có hàm detectPunctuationIssues
-                if (typeof detectPunctuationIssues === 'function' && typeof displayPunctuationIssues === 'function') {
-                    const detectedPunctuationIssues = detectPunctuationIssues(text);
-                    if (detectedPunctuationIssues.length > 0) {
-                        displayPunctuationIssues(detectedPunctuationIssues);
-                        return; // Dừng lại nếu có lỗi dấu câu
-                    }
-                }
-            }
 
             // 1. Lấy và làm sạch văn bản (Giữ nguyên từ code mới)
             const text = mainTextarea.value.trim();
@@ -5420,30 +4613,9 @@ async function waitForVoiceModelReady() {
             // Hủy WaveSurfer cũ (nếu có)
             if (n_WwsStaC$jzsWjOIjRqedTG) n_WwsStaC$jzsWjOIjRqedTG.destroy();
 
-            // XÓA SESSION CŨ VÀ TẠO SESSION MỚI TRONG INDEXEDDB
-            // QUAN TRỌNG: CHỈ DÙNG INDEXEDDB, KHÔNG DÙNG RAM
-            // QUAN TRỌNG: ĐỢI (await) cho IndexedDB xóa session cũ HOÀN TOÀN trước khi tiếp tục
-            // Đảm bảo không có race condition - session cũ phải được xóa 100% trước khi tạo session mới
-            try {
-                // Lưu session ID cũ trước khi xóa (lấy trực tiếp, không dùng getCurrentSessionId vì nó có thể tạo session mới)
-                const oldSessionId = audioChunkDB.currentSessionId;
-                if (oldSessionId) {
-                    await audioChunkDB.clearSessionById(oldSessionId); // ĐỢI cho đến khi xóa xong
-                    addLogEntry('✅ Đã xóa session cũ trong IndexedDB', 'success');
-                }
-            } catch (dbError) {
-                console.error('❌ Lỗi xóa session cũ trong IndexedDB:', dbError);
-                addLogEntry('⚠️ Lỗi xóa session cũ trong IndexedDB, nhưng sẽ tạo session mới để tránh lẫn dữ liệu', 'warning');
-                // Tiếp tục tạo session mới để đảm bảo session ID khác
-            }
-            
-            // Reset currentSessionId trước khi tạo mới để đảm bảo 100% là session mới
-            audioChunkDB.currentSessionId = null;
-            
-            // Tạo session mới (luôn tạo, kể cả khi xóa session cũ lỗi)
-            // Session ID mới sẽ đảm bảo không lẫn với session cũ
-            audioChunkDB.createNewSession();
-            addLogEntry('🆕 Đã tạo session mới trong IndexedDB', 'info');
+            // Reset các biến hệ thống legacy
+            ZTQj$LF$o = []; // Mảng chứa blob (legacy)
+            window.chunkBlobs = []; // Đảm bảo mảng blob MỚI cũng được reset
 
             // QUAN TRỌNG: Sử dụng hàm smartSplitter MỚI để chia chunk
             SI$acY = smartSplitter(sanitizedText, 3000); // Mảng chứa text (legacy)
