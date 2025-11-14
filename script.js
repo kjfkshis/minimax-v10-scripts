@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DUC LOI - Clone Voice (Không cần API) - Modded
 // @namespace    mmx-secure
-// @version      22.0
+// @version      21.0
 // @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại, Đổi văn bản hàng loạt & Thiết lập dấu câu (bao gồm dấu xuống dòng).
 // @author       HUỲNH ĐỨC LỢI ( Zalo: 0835795597) - Đã chỉnh sửa
 // @match        https://www.minimax.io/audio*
@@ -1013,7 +1013,7 @@ button:disabled {
         
         <div id="gemini-quota-display" style="color: #8be9fd; font-weight: bold; margin-left: 15px; margin-top: 10px; font-size: 14px;">Đang tải quota...</div>
         </div> 
-    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 22.0 - Update: 27/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div id="gemini-col-2-left">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
+    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 21.0 - Update: 27/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div id="gemini-col-2-left">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
     <div class="text-input-options">
         <div class="input-tabs">
             <button id="text-tab" class="tab-btn active">Nhập trực tiếp</button>
@@ -1352,160 +1352,6 @@ button:disabled {
         }
     });
 
-// =======================================================
-// == PHẦN QUẢN LÝ INDEXEDDB CHO CHUNKS ==
-// =======================================================
-
-const CHUNK_DB_NAME = 'AudioChunksDB';
-const CHUNK_STORE_NAME = 'chunks';
-const DB_VERSION = 1;
-
-/**
- * Mở kết nối IndexedDB để lưu trữ chunks
- * @returns {Promise<IDBDatabase>}
- */
-function openChunkDB() {
-    return new Promise((resolve, reject) => {
-        const request = indexedDB.open(CHUNK_DB_NAME, DB_VERSION);
-        
-        request.onerror = () => {
-            addLogEntry('❌ Lỗi mở IndexedDB: ' + request.error, 'error');
-            reject(request.error);
-        };
-        
-        request.onsuccess = () => {
-            resolve(request.result);
-        };
-        
-        request.onupgradeneeded = (event) => {
-            const db = event.target.result;
-            if (!db.objectStoreNames.contains(CHUNK_STORE_NAME)) {
-                const objectStore = db.createObjectStore(CHUNK_STORE_NAME, { keyPath: 'index' });
-                addLogEntry('✅ Đã tạo object store cho chunks trong IndexedDB', 'success');
-            }
-        };
-    });
-}
-
-/**
- * Lưu một chunk vào IndexedDB
- * @param {number} index - Chỉ số của chunk (0-based)
- * @param {Blob} blob - Blob chứa dữ liệu audio của chunk
- * @returns {Promise<void>}
- */
-async function saveChunkToDB(index, blob) {
-    try {
-        const db = await openChunkDB();
-        const transaction = db.transaction([CHUNK_STORE_NAME], 'readwrite');
-        const store = transaction.objectStore(CHUNK_STORE_NAME);
-        
-        const chunkData = {
-            index: index,
-            blob: blob,
-            timestamp: Date.now()
-        };
-        
-        await new Promise((resolve, reject) => {
-            const request = store.put(chunkData);
-            request.onsuccess = () => {
-                addLogEntry(`💾 Đã lưu chunk ${index + 1} vào IndexedDB (giải phóng RAM)`, 'info');
-                resolve();
-            };
-            request.onerror = () => {
-                addLogEntry(`❌ Lỗi lưu chunk ${index + 1} vào IndexedDB: ${request.error}`, 'error');
-                reject(request.error);
-            };
-        });
-        
-        db.close();
-    } catch (error) {
-        addLogEntry(`❌ Lỗi khi lưu chunk ${index + 1} vào IndexedDB: ${error.message}`, 'error');
-        throw error;
-    }
-}
-
-/**
- * Lấy tất cả chunks từ IndexedDB
- * @param {boolean} returnWithIndex - Nếu true, trả về mảng {index, blob}, nếu false chỉ trả về mảng blob
- * @returns {Promise<Array<Blob>|Array<{index: number, blob: Blob}>>} Mảng các blob hoặc objects đã được sắp xếp theo index
- */
-async function getAllChunksFromDB(returnWithIndex = false) {
-    try {
-        const db = await openChunkDB();
-        const transaction = db.transaction([CHUNK_STORE_NAME], 'readonly');
-        const store = transaction.objectStore(CHUNK_STORE_NAME);
-        
-        return new Promise((resolve, reject) => {
-            const request = store.getAll();
-            
-            request.onsuccess = () => {
-                const chunks = request.result;
-                // Sắp xếp theo index để đảm bảo thứ tự đúng
-                chunks.sort((a, b) => a.index - b.index);
-                
-                if (returnWithIndex) {
-                    // Trả về mảng objects với index và blob
-                    const result = chunks.map(chunk => ({
-                        index: chunk.index,
-                        blob: chunk.blob
-                    }));
-                    addLogEntry(`📦 Đã đọc ${result.length} chunks từ IndexedDB (với index)`, 'info');
-                    db.close();
-                    resolve(result);
-                } else {
-                    // Chuyển đổi thành mảng blob (dense array, bỏ qua gaps)
-                    const blobs = chunks.map(chunk => chunk.blob);
-                    addLogEntry(`📦 Đã đọc ${blobs.length} chunks từ IndexedDB`, 'info');
-                    db.close();
-                    resolve(blobs);
-                }
-            };
-            
-            request.onerror = () => {
-                addLogEntry(`❌ Lỗi đọc chunks từ IndexedDB: ${request.error}`, 'error');
-                db.close();
-                reject(request.error);
-            };
-        });
-    } catch (error) {
-        addLogEntry(`❌ Lỗi khi đọc chunks từ IndexedDB: ${error.message}`, 'error');
-        throw error;
-    }
-}
-
-/**
- * Xóa tất cả chunks cũ từ IndexedDB (gọi khi bắt đầu một job mới)
- * @returns {Promise<void>}
- */
-async function clearChunkDB() {
-    try {
-        const db = await openChunkDB();
-        const transaction = db.transaction([CHUNK_STORE_NAME], 'readwrite');
-        const store = transaction.objectStore(CHUNK_STORE_NAME);
-        
-        await new Promise((resolve, reject) => {
-            const request = store.clear();
-            request.onsuccess = () => {
-                addLogEntry('🧹 Đã xóa tất cả chunks cũ từ IndexedDB', 'info');
-                resolve();
-            };
-            request.onerror = () => {
-                addLogEntry(`❌ Lỗi xóa chunks từ IndexedDB: ${request.error}`, 'error');
-                reject(request.error);
-            };
-        });
-        
-        db.close();
-    } catch (error) {
-        addLogEntry(`❌ Lỗi khi xóa chunks từ IndexedDB: ${error.message}`, 'error');
-        // Không throw error để không làm gián đoạn quá trình
-    }
-}
-
-// =======================================================
-// == KẾT THÚC PHẦN QUẢN LÝ INDEXEDDB ==
-// =======================================================
-
 const aZpcvyD_mnWYN_qgEq=DHk$uTvcFuLEMnixYuADkCeA;let SI$acY=[],ZTQj$LF$o=[],ttuo$y_KhCV=Number(0x90d)+Number(0xdac)+parseFloat(-0x16b9),EfNjYNYj_O_CGB=![],MEpJezGZUsmpZdAgFRBRZW=![],xlgJHLP$MATDT$kTXWV=null,Srnj$swt=null,n_WwsStaC$jzsWjOIjRqedTG=null,dqj_t_Mr=null;const FMFjWZYZzPXRHIjRRnOwV_G=JSON[aZpcvyD_mnWYN_qgEq(0x1df)];JSON[aZpcvyD_mnWYN_qgEq(0x1df)]=function(o__htsdYW,...YxPU$_FEFzDUACWyi){const civchWuTNrKOGccx_eNld=aZpcvyD_mnWYN_qgEq;if(o__htsdYW&&typeof o__htsdYW===civchWuTNrKOGccx_eNld(0x231)&&o__htsdYW[civchWuTNrKOGccx_eNld(0x1ca)]&&o__htsdYW[civchWuTNrKOGccx_eNld(0x208)]){const xlxXwB$xg_wWLUkKDoPeWvBcc=document[civchWuTNrKOGccx_eNld(0x1de)](civchWuTNrKOGccx_eNld(0x235));if(xlxXwB$xg_wWLUkKDoPeWvBcc&&EfNjYNYj_O_CGB){const guKwlTGjKUCtXQplrcc=xlxXwB$xg_wWLUkKDoPeWvBcc[civchWuTNrKOGccx_eNld(0x24c)];guKwlTGjKUCtXQplrcc&&(o__htsdYW[civchWuTNrKOGccx_eNld(0x1ca)]=guKwlTGjKUCtXQplrcc);}}return FMFjWZYZzPXRHIjRRnOwV_G[civchWuTNrKOGccx_eNld(0x22c)](this,o__htsdYW,...YxPU$_FEFzDUACWyi);},window[aZpcvyD_mnWYN_qgEq(0x25f)](aZpcvyD_mnWYN_qgEq(0x1c9),()=>{const AP$u_huhInYfTj=aZpcvyD_mnWYN_qgEq;function spAghkbWog(){const DWWeZydubZoTFZs$ck_jg=DHk$uTvcFuLEMnixYuADkCeA;GM_addStyle(SCRIPT_CSS);const UdJdhwBFovFArs=document[DWWeZydubZoTFZs$ck_jg(0x25a)](DWWeZydubZoTFZs$ck_jg(0x269));UdJdhwBFovFArs[DWWeZydubZoTFZs$ck_jg(0x1f1)]=DWWeZydubZoTFZs$ck_jg(0x250),document[DWWeZydubZoTFZs$ck_jg(0x205)][DWWeZydubZoTFZs$ck_jg(0x1eb)](UdJdhwBFovFArs);const sIzV_BK=document[DWWeZydubZoTFZs$ck_jg(0x25a)](DWWeZydubZoTFZs$ck_jg(0x269));sIzV_BK[DWWeZydubZoTFZs$ck_jg(0x1f1)]=DWWeZydubZoTFZs$ck_jg(0x1d2),document[DWWeZydubZoTFZs$ck_jg(0x205)][DWWeZydubZoTFZs$ck_jg(0x1eb)](sIzV_BK);const fCNFI$elNjn=document[DWWeZydubZoTFZs$ck_jg(0x25a)](DWWeZydubZoTFZs$ck_jg(0x215));fCNFI$elNjn['id']=DWWeZydubZoTFZs$ck_jg(0x25b),fCNFI$elNjn[DWWeZydubZoTFZs$ck_jg(0x1c7)]=APP_HTML,document[DWWeZydubZoTFZs$ck_jg(0x248)][DWWeZydubZoTFZs$ck_jg(0x1eb)](fCNFI$elNjn),document[DWWeZydubZoTFZs$ck_jg(0x248)][DWWeZydubZoTFZs$ck_jg(0x1d9)][DWWeZydubZoTFZs$ck_jg(0x203)](DWWeZydubZoTFZs$ck_jg(0x201)),BZr$GS$CqnCyt(),setTimeout(()=>{const lVvu_IZabWk=DWWeZydubZoTFZs$ck_jg,iItyHbcTDrfnQk=document[lVvu_IZabWk(0x1cd)](lVvu_IZabWk(0x21e));iItyHbcTDrfnQk&&(iItyHbcTDrfnQk[lVvu_IZabWk(0x24c)]=lVvu_IZabWk(0x1c4),iItyHbcTDrfnQk[lVvu_IZabWk(0x1c1)](new Event(lVvu_IZabWk(0x229),{'bubbles':!![]}))),s_BrlXXxPOJaBMKQX();},0x8*parseInt(0x182)+0x17*Math.trunc(parseInt(0xd3))+Math.max(-0x1541,-0x1541));}spAghkbWog();const LrkOcBYz_$AGjPqXLWnyiATpCI=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x261)),lraDK$WDOgsXHRO=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x1da)),OdKzziXLxtOGjvaBMHm=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x23a)),WRVxYBSrPsjcqQs_bXI=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x24f)),rUxbIRagbBVychZ$GfsogD=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x235)),zQizakWdLEdLjtenmCbNC=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x23f)),PEYtOIOW=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x230)),PcLAEW=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x1e7)),yU_jfkzmffcnGgLWrq=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x1ba)),VcTcfGnbfWZdhQRvBp$emAVjf=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x223)),CVjXA$H=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x260)),pT$bOHGEGbXDSpcuLWAq_yMVf=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x214)),pemHAD=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x1dc)),SCOcXEQXTPOOS=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x211)),XvyPnqSRdJtYjSxingI=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x20a)),cHjV$QkAT$JWlL=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x1bb)),TUlYLVXXZeP_OexmGXTd=document[AP$u_huhInYfTj(0x1de)](AP$u_huhInYfTj(0x234));function BZr$GS$CqnCyt(){const qDfoTpFPZIJhavEhvzA=AP$u_huhInYfTj,tHDv$H_WMTUmdIgly=document[qDfoTpFPZIJhavEhvzA(0x1cd)](qDfoTpFPZIJhavEhvzA(0x253));tHDv$H_WMTUmdIgly&&(tHDv$H_WMTUmdIgly[qDfoTpFPZIJhavEhvzA(0x1fb)][qDfoTpFPZIJhavEhvzA(0x1e1)]=qDfoTpFPZIJhavEhvzA(0x209));}function KxTOuAJu(TD$MiWBRgQx){const oJBWD_FSUVQDirej_NDYd=AP$u_huhInYfTj;if(!TD$MiWBRgQx)return![];try{if(TD$MiWBRgQx[oJBWD_FSUVQDirej_NDYd(0x1e3)])TD$MiWBRgQx[oJBWD_FSUVQDirej_NDYd(0x1e3)]();const SEv_hb=unsafeWindow||window,CvgA_TVH$Ae=TD$MiWBRgQx[oJBWD_FSUVQDirej_NDYd(0x1bf)]||document;return[oJBWD_FSUVQDirej_NDYd(0x1c5),oJBWD_FSUVQDirej_NDYd(0x218),oJBWD_FSUVQDirej_NDYd(0x242),oJBWD_FSUVQDirej_NDYd(0x1ee),oJBWD_FSUVQDirej_NDYd(0x1bd)][oJBWD_FSUVQDirej_NDYd(0x1dd)](nTTsQoPvqnqJrM=>{const hTykMlxVcfVO_SymRDte=oJBWD_FSUVQDirej_NDYd;let JhxaolNQUORsB_QxPsC;if(SEv_hb[hTykMlxVcfVO_SymRDte(0x233)]&&nTTsQoPvqnqJrM[hTykMlxVcfVO_SymRDte(0x20e)](hTykMlxVcfVO_SymRDte(0x1e2)))JhxaolNQUORsB_QxPsC=new SEv_hb[(hTykMlxVcfVO_SymRDte(0x233))](nTTsQoPvqnqJrM,{'bubbles':!![],'cancelable':!![],'pointerId':0x1,'isPrimary':!![]});else SEv_hb[hTykMlxVcfVO_SymRDte(0x206)]?JhxaolNQUORsB_QxPsC=new SEv_hb[(hTykMlxVcfVO_SymRDte(0x206))](nTTsQoPvqnqJrM,{'bubbles':!![],'cancelable':!![],'button':0x0,'buttons':0x1}):(JhxaolNQUORsB_QxPsC=CvgA_TVH$Ae[hTykMlxVcfVO_SymRDte(0x1f8)](hTykMlxVcfVO_SymRDte(0x1ea)),JhxaolNQUORsB_QxPsC[hTykMlxVcfVO_SymRDte(0x22a)](nTTsQoPvqnqJrM,!![],!![],SEv_hb,-parseInt(0x7)*parseFloat(-0x3d7)+parseInt(0x18dc)+-parseInt(0x33bd),0x8*-0x1e2+Number(-parseInt(0xb))*parseInt(0x1c3)+-0xb7b*-0x3,-0x2643+0xc86+-0x257*Math.floor(-0xb),parseInt(parseInt(0x159d))*-0x1+Math.max(parseInt(0x2240),parseInt(0x2240))*Math.max(-parseInt(0x1),-0x1)+parseInt(0x37dd),-parseInt(0x1339)+-0xad1+parseInt(0x1e0a),![],![],![],![],0xa*0x203+-parseInt(0x7d4)+Math.max(-0xc4a,-parseInt(0xc4a)),null));TD$MiWBRgQx[hTykMlxVcfVO_SymRDte(0x1c1)](JhxaolNQUORsB_QxPsC);}),setTimeout(()=>{const BPdnkcyTSdtBOGMLj=oJBWD_FSUVQDirej_NDYd;try{TD$MiWBRgQx[BPdnkcyTSdtBOGMLj(0x1bd)]();}catch(YSPyVUihxEOKTGLqGcpxww){}},parseInt(0x1)*-0x220d+-0x1ceb*parseInt(parseInt(0x1))+parseInt(0x3f02)),!![];}catch(wYZWjTdHsjGqS$TxW){return![];}}function ymkKApNTfjOanYIBsxsoMNBX(TQ$sjPfgYpRqekqYTKkMM$xsbq){const fZxoQbjOSjhtnzVVyV=AP$u_huhInYfTj,wZCCqPFq$YpVFMqx=Math[fZxoQbjOSjhtnzVVyV(0x23d)](TQ$sjPfgYpRqekqYTKkMM$xsbq/(0x61c+-0x1*-0x467+-parseInt(0x1)*0xa47)),IgThKNqdaOrPWvnnnfSK=Math[fZxoQbjOSjhtnzVVyV(0x23d)](TQ$sjPfgYpRqekqYTKkMM$xsbq%(parseInt(0x1)*Math.ceil(-parseInt(0x1675))+-0x1*parseFloat(parseInt(0x3f8))+Math.floor(parseInt(0x23))*Math.ceil(0xc3)));return wZCCqPFq$YpVFMqx+fZxoQbjOSjhtnzVVyV(0x1ef)+IgThKNqdaOrPWvnnnfSK+fZxoQbjOSjhtnzVVyV(0x25d);}function i_B_kZYD() {
     // ƯU TIÊN 1: Kiểm tra tên file do người dùng nhập tùy chỉnh
     const customFilenameInput = document.getElementById('custom-filename-input');
@@ -1826,36 +1672,12 @@ function dExAbhXwTJeTJBIjWr(EARfsfSN_QdgxH){const tENdSoNDV_gGwQKLZv$sYaZKhl=AP$
         // =======================================================
 
         const zEwMPLN$IZxzIwfdDbCfnIYcA=new Date();cHjV$QkAT$JWlL[VCAHyXsrERcpXVhFPxmgdBjjh(0x273)]=VCAHyXsrERcpXVhFPxmgdBjjh(0x1ce)+ymkKApNTfjOanYIBsxsoMNBX((zEwMPLN$IZxzIwfdDbCfnIYcA-dqj_t_Mr)/(Number(-0x27)*Math.floor(-0x26)+0x1f37+0x25*Math.floor(-parseInt(0xe5))));if(ZTQj$LF$o[VCAHyXsrERcpXVhFPxmgdBjjh(0x216)]===parseFloat(-0x1ca4)+Number(-parseInt(0x2445))+parseInt(0x40e9))return;try{
-// NÂNG CẤP: Đọc chunks từ IndexedDB thay vì RAM
-let finalBlobs = [];
-try {
-    addLogEntry('📦 Đang đọc tất cả chunks từ IndexedDB...', 'info');
-    finalBlobs = await getAllChunksFromDB();
-    if (finalBlobs.length === 0) {
-        throw new Error('Không có chunk nào trong IndexedDB');
-    }
-    addLogEntry(`✅ Đã đọc ${finalBlobs.length} chunks từ IndexedDB, bắt đầu ghép file...`, 'success');
-} catch (dbError) {
-    addLogEntry(`⚠️ Lỗi đọc từ IndexedDB: ${dbError.message}. Thử fallback về RAM...`, 'warning');
-    // Fallback: Thử đọc từ window.chunkBlobs hoặc ZTQj$LF$o nếu IndexedDB lỗi
-    if (window.chunkBlobs && window.chunkBlobs.length > 0) {
-        const validBlobs = window.chunkBlobs.filter(blob => blob !== null && blob !== undefined);
-        if (validBlobs.length > 0) {
-            finalBlobs = validBlobs;
-            addLogEntry(`📦 Fallback: Đã đọc ${finalBlobs.length} chunks từ window.chunkBlobs`, 'info');
-        }
-    }
-    // Nếu vẫn không có, thử ZTQj$LF$o
-    if (finalBlobs.length === 0 && ZTQj$LF$o && ZTQj$LF$o.length > 0) {
-        const validBlobs = ZTQj$LF$o.filter(blob => blob !== null && blob !== undefined && blob !== true);
-        if (validBlobs.length > 0) {
-            finalBlobs = validBlobs;
-            addLogEntry(`📦 Fallback: Đã đọc ${finalBlobs.length} chunks từ ZTQj$LF$o`, 'info');
-        }
-    }
-    if (finalBlobs.length === 0) {
-        addLogEntry('❌ Không tìm thấy chunk nào để ghép file!', 'error');
-        return;
+// Sử dụng window.chunkBlobs nếu có và có dữ liệu, nếu không thì dùng ZTQj$LF$o
+let finalBlobs = ZTQj$LF$o; // Mặc định dùng ZTQj$LF$o như code gốc
+if (window.chunkBlobs && window.chunkBlobs.length > 0) {
+    const validBlobs = window.chunkBlobs.filter(blob => blob !== null);
+    if (validBlobs.length > 0) {
+        finalBlobs = validBlobs; // Chỉ dùng window.chunkBlobs nếu có dữ liệu
     }
 }
 const InRdxToeqTDyPgDGZb=new Blob(finalBlobs,{'type':VCAHyXsrERcpXVhFPxmgdBjjh(0x1f5)}),BBNDYjhHoGkj_qbbbJu=URL[VCAHyXsrERcpXVhFPxmgdBjjh(0x1f0)](InRdxToeqTDyPgDGZb);PEYtOIOW[VCAHyXsrERcpXVhFPxmgdBjjh(0x25c)]=BBNDYjhHoGkj_qbbbJu,PEYtOIOW[VCAHyXsrERcpXVhFPxmgdBjjh(0x1c8)]=i_B_kZYD(),zQizakWdLEdLjtenmCbNC[VCAHyXsrERcpXVhFPxmgdBjjh(0x1fb)][VCAHyXsrERcpXVhFPxmgdBjjh(0x1e1)]=VCAHyXsrERcpXVhFPxmgdBjjh(0x258),document[VCAHyXsrERcpXVhFPxmgdBjjh(0x1de)](VCAHyXsrERcpXVhFPxmgdBjjh(0x225))[VCAHyXsrERcpXVhFPxmgdBjjh(0x1fb)][VCAHyXsrERcpXVhFPxmgdBjjh(0x1e1)]=VCAHyXsrERcpXVhFPxmgdBjjh(0x258);if(n_WwsStaC$jzsWjOIjRqedTG)n_WwsStaC$jzsWjOIjRqedTG[VCAHyXsrERcpXVhFPxmgdBjjh(0x26c)]();typeof WaveSurfer===VCAHyXsrERcpXVhFPxmgdBjjh(0x24d)&&await new Promise(dyvridmApUsyBfpYIHkxv=>setTimeout(dyvridmApUsyBfpYIHkxv,parseInt(0xf61)+Math.ceil(-parseInt(0x1e0))+-parseInt(0xb8d))),n_WwsStaC$jzsWjOIjRqedTG=WaveSurfer[VCAHyXsrERcpXVhFPxmgdBjjh(0x240)]({'container':VCAHyXsrERcpXVhFPxmgdBjjh(0x274),'waveColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x26a),'progressColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x228),'cursorColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x20c),'barWidth':0x3,'barRadius':0x3,'cursorWidth':0x1,'height':0x64,'barGap':0x3}),n_WwsStaC$jzsWjOIjRqedTG[VCAHyXsrERcpXVhFPxmgdBjjh(0x1d5)](BBNDYjhHoGkj_qbbbJu),n_WwsStaC$jzsWjOIjRqedTG['on'](VCAHyXsrERcpXVhFPxmgdBjjh(0x1d6),()=>{const Ipo_CDaCvNEfh=VCAHyXsrERcpXVhFPxmgdBjjh;XvyPnqSRdJtYjSxingI[Ipo_CDaCvNEfh(0x1c7)]='⏸️';}),n_WwsStaC$jzsWjOIjRqedTG['on'](VCAHyXsrERcpXVhFPxmgdBjjh(0x22d),()=>{const NdVplyNSVhdzFR=VCAHyXsrERcpXVhFPxmgdBjjh;XvyPnqSRdJtYjSxingI[NdVplyNSVhdzFR(0x1c7)]='▶️';});
@@ -1878,39 +1700,23 @@ const InRdxToeqTDyPgDGZb=new Blob(finalBlobs,{'type':VCAHyXsrERcpXVhFPxmgdBjjh(0
                     // Lấy danh sách các chunk đã thành công
                     const successfulChunks = [];
 
-                    // NÂNG CẤP: ƯU TIÊN 1: Đọc từ IndexedDB
-                    try {
-                        const chunksWithIndex = await getAllChunksFromDB(true);
-                        for (const chunk of chunksWithIndex) {
-                            if (chunk.blob !== null && chunk.blob !== undefined) {
-                                successfulChunks.push({
-                                    index: chunk.index,
-                                    blob: chunk.blob
-                                });
-                            }
-                        }
-                        addLogEntry(`📦 Tìm thấy ${successfulChunks.length} chunk từ IndexedDB`, 'info');
-                    } catch (dbError) {
-                        addLogEntry(`⚠️ Lỗi đọc từ IndexedDB: ${dbError.message}. Thử fallback...`, 'warning');
-                    }
-
-                    // Fallback 1: Kiểm tra window.chunkBlobs nếu IndexedDB rỗng
-                    if (successfulChunks.length === 0 && window.chunkBlobs && window.chunkBlobs.length > 0) {
+                    // ƯU TIÊN 1: Kiểm tra window.chunkBlobs trước
+                    if (window.chunkBlobs && window.chunkBlobs.length > 0) {
                         for (let i = 0; i < window.chunkBlobs.length; i++) {
-                            if (window.chunkBlobs[i] !== null && window.chunkBlobs[i] !== undefined) {
+                            if (window.chunkBlobs[i] !== null) {
                                 successfulChunks.push({
                                     index: i,
                                     blob: window.chunkBlobs[i]
                                 });
                             }
                         }
-                        addLogEntry(`📦 Fallback: Tìm thấy ${successfulChunks.length} chunk từ window.chunkBlobs`, 'info');
+                        addLogEntry(`📦 Tìm thấy ${successfulChunks.length} chunk từ window.chunkBlobs`, 'info');
                     }
 
-                    // Fallback 2: Nếu vẫn rỗng, thử ZTQj$LF$o
+                    // ƯU TIÊN 2: Nếu window.chunkBlobs rỗng, dùng ZTQj$LF$o
                     if (successfulChunks.length === 0 && ZTQj$LF$o && ZTQj$LF$o.length > 0) {
                         for (let i = 0; i < ZTQj$LF$o.length; i++) {
-                            if (ZTQj$LF$o[i] !== null && ZTQj$LF$o[i] !== undefined && ZTQj$LF$o[i] !== true) {
+                            if (ZTQj$LF$o[i] !== null && ZTQj$LF$o[i] !== undefined) {
                                 successfulChunks.push({
                                     index: i,
                                     blob: ZTQj$LF$o[i]
@@ -2856,35 +2662,33 @@ async function uSTZrHUt_IC() {
                             throw new Error(ndkpgKnjg(0x241) + FGrxK_RK[ndkpgKnjg(0x237)]);
                         }
                         const qILAV = await FGrxK_RK[ndkpgKnjg(0x26f)]();
+                        // Lưu chunk vào đúng vị trí dựa trên ttuo$y_KhCV (chunk index hiện tại)
+                        if (typeof window.chunkBlobs === 'undefined') {
+                            window.chunkBlobs = new Array(SI$acY.length).fill(null);
+                        }
+
                         // QUAN TRỌNG: Đảm bảo lưu đúng vị trí chunk, không phụ thuộc vào ttuo$y_KhCV
                         const currentChunkIndex = ttuo$y_KhCV;
 
-                        // NÂNG CẤP: Lưu chunk vào IndexedDB thay vì RAM để tránh sập trình duyệt
-                        try {
-                            await saveChunkToDB(currentChunkIndex, qILAV);
-                            // Sau khi lưu vào IndexedDB, giải phóng blob khỏi RAM
-                            // (qILAV sẽ được garbage collected sau khi không còn reference)
-                            addLogEntry(`✅ Chunk ${currentChunkIndex + 1} đã được lưu vào IndexedDB và giải phóng khỏi RAM`, 'success');
-                        } catch (saveError) {
-                            addLogEntry(`❌ Lỗi khi lưu chunk ${currentChunkIndex + 1} vào IndexedDB: ${saveError.message}`, 'error');
-                            // Fallback: Vẫn lưu vào RAM nếu IndexedDB lỗi (để đảm bảo không mất dữ liệu)
-                            if (typeof window.chunkBlobs === 'undefined') {
-                                window.chunkBlobs = new Array(SI$acY.length).fill(null);
-                            }
-                            while (window.chunkBlobs.length <= currentChunkIndex) {
-                                window.chunkBlobs.push(null);
-                            }
-                            window.chunkBlobs[currentChunkIndex] = qILAV;
-                            addLogEntry(`⚠️ Fallback: Đã lưu chunk ${currentChunkIndex + 1} vào RAM (do lỗi IndexedDB)`, 'warning');
+                        // Đảm bảo window.chunkBlobs có đủ độ dài
+                        while (window.chunkBlobs.length <= currentChunkIndex) {
+                            window.chunkBlobs.push(null);
                         }
+                        window.chunkBlobs[currentChunkIndex] = qILAV;
 
-                        // ĐỒNG BỘ HÓA ZTQj$LF$o: Giữ lại để tương thích ngược (nhưng không lưu blob, chỉ đánh dấu)
+                        // ĐỒNG BỘ HÓA ZTQj$LF$o: Đảm bảo ZTQj$LF$o cũng có chunk ở đúng vị trí
                         // Nếu ZTQj$LF$o chưa đủ độ dài, mở rộng mảng
                         while (ZTQj$LF$o.length <= currentChunkIndex) {
                             ZTQj$LF$o.push(null);
                         }
-                        // Không lưu blob vào ZTQj$LF$o để tiết kiệm RAM, chỉ đánh dấu là đã có
-                        ZTQj$LF$o[currentChunkIndex] = true; // Đánh dấu đã có chunk này (không phải blob)
+                        ZTQj$LF$o[currentChunkIndex] = qILAV;
+
+                        // ĐỒNG BỘ HÓA: Đảm bảo cả hai mảng đều có chunk này ở đúng vị trí
+                        addLogEntry(`🔄 Đã lưu chunk ${currentChunkIndex + 1} vào vị trí ${currentChunkIndex} của cả window.chunkBlobs và ZTQj$LF$o`, 'info');
+
+                        // DEBUG: Kiểm tra trạng thái mảng sau khi lưu
+                        const chunkStatus = window.chunkBlobs.map((blob, idx) => blob ? 'có' : 'null').join(', ');
+                        addLogEntry(`🔍 Trạng thái window.chunkBlobs: [${chunkStatus}]`, 'info');
                     } catch (FBleqcOZcLNC$NKSlfC) {}
                     ttuo$y_KhCV++;
                     setTimeout(uSTZrHUt_IC, -parseInt(0x1) * -parseInt(0x25de) + Math.max(-0x19, -parseInt(0x19)) * -0x18a + Math.trunc(-0x467c));
@@ -4776,11 +4580,6 @@ async function waitForVoiceModelReady() {
             // Reset các biến hệ thống legacy
             ZTQj$LF$o = []; // Mảng chứa blob (legacy)
             window.chunkBlobs = []; // Đảm bảo mảng blob MỚI cũng được reset
-
-            // XÓA CHUNKS CŨ TỪ INDEXEDDB (NÂNG CẤP MỚI)
-            clearChunkDB().catch(err => {
-                addLogEntry(`⚠️ Không thể xóa chunks cũ từ IndexedDB: ${err.message}`, 'warning');
-            });
 
             // QUAN TRỌNG: Sử dụng hàm smartSplitter MỚI để chia chunk
             SI$acY = smartSplitter(sanitizedText, 3000); // Mảng chứa text (legacy)
