@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DUC LOI - Clone Voice (Không cần API) - Modded
 // @namespace    mmx-secure
-// @version      28.0
+// @version      30.0
 // @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại, Đổi văn bản hàng loạt & Thiết lập dấu câu (bao gồm dấu xuống dòng).
 // @author       HUỲNH ĐỨC LỢI ( Zalo: 0835795597) - Đã chỉnh sửa
 // @match        https://www.minimax.io/audio*
@@ -1212,7 +1212,7 @@ button:disabled {
         
         <div id="gemini-quota-display" style="color: #8be9fd; font-weight: bold; margin-left: 15px; margin-top: 10px; font-size: 14px;">Đang tải quota...</div>
         </div> 
-    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 27.0 - Update: 27/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div id="gemini-col-2-left">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
+    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 30.0 - Update: 27/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div id="gemini-col-2-left">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
     <div class="text-input-options">
         <div class="input-tabs">
             <button id="text-tab" class="tab-btn active">Nhập trực tiếp</button>
@@ -3024,8 +3024,17 @@ try {
             // Kiểm tra lại session ID để đảm bảo an toàn
             return chunk && chunk.blob;
         });
+        
+        // SẮP XẾP LẠI THEO INDEX ĐỂ ĐẢM BẢO ĐÚNG THỨ TỰ GHÉP
+        validChunks.sort((a, b) => a.index - b.index);
+        
+        // Log thứ tự chunks để kiểm tra
+        const chunkIndices = validChunks.map(chunk => chunk.index + 1).join(', ');
+        addLogEntry(`📦 Đã lấy ${validChunks.length} chunks từ IndexedDB (session: ${currentSessionId})`, 'info');
+        addLogEntry(`✅ Thứ tự chunks: ${chunkIndices}`, 'info');
+        
+        // Map thành blobs theo đúng thứ tự
         finalBlobs = validChunks.map(chunk => chunk.blob);
-        addLogEntry(`📦 Đã lấy ${finalBlobs.length} chunks từ IndexedDB (session: ${currentSessionId})`, 'info');
     } else {
         addLogEntry('❌ IndexedDB rỗng - không tìm thấy chunks để gộp. Có thể session chưa hoàn thành.', 'error');
     }
@@ -3306,6 +3315,50 @@ async function uSTZrHUt_IC() {
         const failedChunks = window.failedChunks || [];
 
         addLogEntry(`📊 Kiểm tra: ${processedChunks}/${totalChunks} chunks đã được xử lý`, 'info');
+
+        // KIỂM TRA CHUNKS THIẾU DỰA TRÊN INDEXEDDB - CHỈ RENDER LẠI CHUNKS THIẾU
+        try {
+            const chunksFromDB = await audioChunkDB.getAllChunks();
+            const existingChunkIndices = new Set(chunksFromDB.map(chunk => chunk.index));
+            const missingChunks = [];
+            
+            // Tìm các chunks thiếu (chưa có trong IndexedDB)
+            for (let i = 0; i < totalChunks; i++) {
+                if (!existingChunkIndices.has(i)) {
+                    missingChunks.push(i);
+                }
+            }
+            
+            if (missingChunks.length > 0) {
+                addLogEntry(`🔍 Phát hiện ${missingChunks.length} chunk thiếu trong IndexedDB: ${missingChunks.map(i => i + 1).join(', ')}`, 'warning');
+                addLogEntry(`✅ Các chunk đã render: ${Array.from(existingChunkIndices).sort((a, b) => a - b).map(i => i + 1).join(', ')}`, 'info');
+                addLogEntry(`🔄 Chỉ render lại các chunk thiếu, bỏ qua chunks đã có...`, 'info');
+                
+                // Cập nhật chunkStatus cho các chunks đã có
+                for (let i = 0; i < totalChunks; i++) {
+                    if (existingChunkIndices.has(i) && window.chunkStatus[i] !== 'success') {
+                        window.chunkStatus[i] = 'success';
+                        // Xóa khỏi failedChunks nếu có
+                        const failedIndex = window.failedChunks.indexOf(i);
+                        if (failedIndex > -1) {
+                            window.failedChunks.splice(failedIndex, 1);
+                        }
+                    }
+                }
+                
+                // Nhảy đến chunk thiếu đầu tiên
+                const firstMissingIndex = Math.min(...missingChunks);
+                ttuo$y_KhCV = firstMissingIndex;
+                addLogEntry(`🔄 Nhảy đến chunk ${firstMissingIndex + 1} (chunk thiếu đầu tiên) để render lại...`, 'info');
+                setTimeout(uSTZrHUt_IC, 2000);
+                return;
+            } else {
+                addLogEntry(`✅ Tất cả ${totalChunks} chunks đã có trong IndexedDB!`, 'success');
+            }
+        } catch (dbCheckError) {
+            console.error('❌ Lỗi kiểm tra IndexedDB:', dbCheckError);
+            addLogEntry(`⚠️ Không thể kiểm tra IndexedDB, tiếp tục với logic cũ...`, 'warning');
+        }
 
         // Nếu chưa xử lý đủ chunk, tìm và xử lý chunk còn lại
         if (processedChunks < totalChunks) {
@@ -4052,8 +4105,10 @@ async function uSTZrHUt_IC() {
                         // LƯU VÀO INDEXEDDB - CHỈ DÙNG INDEXEDDB, KHÔNG DÙNG RAM
                         // QUAN TRỌNG: Chỉ đánh dấu 'success' SAU KHI lưu vào IndexedDB thành công
                         try {
+                            // Đảm bảo lưu đúng index để khi ghép file sẽ đúng vị trí
+                            addLogEntry(`💾 Đang lưu chunk ${currentChunkIndex + 1} (index: ${currentChunkIndex}) vào IndexedDB...`, 'info');
                             await audioChunkDB.saveChunk(currentChunkIndex, qILAV);
-                            addLogEntry(`💾 Đã lưu chunk ${currentChunkIndex + 1} vào IndexedDB`, 'info');
+                            addLogEntry(`✅ Đã lưu chunk ${currentChunkIndex + 1} vào IndexedDB với index ${currentChunkIndex} - sẽ ở vị trí thứ ${currentChunkIndex + 1} khi ghép file`, 'success');
                             
                             // CHỈ KHI LƯU THÀNH CÔNG MỚI ĐÁNH DẤU 'success'
                             window.chunkStatus[currentChunkIndex] = 'success';
