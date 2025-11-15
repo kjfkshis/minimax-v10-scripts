@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DUC LOI - Clone Voice (Không cần API) - Modded
 // @namespace    mmx-secure
-// @version      27.0
+// @version      28.0
 // @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại, Đổi văn bản hàng loạt & Thiết lập dấu câu (bao gồm dấu xuống dòng).
 // @author       HUỲNH ĐỨC LỢI ( Zalo: 0835795597) - Đã chỉnh sửa
 // @match        https://www.minimax.io/audio*
@@ -1108,6 +1108,105 @@ button:disabled {
     background: linear-gradient(135deg, #e44 0%, #d33 100%);
     transform: scale(1.1);
     box-shadow: 0 4px 15px rgba(255, 85, 85, 0.4);
+}
+
+/* Sales Announcement Styles */
+.sales-announcement {
+    margin-top: 20px;
+    background: linear-gradient(135deg, #44475a 0%, #3b3d4a 100%);
+    border: 2px solid #bd93f9;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(189, 147, 249, 0.3);
+}
+
+.sales-announcement h3 {
+    color: #ff79c6;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.sales-announcement .sales-content {
+    color: #f8f8f2;
+    font-size: 14px;
+    line-height: 1.8;
+    display: flex;
+    gap: 20px;
+}
+
+.sales-announcement .sales-content .sales-left,
+.sales-announcement .sales-content .sales-right {
+    flex: 1;
+}
+
+.sales-announcement .sales-content p {
+    margin: 10px 0;
+}
+
+.sales-announcement .sales-content strong {
+    color: #50fa7b;
+    font-weight: 700;
+}
+
+.sales-announcement .sales-content .highlight {
+    color: #ffb86c;
+    font-weight: 600;
+}
+
+.sales-announcement .sales-content ul {
+    margin: 10px 0;
+    padding-left: 25px;
+}
+
+.sales-announcement .sales-content li {
+    margin: 8px 0;
+}
+
+.sales-announcement .sales-content .commission-box {
+    background: rgba(80, 250, 123, 0.1);
+    border-left: 4px solid #50fa7b;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 6px;
+}
+
+.sales-announcement .sales-content .team-offer {
+    background: rgba(255, 184, 108, 0.1);
+    border-left: 4px solid #ffb86c;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 6px;
+}
+
+.sales-announcement .sales-content .steps-list {
+    background: rgba(139, 233, 253, 0.1);
+    border-left: 4px solid #8be9fd;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 6px;
+}
+
+/* Sales Image Styles */
+.sales-image-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sales-image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 2px solid #bd93f9;
+    box-shadow: 0 4px 15px rgba(189, 147, 249, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sales-image-container img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(189, 147, 249, 0.5);
 }`;
     const APP_HTML = `<div id="gemini-col-1" class="gemini-column"> <div class="column-header"><div class="logo-user"><a href="" tager="_blank"><div class="logo"><img src="https://minimax.buhaseo.com/wp-content/uploads/2025/08/logo-minimax.png"></div></a><div id="gemini-user-info"></div></div>
         
@@ -1145,6 +1244,38 @@ button:disabled {
             </div>
         </div>
     </div>
+    
+    <!-- Sales Announcement -->
+    <div class="sales-announcement">
+        <h3>🎉 CHƯƠNG TRÌNH SALE – HOA HỒNG VĨNH VIỄN 💰</h3>
+        <div class="sales-content">
+            <div class="sales-left">
+                <div class="commission-box">
+                    <p><strong>🔥 Hoa hồng: 50.000đ / khách</strong></p>
+                    <p><span class="highlight">👉 Khách còn dùng → bạn còn nhận tiền mỗi tháng!</span></p>
+                </div>
+                
+                <div class="team-offer">
+                    <p><strong>👥 Team từ 5 người: 300.000đ / máy</strong></p>
+                </div>
+                
+                <p style="font-size: 12px; color: #94a3b8; margin-top: 10px;">💡 Hoa hồng trích từ hệ thống, không ảnh hưởng khách hàng</p>
+            </div>
+            
+            <div class="sales-right">
+                <h4 style="color: #ff79c6; font-size: 16px; margin: 0 0 15px 0; text-align: center;">🚀 Cách tham gia cực đơn giản</h4>
+                <div class="steps-list">
+                    <ul>
+                        <li>Tạo nhóm riêng của bạn.</li>
+                        <li>Add admin vào nhóm.</li>
+                        <li>Admin sẽ hỗ trợ chốt khách giúp bạn.</li>
+                        <li>Khách mua → bạn nhận hoa hồng.</li>
+                        <li>Tháng sau khách gia hạn → bạn tiếp tục nhận tiền</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
  </div> </div> <div id="gemini-col-2-right">     <!-- Ô nhập tên file tùy chỉnh -->
             <div class="custom-filename-section" style="margin-top: 15px;">
                 <label for="custom-filename-input" style="display: block; margin-bottom: 8px; color: #bd93f9; font-weight: 600; font-size: 14px;">
@@ -1175,7 +1306,15 @@ button:disabled {
         </small>
     </div>
 
-<button id="gemini-merge-btn">Ghép đoạn hội thoại</button> <button id="gemini-start-queue-btn" disabled>Bắt đầu tạo âm thanh</button> <button id="apply-punctuation-btn" style="display:none; background-color: #ffb86c; color: #282a36; margin-top: 10px;">Áp dụng thiết lập dấu câu</button> <button id="gemini-pause-btn" style="display:none;">Tạm dừng</button> <button id="gemini-stop-btn" style="display:none;">Dừng hẳn</button> <div id="gemini-progress-container" style="display:none;"><div id="gemini-progress-bar"></div><span id="gemini-progress-label">0%</span></div> <div id="gemini-final-result" style="display:none;"> <h4>Kết quả cuối cùng</h4> <div id="gemini-time-taken"></div> <div id="gemini-waveform"></div> <div id="waveform-controls" style="display:none;"><button id="waveform-play-pause">▶️</button><a id="gemini-download-merged-btn" href="#" download="merged_output.mp3">Tải xuống âm thanh</a><button id="gemini-download-chunks-btn" style="display: none; background-color: #ffb86c; color: #282a36;">Tải các chunk (ZIP)</button></div> </div> </div> </div> </div> <div id="gemini-col-3" class="gemini-column"> <div class="column-header"><h3></h3></div> <div class="column-content banner-column"> <div class="section"> <button id="open-audio-manager-btn" style="background-color: #8be9fd; color: #282a36; width: 100%; padding: 14px 20px; border: none; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; transition: all 0.3s ease; margin-bottom: 15px;">📂 Mở Kho Âm Thanh (Online)</button> <button id="open-history-btn" style="background-color: #bd93f9; color: #282a36; width: 100%; padding: 14px 20px; border: none; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; transition: all 0.3s ease; margin-bottom: 15px;">📚 Lịch sử</button> </div><div id="batch-replace-section"><h4>Đổi văn bản hàng loạt</h4><div id="batch-replace-pairs"></div><div id="batch-replace-actions"><button id="add-replace-pair-btn" title="Thêm cặp từ">+</button><button id="execute-replace-btn">Thực hiện đổi</button></div></div> <button id="open-punctuation-settings-btn">Thiết lập dấu câu</button> </div> </div>     <textarea id="gemini-hidden-text-for-request" style="display:none;"></textarea>
+<button id="gemini-merge-btn">Ghép đoạn hội thoại</button> <button id="gemini-start-queue-btn" disabled>Bắt đầu tạo âm thanh</button> <button id="apply-punctuation-btn" style="display:none; background-color: #ffb86c; color: #282a36; margin-top: 10px;">Áp dụng thiết lập dấu câu</button> <button id="gemini-pause-btn" style="display:none;">Tạm dừng</button> <button id="gemini-stop-btn" style="display:none;">Dừng hẳn</button> <div id="gemini-progress-container" style="display:none;"><div id="gemini-progress-bar"></div><span id="gemini-progress-label">0%</span></div> <div id="gemini-final-result" style="display:none;"> <h4>Kết quả cuối cùng</h4> <div id="gemini-time-taken"></div> <div id="gemini-waveform"></div> <div id="waveform-controls" style="display:none;"><button id="waveform-play-pause">▶️</button><a id="gemini-download-merged-btn" href="#" download="merged_output.mp3">Tải xuống âm thanh</a><button id="gemini-download-chunks-btn" style="display: none; background-color: #ffb86c; color: #282a36;">Tải các chunk (ZIP)</button></div> </div> </div> </div> </div> <div id="gemini-col-3" class="gemini-column"> <div class="column-header"><h3></h3></div> <div class="column-content banner-column"> <div class="section"> <button id="open-audio-manager-btn" style="background-color: #8be9fd; color: #282a36; width: 100%; padding: 14px 20px; border: none; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; transition: all 0.3s ease; margin-bottom: 15px;">📂 Mở Kho Âm Thanh (Online)</button> <button id="open-history-btn" style="background-color: #bd93f9; color: #282a36; width: 100%; padding: 14px 20px; border: none; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; transition: all 0.3s ease; margin-bottom: 15px;">📚 Lịch sử</button> </div>
+    
+    <div id="batch-replace-section"><h4>Đổi văn bản hàng loạt</h4><div id="batch-replace-pairs"></div><div id="batch-replace-actions"><button id="add-replace-pair-btn" title="Thêm cặp từ">+</button><button id="execute-replace-btn">Thực hiện đổi</button></div></div> <button id="open-punctuation-settings-btn">Thiết lập dấu câu</button>
+    
+    <!-- Sales Image -->
+    <div class="sales-image-container">
+        <img src="https://raw.githubusercontent.com/kjfkshis/anh_sale/main/SALE.png" alt="Chương trình sale - Hoa hồng vĩnh viễn" />
+    </div>
+    </div> </div>     <textarea id="gemini-hidden-text-for-request" style="display:none;"></textarea>
 
     <!-- Modal Kho Âm Thanh Online -->
     <div id="audio-manager-modal" class="punctuation-modal" style="display:none;">
