@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DUC LOI - Clone Voice (Không cần API) - Modded
 // @namespace    mmx-secure
-// @version      21.0
+// @version      22.0
 // @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại, Đổi văn bản hàng loạt & Thiết lập dấu câu (bao gồm dấu xuống dòng).
 // @author       HUỲNH ĐỨC LỢI ( Zalo: 0835795597) - Đã chỉnh sửa
 // @match        https://www.minimax.io/audio*
@@ -1013,7 +1013,7 @@ button:disabled {
         
         <div id="gemini-quota-display" style="color: #8be9fd; font-weight: bold; margin-left: 15px; margin-top: 10px; font-size: 14px;">Đang tải quota...</div>
         </div> 
-    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 21.0 - Update: 27/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div id="gemini-col-2-left">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
+    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 22.0 - Update: 27/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div id="gemini-col-2-left">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
     <div class="text-input-options">
         <div class="input-tabs">
             <button id="text-tab" class="tab-btn active">Nhập trực tiếp</button>
@@ -1905,6 +1905,54 @@ async function waitForButton(buttonTexts, timeout = 15000) {
 }
 
 // =======================================================
+// HÀM HELPER: Reset giao diện và clear textarea
+// =======================================================
+async function resetWebInterface() {
+    try {
+        addLogEntry(`🔄 Áp dụng cơ chế Reset an toàn: Khôi phục Giao diện...`, 'info');
+        addLogEntry(`🔄 Đang nhấn nút "Tạo lại" để đảm bảo trạng thái web sạch sẽ...`, 'info');
+        
+        // Tìm và click nút "Regenerate" hoặc "Tạo lại"
+        const regenerateButtons = document.querySelectorAll('button, .ant-btn');
+        let foundRegenerate = false;
+
+        for (const btn of regenerateButtons) {
+            const btnText = (btn.textContent || '').toLowerCase().trim();
+            if (btnText.includes('regenerate') || btnText.includes('tạo lại') ||
+                btnText.includes('generate') || btnText.includes('tạo')) {
+                if (btn.offsetParent !== null && !btn.disabled) {
+                    addLogEntry(`🔄 Tìm thấy nút "${btn.textContent}" - đang reset...`, 'info');
+                    btn.click();
+                    foundRegenerate = true;
+                    break;
+                }
+            }
+        }
+
+        if (foundRegenerate) {
+            // Chờ web xử lý reset
+            addLogEntry(`⏳ Chờ web xử lý reset...`, 'info');
+            await new Promise(resolve => setTimeout(resolve, 3000));
+
+            // Clear textarea để đảm bảo trạng thái sạch
+            const textarea = document.getElementById('gemini-hidden-text-for-request');
+            if (textarea) {
+                textarea.value = '';
+                addLogEntry(`🧹 Đã clear textarea`, 'info');
+            }
+
+            // Chờ thêm một chút để web ổn định
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            addLogEntry(`✅ Web đã được reset thành công!`, 'success');
+        } else {
+            addLogEntry(`⚠️ Không tìm thấy nút reset, tiếp tục...`, 'warning');
+        }
+    } catch (resetError) {
+        addLogEntry(`❌ Lỗi khi reset web: ${resetError.message}, tiếp tục...`, 'error');
+    }
+}
+
+// =======================================================
 
 async function uSTZrHUt_IC() {
     const tQqGbytKzpHwhGmeQJucsrq = AP$u_huhInYfTj;
@@ -1919,11 +1967,59 @@ async function uSTZrHUt_IC() {
 
         addLogEntry(`📊 Kiểm tra: ${processedChunks}/${totalChunks} chunks đã được xử lý`, 'info');
 
-        // Nếu chưa xử lý đủ chunk, tiếp tục chờ
+        // CẢI THIỆN: Nếu chưa xử lý đủ chunk, tìm và xử lý chunk còn thiếu
         if (processedChunks < totalChunks) {
-            addLogEntry(`⏳ Còn ${totalChunks - processedChunks} chunk chưa được xử lý. Tiếp tục chờ...`, 'warning');
-            setTimeout(uSTZrHUt_IC, 2000);
-            return;
+            // Tìm các chunk chưa được xử lý (pending hoặc undefined)
+            const remainingChunks = [];
+            for (let i = 0; i < totalChunks; i++) {
+                const status = window.chunkStatus && window.chunkStatus[i];
+                if (!status || status === 'pending') {
+                    remainingChunks.push(i);
+                }
+            }
+
+            if (remainingChunks.length > 0) {
+                addLogEntry(`⏳ Phát hiện ${remainingChunks.length} chunk chưa được xử lý: ${remainingChunks.map(i => i + 1).join(', ')}`, 'warning');
+                addLogEntry(`🔄 Kích hoạt cơ chế xử lý chunk thiếu: Reset giao diện và nhảy đến chunk chưa xử lý...`, 'info');
+                
+                // Khởi tạo biến retry nếu chưa có
+                if (typeof window.totalRetryAttempts === 'undefined') window.totalRetryAttempts = 0;
+                if (typeof window.missingChunkRetryCount === 'undefined') window.missingChunkRetryCount = 0;
+                
+                window.missingChunkRetryCount++;
+                window.totalRetryAttempts++;
+                addLogEntry(`📊 Thống kê: Đã thử xử lý chunk thiếu ${window.missingChunkRetryCount} lần`, 'info');
+                addLogEntry(`⏳ Tool sẽ retry VÔ HẠN cho đến khi TẤT CẢ chunk được xử lý!`, 'info');
+                
+                // Sử dụng async IIFE để xử lý reset và nhảy đến chunk thiếu
+                (async () => {
+                    try {
+                        // 1. Reset giao diện: Tìm và click nút "Tạo lại"/"Regenerate"
+                        await resetWebInterface();
+                        
+                        // 2. Tìm chunk chưa xử lý đầu tiên
+                        const nextUnprocessedIndex = Math.min(...remainingChunks);
+                        
+                        // 3. Nhảy thẳng đến chunk chưa xử lý đầu tiên
+                        ttuo$y_KhCV = nextUnprocessedIndex;
+                        addLogEntry(`🔄 MISSING CHUNK MODE: Nhảy thẳng đến chunk ${nextUnprocessedIndex + 1} (chunk chưa xử lý đầu tiên)`, 'info');
+                        addLogEntry(`📋 Sẽ xử lý các chunk còn thiếu: ${remainingChunks.map(i => i + 1).join(', ')}`, 'info');
+                        
+                        // 4. Chờ 2 giây rồi bắt đầu xử lý
+                        setTimeout(uSTZrHUt_IC, 2000);
+                    } catch (error) {
+                        addLogEntry(`❌ Lỗi khi xử lý chunk thiếu: ${error.message}`, 'error');
+                        // Retry lại sau 3 giây nếu có lỗi
+                        setTimeout(uSTZrHUt_IC, 3000);
+                    }
+                })();
+                return;
+            } else {
+                // Nếu không tìm thấy chunk chưa xử lý trong mảng status, tiếp tục chờ
+                addLogEntry(`⏳ Còn ${totalChunks - processedChunks} chunk chưa được xử lý. Tiếp tục chờ...`, 'warning');
+                setTimeout(uSTZrHUt_IC, 2000);
+                return;
+            }
         }
 
         // Nếu có chunk thất bại và chưa kiểm tra cuối
@@ -1933,51 +2029,9 @@ async function uSTZrHUt_IC() {
             window.isFinalCheck = true;
             window.retryCount = 0; // Reset bộ đếm retry
             
-            // Áp dụng cơ chế Reset an toàn: Khôi phục Giao diện một lần
-            addLogEntry(`🔄 Áp dụng cơ chế Reset an toàn: Khôi phục Giao diện...`, 'info');
-            addLogEntry(`🔄 Đang nhấn nút "Tạo lại" để đảm bảo trạng thái web sạch sẽ...`, 'info');
-            
-            // Sử dụng async IIFE để xử lý reset
+            // Sử dụng hàm helper để reset
             (async () => {
-                try {
-                    // Tìm và click nút "Regenerate" hoặc "Tạo lại"
-                    const regenerateButtons = document.querySelectorAll('button, .ant-btn');
-                    let foundRegenerate = false;
-
-                    for (const btn of regenerateButtons) {
-                        const btnText = (btn.textContent || '').toLowerCase().trim();
-                        if (btnText.includes('regenerate') || btnText.includes('tạo lại') ||
-                            btnText.includes('generate') || btnText.includes('tạo')) {
-                            if (btn.offsetParent !== null && !btn.disabled) {
-                                addLogEntry(`🔄 Tìm thấy nút "${btn.textContent}" - đang reset...`, 'info');
-                                btn.click();
-                                foundRegenerate = true;
-                                break;
-                            }
-                        }
-                    }
-
-                    if (foundRegenerate) {
-                        // Chờ web xử lý reset
-                        addLogEntry(`⏳ Chờ web xử lý reset...`, 'info');
-                        await new Promise(resolve => setTimeout(resolve, 3000));
-
-                        // Clear textarea để đảm bảo trạng thái sạch
-                        const textarea = document.getElementById('gemini-hidden-text-for-request');
-                        if (textarea) {
-                            textarea.value = '';
-                            addLogEntry(`🧹 Đã clear textarea`, 'info');
-                        }
-
-                        // Chờ thêm một chút để web ổn định
-                        await new Promise(resolve => setTimeout(resolve, 2000));
-                        addLogEntry(`✅ Web đã được reset thành công!`, 'success');
-                    } else {
-                        addLogEntry(`⚠️ Không tìm thấy nút reset, tiếp tục...`, 'warning');
-                    }
-                } catch (resetError) {
-                    addLogEntry(`❌ Lỗi khi reset web: ${resetError.message}, tiếp tục...`, 'error');
-                }
+                await resetWebInterface();
                 
                 // Nhảy thẳng đến chunk lỗi đầu tiên, không đếm lại từ đầu
                 const firstFailedIndex = Math.min(...failedChunks);
@@ -2007,51 +2061,9 @@ async function uSTZrHUt_IC() {
                 addLogEntry(`⏳ Tool sẽ retry VÔ HẠN cho đến khi TẤT CẢ chunk thành công!`, 'info');
                 addLogEntry(`📊 Thống kê: ${window.totalRetryAttempts} lần retry đã thực hiện`, 'info');
                 
-                // Áp dụng cơ chế Reset an toàn: Khôi phục Giao diện một lần
-                addLogEntry(`🔄 Áp dụng cơ chế Reset an toàn: Khôi phục Giao diện...`, 'info');
-                addLogEntry(`🔄 Đang nhấn nút "Tạo lại" để đảm bảo trạng thái web sạch sẽ...`, 'info');
-                
-                // Sử dụng async IIFE để xử lý reset
+                // Sử dụng hàm helper để reset
                 (async () => {
-                    try {
-                        // Tìm và click nút "Regenerate" hoặc "Tạo lại"
-                        const regenerateButtons = document.querySelectorAll('button, .ant-btn');
-                        let foundRegenerate = false;
-
-                        for (const btn of regenerateButtons) {
-                            const btnText = (btn.textContent || '').toLowerCase().trim();
-                            if (btnText.includes('regenerate') || btnText.includes('tạo lại') ||
-                                btnText.includes('generate') || btnText.includes('tạo')) {
-                                if (btn.offsetParent !== null && !btn.disabled) {
-                                    addLogEntry(`🔄 Tìm thấy nút "${btn.textContent}" - đang reset...`, 'info');
-                                    btn.click();
-                                    foundRegenerate = true;
-                                    break;
-                                }
-                            }
-                        }
-
-                        if (foundRegenerate) {
-                            // Chờ web xử lý reset
-                            addLogEntry(`⏳ Chờ web xử lý reset...`, 'info');
-                            await new Promise(resolve => setTimeout(resolve, 3000));
-
-                            // Clear textarea để đảm bảo trạng thái sạch
-                            const textarea = document.getElementById('gemini-hidden-text-for-request');
-                            if (textarea) {
-                                textarea.value = '';
-                                addLogEntry(`🧹 Đã clear textarea`, 'info');
-                            }
-
-                            // Chờ thêm một chút để web ổn định
-                            await new Promise(resolve => setTimeout(resolve, 2000));
-                            addLogEntry(`✅ Web đã được reset thành công!`, 'success');
-                        } else {
-                            addLogEntry(`⚠️ Không tìm thấy nút reset, tiếp tục...`, 'warning');
-                        }
-                    } catch (resetError) {
-                        addLogEntry(`❌ Lỗi khi reset web: ${resetError.message}, tiếp tục...`, 'error');
-                    }
+                    await resetWebInterface();
                     
                     // KHÔNG ghép file khi còn chunk thất bại - tiếp tục retry VÔ HẠN
                     window.retryCount = 0; // Reset bộ đếm retry
