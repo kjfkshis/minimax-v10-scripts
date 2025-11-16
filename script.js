@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DUC LOI - Clone Voice (Không cần API) - Modded
 // @namespace    mmx-secure
-// @version      24.0
+// @version      21.0
 // @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại, Đổi văn bản hàng loạt & Thiết lập dấu câu (bao gồm dấu xuống dòng).
 // @author       HUỲNH ĐỨC LỢI ( Zalo: 0835795597) - Đã chỉnh sửa
 // @match        https://www.minimax.io/audio*
@@ -2808,6 +2808,25 @@ async function resetWebInterface() {
 async function uSTZrHUt_IC() {
     const tQqGbytKzpHwhGmeQJucsrq = AP$u_huhInYfTj;
     if (MEpJezGZUsmpZdAgFRBRZW) return;
+    
+    // GUARD: Kiểm tra độ sâu recursive calls ở đầu hàm
+    if (typeof window.recursiveCallDepth === 'undefined') {
+        window.recursiveCallDepth = 0;
+    }
+    if (typeof window.maxRecursiveDepth === 'undefined') {
+        window.maxRecursiveDepth = 50;
+    }
+    
+    window.recursiveCallDepth++;
+    if (window.recursiveCallDepth > window.maxRecursiveDepth) {
+        addLogEntry(`⚠️ Đã đạt độ sâu recursive tối đa (${window.maxRecursiveDepth}), reset và chờ 2 giây...`, 'warning');
+        window.recursiveCallDepth = 0;
+        setTimeout(() => {
+            window.recursiveCallDepth = 0;
+            uSTZrHUt_IC();
+        }, 2000);
+        return;
+    }
 
     // Logic xử lý khi đã hoàn thành tất cả các chunk
     if (ttuo$y_KhCV >= SI$acY[tQqGbytKzpHwhGmeQJucsrq(0x216)]) {
@@ -3523,12 +3542,38 @@ async function uSTZrHUt_IC() {
     }
 }function igyo$uwVChUzI() {
     const VFmk$UVEL = AP$u_huhInYfTj;
+    
+    // RATE LIMITING: Chỉ cho phép gọi tối đa 1 lần/2 giây
+    const now = Date.now();
+    if (typeof window.lastObserverSetupTime === 'undefined') {
+        window.lastObserverSetupTime = 0;
+    }
+    if (now - window.lastObserverSetupTime < 2000) {
+        const waitTime = 2000 - (now - window.lastObserverSetupTime);
+        addLogEntry(`⏳ [Chunk ${ttuo$y_KhCV + 1}] Rate limiting: Chờ ${waitTime}ms trước khi thiết lập observer...`, 'info');
+        setTimeout(igyo$uwVChUzI, waitTime);
+        return;
+    }
+    
+    // FLAG: Tránh tạo nhiều observer cùng lúc
+    if (typeof window.isSettingUpObserver === 'undefined') {
+        window.isSettingUpObserver = false;
+    }
+    if (window.isSettingUpObserver) {
+        addLogEntry(`⚠️ [Chunk ${ttuo$y_KhCV + 1}] Đang thiết lập observer, bỏ qua lần gọi trùng lặp này`, 'warning');
+        return;
+    }
+    
     const Yy_yaGQ$LW = document[VFmk$UVEL(0x1cd)](VFmk$UVEL(0x256));
     if (!Yy_yaGQ$LW) {
         addLogEntry(`⚠️ Không tìm thấy element để observe audio, thử lại sau 1 giây...`, 'warning');
-        setTimeout(igyo$uwVChUzI, 1000); // Retry sau 1 giây
+        setTimeout(igyo$uwVChUzI, 1000); // Retry sau 1 giây (vô hạn như yêu cầu)
         return;
     }
+
+    // Đánh dấu đang thiết lập observer
+    window.isSettingUpObserver = true;
+    window.lastObserverSetupTime = now;
 
     // QUAN TRỌNG: Disconnect observer cũ nếu có để tránh duplicate
     if (xlgJHLP$MATDT$kTXWV) {
@@ -3538,8 +3583,21 @@ async function uSTZrHUt_IC() {
     
     addLogEntry(`👁️ [Chunk ${ttuo$y_KhCV + 1}] Đang thiết lập MutationObserver để detect audio element...`, 'info');
 
+    // DEBOUNCE: Khởi tạo timestamp cho callback
+    if (typeof window.observerCallbackLastRun === 'undefined') {
+        window.observerCallbackLastRun = 0;
+    }
+    
     xlgJHLP$MATDT$kTXWV = new MutationObserver(async (w$KFkMtMom_agF, GrmINfCyEsyqJbigpyT) => {
         const ndkpgKnjg = VFmk$UVEL;
+        
+        // DEBOUNCE: Chỉ cho phép callback chạy tối đa 1 lần/giây
+        const callbackNow = Date.now();
+        if (callbackNow - window.observerCallbackLastRun < 1000) {
+            return; // Bỏ qua nếu chưa đủ 1 giây
+        }
+        window.observerCallbackLastRun = callbackNow;
+        
         for (const qcgcrPbku_NfOSGWmbTlMZNUOu of w$KFkMtMom_agF) {
             for (const TYRNWSSd$QOYZe of qcgcrPbku_NfOSGWmbTlMZNUOu[ndkpgKnjg(0x1db)]) {
                 if (TYRNWSSd$QOYZe[ndkpgKnjg(0x217)] === 0x7fd * parseInt(-0x3) + 0xa02 + 0xdf6 && TYRNWSSd$QOYZe[ndkpgKnjg(0x1cd)](ndkpgKnjg(0x1f2))) {
@@ -3582,7 +3640,7 @@ async function uSTZrHUt_IC() {
                     window.processingChunks.add(currentChunkIndex);
                     
                     clearTimeout(Srnj$swt);
-                    GrmINfCyEsyqJbigpyT[ndkpgKnjg(0x24e)]();
+                    // KHÔNG disconnect observer ở đây - sẽ disconnect sau khi xử lý xong
 
                     // Log khi thành công
                     addLogEntry(`✅ [Chunk ${currentChunkIndex + 1}/${SI$acY.length}] Xử lý thành công!`, 'success');
@@ -3707,11 +3765,21 @@ async function uSTZrHUt_IC() {
                         if (typeof window.processingChunks !== 'undefined') {
                             window.processingChunks.delete(currentChunkIndex);
                         }
+                        
+                        // DISCONNECT OBSERVER SAU KHI XỬ LÝ XONG (không disconnect trong callback)
+                        if (xlgJHLP$MATDT$kTXWV) {
+                            xlgJHLP$MATDT$kTXWV.disconnect();
+                            xlgJHLP$MATDT$kTXWV = null;
+                        }
+                        // Reset flag để cho phép thiết lập observer mới
+                        window.isSettingUpObserver = false;
                     } catch (FBleqcOZcLNC$NKSlfC) {
                         // Xóa khỏi processingChunks khi có lỗi
                         if (typeof window.processingChunks !== 'undefined' && typeof currentChunkIndex !== 'undefined') {
                             window.processingChunks.delete(currentChunkIndex);
                         }
+                        // Reset flag khi có lỗi
+                        window.isSettingUpObserver = false;
                     }
                     
                     // QUAN TRỌNG: Khi retry, sau khi chunk thành công, chỉ nhảy đến chunk lỗi tiếp theo
@@ -3739,7 +3807,30 @@ async function uSTZrHUt_IC() {
                         ttuo$y_KhCV++;
                     }
                     
-                    setTimeout(uSTZrHUt_IC, -parseInt(0x1) * -parseInt(0x25de) + Math.max(-0x19, -parseInt(0x19)) * -0x18a + Math.trunc(-0x467c));
+                    // GUARD: Kiểm tra độ sâu recursive calls
+                    if (typeof window.recursiveCallDepth === 'undefined') {
+                        window.recursiveCallDepth = 0;
+                    }
+                    if (typeof window.maxRecursiveDepth === 'undefined') {
+                        window.maxRecursiveDepth = 50;
+                    }
+                    
+                    window.recursiveCallDepth++;
+                    if (window.recursiveCallDepth > window.maxRecursiveDepth) {
+                        addLogEntry(`⚠️ Đã đạt độ sâu recursive tối đa (${window.maxRecursiveDepth}), reset và tiếp tục...`, 'warning');
+                        window.recursiveCallDepth = 0;
+                        // Chờ một chút trước khi tiếp tục
+                        setTimeout(() => {
+                            window.recursiveCallDepth = 0;
+                            uSTZrHUt_IC();
+                        }, 2000);
+                        return;
+                    }
+                    
+                    setTimeout(() => {
+                        window.recursiveCallDepth = Math.max(0, window.recursiveCallDepth - 1); // Giảm độ sâu sau mỗi lần gọi
+                        uSTZrHUt_IC();
+                    }, -parseInt(0x1) * -parseInt(0x25de) + Math.max(-0x19, -parseInt(0x19)) * -0x18a + Math.trunc(-0x467c));
                     return;
                 }
             }
@@ -3750,6 +3841,11 @@ async function uSTZrHUt_IC() {
         'childList': !![],
         'subtree': !![]
     });
+    
+    // Reset flag sau khi thiết lập xong (sau một chút để đảm bảo observer đã hoạt động)
+    setTimeout(() => {
+        window.isSettingUpObserver = false;
+    }, 100);
     
     addLogEntry(`✅ [Chunk ${ttuo$y_KhCV + 1}] MutationObserver đã được thiết lập và đang observe audio element`, 'success');
 }function rBuqJlBFmwzdZnXtjIL(){const fgUnHA=AP$u_huhInYfTj,ytkOLYJZOEaDOhowaP=document[fgUnHA(0x1cd)](fgUnHA(0x246));ytkOLYJZOEaDOhowaP&&ytkOLYJZOEaDOhowaP[fgUnHA(0x224)](fgUnHA(0x1bc))===fgUnHA(0x1fe)&&KxTOuAJu(ytkOLYJZOEaDOhowaP);}function ZGEvDUSUwgCtRqI(XOH_jolXfrzfb$u){return new Promise(f$o$ehE=>{const XfxSTlMrygLQP$ENoXGlumBRM=DHk$uTvcFuLEMnixYuADkCeA,MvjhInrbVXjKVUruwh=document[XfxSTlMrygLQP$ENoXGlumBRM(0x1cd)](XfxSTlMrygLQP$ENoXGlumBRM(0x254));if(MvjhInrbVXjKVUruwh&&MvjhInrbVXjKVUruwh[XfxSTlMrygLQP$ENoXGlumBRM(0x273)][XfxSTlMrygLQP$ENoXGlumBRM(0x1d4)]()===XOH_jolXfrzfb$u){f$o$ehE(!![]);return;}if(!MvjhInrbVXjKVUruwh){f$o$ehE(![]);return;}const VZYZVbVjefOZtpoGN=[MvjhInrbVXjKVUruwh,MvjhInrbVXjKVUruwh[XfxSTlMrygLQP$ENoXGlumBRM(0x227)],document[XfxSTlMrygLQP$ENoXGlumBRM(0x1cd)](XfxSTlMrygLQP$ENoXGlumBRM(0x22e)),document[XfxSTlMrygLQP$ENoXGlumBRM(0x1cd)](XfxSTlMrygLQP$ENoXGlumBRM(0x268))][XfxSTlMrygLQP$ENoXGlumBRM(0x21d)](Boolean);let VIEdKkRYRVRqqJcvauv$yeqJs=![];for(const aSzLyIxGR$iZOAwaUnO of VZYZVbVjefOZtpoGN){if(KxTOuAJu(aSzLyIxGR$iZOAwaUnO)){VIEdKkRYRVRqqJcvauv$yeqJs=!![];break;}}if(!VIEdKkRYRVRqqJcvauv$yeqJs){f$o$ehE(![]);return;}let iravm_ITtG=Math.ceil(parseInt(0x93c))*0x3+Math.floor(-parseInt(0xb3a))+Math.max(-parseInt(0xde),-0xde)*Math.trunc(parseInt(0x13));const yZNPe_Cff=-0xf73*0x2+Math.floor(-parseInt(0xae3))*parseInt(0x1)+-parseInt(0x14e7)*-0x2;function ZUTCwm$ZO(){const Yh_c_kdQDftCJybILCYnKDHP=XfxSTlMrygLQP$ENoXGlumBRM;iravm_ITtG++;let XLdCvwP_ExUgMYvoF$PgmcYQoDm=null;for(const KhpCpYqdNeshDhzcz$YopPRCnq of[Yh_c_kdQDftCJybILCYnKDHP(0x204),Yh_c_kdQDftCJybILCYnKDHP(0x1e8),Yh_c_kdQDftCJybILCYnKDHP(0x220),Yh_c_kdQDftCJybILCYnKDHP(0x252)]){XLdCvwP_ExUgMYvoF$PgmcYQoDm=document[Yh_c_kdQDftCJybILCYnKDHP(0x1cd)](KhpCpYqdNeshDhzcz$YopPRCnq);if(XLdCvwP_ExUgMYvoF$PgmcYQoDm&&XLdCvwP_ExUgMYvoF$PgmcYQoDm[Yh_c_kdQDftCJybILCYnKDHP(0x213)]>parseInt(0xc0b)*-0x3+parseInt(0x59f)*-0x1+parseInt(0x8)*parseInt(0x538))break;}if(!XLdCvwP_ExUgMYvoF$PgmcYQoDm){iravm_ITtG<yZNPe_Cff?setTimeout(ZUTCwm$ZO,Math.trunc(-parseInt(0x1))*parseInt(0x8b1)+-0x7e9+0x128e):f$o$ehE(![]);return;}let wUar$U_QcohStsk=null;for(const JawipkxmmQvXAvdYtibQwPC of[Yh_c_kdQDftCJybILCYnKDHP(0x272),Yh_c_kdQDftCJybILCYnKDHP(0x1d3),Yh_c_kdQDftCJybILCYnKDHP(0x232),Yh_c_kdQDftCJybILCYnKDHP(0x21c),Yh_c_kdQDftCJybILCYnKDHP(0x222)]){const ndE_dgEnXpLZ=XLdCvwP_ExUgMYvoF$PgmcYQoDm[Yh_c_kdQDftCJybILCYnKDHP(0x207)](JawipkxmmQvXAvdYtibQwPC);for(const dGawOEsCtvghrtIQyMuYTxt of ndE_dgEnXpLZ){if(dGawOEsCtvghrtIQyMuYTxt[Yh_c_kdQDftCJybILCYnKDHP(0x273)][Yh_c_kdQDftCJybILCYnKDHP(0x1d4)]()===XOH_jolXfrzfb$u){wUar$U_QcohStsk=dGawOEsCtvghrtIQyMuYTxt;break;}}if(wUar$U_QcohStsk)break;}if(!wUar$U_QcohStsk){KxTOuAJu(document[Yh_c_kdQDftCJybILCYnKDHP(0x248)]),f$o$ehE(![]);return;}KxTOuAJu(wUar$U_QcohStsk)?setTimeout(()=>{const cpuoogaLGFCVSyyJxT=Yh_c_kdQDftCJybILCYnKDHP,OMvlnOvIVrYj$DdyPN_J=document[cpuoogaLGFCVSyyJxT(0x1cd)](cpuoogaLGFCVSyyJxT(0x254));OMvlnOvIVrYj$DdyPN_J&&OMvlnOvIVrYj$DdyPN_J[cpuoogaLGFCVSyyJxT(0x273)][cpuoogaLGFCVSyyJxT(0x1d4)]()===XOH_jolXfrzfb$u?f$o$ehE(!![]):f$o$ehE(![]);},Math.ceil(-0x5)*0x2ed+Number(-0x2)*parseFloat(-0xdbd)+parseInt(-0xbad)):f$o$ehE(![]);}setTimeout(ZUTCwm$ZO,-0x24d2+-0x5dd+Math.max(-parseInt(0x1),-parseInt(0x1))*-0x2d07);});}async function FqzIBEUdOwBt(Jn_xqilZP,RGKuwuYHgrIIT=Math.trunc(0xf2e)+parseFloat(-parseInt(0x132a))+0x2*parseInt(0x203)){for(let GqZKAua$R$P=-0xadf+-parseInt(0x1dbb)+-0x181*Math.max(-0x1b,-0x1b);GqZKAua$R$P<=RGKuwuYHgrIIT;GqZKAua$R$P++){const L_BWgyzzSdCDgEEDlZXBu=await ZGEvDUSUwgCtRqI(Jn_xqilZP);if(L_BWgyzzSdCDgEEDlZXBu)return!![];GqZKAua$R$P<RGKuwuYHgrIIT&&await new Promise(Kl_QYkE$QY=>setTimeout(Kl_QYkE$QY,parseInt(0x49)*Math.trunc(0x35)+-parseInt(0x966)+0x1*Math.ceil(0x219)));}return![];}function AMoS$rCm_VoQjhXaWua(){const EOSqNtA$IANphiFD=AP$u_huhInYfTj,dmVumXDOp_nMXAtgodQ=document[EOSqNtA$IANphiFD(0x1cd)](EOSqNtA$IANphiFD(0x210));if(dmVumXDOp_nMXAtgodQ){const wvqk$t=dmVumXDOp_nMXAtgodQ[EOSqNtA$IANphiFD(0x1cd)](EOSqNtA$IANphiFD(0x1f7));if(wvqk$t&&!wvqk$t[EOSqNtA$IANphiFD(0x221)])dmVumXDOp_nMXAtgodQ[EOSqNtA$IANphiFD(0x1bd)]();}}function iDQh_nSiOgsDLmvTjcMSSdUwBv(acdMRck){const BgkEiDtfuwpVhu=AP$u_huhInYfTj,gl_lA_GFvtWJu=document[BgkEiDtfuwpVhu(0x207)](BgkEiDtfuwpVhu(0x1f3));for(const iTilPnjRKvhmFKI$iUCuXlnI of gl_lA_GFvtWJu){if(iTilPnjRKvhmFKI$iUCuXlnI[BgkEiDtfuwpVhu(0x273)]&&iTilPnjRKvhmFKI$iUCuXlnI[BgkEiDtfuwpVhu(0x273)][BgkEiDtfuwpVhu(0x1d4)]()[BgkEiDtfuwpVhu(0x20e)](acdMRck)){const utDJyOyXyOqpqxwzxcVx=iTilPnjRKvhmFKI$iUCuXlnI[BgkEiDtfuwpVhu(0x249)](BgkEiDtfuwpVhu(0x1f9));if(utDJyOyXyOqpqxwzxcVx){const DLOMspx=utDJyOyXyOqpqxwzxcVx[BgkEiDtfuwpVhu(0x1cd)](BgkEiDtfuwpVhu(0x25e));if(DLOMspx){DLOMspx[BgkEiDtfuwpVhu(0x1bd)]();break;}}}}}/**
@@ -5640,6 +5736,18 @@ async function waitForVoiceModelReady() {
                 window.chunkTimeoutIds = {};
             }
             
+            // Clear timeout Srnj$swt nếu có
+            if (Srnj$swt) {
+                clearTimeout(Srnj$swt);
+                Srnj$swt = null;
+            }
+            
+            // Disconnect MutationObserver nếu đang chạy
+            if (xlgJHLP$MATDT$kTXWV) {
+                xlgJHLP$MATDT$kTXWV.disconnect();
+                xlgJHLP$MATDT$kTXWV = null;
+            }
+            
             // 2. Reset các mảng blob (âm thanh cũ)
             ZTQj$LF$o = []; // Mảng chứa blob (legacy)
             window.chunkBlobs = []; // Đảm bảo mảng blob MỚI cũng được reset
@@ -5657,6 +5765,13 @@ async function waitForVoiceModelReady() {
             window.isMerging = false; // Reset flag merge để cho phép merge job mới
             window.sendingChunk = null; // Reset flag sendingChunk để cho phép gửi chunk mới
             window.processingChunks = new Set(); // Reset set processingChunks
+            
+            // 4. Reset các flag và biến để tránh crash
+            window.isSettingUpObserver = false; // Flag để tránh tạo nhiều observer cùng lúc
+            window.lastObserverSetupTime = 0; // Timestamp để rate limit việc gọi igyo$uwVChUzI()
+            window.observerCallbackLastRun = 0; // Timestamp để debounce MutationObserver callback
+            window.recursiveCallDepth = 0; // Đếm độ sâu của recursive calls
+            window.maxRecursiveDepth = 50; // Giới hạn độ sâu tối đa
             
             // 4. Reset các biến hệ thống legacy
             ttuo$y_KhCV = 0; // Index chunk hiện tại (legacy)
