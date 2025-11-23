@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DUC LOI - Clone Voice (Không cần API) - Modded
 // @namespace    mmx-secure
-// @version      34.0
+// @version      24.0
 // @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại, Đổi văn bản hàng loạt & Thiết lập dấu câu (bao gồm dấu xuống dòng).
 // @author       HUỲNH ĐỨC LỢI ( Zalo: 0835795597) - Đã chỉnh sửa
 // @match        https://www.minimax.io/audio*
@@ -1246,7 +1246,7 @@ button:disabled {
         
         <div id="gemini-quota-display" style="color: #8be9fd; font-weight: bold; margin-left: 15px; margin-top: 10px; font-size: 14px;">Đang tải quota...</div>
         </div> 
-    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 34.0 - Update: 27/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div id="gemini-col-2-left">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
+    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 24.0 - Update: 27/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div id="gemini-col-2-left">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
     <div class="text-input-options">
         <div class="input-tabs">
             <button id="text-tab" class="tab-btn active">Nhập trực tiếp</button>
@@ -2324,46 +2324,7 @@ function smartSplitter(text, maxLength = 700) {
     return chunks.filter(c => c.length > 0);
 }
 
-function dExAbhXwTJeTJBIjWr(EARfsfSN_QdgxH){const tENdSoNDV_gGwQKLZv$sYaZKhl=AP$u_huhInYfTj,T$dCpaznIPQ_UPNPAquzJhwHya=document[tENdSoNDV_gGwQKLZv$sYaZKhl(0x207)](tENdSoNDV_gGwQKLZv$sYaZKhl(0x263));for(const uUautBCIQlQydFiAF of T$dCpaznIPQ_UPNPAquzJhwHya){if(uUautBCIQlQydFiAF[tENdSoNDV_gGwQKLZv$sYaZKhl(0x273)][tENdSoNDV_gGwQKLZv$sYaZKhl(0x1d4)]()[tENdSoNDV_gGwQKLZv$sYaZKhl(0x1d1)]()===EARfsfSN_QdgxH[tENdSoNDV_gGwQKLZv$sYaZKhl(0x1d1)]())return KxTOuAJu(uUautBCIQlQydFiAF);}return![];}function s_BrlXXxPOJaBMKQX(){const Qhhztv_Emh_V=AP$u_huhInYfTj,qEJFmmYaq_ZY$ADPfvGUAMIlmIC=document[Qhhztv_Emh_V(0x1de)](Qhhztv_Emh_V(0x1c2)),IhdbQcdDHJpPksT$$OGFBBMT=document[Qhhztv_Emh_V(0x1cd)](Qhhztv_Emh_V(0x1e0)),rxGCINQSAqsWepsnWTGJOpnkL=document[Qhhztv_Emh_V(0x1cd)](Qhhztv_Emh_V(0x251));if(qEJFmmYaq_ZY$ADPfvGUAMIlmIC){qEJFmmYaq_ZY$ADPfvGUAMIlmIC[Qhhztv_Emh_V(0x1c7)]='';if(IhdbQcdDHJpPksT$$OGFBBMT){const wdZDFYMevO_$Lwy=document[Qhhztv_Emh_V(0x25a)](Qhhztv_Emh_V(0x23c));wdZDFYMevO_$Lwy[Qhhztv_Emh_V(0x1f1)]=IhdbQcdDHJpPksT$$OGFBBMT[Qhhztv_Emh_V(0x1f1)],wdZDFYMevO_$Lwy[Qhhztv_Emh_V(0x23e)]=Qhhztv_Emh_V(0x245),qEJFmmYaq_ZY$ADPfvGUAMIlmIC[Qhhztv_Emh_V(0x1eb)](wdZDFYMevO_$Lwy);}if(rxGCINQSAqsWepsnWTGJOpnkL){const MTKrudpbV$ZIhmZO=document[Qhhztv_Emh_V(0x25a)](Qhhztv_Emh_V(0x1be));MTKrudpbV$ZIhmZO['id']=Qhhztv_Emh_V(0x257),MTKrudpbV$ZIhmZO[Qhhztv_Emh_V(0x273)]=Qhhztv_Emh_V(0x1e9)+rxGCINQSAqsWepsnWTGJOpnkL[Qhhztv_Emh_V(0x273)][Qhhztv_Emh_V(0x1d4)](),qEJFmmYaq_ZY$ADPfvGUAMIlmIC[Qhhztv_Emh_V(0x1eb)](MTKrudpbV$ZIhmZO);}}}
-
-// =======================================================
-// == HỆ THỐNG DEBOUNCE MERGE - NGĂN GỌI TRÙNG LẶP ==
-// =======================================================
-function queueMergeWithDebounce() {
-    // Khởi tạo biến nếu chưa có
-    if (typeof window.mergeDebounceTimer === 'undefined') {
-        window.mergeDebounceTimer = null;
-        window.mergeCallCount = 0;
-    }
-    
-    window.mergeCallCount++;
-    const callNumber = window.mergeCallCount;
-    
-    // Hủy timer cũ nếu có
-    if (window.mergeDebounceTimer) {
-        clearTimeout(window.mergeDebounceTimer);
-        addLogEntry(`🔄 Phát hiện lần gọi merge thứ ${callNumber}, hủy lần gọi trước và đợi thêm...`, 'info');
-    } else {
-        addLogEntry(`📞 Lần gọi merge đầu tiên (${callNumber}), đợi 500ms để gom các lần gọi...`, 'info');
-    }
-    
-    // Đặt timer mới (500ms)
-    window.mergeDebounceTimer = setTimeout(() => {
-        window.mergeDebounceTimer = null;
-        const totalCalls = window.mergeCallCount;
-        window.mergeCallCount = 0;
-        
-        if (window.isMerging === true) {
-            addLogEntry(`⚠️ Đã gom ${totalCalls} lần gọi, nhưng merge đang chạy, bỏ qua...`, 'warning');
-            return;
-        }
-        
-        addLogEntry(`✅ Đã gom ${totalCalls} lần gọi merge, bắt đầu merge...`, 'success');
-        tt__SfNwBHDebpWJOqrSTR();
-    }, 500);
-}
-
-async function tt__SfNwBHDebpWJOqrSTR(){const VCAHyXsrERcpXVhFPxmgdBjjh=AP$u_huhInYfTj;
+function dExAbhXwTJeTJBIjWr(EARfsfSN_QdgxH){const tENdSoNDV_gGwQKLZv$sYaZKhl=AP$u_huhInYfTj,T$dCpaznIPQ_UPNPAquzJhwHya=document[tENdSoNDV_gGwQKLZv$sYaZKhl(0x207)](tENdSoNDV_gGwQKLZv$sYaZKhl(0x263));for(const uUautBCIQlQydFiAF of T$dCpaznIPQ_UPNPAquzJhwHya){if(uUautBCIQlQydFiAF[tENdSoNDV_gGwQKLZv$sYaZKhl(0x273)][tENdSoNDV_gGwQKLZv$sYaZKhl(0x1d4)]()[tENdSoNDV_gGwQKLZv$sYaZKhl(0x1d1)]()===EARfsfSN_QdgxH[tENdSoNDV_gGwQKLZv$sYaZKhl(0x1d1)]())return KxTOuAJu(uUautBCIQlQydFiAF);}return![];}function s_BrlXXxPOJaBMKQX(){const Qhhztv_Emh_V=AP$u_huhInYfTj,qEJFmmYaq_ZY$ADPfvGUAMIlmIC=document[Qhhztv_Emh_V(0x1de)](Qhhztv_Emh_V(0x1c2)),IhdbQcdDHJpPksT$$OGFBBMT=document[Qhhztv_Emh_V(0x1cd)](Qhhztv_Emh_V(0x1e0)),rxGCINQSAqsWepsnWTGJOpnkL=document[Qhhztv_Emh_V(0x1cd)](Qhhztv_Emh_V(0x251));if(qEJFmmYaq_ZY$ADPfvGUAMIlmIC){qEJFmmYaq_ZY$ADPfvGUAMIlmIC[Qhhztv_Emh_V(0x1c7)]='';if(IhdbQcdDHJpPksT$$OGFBBMT){const wdZDFYMevO_$Lwy=document[Qhhztv_Emh_V(0x25a)](Qhhztv_Emh_V(0x23c));wdZDFYMevO_$Lwy[Qhhztv_Emh_V(0x1f1)]=IhdbQcdDHJpPksT$$OGFBBMT[Qhhztv_Emh_V(0x1f1)],wdZDFYMevO_$Lwy[Qhhztv_Emh_V(0x23e)]=Qhhztv_Emh_V(0x245),qEJFmmYaq_ZY$ADPfvGUAMIlmIC[Qhhztv_Emh_V(0x1eb)](wdZDFYMevO_$Lwy);}if(rxGCINQSAqsWepsnWTGJOpnkL){const MTKrudpbV$ZIhmZO=document[Qhhztv_Emh_V(0x25a)](Qhhztv_Emh_V(0x1be));MTKrudpbV$ZIhmZO['id']=Qhhztv_Emh_V(0x257),MTKrudpbV$ZIhmZO[Qhhztv_Emh_V(0x273)]=Qhhztv_Emh_V(0x1e9)+rxGCINQSAqsWepsnWTGJOpnkL[Qhhztv_Emh_V(0x273)][Qhhztv_Emh_V(0x1d4)](),qEJFmmYaq_ZY$ADPfvGUAMIlmIC[Qhhztv_Emh_V(0x1eb)](MTKrudpbV$ZIhmZO);}}}async function tt__SfNwBHDebpWJOqrSTR(){const VCAHyXsrERcpXVhFPxmgdBjjh=AP$u_huhInYfTj;
 
         // =======================================================
         // == KIỂM TRA: NGĂN MERGE NHIỀU LẦN ==
@@ -2377,7 +2338,6 @@ async function tt__SfNwBHDebpWJOqrSTR(){const VCAHyXsrERcpXVhFPxmgdBjjh=AP$u_huh
         window.isMerging = true;
         addLogEntry(`🔄 Bắt đầu merge file...`, 'info');
 
-        try {
         // =======================================================
         // == START: GỬI BÁO CÁO VỀ MAIN.PY (VÌ ĐÃ THÀNH CÔNG) ==
         // =======================================================
@@ -2408,289 +2368,33 @@ async function tt__SfNwBHDebpWJOqrSTR(){const VCAHyXsrERcpXVhFPxmgdBjjh=AP$u_huh
         // =======================================================
 
         const zEwMPLN$IZxzIwfdDbCfnIYcA=new Date();cHjV$QkAT$JWlL[VCAHyXsrERcpXVhFPxmgdBjjh(0x273)]=VCAHyXsrERcpXVhFPxmgdBjjh(0x1ce)+ymkKApNTfjOanYIBsxsoMNBX((zEwMPLN$IZxzIwfdDbCfnIYcA-dqj_t_Mr)/(Number(-0x27)*Math.floor(-0x26)+0x1f37+0x25*Math.floor(-parseInt(0xe5))));if(ZTQj$LF$o[VCAHyXsrERcpXVhFPxmgdBjjh(0x216)]===parseFloat(-0x1ca4)+Number(-parseInt(0x2445))+parseInt(0x40e9))return;try{
-// =======================================================
-// LẤY CHUNKS VÀ GIỮ LẠI INDEX ĐỂ MERGE ĐÚNG THỨ TỰ
-// =======================================================
-// =======================================================
-// LẤY CHUNKS CHỈ TỪ LẦN RENDER HIỆN TẠI - KHÔNG LẤY CHUNK CŨ
-// =======================================================
-// QUAN TRỌNG: Chỉ lấy chunk có index < SI$acY.length để đảm bảo không lấy nhầm chunk từ lần render trước
-const chunksWithIndex = [];
-const currentJobChunkCount = SI$acY ? SI$acY.length : 0;
-
-if (currentJobChunkCount === 0) {
-    addLogEntry('❌ Không có chunk nào trong SI$acY! Không thể merge.', 'error');
-    window.isMerging = false;
-    return;
-}
-
-addLogEntry(`🔍 Đang tìm chunks cho job hiện tại (${currentJobChunkCount} chunks)...`, 'info');
-
-// ƯU TIÊN 1: Kiểm tra window.chunkBlobs trước (CHỈ lấy chunk có index < SI$acY.length)
+// Sử dụng window.chunkBlobs nếu có và có dữ liệu, nếu không thì dùng ZTQj$LF$o
+let finalBlobs = ZTQj$LF$o; // Mặc định dùng ZTQj$LF$o như code gốc
 if (window.chunkBlobs && window.chunkBlobs.length > 0) {
-    let foundCount = 0;
-    let skippedCount = 0;
-    
-    // QUAN TRỌNG: Chỉ lấy chunk có index < currentJobChunkCount
-    for (let i = 0; i < Math.min(window.chunkBlobs.length, currentJobChunkCount); i++) {
-        if (window.chunkBlobs[i] !== null && window.chunkBlobs[i] !== undefined) {
-            chunksWithIndex.push({
-                index: i,
-                blob: window.chunkBlobs[i]
-            });
-            foundCount++;
-        }
+    const validBlobs = window.chunkBlobs.filter(blob => blob !== null);
+    if (validBlobs.length > 0) {
+        finalBlobs = validBlobs; // Chỉ dùng window.chunkBlobs nếu có dữ liệu
     }
-    
-    // Kiểm tra xem có chunk ở index >= currentJobChunkCount không (chunk cũ)
-    if (window.chunkBlobs.length > currentJobChunkCount) {
-        skippedCount = window.chunkBlobs.length - currentJobChunkCount;
-        addLogEntry(`⚠️ Phát hiện ${skippedCount} chunk ở index >= ${currentJobChunkCount} (chunk từ lần render trước), đã bỏ qua!`, 'warning');
-    }
-    
-    addLogEntry(`📦 Tìm thấy ${foundCount} chunk từ window.chunkBlobs (chỉ lấy chunk từ job hiện tại)`, 'info');
-}
-
-// ƯU TIÊN 2: Nếu window.chunkBlobs rỗng hoặc không đủ, dùng ZTQj$LF$o (CHỈ lấy chunk có index < SI$acY.length)
-if (chunksWithIndex.length === 0 && ZTQj$LF$o && ZTQj$LF$o.length > 0) {
-    let foundCount = 0;
-    let skippedCount = 0;
-    
-    // QUAN TRỌNG: Chỉ lấy chunk có index < currentJobChunkCount
-    for (let i = 0; i < Math.min(ZTQj$LF$o.length, currentJobChunkCount); i++) {
-        if (ZTQj$LF$o[i] !== null && ZTQj$LF$o[i] !== undefined) {
-            chunksWithIndex.push({
-                index: i,
-                blob: ZTQj$LF$o[i]
-            });
-            foundCount++;
-        }
-    }
-    
-    // Kiểm tra xem có chunk ở index >= currentJobChunkCount không (chunk cũ)
-    if (ZTQj$LF$o.length > currentJobChunkCount) {
-        skippedCount = ZTQj$LF$o.length - currentJobChunkCount;
-        addLogEntry(`⚠️ Phát hiện ${skippedCount} chunk ở index >= ${currentJobChunkCount} (chunk từ lần render trước), đã bỏ qua!`, 'warning');
-    }
-    
-    addLogEntry(`📦 Fallback: Tìm thấy ${foundCount} chunk từ ZTQj$LF$o (chỉ lấy chunk từ job hiện tại)`, 'info');
 }
 
 // =======================================================
-// VALIDATION NGHIÊM NGẶT: KIỂM TRA CHUNKS CHỈ TỪ JOB HIỆN TẠI
+// VALIDATION: Kiểm tra chunks trước khi merge
 // =======================================================
 // Kiểm tra số lượng chunks
-if (chunksWithIndex.length === 0) {
+if (finalBlobs.length === 0) {
     addLogEntry('❌ Không có chunks để gộp file', 'error');
-    window.isMerging = false;
     return;
 }
 
-// QUAN TRỌNG: Kiểm tra xem có chunk nào có index >= currentJobChunkCount không (chunk cũ)
-const oldChunksFromPreviousJob = chunksWithIndex.filter(chunk => chunk.index >= currentJobChunkCount);
-if (oldChunksFromPreviousJob.length > 0) {
-    addLogEntry(`❌ PHÁT HIỆN ${oldChunksFromPreviousJob.length} CHUNK CŨ (index >= ${currentJobChunkCount})! Đã loại bỏ!`, 'error');
-    addLogEntry(`❌ Các chunk cũ bị loại bỏ: ${oldChunksFromPreviousJob.map(c => c.index + 1).join(', ')}`, 'error');
-    
-    // Loại bỏ chunk cũ
-    const validChunksFromCurrentJob = chunksWithIndex.filter(chunk => chunk.index < currentJobChunkCount);
-    chunksWithIndex.length = 0;
-    chunksWithIndex.push(...validChunksFromCurrentJob);
-    
-    addLogEntry(`✅ Đã loại bỏ chunk cũ, còn lại ${chunksWithIndex.length} chunk hợp lệ từ job hiện tại`, 'success');
+// Kiểm tra chunks null/undefined
+const validFinalBlobs = finalBlobs.filter(blob => blob !== null && blob !== undefined);
+if (validFinalBlobs.length !== finalBlobs.length) {
+    const removedCount = finalBlobs.length - validFinalBlobs.length;
+    addLogEntry(`⚠️ Phát hiện ${removedCount} chunk null/undefined, đã loại bỏ`, 'warning');
+    finalBlobs = validFinalBlobs;
 }
 
-// Kiểm tra xem có chunk nào có index < 0 không (không hợp lệ)
-const negativeIndexChunks = chunksWithIndex.filter(chunk => chunk.index < 0);
-if (negativeIndexChunks.length > 0) {
-    addLogEntry(`❌ PHÁT HIỆN ${negativeIndexChunks.length} CHUNK CÓ INDEX < 0! Đã loại bỏ!`, 'error');
-    const validChunksWithPositiveIndex = chunksWithIndex.filter(chunk => chunk.index >= 0);
-    chunksWithIndex.length = 0;
-    chunksWithIndex.push(...validChunksWithPositiveIndex);
-}
-
-// Sắp xếp theo index để đảm bảo merge đúng thứ tự
-chunksWithIndex.sort((a, b) => a.index - b.index);
-addLogEntry(`✅ Đã sắp xếp ${chunksWithIndex.length} chunks theo thứ tự index (từ ${chunksWithIndex[0].index} đến ${chunksWithIndex[chunksWithIndex.length - 1].index})`, 'success');
-
-// =======================================================
-// VALIDATION NGHIÊM NGẶT: KIỂM TRA ĐỦ CHUNKS TRƯỚC KHI MERGE
-// =======================================================
-// Kiểm tra số lượng chunk mong đợi
-const expectedChunkCount = SI$acY ? SI$acY.length : 0;
-const actualChunkCount = chunksWithIndex.length;
-
-// Kiểm tra có thiếu chunk nào không
-const missingChunks = [];
-if (expectedChunkCount > 0) {
-    for (let i = 0; i < expectedChunkCount; i++) {
-        const found = chunksWithIndex.find(chunk => chunk.index === i);
-        if (!found) {
-            missingChunks.push(i);
-        }
-    }
-}
-
-// Nếu thiếu chunk, KÍCH HOẠT RETRY thay vì dừng
-if (missingChunks.length > 0) {
-    addLogEntry(`❌ PHÁT HIỆN THIẾU CHUNKS! Kích hoạt retry tự động!`, 'error');
-    addLogEntry(`❌ Số lượng chunk mong đợi: ${expectedChunkCount}, thực tế có: ${actualChunkCount}`, 'error');
-    addLogEntry(`❌ Các chunk bị thiếu: ${missingChunks.map(i => i + 1).join(', ')}`, 'error');
-    addLogEntry(`🔄 KÍCH HOẠT RETRY - Sẽ render lại các chunk bị thiếu!`, 'warning');
-    
-    // Đánh dấu các chunk thiếu là failed để retry
-    if (!window.failedChunks) window.failedChunks = [];
-    if (!window.chunkStatus) window.chunkStatus = [];
-    
-    missingChunks.forEach(chunkIndex => {
-        if (!window.failedChunks.includes(chunkIndex)) {
-            window.failedChunks.push(chunkIndex);
-        }
-        window.chunkStatus[chunkIndex] = 'failed';
-    });
-    
-    // Khởi tạo biến retry nếu chưa có
-    if (typeof window.totalRetryAttempts === 'undefined') window.totalRetryAttempts = 0;
-    if (typeof window.missingChunkRetryCount === 'undefined') window.missingChunkRetryCount = 0;
-    
-    window.missingChunkRetryCount++;
-    window.totalRetryAttempts++;
-    addLogEntry(`📊 Thống kê: Đã phát hiện thiếu chunk ${window.missingChunkRetryCount} lần`, 'info');
-    addLogEntry(`⏳ Tool sẽ retry VÔ HẠN cho đến khi TẤT CẢ chunk được render!`, 'info');
-    
-    // Hiển thị thông báo cho người dùng
-    if (typeof Swal !== 'undefined') {
-        Swal.fire({
-            title: '🔄 Phát hiện thiếu chunks - Đang retry tự động',
-            html: `
-                <div style="text-align: left;">
-                    <p><strong>Phát hiện thiếu chunks!</strong></p>
-                    <hr>
-                    <p><strong>Số lượng chunk:</strong></p>
-                    <ul>
-                        <li>Mong đợi: <strong>${expectedChunkCount}</strong></li>
-                        <li>Thực tế có: <strong>${actualChunkCount}</strong></li>
-                        <li>Thiếu: <strong>${missingChunks.length}</strong> chunk(s)</li>
-                    </ul>
-                    <hr>
-                    <p><strong>Các chunk bị thiếu:</strong></p>
-                    <p style="color: #ff6b6b; font-weight: bold;">${missingChunks.map(i => `Chunk ${i + 1}`).join(', ')}</p>
-                    <hr>
-                    <p><strong>🔄 Tool sẽ tự động retry các chunk bị thiếu!</strong></p>
-                    <p>Vui lòng đợi tool render lại các chunk này...</p>
-                </div>
-            `,
-            icon: 'warning',
-            width: '600px',
-            confirmButtonText: 'Đã hiểu',
-            confirmButtonColor: '#ffb86c',
-            timer: 5000,
-            timerProgressBar: true
-        });
-    }
-    
-    // Reset flag merge
-    window.isMerging = false;
-    
-    // Kích hoạt retry: Nhảy đến chunk thiếu đầu tiên
-    const firstMissingIndex = Math.min(...missingChunks);
-    addLogEntry(`🔄 RETRY MODE: Nhảy đến chunk ${firstMissingIndex + 1} (chunk thiếu đầu tiên) để retry...`, 'info');
-    
-    // Reset và retry
-    (async () => {
-        await resetWebInterface();
-        ttuo$y_KhCV = firstMissingIndex;
-        setTimeout(uSTZrHUt_IC, 3000);
-    })();
-    
-    return; // DỪNG merge, sẽ retry
-}
-
-// Kiểm tra chunk có bị gián đoạn không (có khoảng trống)
-const indexes = chunksWithIndex.map(chunk => chunk.index);
-const minIndex = Math.min(...indexes);
-const maxIndex = Math.max(...indexes);
-const expectedRange = maxIndex - minIndex + 1;
-
-if (actualChunkCount !== expectedRange) {
-    addLogEntry(`⚠️ Cảnh báo: Có khoảng trống trong các chunk (từ ${minIndex + 1} đến ${maxIndex + 1}, nhưng chỉ có ${actualChunkCount} chunks)`, 'warning');
-    addLogEntry(`⚠️ Các chunk bị thiếu trong khoảng: ${missingChunks.map(i => i + 1).join(', ')}`, 'warning');
-}
-
-// Nếu đủ chunks, tiếp tục merge
-if (actualChunkCount === expectedChunkCount) {
-    addLogEntry(`✅ Xác nhận: Đủ ${actualChunkCount}/${expectedChunkCount} chunks, sẵn sàng merge!`, 'success');
-} else if (actualChunkCount < expectedChunkCount) {
-    addLogEntry(`⚠️ Cảnh báo: Chỉ có ${actualChunkCount}/${expectedChunkCount} chunks, nhưng sẽ merge các chunk có sẵn`, 'warning');
-}
-
-// =======================================================
-// VALIDATION CUỐI CÙNG: KIỂM TRA TẤT CẢ BLOB HỢP LỆ TRƯỚC KHI MERGE
-// =======================================================
-const validChunksWithIndex = [];
-const invalidBlobChunks = [];
-
-chunksWithIndex.forEach(chunk => {
-    // Kiểm tra blob hợp lệ
-    if (!chunk.blob || chunk.blob === null || chunk.blob === undefined) {
-        invalidBlobChunks.push(chunk.index);
-        addLogEntry(`❌ [Chunk ${chunk.index + 1}] Blob không hợp lệ (null/undefined)!`, 'error');
-    } else if (chunk.blob.size === undefined || chunk.blob.size === 0) {
-        invalidBlobChunks.push(chunk.index);
-        addLogEntry(`❌ [Chunk ${chunk.index + 1}] Blob có size = 0!`, 'error');
-    } else {
-        validChunksWithIndex.push(chunk);
-        addLogEntry(`✅ [Chunk ${chunk.index + 1}] Blob hợp lệ: ${(chunk.blob.size / 1024).toFixed(2)} KB`, 'success');
-    }
-});
-
-// Nếu có blob không hợp lệ, kích hoạt retry
-if (invalidBlobChunks.length > 0) {
-    addLogEntry(`❌ PHÁT HIỆN ${invalidBlobChunks.length} BLOB KHÔNG HỢP LỆ! Kích hoạt retry!`, 'error');
-    addLogEntry(`❌ Các chunk có blob không hợp lệ: ${invalidBlobChunks.map(i => i + 1).join(', ')}`, 'error');
-    
-    // Đánh dấu các chunk này là failed để retry
-    if (!window.failedChunks) window.failedChunks = [];
-    if (!window.chunkStatus) window.chunkStatus = [];
-    
-    invalidBlobChunks.forEach(chunkIndex => {
-        if (!window.failedChunks.includes(chunkIndex)) {
-            window.failedChunks.push(chunkIndex);
-        }
-        window.chunkStatus[chunkIndex] = 'failed';
-    });
-    
-    // Khởi tạo biến retry nếu chưa có
-    if (typeof window.totalRetryAttempts === 'undefined') window.totalRetryAttempts = 0;
-    window.totalRetryAttempts++;
-    addLogEntry(`🔄 KÍCH HOẠT RETRY - Sẽ render lại các chunk có blob không hợp lệ!`, 'warning');
-    addLogEntry(`⏳ Tool sẽ retry VÔ HẠN cho đến khi TẤT CẢ chunk có blob hợp lệ!`, 'info');
-    
-    // Reset flag merge
-    window.isMerging = false;
-    
-    // Kích hoạt retry: Nhảy đến chunk lỗi đầu tiên
-    const firstInvalidIndex = Math.min(...invalidBlobChunks);
-    addLogEntry(`🔄 RETRY MODE: Nhảy đến chunk ${firstInvalidIndex + 1} (chunk lỗi đầu tiên) để retry...`, 'info');
-    
-    // Reset và retry
-    (async () => {
-        await resetWebInterface();
-        ttuo$y_KhCV = firstInvalidIndex;
-        setTimeout(uSTZrHUt_IC, 3000);
-    })();
-    
-    return; // DỪNG merge, sẽ retry
-}
-
-// Tạo mảng finalBlobs từ chunks hợp lệ đã sort (chỉ lấy blob, không lấy index)
-const finalBlobs = validChunksWithIndex.map(item => item.blob);
-
-// Log thông tin để debug
-const indexList = validChunksWithIndex.map(item => item.index).join(', ');
-addLogEntry(`🔍 Thứ tự merge: [${indexList}]`, 'info');
-addLogEntry(`✅ Validation hoàn tất: ${finalBlobs.length} chunks hợp lệ, đã sắp xếp theo index`, 'success');
-addLogEntry(`📊 Tổng kích thước: ${(finalBlobs.reduce((sum, blob) => sum + (blob.size || 0), 0) / 1024 / 1024).toFixed(2)} MB`, 'info');
+addLogEntry(`✅ Validation hoàn tất: ${finalBlobs.length} chunks hợp lệ`, 'success');
 
 // =======================================================
 // BATCH MERGE: Merge từng batch để tránh hết RAM
@@ -2771,7 +2475,8 @@ try {
         addLogEntry(`✅ Đã merge bằng phương pháp fallback`, 'success');
     } catch (fallbackError) {
         addLogEntry(`❌ Lỗi merge fallback: ${fallbackError.message}`, 'error');
-        throw fallbackError; // Re-throw để finally block xử lý reset flag
+        window.isMerging = false; // Reset flag khi merge lỗi
+        return;
     }
 }
 
@@ -2796,6 +2501,10 @@ const BBNDYjhHoGkj_qbbbJu=URL[VCAHyXsrERcpXVhFPxmgdBjjh(0x1f0)](InRdxToeqTDyPgDG
                 // Không block quá trình nếu lưu lịch sử lỗi
             }
 
+            // =======================================================
+            // == RESET FLAG MERGE SAU KHI HOÀN THÀNH ==
+            // =======================================================
+            window.isMerging = false;
             addLogEntry(`✅ Hoàn tất merge file!`, 'success');
 
 if(n_WwsStaC$jzsWjOIjRqedTG)n_WwsStaC$jzsWjOIjRqedTG[VCAHyXsrERcpXVhFPxmgdBjjh(0x26c)]();typeof WaveSurfer===VCAHyXsrERcpXVhFPxmgdBjjh(0x24d)&&await new Promise(dyvridmApUsyBfpYIHkxv=>setTimeout(dyvridmApUsyBfpYIHkxv,parseInt(0xf61)+Math.ceil(-parseInt(0x1e0))+-parseInt(0xb8d))),n_WwsStaC$jzsWjOIjRqedTG=WaveSurfer[VCAHyXsrERcpXVhFPxmgdBjjh(0x240)]({'container':VCAHyXsrERcpXVhFPxmgdBjjh(0x274),'waveColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x26a),'progressColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x228),'cursorColor':VCAHyXsrERcpXVhFPxmgdBjjh(0x20c),'barWidth':0x3,'barRadius':0x3,'cursorWidth':0x1,'height':0x64,'barGap':0x3}),n_WwsStaC$jzsWjOIjRqedTG[VCAHyXsrERcpXVhFPxmgdBjjh(0x1d5)](BBNDYjhHoGkj_qbbbJu),n_WwsStaC$jzsWjOIjRqedTG['on'](VCAHyXsrERcpXVhFPxmgdBjjh(0x1d6),()=>{const Ipo_CDaCvNEfh=VCAHyXsrERcpXVhFPxmgdBjjh;XvyPnqSRdJtYjSxingI[Ipo_CDaCvNEfh(0x1c7)]='⏸️';}),n_WwsStaC$jzsWjOIjRqedTG['on'](VCAHyXsrERcpXVhFPxmgdBjjh(0x22d),()=>{const NdVplyNSVhdzFR=VCAHyXsrERcpXVhFPxmgdBjjh;XvyPnqSRdJtYjSxingI[NdVplyNSVhdzFR(0x1c7)]='▶️';});
@@ -2880,19 +2589,6 @@ if(n_WwsStaC$jzsWjOIjRqedTG)n_WwsStaC$jzsWjOIjRqedTG[VCAHyXsrERcpXVhFPxmgdBjjh(0
             addLogEntry(`❌ Lỗi khi gắn listener cho nút ZIP: ${e.message}`, 'error');
         }
         // --- KẾT THÚC NÂNG CẤP ---
-
-        } catch (error) {
-            // Bắt mọi lỗi không mong đợi trong quá trình merge
-            console.error('❌ Lỗi không mong đợi trong merge:', error);
-            addLogEntry(`❌ Lỗi không mong đợi: ${error.message}`, 'error');
-            throw error; // Re-throw để caller biết
-        } finally {
-            // =======================================================
-            // == QUAN TRỌNG: LUÔN RESET FLAG DÙ THÀNH CÔNG HAY LỖI ==
-            // =======================================================
-            window.isMerging = false;
-            addLogEntry(`🔄 Đã reset flag merge (đảm bảo không bị kẹt)`, 'info');
-        }
 
 }catch(FlhstZJmp_$Mvf){}}
 
@@ -3251,14 +2947,14 @@ async function uSTZrHUt_IC() {
             } else {
                 addLogEntry(`🎉 Hoàn thành xử lý tất cả chunks (đã thử lại các chunk thất bại)!`, 'success');
                 addLogEntry(`✅ TẤT CẢ ${SI$acY.length} chunks đã thành công! Bắt đầu ghép file...`, 'success');
-                // CHỈ ghép file khi TẤT CẢ chunk đã thành công - Sử dụng debounce để tránh gọi trùng lặp
-                queueMergeWithDebounce();
+                // CHỈ ghép file khi TẤT CẢ chunk đã thành công
+                tt__SfNwBHDebpWJOqrSTR();
             }
         } else {
             addLogEntry(`🎉 Tất cả ${SI$acY.length} chunks đã được xử lý xong!`, 'success');
             addLogEntry(`✅ TẤT CẢ ${SI$acY.length} chunks đã thành công! Bắt đầu ghép file...`, 'success');
-            // CHỈ ghép file khi TẤT CẢ chunk đã thành công - Sử dụng debounce để tránh gọi trùng lặp
-            queueMergeWithDebounce();
+            // CHỈ ghép file khi TẤT CẢ chunk đã thành công
+            tt__SfNwBHDebpWJOqrSTR();
         }
         return;
     }
@@ -3409,20 +3105,13 @@ async function uSTZrHUt_IC() {
         await new Promise(resolve => setTimeout(resolve, Math.random() * 1000 + 500));
         
         // =======================================================
-        // == ĐẢM BẢO TEXTAREA SẴN SÀNG TRƯỚC KHI SET TEXT ==
+        // == CLEAR TEXTAREA VÀ AUDIO CONTEXT TRƯỚC KHI GỬI CHUNK ==
         // =======================================================
-        // Chờ textarea sẵn sàng (không clear quá sớm)
+        // Clear textarea để tránh lỗi âm thanh lạ khi render
         const textarea = document.getElementById('gemini-hidden-text-for-request');
         if (textarea) {
-            // Chờ một chút để đảm bảo website đã xử lý xong textarea cũ
-            await new Promise(resolve => setTimeout(resolve, 500));
-            
-            // Clear textarea sau khi đã chờ
             textarea.value = '';
-            addLogEntry(`🧹 [Chunk ${ttuo$y_KhCV + 1}] Đã clear textarea sau khi đảm bảo sẵn sàng`, 'info');
-            
-            // Chờ thêm để đảm bảo clear hoàn tất
-            await new Promise(resolve => setTimeout(resolve, 200));
+            addLogEntry(`🧹 [Chunk ${ttuo$y_KhCV + 1}] Đã clear textarea trước khi gửi`, 'info');
         }
         
         // Clear audio context và các audio elements để tránh lỗi âm thanh lạ
@@ -3519,190 +3208,17 @@ async function uSTZrHUt_IC() {
         
         // Đánh dấu đang gửi chunk này
         window.sendingChunk = ttuo$y_KhCV;
-        
-        // QUAN TRỌNG: Lưu text của chunk này ngay khi bắt đầu gửi để so sánh sau
-        // Vì textarea có thể bị website thay đổi sau khi click button
-        if (typeof window.chunkTexts === 'undefined') {
-            window.chunkTexts = [];
-        }
-        window.chunkTexts[ttuo$y_KhCV] = chunkText; // Lưu text đã normalize
-        addLogEntry(`💾 [Chunk ${ttuo$y_KhCV + 1}] Đã lưu text của chunk để so sánh sau (${chunkText.length} ký tự)`, 'info');
-        
         addLogEntry(`🔄 [Chunk ${ttuo$y_KhCV + 1}] Bắt đầu gửi chunk...`, 'info');
-        
-        // =======================================================
-        // == ĐẶT TEXT VÀO TEXTAREA VỚI VERIFICATION ==
-        // =======================================================
-        // Hàm helper để normalize text khi verify (dùng cùng logic với normalizeChunkText)
-        const normalizeForVerify = (text) => {
-            if (!text || typeof text !== 'string') return '';
-            return text
-                .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F-\u009F]/g, '')
-                .replace(/\*/g, '')
-                .replace(/["""«»''\u2018\u2019\u201C\u201D]/g, '')
-                .replace(/\s+/g, ' ')
-                .trim();
-        };
         
         // Đặt text đã chuẩn hóa vào ô input ẩn
         rUxbIRagbBVychZ$GfsogD[tQqGbytKzpHwhGmeQJucsrq(0x24c)] = chunkText;
-        
-        // Trigger events để đảm bảo website nhận diện thay đổi
-        try {
-            const inputEvent = new Event('input', { bubbles: true, cancelable: true });
-            const changeEvent = new Event('change', { bubbles: true, cancelable: true });
-            rUxbIRagbBVychZ$GfsogD.dispatchEvent(inputEvent);
-            rUxbIRagbBVychZ$GfsogD.dispatchEvent(changeEvent);
-        } catch (e) {
-            // Fallback cho trình duyệt cũ
-            try {
-                const inputEvent = document.createEvent('Event');
-                inputEvent.initEvent('input', true, true);
-                rUxbIRagbBVychZ$GfsogD.dispatchEvent(inputEvent);
-            } catch (e2) {
-                // Bỏ qua nếu không thể trigger event
-            }
-        }
-        
-        // =======================================================
-        // == VERIFICATION NGHIÊM NGẶT: ĐẢM BẢO TEXT KHỚP 100% ==
-        // =======================================================
-        const maxVerifyAttempts = 10; // Tăng số lần thử
-        let verifyAttempt = 0;
-        let verifySuccess = false;
-        const expectedNormalized = normalizeForVerify(chunkText);
-        
-        // Hàm kiểm tra text bị cắt ở đầu/cuối
-        const checkTextTruncated = (expected, actual) => {
-            const expectedNorm = expected.trim();
-            const actualNorm = actual.trim();
-            
-            // Kiểm tra bị cắt ở đầu
-            if (actualNorm.length < expectedNorm.length) {
-                const startMatch = expectedNorm.startsWith(actualNorm);
-                const endMatch = expectedNorm.endsWith(actualNorm);
-                
-                if (startMatch) {
-                    return { truncated: true, position: 'end', missing: expectedNorm.length - actualNorm.length };
-                } else if (endMatch) {
-                    return { truncated: true, position: 'start', missing: expectedNorm.length - actualNorm.length };
-                } else {
-                    // Có thể bị cắt ở giữa hoặc cả đầu và cuối
-                    return { truncated: true, position: 'middle', missing: expectedNorm.length - actualNorm.length };
-                }
-            }
-            
-            return { truncated: false };
-        };
-        
-        while (verifyAttempt < maxVerifyAttempts && !verifySuccess) {
-            await new Promise(resolve => setTimeout(resolve, 300)); // Chờ 300ms mỗi lần verify
-            
-            const actualValue = rUxbIRagbBVychZ$GfsogD[tQqGbytKzpHwhGmeQJucsrq(0x24c)] || '';
-            const actualNormalized = normalizeForVerify(actualValue);
-            
-            // So sánh text đã normalize
-            if (actualNormalized === expectedNormalized) {
-                verifySuccess = true;
-                addLogEntry(`✅ [Chunk ${ttuo$y_KhCV + 1}] Đã verify textarea thành công 100% (${verifyAttempt + 1}/${maxVerifyAttempts})`, 'success');
-            } else {
-                verifyAttempt++;
-                
-                // Kiểm tra text bị cắt
-                const truncationCheck = checkTextTruncated(expectedNormalized, actualNormalized);
-                const lengthDiff = Math.abs(expectedNormalized.length - actualNormalized.length);
-                
-                if (verifyAttempt < maxVerifyAttempts) {
-                    // Thử set lại text
-                    rUxbIRagbBVychZ$GfsogD[tQqGbytKzpHwhGmeQJucsrq(0x24c)] = chunkText;
-                    // Trigger events lại
-                    try {
-                        const inputEvent = new Event('input', { bubbles: true, cancelable: true });
-                        const changeEvent = new Event('change', { bubbles: true, cancelable: true });
-                        rUxbIRagbBVychZ$GfsogD.dispatchEvent(inputEvent);
-                        rUxbIRagbBVychZ$GfsogD.dispatchEvent(changeEvent);
-                    } catch (e) {
-                        // Bỏ qua
-                    }
-                    
-                    if (truncationCheck.truncated) {
-                        addLogEntry(`🔄 [Chunk ${ttuo$y_KhCV + 1}] Verify lần ${verifyAttempt}/${maxVerifyAttempts} - Phát hiện text bị cắt ${truncationCheck.position} (thiếu ${truncationCheck.missing} ký tự), đang thử lại...`, 'warning');
-                    } else {
-                        addLogEntry(`🔄 [Chunk ${ttuo$y_KhCV + 1}] Verify lần ${verifyAttempt}/${maxVerifyAttempts} - Không khớp (độ dài: ${expectedNormalized.length} vs ${actualNormalized.length}), đang thử lại...`, 'warning');
-                    }
-                } else {
-                    // THẤT BẠI: Kích hoạt retry thay vì dừng
-                    addLogEntry(`❌ [Chunk ${ttuo$y_KhCV + 1}] Verify thất bại sau ${maxVerifyAttempts} lần!`, 'error');
-                    
-                    if (truncationCheck.truncated) {
-                        addLogEntry(`❌ [Chunk ${ttuo$y_KhCV + 1}] Text bị cắt ở ${truncationCheck.position}, thiếu ${truncationCheck.missing} ký tự!`, 'error');
-                        addLogEntry(`❌ [Chunk ${ttuo$y_KhCV + 1}] Độ dài mong đợi: ${expectedNormalized.length}, thực tế: ${actualNormalized.length}`, 'error');
-                    } else {
-                        addLogEntry(`❌ [Chunk ${ttuo$y_KhCV + 1}] Text không khớp! Độ dài mong đợi: ${expectedNormalized.length}, thực tế: ${actualNormalized.length}`, 'error');
-                    }
-                    
-                    addLogEntry(`🔄 [Chunk ${ttuo$y_KhCV + 1}] KÍCH HOẠT RETRY - Sẽ thử lại chunk này!`, 'warning');
-                    
-                    // Đánh dấu chunk này là failed để retry
-                    if (!window.chunkStatus) window.chunkStatus = [];
-                    window.chunkStatus[ttuo$y_KhCV] = 'failed';
-                    if (!window.failedChunks) window.failedChunks = [];
-                    if (!window.failedChunks.includes(ttuo$y_KhCV)) {
-                        window.failedChunks.push(ttuo$y_KhCV);
-                    }
-                    
-                    // Reset flag
-                    window.sendingChunk = null;
-                    
-                    // Reset web interface trước khi retry
-                    addLogEntry(`🔄 [Chunk ${ttuo$y_KhCV + 1}] Đang reset web interface trước khi retry...`, 'info');
-                    await resetWebInterface();
-                    
-                    // Chuyển sang chunk tiếp theo, chunk này sẽ được retry sau
-                    ttuo$y_KhCV++;
-                    setTimeout(uSTZrHUt_IC, 3000);
-                    return; // DỪNG render lần này, sẽ retry sau
-                }
-            }
-        }
-        
-        // KIỂM TRA LẠI TRƯỚC KHI CLICK: Đảm bảo text vẫn khớp
-        const finalCheck = rUxbIRagbBVychZ$GfsogD[tQqGbytKzpHwhGmeQJucsrq(0x24c)] || '';
-        const finalCheckNormalized = normalizeForVerify(finalCheck);
-        if (finalCheckNormalized !== expectedNormalized) {
-            addLogEntry(`❌ [Chunk ${ttuo$y_KhCV + 1}] Kiểm tra cuối cùng thất bại! Text đã bị thay đổi sau khi verify.`, 'error');
-            addLogEntry(`🔄 [Chunk ${ttuo$y_KhCV + 1}] KÍCH HOẠT RETRY - Sẽ thử lại chunk này!`, 'warning');
-            
-            // Đánh dấu chunk này là failed để retry
-            if (!window.chunkStatus) window.chunkStatus = [];
-            window.chunkStatus[ttuo$y_KhCV] = 'failed';
-            if (!window.failedChunks) window.failedChunks = [];
-            if (!window.failedChunks.includes(ttuo$y_KhCV)) {
-                window.failedChunks.push(ttuo$y_KhCV);
-            }
-            
-            // Reset flag
-            window.sendingChunk = null;
-            
-            // Reset web interface trước khi retry
-            addLogEntry(`🔄 [Chunk ${ttuo$y_KhCV + 1}] Đang reset web interface trước khi retry...`, 'info');
-            await resetWebInterface();
-            
-            // Chuyển sang chunk tiếp theo, chunk này sẽ được retry sau
-            ttuo$y_KhCV++;
-            setTimeout(uSTZrHUt_IC, 3000);
-            return; // DỪNG render lần này, sẽ retry sau
-        }
-        
-        // Chờ thêm một chút để đảm bảo website đã nhận diện text
-        await new Promise(resolve => setTimeout(resolve, 500));
 
         // Cập nhật progress bar
         nWHrScjZnIyNYzztyEWwM(ttuo$y_KhCV, SI$acY[tQqGbytKzpHwhGmeQJucsrq(0x216)]);
         addLogEntry(`📦 [Chunk ${ttuo$y_KhCV + 1}/${SI$acY.length}] Đang gửi đi... (độ dài: ${chunkText.length} ký tự sau chuẩn hóa)`, 'info');
 
-        // ANTI-DETECTION: Thêm delay ngẫu nhiên trước khi click (tăng thêm để đảm bảo)
-        await new Promise(resolve => setTimeout(resolve, Math.random() * 2000 + 1500));
+        // ANTI-DETECTION: Thêm delay ngẫu nhiên trước khi click
+        await new Promise(resolve => setTimeout(resolve, Math.random() * 2000 + 1000));
         
         // Thực hiện click
         KxTOuAJu(targetButton);
@@ -4088,49 +3604,6 @@ async function uSTZrHUt_IC() {
                     // QUAN TRỌNG: Lưu currentChunkIndex ngay đầu để tránh race condition
                     const currentChunkIndex = ttuo$y_KhCV;
                     
-                    // QUAN TRỌNG: Kiểm tra xem audio element này có phải từ job hiện tại không
-                    // Nếu SI$acY chưa được khởi tạo hoặc currentChunkIndex không hợp lệ, bỏ qua
-                    if (!SI$acY || SI$acY.length === 0) {
-                        addLogEntry(`⚠️ Phát hiện audio element nhưng SI$acY chưa được khởi tạo, bỏ qua (có thể là audio từ lần render trước)`, 'warning');
-                        return;
-                    }
-                    if (currentChunkIndex < 0 || currentChunkIndex >= SI$acY.length) {
-                        addLogEntry(`⚠️ Phát hiện audio element nhưng currentChunkIndex (${currentChunkIndex}) không hợp lệ với SI$acY.length (${SI$acY.length}), bỏ qua (có thể là audio từ lần render trước)`, 'warning');
-                        return;
-                    }
-                    
-                    // QUAN TRỌNG: Kiểm tra xem audio element này có phải mới không (không phải từ lần render trước)
-                    // Kiểm tra timestamp của audio element (nếu có)
-                    const audioElement = TYRNWSSd$QOYZe[ndkpgKnjg(0x1cd)](ndkpgKnjg(0x1f2));
-                    if (audioElement) {
-                        // Kiểm tra xem audio element này có src không (nếu không có src, có thể là audio cũ chưa được xóa)
-                        if (!audioElement.src || audioElement.src === '' || audioElement.src === 'null' || audioElement.src === 'undefined') {
-                            addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Phát hiện audio element không có src, bỏ qua (có thể là audio cũ)`, 'warning');
-                            return;
-                        }
-                        
-                        // QUAN TRỌNG: Kiểm tra xem audio element này có phải mới tạo không
-                        // Kiểm tra xem audio element có trong DOM không và có phải là audio mới nhất không
-                        const allAudioElements = document.querySelectorAll('audio');
-                        let isNewestAudio = false;
-                        let audioIndex = -1;
-                        allAudioElements.forEach((audio, idx) => {
-                            if (audio === audioElement) {
-                                audioIndex = idx;
-                                // Nếu là audio element cuối cùng, có thể là audio mới nhất
-                                if (idx === allAudioElements.length - 1) {
-                                    isNewestAudio = true;
-                                }
-                            }
-                        });
-                        
-                        // Kiểm tra xem có audio element nào khác mới hơn không
-                        if (!isNewestAudio && audioIndex >= 0) {
-                            addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Phát hiện audio element không phải mới nhất (index ${audioIndex}/${allAudioElements.length - 1}), có thể là audio cũ`, 'warning');
-                            // Vẫn tiếp tục nhưng sẽ kiểm tra textarea sau
-                        }
-                    }
-                    
                     // QUAN TRỌNG: Ngăn chặn xử lý trùng lặp cho cùng một chunk
                     if (typeof window.processingChunks === 'undefined') {
                         window.processingChunks = new Set();
@@ -4169,270 +3642,7 @@ async function uSTZrHUt_IC() {
                     clearTimeout(Srnj$swt);
                     // KHÔNG disconnect observer ở đây - sẽ disconnect sau khi xử lý xong
 
-                    // =======================================================
-                    // QUAN TRỌNG: ĐỢI AUDIO ELEMENT THỰC SỰ SẴN SÀNG TRƯỚC KHI BÁO THÀNH CÔNG
-                    // =======================================================
-                    const detectedAudioElement = TYRNWSSd$QOYZe[ndkpgKnjg(0x1cd)](ndkpgKnjg(0x1f2));
-                    if (detectedAudioElement) {
-                        addLogEntry(`⏳ [Chunk ${currentChunkIndex + 1}] Phát hiện audio element, đang đợi audio load xong...`, 'info');
-                        
-                        // Đợi audio element có src hợp lệ và load xong
-                        let waitCount = 0;
-                        const maxWait = 30; // Tối đa 30 lần (30 giây)
-                        const maxWaitReadyState0 = 3; // Tối đa 3 lần (3 giây) nếu readyState = 0
-                        let audioReady = false;
-                        let readyState0Count = 0; // Đếm số lần readyState = 0
-                        
-                        while (waitCount < maxWait && !audioReady) {
-                            // Kiểm tra audio element có src hợp lệ không
-                            if (detectedAudioElement.src && detectedAudioElement.src !== '' && detectedAudioElement.src !== 'null' && detectedAudioElement.src !== 'undefined') {
-                                // Kiểm tra audio element có duration > 0 hoặc readyState >= 2 không (có audio thực sự)
-                                if (detectedAudioElement.readyState >= 2 || (detectedAudioElement.duration && detectedAudioElement.duration > 0 && !isNaN(detectedAudioElement.duration))) {
-                                    audioReady = true;
-                                    addLogEntry(`✅ [Chunk ${currentChunkIndex + 1}] Audio element đã sẵn sàng (readyState: ${detectedAudioElement.readyState}, duration: ${detectedAudioElement.duration ? detectedAudioElement.duration.toFixed(2) : 'N/A'}s)`, 'success');
-                                    break;
-                                } else {
-                                    // Audio element có src nhưng chưa load xong
-                                    // QUAN TRỌNG: Kiểm tra readyState = 0 (HAVE_NOTHING)
-                                    // readyState = 0 có nghĩa là audio element chưa có metadata, chưa bắt đầu load
-                                    // Nếu quá 3 lần (3 giây) mà readyState vẫn = 0, có thể là:
-                                    // 1. Audio URL không hợp lệ
-                                    // 2. Website chưa thực sự load audio
-                                    // 3. Có lỗi khi load audio
-                                    
-                                    if (detectedAudioElement.readyState === 0) {
-                                        readyState0Count++;
-                                        
-                                        // Kiểm tra thêm: Audio element có error không
-                                        const hasError = detectedAudioElement.error !== null && detectedAudioElement.error !== undefined;
-                                        const networkState = detectedAudioElement.networkState; // 0=EMPTY, 1=IDLE, 2=LOADING, 3=NO_SOURCE
-                                        
-                                        if (hasError) {
-                                            const errorCode = detectedAudioElement.error ? detectedAudioElement.error.code : 'unknown';
-                                            let errorMessage = '';
-                                            
-                                            // Giải thích error code
-                                            switch(errorCode) {
-                                                case 1:
-                                                    errorMessage = 'MEDIA_ERR_ABORTED - Quá trình tải bị hủy';
-                                                    break;
-                                                case 2:
-                                                    errorMessage = 'MEDIA_ERR_NETWORK - Lỗi mạng';
-                                                    break;
-                                                case 3:
-                                                    errorMessage = 'MEDIA_ERR_DECODE - Lỗi giải mã audio';
-                                                    break;
-                                                case 4:
-                                                    errorMessage = 'MEDIA_ERR_SRC_NOT_SUPPORTED - Source không được hỗ trợ hoặc không hợp lệ';
-                                                    break;
-                                                default:
-                                                    errorMessage = `Lỗi không xác định (code: ${errorCode})`;
-                                            }
-                                            
-                                            addLogEntry(`❌ [Chunk ${currentChunkIndex + 1}] Audio element có lỗi! Error code: ${errorCode} - ${errorMessage}`, 'error');
-                                            addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] KÍCH HOẠT RETRY - Đánh dấu thất bại!`, 'warning');
-                                            
-                                            // Đánh dấu chunk failed
-                                            if (!window.chunkStatus) window.chunkStatus = [];
-                                            window.chunkStatus[currentChunkIndex] = 'failed';
-                                            if (!window.failedChunks) window.failedChunks = [];
-                                            if (!window.failedChunks.includes(currentChunkIndex)) {
-                                                window.failedChunks.push(currentChunkIndex);
-                                            }
-                                            
-                                            // Xóa khỏi processingChunks
-                                            if (typeof window.processingChunks !== 'undefined') {
-                                                window.processingChunks.delete(currentChunkIndex);
-                                            }
-                                            
-                                            // Reset flag
-                                            if (window.sendingChunk === currentChunkIndex) {
-                                                window.sendingChunk = null;
-                                            }
-                                            
-                                            // QUAN TRỌNG: Kích hoạt retry ngay sau khi đánh dấu failed
-                                            addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Đang reset web interface và kích hoạt retry...`, 'info');
-                                            
-                                            // Reset web interface và kích hoạt retry
-                                            (async () => {
-                                                try {
-                                                    await resetWebInterface();
-                                                    addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Đã reset web interface`, 'info');
-                                                    
-                                                    // Kích hoạt retry bằng cách set isFinalCheck và gọi lại uSTZrHUt_IC
-                                                    window.isFinalCheck = true;
-                                                    
-                                                    // Chờ một chút rồi kích hoạt retry
-                                                    setTimeout(() => {
-                                                        addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Kích hoạt retry ngay...`, 'info');
-                                                        ttuo$y_KhCV = currentChunkIndex;
-                                                        setTimeout(uSTZrHUt_IC, 1000);
-                                                    }, 2000);
-                                                } catch (resetError) {
-                                                    addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Lỗi khi reset web interface: ${resetError.message}`, 'warning');
-                                                    
-                                                    // Vẫn kích hoạt retry dù có lỗi reset
-                                                    window.isFinalCheck = true;
-                                                    setTimeout(() => {
-                                                        addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Kích hoạt retry (dù có lỗi reset)...`, 'info');
-                                                        ttuo$y_KhCV = currentChunkIndex;
-                                                        setTimeout(uSTZrHUt_IC, 1000);
-                                                    }, 2000);
-                                                }
-                                            })();
-                                            
-                                            return; // DỪNG, không tiếp tục xử lý chunk này
-                                        }
-                                        
-                                        // Nếu networkState = 3 (NO_SOURCE), có nghĩa là không có source hợp lệ
-                                        // QUAN TRỌNG: Chỉ coi là lỗi nếu đã đợi ít nhất 2 lần (2 giây) và vẫn còn networkState = 3
-                                        // Vì networkState = 3 có thể xảy ra tạm thời khi audio element mới được tạo và chưa bắt đầu load
-                                        if (networkState === 3 && readyState0Count >= 2) {
-                                            addLogEntry(`❌ [Chunk ${currentChunkIndex + 1}] Audio element không có source hợp lệ (networkState: ${networkState}) sau ${readyState0Count} lần kiểm tra!`, 'error');
-                                            addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] KÍCH HOẠT RETRY - Đánh dấu thất bại!`, 'warning');
-                                            
-                                            // Đánh dấu chunk failed
-                                            if (!window.chunkStatus) window.chunkStatus = [];
-                                            window.chunkStatus[currentChunkIndex] = 'failed';
-                                            if (!window.failedChunks) window.failedChunks = [];
-                                            if (!window.failedChunks.includes(currentChunkIndex)) {
-                                                window.failedChunks.push(currentChunkIndex);
-                                            }
-                                            
-                                            // Xóa khỏi processingChunks
-                                            if (typeof window.processingChunks !== 'undefined') {
-                                                window.processingChunks.delete(currentChunkIndex);
-                                            }
-                                            
-                                            // Reset flag
-                                            if (window.sendingChunk === currentChunkIndex) {
-                                                window.sendingChunk = null;
-                                            }
-                                            
-                                            // QUAN TRỌNG: Kích hoạt retry ngay sau khi đánh dấu failed
-                                            addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Đang reset web interface và kích hoạt retry...`, 'info');
-                                            
-                                            // Reset web interface và kích hoạt retry
-                                            (async () => {
-                                                try {
-                                                    await resetWebInterface();
-                                                    addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Đã reset web interface`, 'info');
-                                                    
-                                                    // Kích hoạt retry bằng cách set isFinalCheck và gọi lại uSTZrHUt_IC
-                                                    window.isFinalCheck = true;
-                                                    
-                                                    // Chờ một chút rồi kích hoạt retry
-                                                    setTimeout(() => {
-                                                        addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Kích hoạt retry ngay...`, 'info');
-                                                        ttuo$y_KhCV = currentChunkIndex;
-                                                        setTimeout(uSTZrHUt_IC, 1000);
-                                                    }, 2000);
-                                                } catch (resetError) {
-                                                    addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Lỗi khi reset web interface: ${resetError.message}`, 'warning');
-                                                    
-                                                    // Vẫn kích hoạt retry dù có lỗi reset
-                                                    window.isFinalCheck = true;
-                                                    setTimeout(() => {
-                                                        addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Kích hoạt retry (dù có lỗi reset)...`, 'info');
-                                                        ttuo$y_KhCV = currentChunkIndex;
-                                                        setTimeout(uSTZrHUt_IC, 1000);
-                                                    }, 2000);
-                                                }
-                                            })();
-                                            
-                                            return; // DỪNG, không tiếp tục xử lý chunk này
-                                        }
-                                        
-                                        // Nếu quá 3 lần mà readyState vẫn = 0 và không có error, kích hoạt retry
-                                        if (readyState0Count > maxWaitReadyState0) {
-                                            addLogEntry(`❌ [Chunk ${currentChunkIndex + 1}] Đợi quá ${maxWaitReadyState0} lần (${maxWaitReadyState0}s) mà readyState vẫn = 0!`, 'error');
-                                            addLogEntry(`❌ [Chunk ${currentChunkIndex + 1}] networkState: ${networkState} (0=EMPTY, 1=IDLE, 2=LOADING, 3=NO_SOURCE)`, 'error');
-                                            addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] KÍCH HOẠT RETRY - Đánh dấu thất bại!`, 'warning');
-                                            
-                                            // Đánh dấu chunk failed
-                                            if (!window.chunkStatus) window.chunkStatus = [];
-                                            window.chunkStatus[currentChunkIndex] = 'failed';
-                                            if (!window.failedChunks) window.failedChunks = [];
-                                            if (!window.failedChunks.includes(currentChunkIndex)) {
-                                                window.failedChunks.push(currentChunkIndex);
-                                            }
-                                            
-                                            // Xóa khỏi processingChunks
-                                            if (typeof window.processingChunks !== 'undefined') {
-                                                window.processingChunks.delete(currentChunkIndex);
-                                            }
-                                            
-                                            // Reset flag
-                                            if (window.sendingChunk === currentChunkIndex) {
-                                                window.sendingChunk = null;
-                                            }
-                                            
-                                            // QUAN TRỌNG: Kích hoạt retry ngay sau khi đánh dấu failed
-                                            addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Đang reset web interface và kích hoạt retry...`, 'info');
-                                            
-                                            // Reset web interface và kích hoạt retry
-                                            (async () => {
-                                                try {
-                                                    await resetWebInterface();
-                                                    addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Đã reset web interface`, 'info');
-                                                    
-                                                    // Kích hoạt retry bằng cách set isFinalCheck và gọi lại uSTZrHUt_IC
-                                                    window.isFinalCheck = true;
-                                                    
-                                                    // Chờ một chút rồi kích hoạt retry
-                                                    setTimeout(() => {
-                                                        addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Kích hoạt retry ngay...`, 'info');
-                                                        ttuo$y_KhCV = currentChunkIndex;
-                                                        setTimeout(uSTZrHUt_IC, 1000);
-                                                    }, 2000);
-                                                } catch (resetError) {
-                                                    addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Lỗi khi reset web interface: ${resetError.message}`, 'warning');
-                                                    
-                                                    // Vẫn kích hoạt retry dù có lỗi reset
-                                                    window.isFinalCheck = true;
-                                                    setTimeout(() => {
-                                                        addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Kích hoạt retry (dù có lỗi reset)...`, 'info');
-                                                        ttuo$y_KhCV = currentChunkIndex;
-                                                        setTimeout(uSTZrHUt_IC, 1000);
-                                                    }, 2000);
-                                                }
-                                            })();
-                                            
-                                            return; // DỪNG, không tiếp tục xử lý chunk này
-                                        }
-                                    }
-                                    
-                                    if (waitCount % 3 === 0 || readyState0Count <= maxWaitReadyState0) { // Log mỗi 3 giây hoặc khi readyState0Count <= 3
-                                        const networkStateInfo = detectedAudioElement.networkState !== undefined ? `, networkState: ${detectedAudioElement.networkState}` : '';
-                                        addLogEntry(`⏳ [Chunk ${currentChunkIndex + 1}] Audio element có src nhưng chưa load xong (readyState: ${detectedAudioElement.readyState}${networkStateInfo}), đợi thêm... (${readyState0Count}/${maxWaitReadyState0})`, 'info');
-                                    }
-                                    await new Promise(resolve => setTimeout(resolve, 1000)); // Đợi 1 giây
-                                    waitCount++;
-                                }
-                            } else {
-                                // Audio element chưa có src
-                                if (waitCount % 3 === 0) { // Log mỗi 3 giây để không spam
-                                    addLogEntry(`⏳ [Chunk ${currentChunkIndex + 1}] Audio element chưa có src, đợi thêm...`, 'info');
-                                }
-                                await new Promise(resolve => setTimeout(resolve, 1000)); // Đợi 1 giây
-                                waitCount++;
-                            }
-                        }
-                        
-                        // Nếu đợi quá lâu mà audio vẫn chưa sẵn sàng
-                        if (!audioReady && waitCount >= maxWait) {
-                            addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Đợi quá lâu (${maxWait}s) mà audio element vẫn chưa sẵn sàng!`, 'warning');
-                            addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Vẫn tiếp tục nhưng có thể audio chưa load xong...`, 'warning');
-                        }
-                        
-                        // Thêm delay sau khi audio sẵn sàng để đảm bảo website đã render xong
-                        if (audioReady) {
-                            addLogEntry(`⏳ [Chunk ${currentChunkIndex + 1}] Đợi thêm 2 giây để đảm bảo website đã render xong audio...`, 'info');
-                            await new Promise(resolve => setTimeout(resolve, 2000));
-                        }
-                    }
-
-                    // Log khi thành công (SAU KHI ĐÃ ĐỢI AUDIO SẴN SÀNG)
+                    // Log khi thành công
                     addLogEntry(`✅ [Chunk ${currentChunkIndex + 1}/${SI$acY.length}] Xử lý thành công!`, 'success');
                     window.retryCount = 0; // Reset bộ đếm retry khi thành công
                     // Reset timeout retry count cho chunk này khi thành công
@@ -4477,248 +3687,6 @@ async function uSTZrHUt_IC() {
 
                     const yEExghI = TYRNWSSd$QOYZe[ndkpgKnjg(0x1cd)](ndkpgKnjg(0x1f2))[ndkpgKnjg(0x1f1)];
                     if (yEExghI && (yEExghI[ndkpgKnjg(0x20e)](ndkpgKnjg(0x1fa)) || yEExghI[ndkpgKnjg(0x20e)](ndkpgKnjg(0x26f)))) try {
-                        // =======================================================
-                        // QUAN TRỌNG: ĐỢI AUDIO ELEMENT THỰC SỰ SẴN SÀNG
-                        // =======================================================
-                        // Vấn đề: Audio element xuất hiện nhưng chưa có audio data
-                        // Giải pháp: Đợi audio element load xong trước khi fetch
-                        
-                        const audioElementToWait = TYRNWSSd$QOYZe[ndkpgKnjg(0x1cd)](ndkpgKnjg(0x1f2));
-                        if (audioElementToWait) {
-                            addLogEntry(`⏳ [Chunk ${currentChunkIndex + 1}] Đang đợi audio element load xong...`, 'info');
-                            
-                            // Đợi audio element có src hợp lệ
-                            let waitCount = 0;
-                            const maxWait = 30; // Tối đa 30 lần (30 giây)
-                            
-                            let readyState0Count2 = 0; // Đếm số lần readyState = 0
-                            const maxWaitReadyState0_2 = 3; // Tối đa 3 lần (3 giây) nếu readyState = 0
-                            
-                            while (waitCount < maxWait) {
-                                // Kiểm tra audio element có src hợp lệ không
-                                if (audioElementToWait.src && audioElementToWait.src !== '' && audioElementToWait.src !== 'null' && audioElementToWait.src !== 'undefined') {
-                                    // Kiểm tra audio element có duration > 0 không (có audio thực sự)
-                                    if (audioElementToWait.readyState >= 2 || (audioElementToWait.duration && audioElementToWait.duration > 0 && !isNaN(audioElementToWait.duration))) {
-                                        addLogEntry(`✅ [Chunk ${currentChunkIndex + 1}] Audio element đã sẵn sàng (readyState: ${audioElementToWait.readyState}, duration: ${audioElementToWait.duration ? audioElementToWait.duration.toFixed(2) : 'N/A'}s)`, 'success');
-                                        break;
-                                    } else {
-                                        // Audio element có src nhưng chưa load xong
-                                        // QUAN TRỌNG: Kiểm tra readyState = 0 (HAVE_NOTHING)
-                                        if (audioElementToWait.readyState === 0) {
-                                            readyState0Count2++;
-                                            
-                                            // Kiểm tra thêm: Audio element có error không
-                                            const hasError = audioElementToWait.error !== null && audioElementToWait.error !== undefined;
-                                            const networkState = audioElementToWait.networkState; // 0=EMPTY, 1=IDLE, 2=LOADING, 3=NO_SOURCE
-                                            
-                                            if (hasError) {
-                                                const errorCode = audioElementToWait.error ? audioElementToWait.error.code : 'unknown';
-                                                let errorMessage = '';
-                                                
-                                                // Giải thích error code
-                                                switch(errorCode) {
-                                                    case 1:
-                                                        errorMessage = 'MEDIA_ERR_ABORTED - Quá trình tải bị hủy';
-                                                        break;
-                                                    case 2:
-                                                        errorMessage = 'MEDIA_ERR_NETWORK - Lỗi mạng';
-                                                        break;
-                                                    case 3:
-                                                        errorMessage = 'MEDIA_ERR_DECODE - Lỗi giải mã audio';
-                                                        break;
-                                                    case 4:
-                                                        errorMessage = 'MEDIA_ERR_SRC_NOT_SUPPORTED - Source không được hỗ trợ hoặc không hợp lệ';
-                                                        break;
-                                                    default:
-                                                        errorMessage = `Lỗi không xác định (code: ${errorCode})`;
-                                                }
-                                                
-                                                addLogEntry(`❌ [Chunk ${currentChunkIndex + 1}] Audio element có lỗi! Error code: ${errorCode} - ${errorMessage}`, 'error');
-                                                addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] KÍCH HOẠT RETRY - Đánh dấu thất bại!`, 'warning');
-                                                
-                                                // Đánh dấu chunk failed
-                                                if (!window.chunkStatus) window.chunkStatus = [];
-                                                window.chunkStatus[currentChunkIndex] = 'failed';
-                                                if (!window.failedChunks) window.failedChunks = [];
-                                                if (!window.failedChunks.includes(currentChunkIndex)) {
-                                                    window.failedChunks.push(currentChunkIndex);
-                                                }
-                                                
-                                                // Xóa khỏi processingChunks
-                                                if (typeof window.processingChunks !== 'undefined') {
-                                                    window.processingChunks.delete(currentChunkIndex);
-                                                }
-                                                
-                                                // QUAN TRỌNG: Kích hoạt retry ngay sau khi đánh dấu failed
-                                                addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Đang reset web interface và kích hoạt retry...`, 'info');
-                                                
-                                                // Reset web interface và kích hoạt retry
-                                                (async () => {
-                                                    try {
-                                                        await resetWebInterface();
-                                                        addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Đã reset web interface`, 'info');
-                                                        
-                                                        // Kích hoạt retry bằng cách set isFinalCheck và gọi lại uSTZrHUt_IC
-                                                        window.isFinalCheck = true;
-                                                        
-                                                        // Chờ một chút rồi kích hoạt retry
-                                                        setTimeout(() => {
-                                                            addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Kích hoạt retry ngay...`, 'info');
-                                                            ttuo$y_KhCV = currentChunkIndex;
-                                                            setTimeout(uSTZrHUt_IC, 1000);
-                                                        }, 2000);
-                                                    } catch (resetError) {
-                                                        addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Lỗi khi reset web interface: ${resetError.message}`, 'warning');
-                                                        
-                                                        // Vẫn kích hoạt retry dù có lỗi reset
-                                                        window.isFinalCheck = true;
-                                                        setTimeout(() => {
-                                                            addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Kích hoạt retry (dù có lỗi reset)...`, 'info');
-                                                            ttuo$y_KhCV = currentChunkIndex;
-                                                            setTimeout(uSTZrHUt_IC, 1000);
-                                                        }, 2000);
-                                                    }
-                                                })();
-                                                
-                                                return; // DỪNG, không tiếp tục fetch
-                                            }
-                                            
-                                            // Nếu networkState = 3 (NO_SOURCE), có nghĩa là không có source hợp lệ
-                                            // QUAN TRỌNG: Chỉ coi là lỗi nếu đã đợi ít nhất 2 lần (2 giây) và vẫn còn networkState = 3
-                                            // Vì networkState = 3 có thể xảy ra tạm thời khi audio element mới được tạo và chưa bắt đầu load
-                                            if (networkState === 3 && readyState0Count2 >= 2) {
-                                                addLogEntry(`❌ [Chunk ${currentChunkIndex + 1}] Audio element không có source hợp lệ (networkState: ${networkState}) sau ${readyState0Count2} lần kiểm tra!`, 'error');
-                                                addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] KÍCH HOẠT RETRY - Đánh dấu thất bại!`, 'warning');
-                                                
-                                                // Đánh dấu chunk failed
-                                                if (!window.chunkStatus) window.chunkStatus = [];
-                                                window.chunkStatus[currentChunkIndex] = 'failed';
-                                                if (!window.failedChunks) window.failedChunks = [];
-                                                if (!window.failedChunks.includes(currentChunkIndex)) {
-                                                    window.failedChunks.push(currentChunkIndex);
-                                                }
-                                                
-                                                // Xóa khỏi processingChunks
-                                                if (typeof window.processingChunks !== 'undefined') {
-                                                    window.processingChunks.delete(currentChunkIndex);
-                                                }
-                                                
-                                                // QUAN TRỌNG: Kích hoạt retry ngay sau khi đánh dấu failed
-                                                addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Đang reset web interface và kích hoạt retry...`, 'info');
-                                                
-                                                // Reset web interface và kích hoạt retry
-                                                (async () => {
-                                                    try {
-                                                        await resetWebInterface();
-                                                        addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Đã reset web interface`, 'info');
-                                                        
-                                                        // Kích hoạt retry bằng cách set isFinalCheck và gọi lại uSTZrHUt_IC
-                                                        window.isFinalCheck = true;
-                                                        
-                                                        // Chờ một chút rồi kích hoạt retry
-                                                        setTimeout(() => {
-                                                            addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Kích hoạt retry ngay...`, 'info');
-                                                            ttuo$y_KhCV = currentChunkIndex;
-                                                            setTimeout(uSTZrHUt_IC, 1000);
-                                                        }, 2000);
-                                                    } catch (resetError) {
-                                                        addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Lỗi khi reset web interface: ${resetError.message}`, 'warning');
-                                                        
-                                                        // Vẫn kích hoạt retry dù có lỗi reset
-                                                        window.isFinalCheck = true;
-                                                        setTimeout(() => {
-                                                            addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Kích hoạt retry (dù có lỗi reset)...`, 'info');
-                                                            ttuo$y_KhCV = currentChunkIndex;
-                                                            setTimeout(uSTZrHUt_IC, 1000);
-                                                        }, 2000);
-                                                    }
-                                                })();
-                                                
-                                                return; // DỪNG, không tiếp tục fetch
-                                            }
-                                            
-                                            // Nếu quá 3 lần mà readyState vẫn = 0 và không có error, kích hoạt retry
-                                            if (readyState0Count2 > maxWaitReadyState0_2) {
-                                                addLogEntry(`❌ [Chunk ${currentChunkIndex + 1}] Đợi quá ${maxWaitReadyState0_2} lần (${maxWaitReadyState0_2}s) mà readyState vẫn = 0!`, 'error');
-                                                addLogEntry(`❌ [Chunk ${currentChunkIndex + 1}] networkState: ${networkState} (0=EMPTY, 1=IDLE, 2=LOADING, 3=NO_SOURCE)`, 'error');
-                                                addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] KÍCH HOẠT RETRY - Đánh dấu thất bại!`, 'warning');
-                                                
-                                                // Đánh dấu chunk failed
-                                                if (!window.chunkStatus) window.chunkStatus = [];
-                                                window.chunkStatus[currentChunkIndex] = 'failed';
-                                                if (!window.failedChunks) window.failedChunks = [];
-                                                if (!window.failedChunks.includes(currentChunkIndex)) {
-                                                    window.failedChunks.push(currentChunkIndex);
-                                                }
-                                                
-                                                // Xóa khỏi processingChunks
-                                                if (typeof window.processingChunks !== 'undefined') {
-                                                    window.processingChunks.delete(currentChunkIndex);
-                                                }
-                                                
-                                                // QUAN TRỌNG: Kích hoạt retry ngay sau khi đánh dấu failed
-                                                addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Đang reset web interface và kích hoạt retry...`, 'info');
-                                                
-                                                // Reset web interface và kích hoạt retry
-                                                (async () => {
-                                                    try {
-                                                        await resetWebInterface();
-                                                        addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Đã reset web interface`, 'info');
-                                                        
-                                                        // Kích hoạt retry bằng cách set isFinalCheck và gọi lại uSTZrHUt_IC
-                                                        window.isFinalCheck = true;
-                                                        
-                                                        // Chờ một chút rồi kích hoạt retry
-                                                        setTimeout(() => {
-                                                            addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Kích hoạt retry ngay...`, 'info');
-                                                            ttuo$y_KhCV = currentChunkIndex;
-                                                            setTimeout(uSTZrHUt_IC, 1000);
-                                                        }, 2000);
-                                                    } catch (resetError) {
-                                                        addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Lỗi khi reset web interface: ${resetError.message}`, 'warning');
-                                                        
-                                                        // Vẫn kích hoạt retry dù có lỗi reset
-                                                        window.isFinalCheck = true;
-                                                        setTimeout(() => {
-                                                            addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Kích hoạt retry (dù có lỗi reset)...`, 'info');
-                                                            ttuo$y_KhCV = currentChunkIndex;
-                                                            setTimeout(uSTZrHUt_IC, 1000);
-                                                        }, 2000);
-                                                    }
-                                                })();
-                                                
-                                                return; // DỪNG, không tiếp tục fetch
-                                            }
-                                        }
-                                        
-                                        if (waitCount % 3 === 0 || readyState0Count2 <= maxWaitReadyState0_2) { // Log mỗi 3 giây hoặc khi readyState0Count2 <= 3
-                                            const networkStateInfo = audioElementToWait.networkState !== undefined ? `, networkState: ${audioElementToWait.networkState}` : '';
-                                            addLogEntry(`⏳ [Chunk ${currentChunkIndex + 1}] Audio element có src nhưng chưa load xong (readyState: ${audioElementToWait.readyState}${networkStateInfo}), đợi thêm... (${readyState0Count2}/${maxWaitReadyState0_2})`, 'info');
-                                        }
-                                        await new Promise(resolve => setTimeout(resolve, 1000)); // Đợi 1 giây
-                                        waitCount++;
-                                    }
-                                } else {
-                                    // Audio element chưa có src
-                                    if (waitCount % 3 === 0) { // Log mỗi 3 giây để không spam
-                                        addLogEntry(`⏳ [Chunk ${currentChunkIndex + 1}] Audio element chưa có src, đợi thêm...`, 'info');
-                                    }
-                                    await new Promise(resolve => setTimeout(resolve, 1000)); // Đợi 1 giây
-                                    waitCount++;
-                                }
-                            }
-                            
-                            // Nếu đợi quá lâu mà audio vẫn chưa sẵn sàng
-                            if (waitCount >= maxWait) {
-                                addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Đợi quá lâu (${maxWait}s) mà audio element vẫn chưa sẵn sàng!`, 'warning');
-                                addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Vẫn tiếp tục nhưng có thể audio chưa load xong...`, 'warning');
-                            }
-                            
-                            // Thêm delay sau khi audio sẵn sàng để đảm bảo website đã render xong
-                            addLogEntry(`⏳ [Chunk ${currentChunkIndex + 1}] Đợi thêm 2 giây để đảm bảo website đã render xong audio...`, 'info');
-                            await new Promise(resolve => setTimeout(resolve, 2000));
-                        }
-                        
                         // ANTI-DETECTION: Thêm delay ngẫu nhiên và headers để tránh bị phát hiện
                         await new Promise(resolve => setTimeout(resolve, Math.random() * 1000 + 500));
                         
@@ -4748,52 +3716,6 @@ async function uSTZrHUt_IC() {
                             throw new Error(ndkpgKnjg(0x241) + FGrxK_RK[ndkpgKnjg(0x237)]);
                         }
                         const qILAV = await FGrxK_RK[ndkpgKnjg(0x26f)]();
-                        
-                        // =======================================================
-                        // VALIDATION NGHIÊM NGẶT: KIỂM TRA BLOB HỢP LỆ
-                        // =======================================================
-                        if (!qILAV || qILAV === null || qILAV === undefined) {
-                            addLogEntry(`❌ [Chunk ${currentChunkIndex + 1}] Blob không hợp lệ (null/undefined)! Không lưu chunk này.`, 'error');
-                            // Đánh dấu chunk failed
-                            if (!window.chunkStatus) window.chunkStatus = [];
-                            window.chunkStatus[currentChunkIndex] = 'failed';
-                            if (!window.failedChunks) window.failedChunks = [];
-                            if (!window.failedChunks.includes(currentChunkIndex)) {
-                                window.failedChunks.push(currentChunkIndex);
-                            }
-                            // Xóa khỏi processingChunks
-                            if (typeof window.processingChunks !== 'undefined') {
-                                window.processingChunks.delete(currentChunkIndex);
-                            }
-                            return; // DỪNG, không lưu chunk không hợp lệ
-                        }
-                        
-                        // Kiểm tra blob có size > 0
-                        if (qILAV.size === undefined || qILAV.size === 0) {
-                            addLogEntry(`❌ [Chunk ${currentChunkIndex + 1}] Blob có size = 0! Không lưu chunk này.`, 'error');
-                            // Đánh dấu chunk failed
-                            if (!window.chunkStatus) window.chunkStatus = [];
-                            window.chunkStatus[currentChunkIndex] = 'failed';
-                            if (!window.failedChunks) window.failedChunks = [];
-                            if (!window.failedChunks.includes(currentChunkIndex)) {
-                                window.failedChunks.push(currentChunkIndex);
-                            }
-                            // Xóa khỏi processingChunks
-                            if (typeof window.processingChunks !== 'undefined') {
-                                window.processingChunks.delete(currentChunkIndex);
-                            }
-                            return; // DỪNG, không lưu chunk không hợp lệ
-                        }
-                        
-                        // Kiểm tra blob có size quá nhỏ (có thể bị lỗi)
-                        const minValidSize = 1000; // Tối thiểu 1KB
-                        if (qILAV.size < minValidSize) {
-                            addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Cảnh báo: Blob có size rất nhỏ (${qILAV.size} bytes), có thể bị lỗi!`, 'warning');
-                            addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Vẫn lưu nhưng cần kiểm tra lại!`, 'warning');
-                        }
-                        
-                        addLogEntry(`✅ [Chunk ${currentChunkIndex + 1}] Blob hợp lệ: ${(qILAV.size / 1024).toFixed(2)} KB`, 'success');
-                        
                         // Lưu chunk vào đúng vị trí dựa trên currentChunkIndex (đã lưu ở đầu callback)
                         if (typeof window.chunkBlobs === 'undefined') {
                             window.chunkBlobs = new Array(SI$acY.length).fill(null);
@@ -4820,125 +3742,6 @@ async function uSTZrHUt_IC() {
                             if (window.chunkStatus && window.chunkStatus[currentChunkIndex] === 'failed') {
                                 addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Vị trí ${currentChunkIndex} có chunk failed, ghi đè (retry)`, 'info');
                             }
-                        }
-                        
-                        // =======================================================
-                        // QUAN TRỌNG: KIỂM TRA AUDIO CÓ KHỚP VỚI CHUNK ĐÃ GỬI KHÔNG
-                        // =======================================================
-                        // Vấn đề: Textarea có thể bị website thay đổi sau khi click button
-                        // Giải pháp: So sánh với text đã lưu khi gửi, không phải textarea hiện tại
-                        
-                        if (typeof window.chunkTexts === 'undefined' || !window.chunkTexts[currentChunkIndex]) {
-                            addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Không tìm thấy text đã lưu của chunk này!`, 'warning');
-                            addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Có thể là audio từ lần render trước, bỏ qua!`, 'warning');
-                            
-                            // Đánh dấu chunk failed
-                            if (!window.chunkStatus) window.chunkStatus = [];
-                            window.chunkStatus[currentChunkIndex] = 'failed';
-                            if (!window.failedChunks) window.failedChunks = [];
-                            if (!window.failedChunks.includes(currentChunkIndex)) {
-                                window.failedChunks.push(currentChunkIndex);
-                            }
-                            
-                            // Xóa khỏi processingChunks
-                            if (typeof window.processingChunks !== 'undefined') {
-                                window.processingChunks.delete(currentChunkIndex);
-                            }
-                            
-                            return; // KHÔNG LƯU audio không có text đã lưu
-                        }
-                        
-                        // Lấy text đã lưu khi gửi chunk này
-                        const savedChunkText = window.chunkTexts[currentChunkIndex];
-                        
-                        // Normalize để so sánh
-                        const normalizeForCompare = (text) => {
-                            if (!text || typeof text !== 'string') return '';
-                            return text
-                                .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F-\u009F]/g, '')
-                                .replace(/\*/g, '')
-                                .replace(/["""«»''\u2018\u2019\u201C\u201D]/g, '')
-                                .replace(/\s+/g, ' ')
-                                .trim();
-                        };
-                        
-                        const savedTextNormalized = normalizeForCompare(savedChunkText);
-                        
-                        // Kiểm tra textarea hiện tại (có thể đã bị thay đổi)
-                        const textarea = document.getElementById('gemini-hidden-text-for-request');
-                        const textareaValue = textarea ? (textarea.value || '') : '';
-                        const textareaNormalized = normalizeForCompare(textareaValue);
-                        
-                        // So sánh textarea với text đã lưu
-                        // Nếu textarea khớp với text đã lưu → OK
-                        // Nếu textarea không khớp nhưng có thể website đã thay đổi → Vẫn kiểm tra thêm
-                        let textMatches = false;
-                        
-                        if (textareaNormalized && savedTextNormalized) {
-                            // So sánh ít nhất 80% text đầu để đảm bảo chính xác
-                            const compareLength = Math.min(200, Math.min(savedTextNormalized.length, textareaNormalized.length));
-                            const savedTextPart = savedTextNormalized.substring(0, compareLength);
-                            const textareaPart = textareaNormalized.substring(0, compareLength);
-                            
-                            // Kiểm tra textarea có chứa text đã lưu không (ít nhất 80% đầu)
-                            const minMatchLength = Math.floor(compareLength * 0.8);
-                            textMatches = textareaPart.includes(savedTextPart.substring(0, minMatchLength)) || 
-                                         savedTextPart.includes(textareaPart.substring(0, minMatchLength));
-                            
-                            if (!textMatches) {
-                                addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] CẢNH BÁO: Textarea KHÔNG khớp với text đã gửi!`, 'warning');
-                                addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Text đã gửi (200 ký tự đầu): "${savedTextPart.substring(0, 100)}..."`, 'warning');
-                                addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Textarea hiện tại (200 ký tự đầu): "${textareaPart.substring(0, 100)}..."`, 'warning');
-                                addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Có thể website đã thay đổi textarea sau khi click, nhưng vẫn kiểm tra thêm...`, 'warning');
-                            }
-                        }
-                        
-                        // QUAN TRỌNG: Kiểm tra thêm bằng cách so sánh với SI$acY
-                        // Nếu SI$acY[currentChunkIndex] khớp với text đã lưu → OK
-                        let chunkTextMatches = false;
-                        if (SI$acY && SI$acY[currentChunkIndex]) {
-                            const originalChunkText = SI$acY[currentChunkIndex];
-                            const originalChunkTextNormalized = normalizeForCompare(originalChunkText);
-                            
-                            // So sánh text đã lưu với text gốc trong SI$acY
-                            const compareLength2 = Math.min(200, Math.min(savedTextNormalized.length, originalChunkTextNormalized.length));
-                            const savedTextPart2 = savedTextNormalized.substring(0, compareLength2);
-                            const originalTextPart2 = originalChunkTextNormalized.substring(0, compareLength2);
-                            
-                            const minMatchLength2 = Math.floor(compareLength2 * 0.8);
-                            chunkTextMatches = originalTextPart2.includes(savedTextPart2.substring(0, minMatchLength2)) || 
-                                              savedTextPart2.includes(originalTextPart2.substring(0, minMatchLength2));
-                            
-                            if (!chunkTextMatches) {
-                                addLogEntry(`❌ [Chunk ${currentChunkIndex + 1}] LỖI NGHIÊM TRỌNG: Text đã lưu KHÔNG khớp với SI$acY!`, 'error');
-                                addLogEntry(`❌ [Chunk ${currentChunkIndex + 1}] Text đã lưu (200 ký tự đầu): "${savedTextPart2.substring(0, 100)}..."`, 'error');
-                                addLogEntry(`❌ [Chunk ${currentChunkIndex + 1}] SI$acY text (200 ký tự đầu): "${originalTextPart2.substring(0, 100)}..."`, 'error');
-                                addLogEntry(`❌ [Chunk ${currentChunkIndex + 1}] Audio này KHÔNG khớp với chunk hiện tại! KHÔNG LƯU!`, 'error');
-                                
-                                // Đánh dấu chunk failed
-                                if (!window.chunkStatus) window.chunkStatus = [];
-                                window.chunkStatus[currentChunkIndex] = 'failed';
-                                if (!window.failedChunks) window.failedChunks = [];
-                                if (!window.failedChunks.includes(currentChunkIndex)) {
-                                    window.failedChunks.push(currentChunkIndex);
-                                }
-                                
-                                // Xóa khỏi processingChunks
-                                if (typeof window.processingChunks !== 'undefined') {
-                                    window.processingChunks.delete(currentChunkIndex);
-                                }
-                                
-                                return; // KHÔNG LƯU audio không khớp
-                            }
-                        }
-                        
-                        // Nếu cả hai đều khớp hoặc chunkTextMatches → OK
-                        if (textMatches || chunkTextMatches) {
-                            addLogEntry(`✅ [Chunk ${currentChunkIndex + 1}] Xác nhận: Audio khớp với text đã gửi`, 'success');
-                        } else {
-                            // Nếu không khớp, nhưng có thể là do website thay đổi textarea
-                            // Vẫn kiểm tra xem có phải audio từ chunk hiện tại không bằng cách kiểm tra timestamp
-                            addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Textarea không khớp, nhưng vẫn tiếp tục (có thể website đã thay đổi textarea)`, 'warning');
                         }
                         
                         // Lưu chunk vào đúng vị trí
@@ -6883,7 +5686,7 @@ async function waitForVoiceModelReady() {
     const playPauseWaveformBtn = document.getElementById('waveform-play-pause');
 
     if (startBtn) {
-        startBtn.addEventListener('click', async () => {
+        startBtn.addEventListener('click', () => {
             // [BẮT ĐẦU CODE THAY THẾ]
 
             // 1. Lấy và làm sạch văn bản (Giữ nguyên từ code mới)
@@ -6923,11 +5726,7 @@ async function waitForVoiceModelReady() {
             // =======================================================
             // == XÓA SẠCH MỌI DỮ LIỆU CŨ ĐỂ TRÁNH DÍNH ÂM THANH CŨ ==
             // =======================================================
-            addLogEntry('🧹 Đang xóa sạch HOÀN TOÀN dữ liệu cũ để đảm bảo job mới như mới 100%...', 'info');
-            
-            // 0. QUAN TRỌNG: Reset SI$acY trước để đảm bảo không có chunk cũ
-            SI$acY = [];
-            addLogEntry('🧹 Đã reset SI$acY (mảng text chunks)', 'info');
+            addLogEntry('🧹 Đang xóa sạch dữ liệu cũ...', 'info');
             
             // 1. Xóa tất cả timeout đang chạy (tránh xử lý chunk cũ)
             if (typeof window.chunkTimeoutIds !== 'undefined' && window.chunkTimeoutIds) {
@@ -6949,78 +5748,11 @@ async function waitForVoiceModelReady() {
                 xlgJHLP$MATDT$kTXWV = null;
             }
             
-            // 1.5. QUAN TRỌNG: XÓA TẤT CẢ AUDIO ELEMENTS CŨ TRONG DOM để tránh lấy nhầm audio từ lần render trước
-            try {
-                const allAudioElements = document.querySelectorAll('audio');
-                let removedCount = 0;
-                allAudioElements.forEach(audio => {
-                    try {
-                        // Dừng audio nếu đang phát
-                        if (!audio.paused) {
-                            audio.pause();
-                            audio.currentTime = 0;
-                        }
-                        // Xóa src
-                        if (audio.src) {
-                            URL.revokeObjectURL(audio.src);
-                            audio.src = '';
-                        }
-                        // Xóa element khỏi DOM
-                        if (audio.parentNode) {
-                            audio.remove();
-                            removedCount++;
-                        }
-                    } catch (e) {
-                        // Bỏ qua lỗi từng audio element
-                    }
-                });
-                
-                // Xóa source elements
-                const allSourceElements = document.querySelectorAll('source');
-                allSourceElements.forEach(source => {
-                    try {
-                        if (source.src) {
-                            URL.revokeObjectURL(source.src);
-                            source.src = '';
-                        }
-                        if (source.parentNode) {
-                            source.remove();
-                        }
-                    } catch (e) {
-                        // Bỏ qua
-                    }
-                });
-                
-                if (removedCount > 0) {
-                    addLogEntry(`🧹 Đã xóa ${removedCount} audio element(s) cũ từ DOM để tránh lấy nhầm audio từ lần render trước`, 'info');
-                }
-            } catch (audioClearError) {
-                addLogEntry(`⚠️ Lỗi khi xóa audio elements cũ: ${audioClearError.message}`, 'warning');
-            }
-            
-            // Chờ một chút để DOM ổn định sau khi xóa audio
-            await new Promise(resolve => setTimeout(resolve, 300));
-            
-            // 2. Reset các mảng blob (âm thanh cũ) - QUAN TRỌNG: Reset HOÀN TOÀN
+            // 2. Reset các mảng blob (âm thanh cũ)
             ZTQj$LF$o = []; // Mảng chứa blob (legacy)
             window.chunkBlobs = []; // Đảm bảo mảng blob MỚI cũng được reset
-            window.chunkBlobs.length = 0; // Đảm bảo reset độ dài về 0
-            ZTQj$LF$o.length = 0; // Đảm bảo reset độ dài về 0
             
-            // Xóa tất cả thuộc tính của window.chunkBlobs nếu có
-            if (window.chunkBlobs && typeof window.chunkBlobs === 'object') {
-                Object.keys(window.chunkBlobs).forEach(key => {
-                    if (isNaN(parseInt(key))) { // Chỉ xóa key không phải số (index)
-                        delete window.chunkBlobs[key];
-                    }
-                });
-            }
-            
-            // QUAN TRỌNG: Reset window.chunkTexts để không so sánh với text từ lần render trước
-            window.chunkTexts = [];
-            addLogEntry(`🧹 Đã reset HOÀN TOÀN các mảng blob và text (window.chunkBlobs, ZTQj$LF$o, window.chunkTexts)`, 'info');
-            
-            // 3. Reset các biến trạng thái chunk - QUAN TRỌNG: Reset HOÀN TOÀN
+            // 3. Reset các biến trạng thái chunk
             window.chunkStatus = [];
             window.failedChunks = [];
             window.chunk1Failed = false;
@@ -7033,20 +5765,6 @@ async function waitForVoiceModelReady() {
             window.isMerging = false; // Reset flag merge để cho phép merge job mới
             window.sendingChunk = null; // Reset flag sendingChunk để cho phép gửi chunk mới
             window.processingChunks = new Set(); // Reset set processingChunks
-            
-            // Reset thêm các biến có thể ảnh hưởng
-            window.mergeDebounceTimer = null;
-            window.mergeCallCount = 0;
-            if (window.chunkTimeoutIds) {
-                Object.keys(window.chunkTimeoutIds).forEach(key => {
-                    if (window.chunkTimeoutIds[key]) {
-                        clearTimeout(window.chunkTimeoutIds[key]);
-                    }
-                });
-                window.chunkTimeoutIds = {};
-            }
-            
-            addLogEntry(`🧹 Đã reset HOÀN TOÀN tất cả biến trạng thái chunk`, 'info');
             
             // 4. Reset các flag và biến để tránh crash
             window.isSettingUpObserver = false; // Flag để tránh tạo nhiều observer cùng lúc
