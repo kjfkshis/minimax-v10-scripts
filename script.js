@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DUC LOI - Clone Voice (Không cần API) - Modded
 // @namespace    mmx-secure
-// @version      27.0
+// @version      26.0
 // @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại, Đổi văn bản hàng loạt & Thiết lập dấu câu (bao gồm dấu xuống dòng).
 // @author       HUỲNH ĐỨC LỢI ( Zalo: 0835795597) - Đã chỉnh sửa
 // @match        https://www.minimax.io/audio*
@@ -2408,33 +2408,58 @@ async function tt__SfNwBHDebpWJOqrSTR(){const VCAHyXsrERcpXVhFPxmgdBjjh=AP$u_huh
         // =======================================================
 
         const zEwMPLN$IZxzIwfdDbCfnIYcA=new Date();cHjV$QkAT$JWlL[VCAHyXsrERcpXVhFPxmgdBjjh(0x273)]=VCAHyXsrERcpXVhFPxmgdBjjh(0x1ce)+ymkKApNTfjOanYIBsxsoMNBX((zEwMPLN$IZxzIwfdDbCfnIYcA-dqj_t_Mr)/(Number(-0x27)*Math.floor(-0x26)+0x1f37+0x25*Math.floor(-parseInt(0xe5))));if(ZTQj$LF$o[VCAHyXsrERcpXVhFPxmgdBjjh(0x216)]===parseFloat(-0x1ca4)+Number(-parseInt(0x2445))+parseInt(0x40e9))return;try{
-// Sử dụng window.chunkBlobs nếu có và có dữ liệu, nếu không thì dùng ZTQj$LF$o
-let finalBlobs = ZTQj$LF$o; // Mặc định dùng ZTQj$LF$o như code gốc
+// =======================================================
+// LẤY CHUNKS VÀ GIỮ LẠI INDEX ĐỂ MERGE ĐÚNG THỨ TỰ
+// =======================================================
+// Tạo mảng chứa chunks với index để đảm bảo merge đúng thứ tự
+const chunksWithIndex = [];
+
+// ƯU TIÊN 1: Kiểm tra window.chunkBlobs trước (giữ index gốc)
 if (window.chunkBlobs && window.chunkBlobs.length > 0) {
-    const validBlobs = window.chunkBlobs.filter(blob => blob !== null);
-    if (validBlobs.length > 0) {
-        finalBlobs = validBlobs; // Chỉ dùng window.chunkBlobs nếu có dữ liệu
+    for (let i = 0; i < window.chunkBlobs.length; i++) {
+        if (window.chunkBlobs[i] !== null && window.chunkBlobs[i] !== undefined) {
+            chunksWithIndex.push({
+                index: i,
+                blob: window.chunkBlobs[i]
+            });
+        }
     }
+    addLogEntry(`📦 Tìm thấy ${chunksWithIndex.length} chunk từ window.chunkBlobs (có index)`, 'info');
+}
+
+// ƯU TIÊN 2: Nếu window.chunkBlobs rỗng, dùng ZTQj$LF$o (giữ index gốc)
+if (chunksWithIndex.length === 0 && ZTQj$LF$o && ZTQj$LF$o.length > 0) {
+    for (let i = 0; i < ZTQj$LF$o.length; i++) {
+        if (ZTQj$LF$o[i] !== null && ZTQj$LF$o[i] !== undefined) {
+            chunksWithIndex.push({
+                index: i,
+                blob: ZTQj$LF$o[i]
+            });
+        }
+    }
+    addLogEntry(`📦 Fallback: Tìm thấy ${chunksWithIndex.length} chunk từ ZTQj$LF$o (có index)`, 'info');
 }
 
 // =======================================================
 // VALIDATION: Kiểm tra chunks trước khi merge
 // =======================================================
 // Kiểm tra số lượng chunks
-if (finalBlobs.length === 0) {
+if (chunksWithIndex.length === 0) {
     addLogEntry('❌ Không có chunks để gộp file', 'error');
     return;
 }
 
-// Kiểm tra chunks null/undefined
-const validFinalBlobs = finalBlobs.filter(blob => blob !== null && blob !== undefined);
-if (validFinalBlobs.length !== finalBlobs.length) {
-    const removedCount = finalBlobs.length - validFinalBlobs.length;
-    addLogEntry(`⚠️ Phát hiện ${removedCount} chunk null/undefined, đã loại bỏ`, 'warning');
-    finalBlobs = validFinalBlobs;
-}
+// Sắp xếp theo index để đảm bảo merge đúng thứ tự
+chunksWithIndex.sort((a, b) => a.index - b.index);
+addLogEntry(`✅ Đã sắp xếp ${chunksWithIndex.length} chunks theo thứ tự index (từ ${chunksWithIndex[0].index} đến ${chunksWithIndex[chunksWithIndex.length - 1].index})`, 'success');
 
-addLogEntry(`✅ Validation hoàn tất: ${finalBlobs.length} chunks hợp lệ`, 'success');
+// Tạo mảng finalBlobs từ chunks đã sort (chỉ lấy blob, không lấy index)
+const finalBlobs = chunksWithIndex.map(item => item.blob);
+
+// Log thông tin để debug
+const indexList = chunksWithIndex.map(item => item.index).join(', ');
+addLogEntry(`🔍 Thứ tự merge: [${indexList}]`, 'info');
+addLogEntry(`✅ Validation hoàn tất: ${finalBlobs.length} chunks hợp lệ, đã sắp xếp theo index`, 'success');
 
 // =======================================================
 // BATCH MERGE: Merge từng batch để tránh hết RAM
