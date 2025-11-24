@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DUC LOI - Clone Voice (Không cần API) - Modded
 // @namespace    mmx-secure
-// @version      36.0
+// @version      26.0
 // @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại, Đổi văn bản hàng loạt & Thiết lập dấu câu (bao gồm dấu xuống dòng).
 // @author       HUỲNH ĐỨC LỢI ( Zalo: 0835795597) - Đã chỉnh sửa
 // @match        https://www.minimax.io/audio*
@@ -1246,7 +1246,7 @@ button:disabled {
         
         <div id="gemini-quota-display" style="color: #8be9fd; font-weight: bold; margin-left: 15px; margin-top: 10px; font-size: 14px;">Đang tải quota...</div>
         </div> 
-    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 36.0 - Update: 27/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div id="gemini-col-2-left">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
+    <div class="column-content"> <div class="section" style="margin-bottom: 10px!important;"> <h4>1. Tải lên tệp âm thanh (Tối đa 1 file, độ dài 20-60 giây)</h4> <input type="file" id="gemini-file-input" accept=".wav,.mp3,.mpeg,.mp4,.m4a,.avi,.mov,.wmv,.flv,.mkv,.webm"> </div> <div class="section"> <h4>2. Chọn ngôn ngữ</h4> <select id="gemini-language-select"><option value="Vietnamese">Vietnamese</option><option value="English">English</option><option value="Arabic">Arabic</option><option value="Cantonese">Cantonese</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Dutch">Dutch</option><option value="French">French</option><option value="German">German</option><option value="Indonesian">Indonesian</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Korean">Korean</option><option value="Portuguese">Portuguese</option><option value="Russian">Russian</option><option value="Spanish">Spanish</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Thai">Thai</option><option value="Polish">Polish</option><option value="Romanian">Romanian</option><option value="Greek">Greek</option><option value="Czech">Czech</option><option value="Finnish">Finnish</option><option value="Hindi">Hindi</option><option value="Bulgarian">Bulgarian</option><option value="Danish">Danish</option><option value="Hebrew">Hebrew</option><option value="Malay">Malay</option><option value="Persian">Persian</option><option value="Slovak">Slovak</option><option value="Swedish">Swedish</option><option value="Croatian">Croatian</option><option value="Filipino">Filipino</option><option value="Hungarian">Hungarian</option><option value="Norwegian">Norwegian</option><option value="Slovenian">Slovenian</option><option value="Catalan">Catalan</option><option value="Nynorsk">Nynorsk</option><option value="Tamil">Tamil</option><option value="Afrikaans">Afrikaans</option></select> </div> <div class="section"> <button id="gemini-upload-btn">Tải lên & Cấu hình tự động</button> <div id="gemini-upload-status"></div> </div> <div class="log-section"> <h2>Log hoạt động</h2> <div id="log-container" class="log-container"> <div class="log-entry">Sẵn sàng theo dõi văn bản chunk</div> </div> <button id="clear-log-btn" class="clear-log-btn">Xóa log</button> </div> </div> </div> </div> <div id="gemini-col-2" class="gemini-column"> <div class="column-header box-info-version"><h3>Trình tạo nội dung</h3><div>Version: 26.0 - Update: 27/01/2025 - Tạo bởi: <a href="https://fb.com/HuynhDucLoi/" target="_blank">Huỳnh Đức Lợi</a></div></div> <div class="column-content">     <div id="gemini-col-2-left">     <div class="section text-section"> <h4>Nhập văn bản cần tạo giọng nói</h4>
     <div class="text-input-options">
         <div class="input-tabs">
             <button id="text-tab" class="tab-btn active">Nhập trực tiếp</button>
@@ -1335,7 +1335,7 @@ button:disabled {
         </div>
         <small style="color: #94a3b8; font-size: 12px; margin-top: 5px; display: block;">
             💡 Khi bật: Ưu tiên tách tại dòng trống. Khi tắt: Bỏ qua dòng trống, tách theo dấu câu.<br>
-            🔧 Chunk mặc định: 900 ký tự
+            🔧 Chunk mặc định: 700 ký tự
         </small>
     </div>
 
@@ -2109,8 +2109,8 @@ const aZpcvyD_mnWYN_qgEq=DHk$uTvcFuLEMnixYuADkCeA;let SI$acY=[],ZTQj$LF$o=[],ttu
     // Trả về tên file hoàn chỉnh với đuôi .mp3
     return fileName + '.mp3';
 }function nWHrScjZnIyNYzztyEWwM(RHDrdenxMcTQywSbrFGWcRi,supYmMedzDRWZEr){const j$DXl$iN=AP$u_huhInYfTj;if(supYmMedzDRWZEr===-parseInt(0x1)*-parseInt(0x9ff)+parseInt(0x4)*parseInt(0x6d7)+Math.trunc(0x49)*-parseInt(0x83))return;const W_gEcM_tWt=Math[j$DXl$iN(0x238)](RHDrdenxMcTQywSbrFGWcRi/supYmMedzDRWZEr*(Number(parseInt(0x24f2))*0x1+-parseInt(0x1af3)+parseInt(-0x99b)));pemHAD[j$DXl$iN(0x1fb)][j$DXl$iN(0x24b)]=W_gEcM_tWt+'%',SCOcXEQXTPOOS[j$DXl$iN(0x273)]=W_gEcM_tWt+j$DXl$iN(0x1c3)+RHDrdenxMcTQywSbrFGWcRi+'/'+supYmMedzDRWZEr+')';}function NrfPVBbJv_Dph$tazCpJ(text, idealLength = 600, minLength = 500, maxLength = 700) {
-    // Mặc định chunk lớn 900 ký tự
-    const actualMaxLength = 900;
+    // Mặc định chunk lớn 700 ký tự
+    const actualMaxLength = 700;
     const chunks = [];
     if (!text || typeof text !== 'string') {
         return chunks;
@@ -2302,8 +2302,8 @@ function normalizeChunkText(text) {
 
 // Hàm tách chunk thông minh - luôn dùng hàm tách chunk cũ
 function smartSplitter(text, maxLength = 700) {
-    // Mặc định chunk lớn 900 ký tự
-    const actualMaxLength = 900;
+    // Mặc định chunk lớn 700 ký tự
+    const actualMaxLength = 700;
 
     if (!text || typeof text !== 'string') {
         return [];
@@ -3299,56 +3299,7 @@ async function uSTZrHUt_IC() {
             // Reset web interface - CHỈ reset khi 1 chunk cụ thể render lỗi
             await resetWebInterface();
             
-            // KIỂM TRA LỖI CẤU HÌNH: Đếm số chunk lỗi từ đầu (chunk 1-5)
-            if (typeof window.failedChunksCount === 'undefined') {
-                window.failedChunksCount = 0;
-            }
-            if (ttuo$y_KhCV < 5) {
-                window.failedChunksCount++;
-                addLogEntry(`⚠️ [Chunk ${ttuo$y_KhCV + 1}] Đã timeout sau 60 giây. Đã có ${window.failedChunksCount}/5 chunk đầu lỗi...`, 'warning');
-            }
-            
-            // KIỂM TRA LỖI CẤU HÌNH: Nếu 5 chunk đầu đều lỗi
-            if (window.failedChunksCount >= 5 && ttuo$y_KhCV < 5) {
-                addLogEntry(`🚨 [LỖI CẤU HÌNH] 5 chunk đầu đều lỗi!`, 'error');
-                addLogEntry(`💡 Tool yêu cầu: Vui lòng F5 (Refresh) trang và thao tác lại từ đầu!`, 'error');
-                
-                // Hiển thị thông báo lỗi cấu hình
-                if (typeof Swal !== 'undefined') {
-                    Swal.fire({
-                        title: '🚨 Lỗi Cấu Hình',
-                        html: `
-                            <div style="text-align: left;">
-                                <p><strong>5 chunk đầu đều không render thành công!</strong></p>
-                                <hr>
-                                <p><strong>⚠️ Nguyên nhân có thể:</strong></p>
-                                <ul>
-                                    <li>Cấu hình web chưa đúng</li>
-                                    <li>File âm thanh chưa được tải lên đúng cách</li>
-                                    <li>Trạng thái web không ổn định</li>
-                                </ul>
-                                <hr>
-                                <p><strong>💡 Giải pháp:</strong></p>
-                                <ol>
-                                    <li>Nhấn <strong>F5</strong> để refresh trang</li>
-                                    <li>Tải lại file âm thanh</li>
-                                    <li>Thao tác lại từ đầu</li>
-                                </ol>
-                            </div>
-                        `,
-                        icon: 'error',
-                        width: '600px',
-                        confirmButtonText: 'Đã hiểu - Sẽ F5',
-                        confirmButtonColor: '#ff6b6b',
-                        allowOutsideClick: false,
-                        allowEscapeKey: false
-                    });
-                }
-                
-                // Reset flag sau khi hiển thị thông báo
-                window.failedChunksCount = 0;
-                return; // Dừng xử lý
-            }
+            addLogEntry(`⚠️ [Chunk ${ttuo$y_KhCV + 1}] Đã timeout sau 60 giây.`, 'warning');
             
             // Sau khi reset, tiếp tục với chunk tiếp theo (không retry chunk lỗi ngay)
             window.retryCount = 0; // Reset bộ đếm retry
@@ -3493,66 +3444,10 @@ async function uSTZrHUt_IC() {
                 window.sendingChunk = null;
             }
             
-            // KIỂM TRA LỖI CẤU HÌNH: Đếm số chunk lỗi từ đầu (chunk 1-5)
-            if (typeof window.failedChunksCount === 'undefined') {
-                window.failedChunksCount = 0;
-            }
-            if (ttuo$y_KhCV < 5) {
-                window.failedChunksCount++;
-                addLogEntry(`⚠️ [Chunk ${ttuo$y_KhCV + 1}] Đã bị lỗi. Đã có ${window.failedChunksCount}/5 chunk đầu lỗi...`, 'warning');
-            }
-            
-            // KIỂM TRA LỖI CẤU HÌNH: Nếu 5 chunk đầu đều lỗi (kiểm tra TRƯỚC KHI tăng index)
-            if (window.failedChunksCount >= 5 && ttuo$y_KhCV < 5) {
-                addLogEntry(`🚨 [LỖI CẤU HÌNH] 5 chunk đầu đều lỗi!`, 'error');
-                addLogEntry(`💡 Tool yêu cầu: Vui lòng F5 (Refresh) trang và thao tác lại từ đầu!`, 'error');
-                
-                // Hiển thị thông báo lỗi cấu hình
-                if (typeof Swal !== 'undefined') {
-                    Swal.fire({
-                        title: '🚨 Lỗi Cấu Hình',
-                        html: `
-                            <div style="text-align: left;">
-                                <p><strong>5 chunk đầu đều không render thành công!</strong></p>
-                                <hr>
-                                <p><strong>⚠️ Nguyên nhân có thể:</strong></p>
-                                <ul>
-                                    <li>Cấu hình web chưa đúng</li>
-                                    <li>File âm thanh chưa được tải lên đúng cách</li>
-                                    <li>Trạng thái web không ổn định</li>
-                                </ul>
-                                <hr>
-                                <p><strong>💡 Giải pháp:</strong></p>
-                                <ol>
-                                    <li>Nhấn <strong>F5</strong> để refresh trang</li>
-                                    <li>Tải lại file âm thanh</li>
-                                    <li>Thao tác lại từ đầu</li>
-                                </ol>
-                                <hr>
-                                <p style="color: #ff6b6b;"><strong>Lưu ý:</strong> Tính năng này chỉ áp dụng cho chunk 1. Các chunk khác không bị ảnh hưởng.</p>
-                            </div>
-                        `,
-                        icon: 'error',
-                        width: '600px',
-                        confirmButtonText: 'Đã hiểu - Sẽ F5',
-                        confirmButtonColor: '#ff6b6b',
-                        allowOutsideClick: false,
-                        allowEscapeKey: false
-                    });
-                }
-                
-                // Reset flag sau khi hiển thị thông báo
-                window.failedChunksCount = 0;
-                return; // Dừng xử lý
-            }
+            addLogEntry(`⚠️ [Chunk ${ttuo$y_KhCV + 1}] Đã bị lỗi.`, 'warning');
             
             window.retryCount = 0; // Reset bộ đếm retry
             ttuo$y_KhCV++; // Chuyển sang chunk tiếp theo
-            
-            // KIỂM TRA LỖI CẤU HÌNH: Nếu đang trong 5 chunk đầu và có chunk lỗi
-            if (ttuo$y_KhCV < 5 && window.failedChunksCount > 0) {
-                addLogEntry(`⚠️ [Chunk ${ttuo$y_KhCV + 1}] Đang kiểm tra cấu hình... Đã có ${window.failedChunksCount}/5 chunk đầu lỗi.`, 'warning');
-            }
             
             addLogEntry(`➡️ Chuyển sang chunk ${ttuo$y_KhCV + 1}...`, 'info');
             addLogEntry(`📊 Trạng thái: ${window.chunkStatus.filter(s => s === 'success' || s === 'failed').length}/${SI$acY.length} chunks đã xử lý`, 'info');
@@ -3561,166 +3456,6 @@ async function uSTZrHUt_IC() {
     }
 }
 
-// =======================================================
-// == HÀM KIỂM TRA SÓNG ÂM (WAVEFORM) - DÙNG HTML AUDIO ELEMENT ==
-// =======================================================
-/**
- * Kiểm tra xem audio blob có bị cắt giữa chừng không bằng cách dùng HTML Audio element
- * Kiểm tra: đầu file và đuôi file có tiếng không
- * @param {Blob} audioBlob - Audio blob cần kiểm tra
- * @returns {Promise<{isValid: boolean, reason: string, duration: number}>}
- */
-async function checkAudioWaveform(audioBlob) {
-    return new Promise((resolve) => {
-        try {
-            // Tạo HTML Audio element để kiểm tra
-            const audio = document.createElement('audio');
-            audio.preload = 'metadata'; // Chỉ load metadata, không load toàn bộ file
-            
-            // Tạo URL từ blob
-            const blobUrl = URL.createObjectURL(audioBlob);
-            audio.src = blobUrl;
-            
-            let durationChecked = false;
-            let hasAudioAtStart = false;
-            let hasAudioAtEnd = false;
-            let audioDuration = 0;
-            
-            // Hàm cleanup
-            const cleanup = () => {
-                URL.revokeObjectURL(blobUrl);
-                audio.src = '';
-                audio.load(); // Reset audio element
-            };
-            
-            // Timeout để tránh chờ quá lâu (10 giây)
-            const timeout = setTimeout(() => {
-                if (!durationChecked) {
-                    cleanup();
-                    // Nếu timeout, coi như bỏ qua kiểm tra (không đánh dấu thất bại)
-                    resolve({ 
-                        isValid: true, 
-                        reason: 'Timeout khi load audio metadata, bỏ qua kiểm tra', 
-                        duration: 0 
-                    });
-                }
-            }, 10000);
-            
-            // Khi metadata đã load xong
-            audio.addEventListener('loadedmetadata', async () => {
-                try {
-                    durationChecked = true;
-                    clearTimeout(timeout);
-                    
-                    audioDuration = audio.duration;
-                    
-                    // Kiểm tra duration hợp lệ
-                    if (!audioDuration || isNaN(audioDuration) || audioDuration <= 0) {
-                        cleanup();
-                        resolve({ 
-                            isValid: false, 
-                            reason: `Duration không hợp lệ: ${audioDuration}`, 
-                            duration: 0 
-                        });
-                        return;
-                    }
-                    
-                    // Nếu duration quá ngắn (< 0.5 giây), có thể là file lỗi
-                    if (audioDuration < 0.5) {
-                        cleanup();
-                        resolve({ 
-                            isValid: false, 
-                            reason: `Duration quá ngắn: ${audioDuration.toFixed(2)}s`, 
-                            duration: audioDuration 
-                        });
-                        return;
-                    }
-                    
-                    // Kiểm tra phần đầu file (0.3 giây đầu)
-                    audio.currentTime = 0;
-                    await new Promise(resolve => setTimeout(resolve, 100)); // Chờ seek hoàn tất
-                    
-                    // Kiểm tra xem có thể seek đến đầu file không (có nghĩa là file có dữ liệu ở đầu)
-                    if (audio.readyState >= 2) { // HAVE_CURRENT_DATA hoặc cao hơn
-                        hasAudioAtStart = true;
-                    }
-                    
-                    // Kiểm tra phần cuối file (0.3 giây cuối)
-                    const endTime = Math.max(0, audioDuration - 0.3);
-                    audio.currentTime = endTime;
-                    await new Promise(resolve => setTimeout(resolve, 200)); // Chờ seek hoàn tất
-                    
-                    // Kiểm tra xem có thể seek đến cuối file không (có nghĩa là file đầy đủ)
-                    if (audio.readyState >= 2 && audio.currentTime >= endTime - 0.1) {
-                        hasAudioAtEnd = true;
-                    }
-                    
-                    cleanup();
-                    
-                    // Kết luận
-                    if (hasAudioAtStart && hasAudioAtEnd) {
-                        // Đầu và cuối đều có dữ liệu → file hợp lệ
-                        resolve({ 
-                            isValid: true, 
-                            reason: `Waveform hợp lệ: Duration ${audioDuration.toFixed(2)}s, có dữ liệu ở đầu và cuối`, 
-                            duration: audioDuration 
-                        });
-                    } else if (hasAudioAtStart && !hasAudioAtEnd) {
-                        // Đầu có nhưng cuối không có → file bị cắt giữa chừng
-                        resolve({ 
-                            isValid: false, 
-                            reason: `Sóng âm bị thiếu: Có dữ liệu ở đầu nhưng không có ở cuối (chỉ có âm thanh lúc đầu)`, 
-                            duration: audioDuration 
-                        });
-                    } else {
-                        // Đầu không có → file có thể lỗi
-                        resolve({ 
-                            isValid: false, 
-                            reason: `File audio không hợp lệ: Không có dữ liệu ở đầu file`, 
-                            duration: audioDuration 
-                        });
-                    }
-                    
-                } catch (error) {
-                    cleanup();
-                    console.error('Lỗi khi kiểm tra waveform:', error);
-                    // Nếu có lỗi, bỏ qua kiểm tra (không đánh dấu thất bại)
-                    resolve({ 
-                        isValid: true, 
-                        reason: `Lỗi khi kiểm tra: ${error.message}, bỏ qua kiểm tra`, 
-                        duration: 0 
-                    });
-                }
-            });
-            
-            // Xử lý lỗi khi load
-            audio.addEventListener('error', (e) => {
-                clearTimeout(timeout);
-                cleanup();
-                const errorMsg = audio.error ? audio.error.message : 'Unknown error';
-                console.error('Lỗi khi load audio:', errorMsg);
-                // Nếu load lỗi, bỏ qua kiểm tra (không đánh dấu thất bại)
-                resolve({ 
-                    isValid: true, 
-                    reason: `Lỗi load audio: ${errorMsg}, bỏ qua kiểm tra`, 
-                    duration: 0 
-                });
-            });
-            
-            // Bắt đầu load metadata
-            audio.load();
-            
-        } catch (error) {
-            console.error('Lỗi khi tạo audio element:', error);
-            // Nếu có lỗi, bỏ qua kiểm tra (không đánh dấu thất bại)
-            resolve({ 
-                isValid: true, 
-                reason: `Lỗi khi tạo audio element: ${error.message}, bỏ qua kiểm tra`, 
-                duration: 0 
-            });
-        }
-    });
-}
 
 function igyo$uwVChUzI() {
     const VFmk$UVEL = AP$u_huhInYfTj;
@@ -3825,7 +3560,7 @@ function igyo$uwVChUzI() {
                     // KHÔNG disconnect observer ở đây - sẽ disconnect sau khi xử lý xong
 
                     // QUAN TRỌNG: KHÔNG đánh dấu success ở đây
-                    // Chỉ đánh dấu success SAU KHI tất cả kiểm tra (dung lượng, waveform) đều hợp lệ và đã lưu blob
+                    // Chỉ đánh dấu success SAU KHI kiểm tra dung lượng hợp lệ và đã lưu blob
                     
                     // Clear timeout 60 giây cho chunk này (clear ngay khi detect audio để tránh timeout)
                     if (typeof window.chunkTimeoutIds !== 'undefined' && window.chunkTimeoutIds[currentChunkIndex]) {
@@ -3947,56 +3682,7 @@ function igyo$uwVChUzI() {
                             // Reset web interface - CHỈ reset khi 1 chunk cụ thể render lỗi
                             await resetWebInterface();
                             
-            // KIỂM TRA LỖI CẤU HÌNH: Đếm số chunk lỗi từ đầu (chunk 1-5)
-            if (typeof window.failedChunksCount === 'undefined') {
-                window.failedChunksCount = 0;
-            }
-            if (currentChunkIndex < 5) {
-                window.failedChunksCount++;
-                addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Dung lượng blob = ${(qILAV ? (qILAV.size / 1024).toFixed(2) : 0)} KB <= ${MIN_SIZE_KB} KB. Đã có ${window.failedChunksCount}/5 chunk đầu lỗi...`, 'warning');
-            }
-            
-            // KIỂM TRA LỖI CẤU HÌNH: Nếu 5 chunk đầu đều lỗi
-            if (window.failedChunksCount >= 5 && currentChunkIndex < 5) {
-                addLogEntry(`🚨 [LỖI CẤU HÌNH] 5 chunk đầu đều có dung lượng <= ${MIN_SIZE_KB} KB!`, 'error');
-                addLogEntry(`💡 Tool yêu cầu: Vui lòng F5 (Refresh) trang và thao tác lại từ đầu!`, 'error');
-                                
-                                // Hiển thị thông báo lỗi cấu hình
-                                if (typeof Swal !== 'undefined') {
-                                    Swal.fire({
-                                        title: '🚨 Lỗi Cấu Hình',
-                                        html: `
-                                            <div style="text-align: left;">
-                                                <p><strong>5 chunk đầu đều có dung lượng <= ${MIN_SIZE_KB} KB!</strong></p>
-                                                <hr>
-                                                <p><strong>⚠️ Nguyên nhân có thể:</strong></p>
-                                                <ul>
-                                                    <li>Cấu hình web chưa đúng</li>
-                                                    <li>File âm thanh chưa được tải lên đúng cách</li>
-                                                    <li>Trạng thái web không ổn định</li>
-                                                </ul>
-                                                <hr>
-                                                <p><strong>💡 Giải pháp:</strong></p>
-                                                <ol>
-                                                    <li>Nhấn <strong>F5</strong> để refresh trang</li>
-                                                    <li>Tải lại file âm thanh</li>
-                                                    <li>Thao tác lại từ đầu</li>
-                                                </ol>
-                                            </div>
-                                        `,
-                                        icon: 'error',
-                                        width: '600px',
-                                        confirmButtonText: 'Đã hiểu - Sẽ F5',
-                                        confirmButtonColor: '#ff6b6b',
-                                        allowOutsideClick: false,
-                                        allowEscapeKey: false
-                                    });
-                                }
-                                
-                                // Reset flag sau khi hiển thị thông báo
-                                window.chunk1Failed = false;
-                                return; // Dừng xử lý
-                            }
+                            addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Dung lượng blob = ${(qILAV ? (qILAV.size / 1024).toFixed(2) : 0)} KB <= ${MIN_SIZE_KB} KB.`, 'warning');
                             
                             // Xử lý retry: Nếu đang trong retry mode, tiếp tục retry chunk hiện tại
                             // Nếu không phải retry mode, nhảy sang chunk tiếp theo
@@ -4026,151 +3712,6 @@ function igyo$uwVChUzI() {
                         // Log xác nhận kiểm tra dung lượng đã chạy và blob hợp lệ
                         addLogEntry(`✅ [Chunk ${currentChunkIndex + 1}] Đã kiểm tra dung lượng blob: ${(qILAV.size / 1024).toFixed(2)} KB - Hợp lệ`, 'info');
                         
-                        // =======================================================
-                        // == KIỂM TRA SÓNG ÂM (WAVEFORM): PHẢI CÓ ÂM THANH TỪ ĐẦU ĐẾN CUỐI ==
-                        // =======================================================
-                        addLogEntry(`🔍 [Chunk ${currentChunkIndex + 1}] Đang kiểm tra sóng âm (waveform)...`, 'info');
-                        const waveformCheck = await checkAudioWaveform(qILAV);
-                        
-                        if (!waveformCheck.isValid) {
-                            addLogEntry(`❌ [Chunk ${currentChunkIndex + 1}] Sóng âm không hợp lệ: ${waveformCheck.reason}`, 'error');
-                            addLogEntry(`🔄 Kích hoạt cơ chế reset và đánh dấu thất bại (giống như timeout)...`, 'warning');
-                            
-                            // Hủy bỏ đánh dấu success (đã đánh dấu ở trên)
-                            if (window.chunkStatus) {
-                                window.chunkStatus[currentChunkIndex] = 'failed';
-                            }
-                            
-                            // Thêm vào danh sách failedChunks
-                            if (!window.failedChunks) window.failedChunks = [];
-                            if (!window.failedChunks.includes(currentChunkIndex)) {
-                                window.failedChunks.push(currentChunkIndex);
-                            }
-                            
-                            // QUAN TRỌNG: Đảm bảo vị trí này để trống (null) để sau này retry có thể lưu vào
-                            if (typeof window.chunkBlobs === 'undefined') {
-                                window.chunkBlobs = new Array(SI$acY.length).fill(null);
-                            }
-                            // Đảm bảo window.chunkBlobs có đủ độ dài
-                            while (window.chunkBlobs.length <= currentChunkIndex) {
-                                window.chunkBlobs.push(null);
-                            }
-                            window.chunkBlobs[currentChunkIndex] = null; // Đảm bảo vị trí này để trống
-                            
-                            // ĐỒNG BỘ HÓA ZTQj$LF$o: Đảm bảo ZTQj$LF$o cũng để trống
-                            while (ZTQj$LF$o.length <= currentChunkIndex) {
-                                ZTQj$LF$o.push(null);
-                            }
-                            ZTQj$LF$o[currentChunkIndex] = null; // Đảm bảo vị trí này để trống
-                            
-                            addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Đã đánh dấu thất bại và để trống vị trí ${currentChunkIndex} để retry sau`, 'info');
-                            
-                            // Xóa khỏi processingChunks
-                            if (typeof window.processingChunks !== 'undefined') {
-                                window.processingChunks.delete(currentChunkIndex);
-                            }
-                            
-                            // Reset flag sendingChunk khi chunk thất bại
-                            if (window.sendingChunk === currentChunkIndex) {
-                                window.sendingChunk = null;
-                            }
-                            
-                            // Dừng observer nếu đang chạy
-                            if (xlgJHLP$MATDT$kTXWV) {
-                                xlgJHLP$MATDT$kTXWV.disconnect();
-                                xlgJHLP$MATDT$kTXWV = null;
-                            }
-                            // Reset flag để cho phép thiết lập observer mới
-                            window.isSettingUpObserver = false;
-                            
-                            // Clear timeout 60 giây cho chunk này
-                            if (typeof window.chunkTimeoutIds !== 'undefined' && window.chunkTimeoutIds[currentChunkIndex]) {
-                                clearTimeout(window.chunkTimeoutIds[currentChunkIndex]);
-                                delete window.chunkTimeoutIds[currentChunkIndex];
-                            }
-                            
-                            // Reset web interface - CHỈ reset khi 1 chunk cụ thể render lỗi
-                            await resetWebInterface();
-                            
-                            // KIỂM TRA LỖI CẤU HÌNH: Đếm số chunk lỗi từ đầu (chunk 1-5)
-                            if (typeof window.failedChunksCount === 'undefined') {
-                                window.failedChunksCount = 0;
-                            }
-                            if (currentChunkIndex < 5) {
-                                window.failedChunksCount++;
-                                addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Sóng âm không hợp lệ. Đã có ${window.failedChunksCount}/5 chunk đầu lỗi...`, 'warning');
-                            }
-                            
-                            // KIỂM TRA LỖI CẤU HÌNH: Nếu 5 chunk đầu đều lỗi
-                            if (window.failedChunksCount >= 5 && currentChunkIndex < 5) {
-                                addLogEntry(`🚨 [LỖI CẤU HÌNH] 5 chunk đầu đều có sóng âm không hợp lệ!`, 'error');
-                                addLogEntry(`💡 Tool yêu cầu: Vui lòng F5 (Refresh) trang và thao tác lại từ đầu!`, 'error');
-                                
-                                // Hiển thị thông báo lỗi cấu hình
-                                if (typeof Swal !== 'undefined') {
-                                    Swal.fire({
-                                        title: '🚨 Lỗi Cấu Hình',
-                                        html: `
-                                            <div style="text-align: left;">
-                                                <p><strong>5 chunk đầu đều có sóng âm không hợp lệ!</strong></p>
-                                                <hr>
-                                                <p><strong>⚠️ Nguyên nhân có thể:</strong></p>
-                                                <ul>
-                                                    <li>Cấu hình web chưa đúng</li>
-                                                    <li>File âm thanh chưa được tải lên đúng cách</li>
-                                                    <li>Trạng thái web không ổn định</li>
-                                                    <li>Server render bị lỗi, trả về file bị cắt</li>
-                                                </ul>
-                                                <hr>
-                                                <p><strong>💡 Giải pháp:</strong></p>
-                                                <ol>
-                                                    <li>Nhấn <strong>F5</strong> để refresh trang</li>
-                                                    <li>Tải lại file âm thanh</li>
-                                                    <li>Thao tác lại từ đầu</li>
-                                                </ol>
-                                            </div>
-                                        `,
-                                        icon: 'error',
-                                        width: '600px',
-                                        confirmButtonText: 'Đã hiểu - Sẽ F5',
-                                        confirmButtonColor: '#ff6b6b',
-                                        allowOutsideClick: false,
-                                        allowEscapeKey: false
-                                    });
-                                }
-                                
-                                // Reset flag sau khi hiển thị thông báo
-                                window.chunk1Failed = false;
-                                return; // Dừng xử lý
-                            }
-                            
-                            // Xử lý retry: Nếu đang trong retry mode, tiếp tục retry chunk hiện tại
-                            // Nếu không phải retry mode, nhảy sang chunk tiếp theo
-                            if (window.isFinalCheck) {
-                                // Đang trong retry mode: tiếp tục retry chunk hiện tại cho đến khi thành công
-                                addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Retry thất bại, sẽ tiếp tục retry chunk này...`, 'warning');
-                                addLogEntry(`📊 Trạng thái: ${window.chunkStatus ? window.chunkStatus.filter(s => s === 'success' || s === 'failed').length : 0}/${SI$acY.length} chunks đã xử lý`, 'info');
-                                addLogEntry(`💡 Chunk ${currentChunkIndex + 1} sẽ được retry vô hạn cho đến khi thành công`, 'info');
-                                // Giữ nguyên ttuo$y_KhCV = currentChunkIndex để retry lại
-                                ttuo$y_KhCV = currentChunkIndex;
-                                setTimeout(uSTZrHUt_IC, 2000); // Chờ 2 giây rồi retry lại chunk này
-                            } else {
-                                // Không phải retry mode: nhảy sang chunk tiếp theo
-                                window.retryCount = 0; // Reset bộ đếm retry
-                                ttuo$y_KhCV = currentChunkIndex + 1; // Chuyển sang chunk tiếp theo
-                                addLogEntry(`🔄 Sau khi reset, tiếp tục với chunk ${ttuo$y_KhCV + 1}...`, 'info');
-                                addLogEntry(`📊 Trạng thái: ${window.chunkStatus ? window.chunkStatus.filter(s => s === 'success' || s === 'failed').length : 0}/${SI$acY.length} chunks đã xử lý`, 'info');
-                                addLogEntry(`💡 Chunk có sóng âm không hợp lệ sẽ được retry vô hạn sau khi xong tất cả chunks`, 'info');
-                                setTimeout(uSTZrHUt_IC, 2000); // Chờ 2 giây rồi tiếp tục với chunk tiếp theo
-                            }
-                            return; // Dừng xử lý, không lưu blob
-                        }
-                        
-                        // Log xác nhận waveform hợp lệ
-                        addLogEntry(`✅ [Chunk ${currentChunkIndex + 1}] ${waveformCheck.reason}`, 'success');
-                        // =======================================================
-                        // == END: KIỂM TRA SÓNG ÂM (WAVEFORM) ==
-                        // =======================================================
                         
                         // Lưu chunk vào đúng vị trí dựa trên currentChunkIndex (đã lưu ở đầu callback)
                         if (typeof window.chunkBlobs === 'undefined') {
@@ -4225,7 +3766,7 @@ function igyo$uwVChUzI() {
                         // =======================================================
                         // == ĐÁNH DẤU THÀNH CÔNG: SAU KHI TẤT CẢ KIỂM TRA ĐỀU HỢP LỆ ==
                         // =======================================================
-                        // QUAN TRỌNG: Chỉ đánh dấu success SAU KHI đã kiểm tra dung lượng, waveform và lưu blob thành công
+                        // QUAN TRỌNG: Chỉ đánh dấu success SAU KHI đã kiểm tra dung lượng và lưu blob thành công
                         window.chunkStatus[currentChunkIndex] = 'success';
                         window.retryCount = 0; // Reset bộ đếm retry khi thành công
                         // Reset timeout retry count cho chunk này khi thành công
@@ -5611,8 +5152,8 @@ async function waitForVoiceModelReady() {
 
                 // 3. Chuẩn bị cho lần render mới
                 if (typeof window.SI$acY !== 'undefined') {
-                    // Mặc định chunk lớn 900 ký tự
-                    const actualMaxLength = 900;
+                    // Mặc định chunk lớn 700 ký tự
+                    const actualMaxLength = 700;
                     window.SI$acY = chiaVanBanThongMinh(newText, 600, 500, actualMaxLength);
                     console.log(`Tổng văn bản: ${newText.length} ký tự`);
                     console.log(`Số chunk được tách: ${window.SI$acY.length}`);
@@ -6876,3 +6417,4 @@ async function waitForVoiceModelReady() {
             errorObserver.disconnect();
         }
     });
+
