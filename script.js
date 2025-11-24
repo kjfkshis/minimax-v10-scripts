@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DUC LOI - Clone Voice (Không cần API) - Modded
 // @namespace    mmx-secure
-// @version      24.0
+// @version      25.0
 // @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại, Đổi văn bản hàng loạt & Thiết lập dấu câu (bao gồm dấu xuống dòng).
 // @author       HUỲNH ĐỨC LỢI ( Zalo: 0835795597) - Đã chỉnh sửa
 // @match        https://www.minimax.io/audio*
@@ -3540,7 +3540,170 @@ async function uSTZrHUt_IC() {
             setTimeout(uSTZrHUt_IC, 2000); // Tiếp tục với chunk tiếp theo
         }
     }
-}function igyo$uwVChUzI() {
+}
+
+// =======================================================
+// == HÀM KIỂM TRA SÓNG ÂM (WAVEFORM) - DÙNG HTML AUDIO ELEMENT ==
+// =======================================================
+/**
+ * Kiểm tra xem audio blob có bị cắt giữa chừng không bằng cách dùng HTML Audio element
+ * Kiểm tra: đầu file và đuôi file có tiếng không
+ * @param {Blob} audioBlob - Audio blob cần kiểm tra
+ * @returns {Promise<{isValid: boolean, reason: string, duration: number}>}
+ */
+async function checkAudioWaveform(audioBlob) {
+    return new Promise((resolve) => {
+        try {
+            // Tạo HTML Audio element để kiểm tra
+            const audio = document.createElement('audio');
+            audio.preload = 'metadata'; // Chỉ load metadata, không load toàn bộ file
+            
+            // Tạo URL từ blob
+            const blobUrl = URL.createObjectURL(audioBlob);
+            audio.src = blobUrl;
+            
+            let durationChecked = false;
+            let hasAudioAtStart = false;
+            let hasAudioAtEnd = false;
+            let audioDuration = 0;
+            
+            // Hàm cleanup
+            const cleanup = () => {
+                URL.revokeObjectURL(blobUrl);
+                audio.src = '';
+                audio.load(); // Reset audio element
+            };
+            
+            // Timeout để tránh chờ quá lâu (10 giây)
+            const timeout = setTimeout(() => {
+                if (!durationChecked) {
+                    cleanup();
+                    // Nếu timeout, coi như bỏ qua kiểm tra (không đánh dấu thất bại)
+                    resolve({ 
+                        isValid: true, 
+                        reason: 'Timeout khi load audio metadata, bỏ qua kiểm tra', 
+                        duration: 0 
+                    });
+                }
+            }, 10000);
+            
+            // Khi metadata đã load xong
+            audio.addEventListener('loadedmetadata', async () => {
+                try {
+                    durationChecked = true;
+                    clearTimeout(timeout);
+                    
+                    audioDuration = audio.duration;
+                    
+                    // Kiểm tra duration hợp lệ
+                    if (!audioDuration || isNaN(audioDuration) || audioDuration <= 0) {
+                        cleanup();
+                        resolve({ 
+                            isValid: false, 
+                            reason: `Duration không hợp lệ: ${audioDuration}`, 
+                            duration: 0 
+                        });
+                        return;
+                    }
+                    
+                    // Nếu duration quá ngắn (< 0.5 giây), có thể là file lỗi
+                    if (audioDuration < 0.5) {
+                        cleanup();
+                        resolve({ 
+                            isValid: false, 
+                            reason: `Duration quá ngắn: ${audioDuration.toFixed(2)}s`, 
+                            duration: audioDuration 
+                        });
+                        return;
+                    }
+                    
+                    // Kiểm tra phần đầu file (0.3 giây đầu)
+                    audio.currentTime = 0;
+                    await new Promise(resolve => setTimeout(resolve, 100)); // Chờ seek hoàn tất
+                    
+                    // Kiểm tra xem có thể seek đến đầu file không (có nghĩa là file có dữ liệu ở đầu)
+                    if (audio.readyState >= 2) { // HAVE_CURRENT_DATA hoặc cao hơn
+                        hasAudioAtStart = true;
+                    }
+                    
+                    // Kiểm tra phần cuối file (0.3 giây cuối)
+                    const endTime = Math.max(0, audioDuration - 0.3);
+                    audio.currentTime = endTime;
+                    await new Promise(resolve => setTimeout(resolve, 200)); // Chờ seek hoàn tất
+                    
+                    // Kiểm tra xem có thể seek đến cuối file không (có nghĩa là file đầy đủ)
+                    if (audio.readyState >= 2 && audio.currentTime >= endTime - 0.1) {
+                        hasAudioAtEnd = true;
+                    }
+                    
+                    cleanup();
+                    
+                    // Kết luận
+                    if (hasAudioAtStart && hasAudioAtEnd) {
+                        // Đầu và cuối đều có dữ liệu → file hợp lệ
+                        resolve({ 
+                            isValid: true, 
+                            reason: `Waveform hợp lệ: Duration ${audioDuration.toFixed(2)}s, có dữ liệu ở đầu và cuối`, 
+                            duration: audioDuration 
+                        });
+                    } else if (hasAudioAtStart && !hasAudioAtEnd) {
+                        // Đầu có nhưng cuối không có → file bị cắt giữa chừng
+                        resolve({ 
+                            isValid: false, 
+                            reason: `Sóng âm bị thiếu: Có dữ liệu ở đầu nhưng không có ở cuối (chỉ có âm thanh lúc đầu)`, 
+                            duration: audioDuration 
+                        });
+                    } else {
+                        // Đầu không có → file có thể lỗi
+                        resolve({ 
+                            isValid: false, 
+                            reason: `File audio không hợp lệ: Không có dữ liệu ở đầu file`, 
+                            duration: audioDuration 
+                        });
+                    }
+                    
+                } catch (error) {
+                    cleanup();
+                    console.error('Lỗi khi kiểm tra waveform:', error);
+                    // Nếu có lỗi, bỏ qua kiểm tra (không đánh dấu thất bại)
+                    resolve({ 
+                        isValid: true, 
+                        reason: `Lỗi khi kiểm tra: ${error.message}, bỏ qua kiểm tra`, 
+                        duration: 0 
+                    });
+                }
+            });
+            
+            // Xử lý lỗi khi load
+            audio.addEventListener('error', (e) => {
+                clearTimeout(timeout);
+                cleanup();
+                const errorMsg = audio.error ? audio.error.message : 'Unknown error';
+                console.error('Lỗi khi load audio:', errorMsg);
+                // Nếu load lỗi, bỏ qua kiểm tra (không đánh dấu thất bại)
+                resolve({ 
+                    isValid: true, 
+                    reason: `Lỗi load audio: ${errorMsg}, bỏ qua kiểm tra`, 
+                    duration: 0 
+                });
+            });
+            
+            // Bắt đầu load metadata
+            audio.load();
+            
+        } catch (error) {
+            console.error('Lỗi khi tạo audio element:', error);
+            // Nếu có lỗi, bỏ qua kiểm tra (không đánh dấu thất bại)
+            resolve({ 
+                isValid: true, 
+                reason: `Lỗi khi tạo audio element: ${error.message}, bỏ qua kiểm tra`, 
+                duration: 0 
+            });
+        }
+    });
+}
+
+function igyo$uwVChUzI() {
     const VFmk$UVEL = AP$u_huhInYfTj;
     
     // RATE LIMITING: Chỉ cho phép gọi tối đa 1 lần/2 giây
@@ -3642,14 +3805,10 @@ async function uSTZrHUt_IC() {
                     clearTimeout(Srnj$swt);
                     // KHÔNG disconnect observer ở đây - sẽ disconnect sau khi xử lý xong
 
-                    // Log khi thành công
-                    addLogEntry(`✅ [Chunk ${currentChunkIndex + 1}/${SI$acY.length}] Xử lý thành công!`, 'success');
-                    window.retryCount = 0; // Reset bộ đếm retry khi thành công
-                    // Reset timeout retry count cho chunk này khi thành công
-                    if (typeof window.timeoutRetryCount !== 'undefined' && window.timeoutRetryCount[currentChunkIndex] !== undefined) {
-                        window.timeoutRetryCount[currentChunkIndex] = 0;
-                    }
-                    // Clear timeout 60 giây cho chunk này khi thành công
+                    // QUAN TRỌNG: KHÔNG đánh dấu success ở đây
+                    // Chỉ đánh dấu success SAU KHI tất cả kiểm tra (dung lượng, waveform) đều hợp lệ và đã lưu blob
+                    
+                    // Clear timeout 60 giây cho chunk này (clear ngay khi detect audio để tránh timeout)
                     if (typeof window.chunkTimeoutIds !== 'undefined' && window.chunkTimeoutIds[currentChunkIndex]) {
                         clearTimeout(window.chunkTimeoutIds[currentChunkIndex]);
                         delete window.chunkTimeoutIds[currentChunkIndex];
@@ -3660,23 +3819,10 @@ async function uSTZrHUt_IC() {
                         clearTimeout(Srnj$swt);
                         Srnj$swt = null;
                     }
-                    window.chunkStatus[currentChunkIndex] = 'success'; // Đánh dấu chunk này đã thành công
                     
-                    // Reset flag sendingChunk khi chunk thành công
+                    // Reset flag sendingChunk (reset ngay khi detect audio)
                     if (window.sendingChunk === currentChunkIndex) {
                         window.sendingChunk = null;
-                    }
-                    
-                    // Reset flag chunk1Failed nếu chunk 1 thành công
-                    if (currentChunkIndex === 0) {
-                        window.chunk1Failed = false;
-                        addLogEntry(`✅ [Chunk 1] Đã thành công - Reset flag kiểm tra cấu hình`, 'success');
-                    }
-
-                    // Nếu đang trong giai đoạn kiểm tra cuối, loại bỏ chunk này khỏi danh sách thất bại
-                    if (window.isFinalCheck && window.failedChunks.includes(currentChunkIndex)) {
-                        window.failedChunks = window.failedChunks.filter(index => index !== currentChunkIndex);
-                        addLogEntry(`🎉 [Chunk ${currentChunkIndex + 1}] Đã khôi phục thành công từ trạng thái thất bại!`, 'success');
                     }
 
                     // ĐỒNG BỘ HÓA KHI RETRY: Đảm bảo window.chunkBlobs được cập nhật khi retry thành công
@@ -3716,6 +3862,291 @@ async function uSTZrHUt_IC() {
                             throw new Error(ndkpgKnjg(0x241) + FGrxK_RK[ndkpgKnjg(0x237)]);
                         }
                         const qILAV = await FGrxK_RK[ndkpgKnjg(0x26f)]();
+                        
+                        // =======================================================
+                        // == KIỂM TRA DUNG LƯỢNG BLOB: PHẢI LỚN HƠN 40.41 KB ==
+                        // =======================================================
+                        const MIN_SIZE_KB = 40.41;
+                        const MIN_SIZE_BYTES = MIN_SIZE_KB * 1024; // 40.41 KB = 41379.84 bytes
+                        if (!qILAV || qILAV.size <= MIN_SIZE_BYTES) {
+                            addLogEntry(`❌ [Chunk ${currentChunkIndex + 1}] Dung lượng blob = ${(qILAV ? (qILAV.size / 1024).toFixed(2) : 0)} KB <= ${MIN_SIZE_KB} KB - không hợp lệ!`, 'error');
+                            addLogEntry(`🔄 Kích hoạt cơ chế reset và đánh dấu thất bại (giống như timeout)...`, 'warning');
+                            
+                            // Hủy bỏ đánh dấu success (đã đánh dấu ở trên)
+                            if (window.chunkStatus) {
+                                window.chunkStatus[currentChunkIndex] = 'failed';
+                            }
+                            
+                            // Thêm vào danh sách failedChunks
+                            if (!window.failedChunks) window.failedChunks = [];
+                            if (!window.failedChunks.includes(currentChunkIndex)) {
+                                window.failedChunks.push(currentChunkIndex);
+                            }
+                            
+                            // QUAN TRỌNG: Đảm bảo vị trí này để trống (null) để sau này retry có thể lưu vào
+                            if (typeof window.chunkBlobs === 'undefined') {
+                                window.chunkBlobs = new Array(SI$acY.length).fill(null);
+                            }
+                            // Đảm bảo window.chunkBlobs có đủ độ dài
+                            while (window.chunkBlobs.length <= currentChunkIndex) {
+                                window.chunkBlobs.push(null);
+                            }
+                            window.chunkBlobs[currentChunkIndex] = null; // Đảm bảo vị trí này để trống
+                            
+                            // ĐỒNG BỘ HÓA ZTQj$LF$o: Đảm bảo ZTQj$LF$o cũng để trống
+                            while (ZTQj$LF$o.length <= currentChunkIndex) {
+                                ZTQj$LF$o.push(null);
+                            }
+                            ZTQj$LF$o[currentChunkIndex] = null; // Đảm bảo vị trí này để trống
+                            
+                            addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Đã đánh dấu thất bại và để trống vị trí ${currentChunkIndex} để retry sau`, 'info');
+                            
+                            // Xóa khỏi processingChunks
+                            if (typeof window.processingChunks !== 'undefined') {
+                                window.processingChunks.delete(currentChunkIndex);
+                            }
+                            
+                            // Reset flag sendingChunk khi chunk thất bại
+                            if (window.sendingChunk === currentChunkIndex) {
+                                window.sendingChunk = null;
+                            }
+                            
+                            // Dừng observer nếu đang chạy
+                            if (xlgJHLP$MATDT$kTXWV) {
+                                xlgJHLP$MATDT$kTXWV.disconnect();
+                                xlgJHLP$MATDT$kTXWV = null;
+                            }
+                            // Reset flag để cho phép thiết lập observer mới
+                            window.isSettingUpObserver = false;
+                            
+                            // Clear timeout 60 giây cho chunk này
+                            if (typeof window.chunkTimeoutIds !== 'undefined' && window.chunkTimeoutIds[currentChunkIndex]) {
+                                clearTimeout(window.chunkTimeoutIds[currentChunkIndex]);
+                                delete window.chunkTimeoutIds[currentChunkIndex];
+                            }
+                            
+                            // Reset web interface - CHỈ reset khi 1 chunk cụ thể render lỗi
+                            await resetWebInterface();
+                            
+                            // KIỂM TRA LỖI CẤU HÌNH: Nếu chunk 1 (index 0) có dung lượng <= 40.41 KB, đánh dấu
+                            if (currentChunkIndex === 0) {
+                                window.chunk1Failed = true;
+                                addLogEntry(`⚠️ [Chunk 1] Dung lượng blob = ${(qILAV ? (qILAV.size / 1024).toFixed(2) : 0)} KB <= ${MIN_SIZE_KB} KB. Sẽ kiểm tra chunk 2...`, 'warning');
+                            }
+                            
+                            // KIỂM TRA LỖI CẤU HÌNH: Nếu chunk 1 đã lỗi và chunk 2 (index 1) cũng có dung lượng <= 40.41 KB
+                            if (window.chunk1Failed && currentChunkIndex === 1) {
+                                addLogEntry(`🚨 [LỖI CẤU HÌNH] Chunk 1 đã lỗi và Chunk 2 cũng có dung lượng <= ${MIN_SIZE_KB} KB!`, 'error');
+                                addLogEntry(`💡 Tool yêu cầu: Vui lòng F5 (Refresh) trang và thao tác lại từ đầu!`, 'error');
+                                
+                                // Hiển thị thông báo lỗi cấu hình
+                                if (typeof Swal !== 'undefined') {
+                                    Swal.fire({
+                                        title: '🚨 Lỗi Cấu Hình',
+                                        html: `
+                                            <div style="text-align: left;">
+                                                <p><strong>Chunk 1 và Chunk 2 đều có dung lượng <= ${MIN_SIZE_KB} KB!</strong></p>
+                                                <hr>
+                                                <p><strong>⚠️ Nguyên nhân có thể:</strong></p>
+                                                <ul>
+                                                    <li>Cấu hình web chưa đúng</li>
+                                                    <li>File âm thanh chưa được tải lên đúng cách</li>
+                                                    <li>Trạng thái web không ổn định</li>
+                                                </ul>
+                                                <hr>
+                                                <p><strong>💡 Giải pháp:</strong></p>
+                                                <ol>
+                                                    <li>Nhấn <strong>F5</strong> để refresh trang</li>
+                                                    <li>Tải lại file âm thanh</li>
+                                                    <li>Thao tác lại từ đầu</li>
+                                                </ol>
+                                            </div>
+                                        `,
+                                        icon: 'error',
+                                        width: '600px',
+                                        confirmButtonText: 'Đã hiểu - Sẽ F5',
+                                        confirmButtonColor: '#ff6b6b',
+                                        allowOutsideClick: false,
+                                        allowEscapeKey: false
+                                    });
+                                }
+                                
+                                // Reset flag sau khi hiển thị thông báo
+                                window.chunk1Failed = false;
+                                return; // Dừng xử lý
+                            }
+                            
+                            // Xử lý retry: Nếu đang trong retry mode, tiếp tục retry chunk hiện tại
+                            // Nếu không phải retry mode, nhảy sang chunk tiếp theo
+                            if (window.isFinalCheck) {
+                                // Đang trong retry mode: tiếp tục retry chunk hiện tại cho đến khi thành công
+                                addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Retry thất bại, sẽ tiếp tục retry chunk này...`, 'warning');
+                                addLogEntry(`📊 Trạng thái: ${window.chunkStatus ? window.chunkStatus.filter(s => s === 'success' || s === 'failed').length : 0}/${SI$acY.length} chunks đã xử lý`, 'info');
+                                addLogEntry(`💡 Chunk ${currentChunkIndex + 1} sẽ được retry vô hạn cho đến khi thành công`, 'info');
+                                // Giữ nguyên ttuo$y_KhCV = currentChunkIndex để retry lại
+                                ttuo$y_KhCV = currentChunkIndex;
+                                setTimeout(uSTZrHUt_IC, 2000); // Chờ 2 giây rồi retry lại chunk này
+                            } else {
+                                // Không phải retry mode: nhảy sang chunk tiếp theo
+                                window.retryCount = 0; // Reset bộ đếm retry
+                                ttuo$y_KhCV = currentChunkIndex + 1; // Chuyển sang chunk tiếp theo
+                                addLogEntry(`🔄 Sau khi reset, tiếp tục với chunk ${ttuo$y_KhCV + 1}...`, 'info');
+                                addLogEntry(`📊 Trạng thái: ${window.chunkStatus ? window.chunkStatus.filter(s => s === 'success' || s === 'failed').length : 0}/${SI$acY.length} chunks đã xử lý`, 'info');
+                                addLogEntry(`💡 Chunk có dung lượng <= ${MIN_SIZE_KB} KB sẽ được retry vô hạn sau khi xong tất cả chunks`, 'info');
+                                setTimeout(uSTZrHUt_IC, 2000); // Chờ 2 giây rồi tiếp tục với chunk tiếp theo
+                            }
+                            return; // Dừng xử lý, không lưu blob
+                        }
+                        // =======================================================
+                        // == END: KIỂM TRA DUNG LƯỢNG BLOB ==
+                        // =======================================================
+                        
+                        // Log xác nhận kiểm tra dung lượng đã chạy và blob hợp lệ
+                        addLogEntry(`✅ [Chunk ${currentChunkIndex + 1}] Đã kiểm tra dung lượng blob: ${(qILAV.size / 1024).toFixed(2)} KB - Hợp lệ`, 'info');
+                        
+                        // =======================================================
+                        // == KIỂM TRA SÓNG ÂM (WAVEFORM): PHẢI CÓ ÂM THANH TỪ ĐẦU ĐẾN CUỐI ==
+                        // =======================================================
+                        addLogEntry(`🔍 [Chunk ${currentChunkIndex + 1}] Đang kiểm tra sóng âm (waveform)...`, 'info');
+                        const waveformCheck = await checkAudioWaveform(qILAV);
+                        
+                        if (!waveformCheck.isValid) {
+                            addLogEntry(`❌ [Chunk ${currentChunkIndex + 1}] Sóng âm không hợp lệ: ${waveformCheck.reason}`, 'error');
+                            addLogEntry(`🔄 Kích hoạt cơ chế reset và đánh dấu thất bại (giống như timeout)...`, 'warning');
+                            
+                            // Hủy bỏ đánh dấu success (đã đánh dấu ở trên)
+                            if (window.chunkStatus) {
+                                window.chunkStatus[currentChunkIndex] = 'failed';
+                            }
+                            
+                            // Thêm vào danh sách failedChunks
+                            if (!window.failedChunks) window.failedChunks = [];
+                            if (!window.failedChunks.includes(currentChunkIndex)) {
+                                window.failedChunks.push(currentChunkIndex);
+                            }
+                            
+                            // QUAN TRỌNG: Đảm bảo vị trí này để trống (null) để sau này retry có thể lưu vào
+                            if (typeof window.chunkBlobs === 'undefined') {
+                                window.chunkBlobs = new Array(SI$acY.length).fill(null);
+                            }
+                            // Đảm bảo window.chunkBlobs có đủ độ dài
+                            while (window.chunkBlobs.length <= currentChunkIndex) {
+                                window.chunkBlobs.push(null);
+                            }
+                            window.chunkBlobs[currentChunkIndex] = null; // Đảm bảo vị trí này để trống
+                            
+                            // ĐỒNG BỘ HÓA ZTQj$LF$o: Đảm bảo ZTQj$LF$o cũng để trống
+                            while (ZTQj$LF$o.length <= currentChunkIndex) {
+                                ZTQj$LF$o.push(null);
+                            }
+                            ZTQj$LF$o[currentChunkIndex] = null; // Đảm bảo vị trí này để trống
+                            
+                            addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Đã đánh dấu thất bại và để trống vị trí ${currentChunkIndex} để retry sau`, 'info');
+                            
+                            // Xóa khỏi processingChunks
+                            if (typeof window.processingChunks !== 'undefined') {
+                                window.processingChunks.delete(currentChunkIndex);
+                            }
+                            
+                            // Reset flag sendingChunk khi chunk thất bại
+                            if (window.sendingChunk === currentChunkIndex) {
+                                window.sendingChunk = null;
+                            }
+                            
+                            // Dừng observer nếu đang chạy
+                            if (xlgJHLP$MATDT$kTXWV) {
+                                xlgJHLP$MATDT$kTXWV.disconnect();
+                                xlgJHLP$MATDT$kTXWV = null;
+                            }
+                            // Reset flag để cho phép thiết lập observer mới
+                            window.isSettingUpObserver = false;
+                            
+                            // Clear timeout 60 giây cho chunk này
+                            if (typeof window.chunkTimeoutIds !== 'undefined' && window.chunkTimeoutIds[currentChunkIndex]) {
+                                clearTimeout(window.chunkTimeoutIds[currentChunkIndex]);
+                                delete window.chunkTimeoutIds[currentChunkIndex];
+                            }
+                            
+                            // Reset web interface - CHỈ reset khi 1 chunk cụ thể render lỗi
+                            await resetWebInterface();
+                            
+                            // KIỂM TRA LỖI CẤU HÌNH: Nếu chunk 1 (index 0) có sóng âm không hợp lệ, đánh dấu
+                            if (currentChunkIndex === 0) {
+                                window.chunk1Failed = true;
+                                addLogEntry(`⚠️ [Chunk 1] Sóng âm không hợp lệ. Sẽ kiểm tra chunk 2...`, 'warning');
+                            }
+                            
+                            // KIỂM TRA LỖI CẤU HÌNH: Nếu chunk 1 đã lỗi và chunk 2 (index 1) cũng có sóng âm không hợp lệ
+                            if (window.chunk1Failed && currentChunkIndex === 1) {
+                                addLogEntry(`🚨 [LỖI CẤU HÌNH] Chunk 1 đã lỗi và Chunk 2 cũng có sóng âm không hợp lệ!`, 'error');
+                                addLogEntry(`💡 Tool yêu cầu: Vui lòng F5 (Refresh) trang và thao tác lại từ đầu!`, 'error');
+                                
+                                // Hiển thị thông báo lỗi cấu hình
+                                if (typeof Swal !== 'undefined') {
+                                    Swal.fire({
+                                        title: '🚨 Lỗi Cấu Hình',
+                                        html: `
+                                            <div style="text-align: left;">
+                                                <p><strong>Chunk 1 và Chunk 2 đều có sóng âm không hợp lệ!</strong></p>
+                                                <hr>
+                                                <p><strong>⚠️ Nguyên nhân có thể:</strong></p>
+                                                <ul>
+                                                    <li>Cấu hình web chưa đúng</li>
+                                                    <li>File âm thanh chưa được tải lên đúng cách</li>
+                                                    <li>Trạng thái web không ổn định</li>
+                                                    <li>Server render bị lỗi, trả về file bị cắt</li>
+                                                </ul>
+                                                <hr>
+                                                <p><strong>💡 Giải pháp:</strong></p>
+                                                <ol>
+                                                    <li>Nhấn <strong>F5</strong> để refresh trang</li>
+                                                    <li>Tải lại file âm thanh</li>
+                                                    <li>Thao tác lại từ đầu</li>
+                                                </ol>
+                                            </div>
+                                        `,
+                                        icon: 'error',
+                                        width: '600px',
+                                        confirmButtonText: 'Đã hiểu - Sẽ F5',
+                                        confirmButtonColor: '#ff6b6b',
+                                        allowOutsideClick: false,
+                                        allowEscapeKey: false
+                                    });
+                                }
+                                
+                                // Reset flag sau khi hiển thị thông báo
+                                window.chunk1Failed = false;
+                                return; // Dừng xử lý
+                            }
+                            
+                            // Xử lý retry: Nếu đang trong retry mode, tiếp tục retry chunk hiện tại
+                            // Nếu không phải retry mode, nhảy sang chunk tiếp theo
+                            if (window.isFinalCheck) {
+                                // Đang trong retry mode: tiếp tục retry chunk hiện tại cho đến khi thành công
+                                addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Retry thất bại, sẽ tiếp tục retry chunk này...`, 'warning');
+                                addLogEntry(`📊 Trạng thái: ${window.chunkStatus ? window.chunkStatus.filter(s => s === 'success' || s === 'failed').length : 0}/${SI$acY.length} chunks đã xử lý`, 'info');
+                                addLogEntry(`💡 Chunk ${currentChunkIndex + 1} sẽ được retry vô hạn cho đến khi thành công`, 'info');
+                                // Giữ nguyên ttuo$y_KhCV = currentChunkIndex để retry lại
+                                ttuo$y_KhCV = currentChunkIndex;
+                                setTimeout(uSTZrHUt_IC, 2000); // Chờ 2 giây rồi retry lại chunk này
+                            } else {
+                                // Không phải retry mode: nhảy sang chunk tiếp theo
+                                window.retryCount = 0; // Reset bộ đếm retry
+                                ttuo$y_KhCV = currentChunkIndex + 1; // Chuyển sang chunk tiếp theo
+                                addLogEntry(`🔄 Sau khi reset, tiếp tục với chunk ${ttuo$y_KhCV + 1}...`, 'info');
+                                addLogEntry(`📊 Trạng thái: ${window.chunkStatus ? window.chunkStatus.filter(s => s === 'success' || s === 'failed').length : 0}/${SI$acY.length} chunks đã xử lý`, 'info');
+                                addLogEntry(`💡 Chunk có sóng âm không hợp lệ sẽ được retry vô hạn sau khi xong tất cả chunks`, 'info');
+                                setTimeout(uSTZrHUt_IC, 2000); // Chờ 2 giây rồi tiếp tục với chunk tiếp theo
+                            }
+                            return; // Dừng xử lý, không lưu blob
+                        }
+                        
+                        // Log xác nhận waveform hợp lệ
+                        addLogEntry(`✅ [Chunk ${currentChunkIndex + 1}] ${waveformCheck.reason}`, 'success');
+                        // =======================================================
+                        // == END: KIỂM TRA SÓNG ÂM (WAVEFORM) ==
+                        // =======================================================
+                        
                         // Lưu chunk vào đúng vị trí dựa trên currentChunkIndex (đã lưu ở đầu callback)
                         if (typeof window.chunkBlobs === 'undefined') {
                             window.chunkBlobs = new Array(SI$acY.length).fill(null);
@@ -3765,6 +4196,35 @@ async function uSTZrHUt_IC() {
                         if (typeof window.processingChunks !== 'undefined') {
                             window.processingChunks.delete(currentChunkIndex);
                         }
+                        
+                        // =======================================================
+                        // == ĐÁNH DẤU THÀNH CÔNG: SAU KHI TẤT CẢ KIỂM TRA ĐỀU HỢP LỆ ==
+                        // =======================================================
+                        // QUAN TRỌNG: Chỉ đánh dấu success SAU KHI đã kiểm tra dung lượng, waveform và lưu blob thành công
+                        window.chunkStatus[currentChunkIndex] = 'success';
+                        window.retryCount = 0; // Reset bộ đếm retry khi thành công
+                        // Reset timeout retry count cho chunk này khi thành công
+                        if (typeof window.timeoutRetryCount !== 'undefined' && window.timeoutRetryCount[currentChunkIndex] !== undefined) {
+                            window.timeoutRetryCount[currentChunkIndex] = 0;
+                        }
+                        
+                        // Log khi thành công
+                        addLogEntry(`✅ [Chunk ${currentChunkIndex + 1}/${SI$acY.length}] Xử lý thành công!`, 'success');
+                        
+                        // Reset flag chunk1Failed nếu chunk 1 thành công
+                        if (currentChunkIndex === 0) {
+                            window.chunk1Failed = false;
+                            addLogEntry(`✅ [Chunk 1] Đã thành công - Reset flag kiểm tra cấu hình`, 'success');
+                        }
+
+                        // Nếu đang trong giai đoạn kiểm tra cuối, loại bỏ chunk này khỏi danh sách thất bại
+                        if (window.isFinalCheck && window.failedChunks.includes(currentChunkIndex)) {
+                            window.failedChunks = window.failedChunks.filter(index => index !== currentChunkIndex);
+                            addLogEntry(`🎉 [Chunk ${currentChunkIndex + 1}] Đã khôi phục thành công từ trạng thái thất bại!`, 'success');
+                        }
+                        // =======================================================
+                        // == END: ĐÁNH DẤU THÀNH CÔNG ==
+                        // =======================================================
                         
                         // DISCONNECT OBSERVER SAU KHI XỬ LÝ XONG (không disconnect trong callback)
                         if (xlgJHLP$MATDT$kTXWV) {
