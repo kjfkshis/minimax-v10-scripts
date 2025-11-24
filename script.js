@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DUC LOI - Clone Voice (Không cần API) - Modded
 // @namespace    mmx-secure
-// @version      25.0
+// @version      24.0
 // @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại, Đổi văn bản hàng loạt & Thiết lập dấu câu (bao gồm dấu xuống dòng).
 // @author       HUỲNH ĐỨC LỢI ( Zalo: 0835795597) - Đã chỉnh sửa
 // @match        https://www.minimax.io/audio*
@@ -3286,15 +3286,18 @@ async function uSTZrHUt_IC() {
             // Reset web interface - CHỈ reset khi 1 chunk cụ thể render lỗi
             await resetWebInterface();
             
-            // KIỂM TRA LỖI CẤU HÌNH: Nếu chunk 1 (index 0) timeout, đánh dấu
-            if (ttuo$y_KhCV === 0) {
-                window.chunk1Failed = true;
-                addLogEntry(`⚠️ [Chunk 1] Đã timeout sau 60 giây. Sẽ kiểm tra chunk 2...`, 'warning');
+            // KIỂM TRA LỖI CẤU HÌNH: Đếm số chunk lỗi từ đầu (chunk 1-5)
+            if (typeof window.failedChunksCount === 'undefined') {
+                window.failedChunksCount = 0;
+            }
+            if (ttuo$y_KhCV < 5) {
+                window.failedChunksCount++;
+                addLogEntry(`⚠️ [Chunk ${ttuo$y_KhCV + 1}] Đã timeout sau 60 giây. Đã có ${window.failedChunksCount}/5 chunk đầu lỗi...`, 'warning');
             }
             
-            // KIỂM TRA LỖI CẤU HÌNH: Nếu chunk 1 đã lỗi và chunk 2 (index 1) cũng timeout
-            if (window.chunk1Failed && ttuo$y_KhCV === 1) {
-                addLogEntry(`🚨 [LỖI CẤU HÌNH] Chunk 1 đã lỗi và Chunk 2 cũng không render thành công!`, 'error');
+            // KIỂM TRA LỖI CẤU HÌNH: Nếu 5 chunk đầu đều lỗi
+            if (window.failedChunksCount >= 5 && ttuo$y_KhCV < 5) {
+                addLogEntry(`🚨 [LỖI CẤU HÌNH] 5 chunk đầu đều lỗi!`, 'error');
                 addLogEntry(`💡 Tool yêu cầu: Vui lòng F5 (Refresh) trang và thao tác lại từ đầu!`, 'error');
                 
                 // Hiển thị thông báo lỗi cấu hình
@@ -3303,7 +3306,7 @@ async function uSTZrHUt_IC() {
                         title: '🚨 Lỗi Cấu Hình',
                         html: `
                             <div style="text-align: left;">
-                                <p><strong>Chunk 1 và Chunk 2 đều không render thành công!</strong></p>
+                                <p><strong>5 chunk đầu đều không render thành công!</strong></p>
                                 <hr>
                                 <p><strong>⚠️ Nguyên nhân có thể:</strong></p>
                                 <ul>
@@ -3330,7 +3333,7 @@ async function uSTZrHUt_IC() {
                 }
                 
                 // Reset flag sau khi hiển thị thông báo
-                window.chunk1Failed = false;
+                window.failedChunksCount = 0;
                 return; // Dừng xử lý
             }
             
@@ -3477,18 +3480,21 @@ async function uSTZrHUt_IC() {
                 window.sendingChunk = null;
             }
             
-            // KIỂM TRA LỖI CẤU HÌNH: Nếu chunk 1 (index 0) lỗi, đánh dấu
-            if (ttuo$y_KhCV === 0) {
-                window.chunk1Failed = true;
-                addLogEntry(`⚠️ [Chunk 1] Đã bị lỗi. Sẽ kiểm tra chunk 2...`, 'warning');
+            // KIỂM TRA LỖI CẤU HÌNH: Đếm số chunk lỗi từ đầu (chunk 1-5)
+            if (typeof window.failedChunksCount === 'undefined') {
+                window.failedChunksCount = 0;
+            }
+            if (ttuo$y_KhCV < 5) {
+                window.failedChunksCount++;
+                addLogEntry(`⚠️ [Chunk ${ttuo$y_KhCV + 1}] Đã bị lỗi. Đã có ${window.failedChunksCount}/5 chunk đầu lỗi...`, 'warning');
             }
             
             window.retryCount = 0; // Reset bộ đếm retry
             ttuo$y_KhCV++; // Chuyển sang chunk tiếp theo
             
-            // KIỂM TRA LỖI CẤU HÌNH: Nếu chunk 1 đã lỗi và chunk 2 (index 1) cũng lỗi
-            if (window.chunk1Failed && ttuo$y_KhCV === 1) {
-                addLogEntry(`🚨 [LỖI CẤU HÌNH] Chunk 1 đã lỗi và Chunk 2 cũng không render thành công!`, 'error');
+            // KIỂM TRA LỖI CẤU HÌNH: Nếu 5 chunk đầu đều lỗi
+            if (window.failedChunksCount >= 5 && ttuo$y_KhCV <= 5) {
+                addLogEntry(`🚨 [LỖI CẤU HÌNH] 5 chunk đầu đều lỗi!`, 'error');
                 addLogEntry(`💡 Tool yêu cầu: Vui lòng F5 (Refresh) trang và thao tác lại từ đầu!`, 'error');
                 
                 // Hiển thị thông báo lỗi cấu hình
@@ -3497,7 +3503,7 @@ async function uSTZrHUt_IC() {
                         title: '🚨 Lỗi Cấu Hình',
                         html: `
                             <div style="text-align: left;">
-                                <p><strong>Chunk 1 và Chunk 2 đều không render thành công!</strong></p>
+                                <p><strong>5 chunk đầu đều không render thành công!</strong></p>
                                 <hr>
                                 <p><strong>⚠️ Nguyên nhân có thể:</strong></p>
                                 <ul>
@@ -3526,13 +3532,13 @@ async function uSTZrHUt_IC() {
                 }
                 
                 // Reset flag sau khi hiển thị thông báo
-                window.chunk1Failed = false;
+                window.failedChunksCount = 0;
                 return; // Dừng xử lý
             }
             
-            // KIỂM TRA LỖI CẤU HÌNH: Nếu chunk 1 đã lỗi và đang chuyển sang chunk 2
-            if (window.chunk1Failed && ttuo$y_KhCV === 1) {
-                addLogEntry(`⚠️ [Chunk 2] Đang kiểm tra cấu hình... Nếu chunk 2 cũng không render thành công, tool sẽ yêu cầu F5.`, 'warning');
+            // KIỂM TRA LỖI CẤU HÌNH: Nếu đang trong 5 chunk đầu và có chunk lỗi
+            if (ttuo$y_KhCV < 5 && window.failedChunksCount > 0) {
+                addLogEntry(`⚠️ [Chunk ${ttuo$y_KhCV + 1}] Đang kiểm tra cấu hình... Đã có ${window.failedChunksCount}/5 chunk đầu lỗi.`, 'warning');
             }
             
             addLogEntry(`➡️ Chuyển sang chunk ${ttuo$y_KhCV + 1}...`, 'info');
@@ -3928,16 +3934,19 @@ function igyo$uwVChUzI() {
                             // Reset web interface - CHỈ reset khi 1 chunk cụ thể render lỗi
                             await resetWebInterface();
                             
-                            // KIỂM TRA LỖI CẤU HÌNH: Nếu chunk 1 (index 0) có dung lượng <= 40.41 KB, đánh dấu
-                            if (currentChunkIndex === 0) {
-                                window.chunk1Failed = true;
-                                addLogEntry(`⚠️ [Chunk 1] Dung lượng blob = ${(qILAV ? (qILAV.size / 1024).toFixed(2) : 0)} KB <= ${MIN_SIZE_KB} KB. Sẽ kiểm tra chunk 2...`, 'warning');
-                            }
-                            
-                            // KIỂM TRA LỖI CẤU HÌNH: Nếu chunk 1 đã lỗi và chunk 2 (index 1) cũng có dung lượng <= 40.41 KB
-                            if (window.chunk1Failed && currentChunkIndex === 1) {
-                                addLogEntry(`🚨 [LỖI CẤU HÌNH] Chunk 1 đã lỗi và Chunk 2 cũng có dung lượng <= ${MIN_SIZE_KB} KB!`, 'error');
-                                addLogEntry(`💡 Tool yêu cầu: Vui lòng F5 (Refresh) trang và thao tác lại từ đầu!`, 'error');
+            // KIỂM TRA LỖI CẤU HÌNH: Đếm số chunk lỗi từ đầu (chunk 1-5)
+            if (typeof window.failedChunksCount === 'undefined') {
+                window.failedChunksCount = 0;
+            }
+            if (currentChunkIndex < 5) {
+                window.failedChunksCount++;
+                addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Dung lượng blob = ${(qILAV ? (qILAV.size / 1024).toFixed(2) : 0)} KB <= ${MIN_SIZE_KB} KB. Đã có ${window.failedChunksCount}/5 chunk đầu lỗi...`, 'warning');
+            }
+            
+            // KIỂM TRA LỖI CẤU HÌNH: Nếu 5 chunk đầu đều lỗi
+            if (window.failedChunksCount >= 5 && currentChunkIndex < 5) {
+                addLogEntry(`🚨 [LỖI CẤU HÌNH] 5 chunk đầu đều có dung lượng <= ${MIN_SIZE_KB} KB!`, 'error');
+                addLogEntry(`💡 Tool yêu cầu: Vui lòng F5 (Refresh) trang và thao tác lại từ đầu!`, 'error');
                                 
                                 // Hiển thị thông báo lỗi cấu hình
                                 if (typeof Swal !== 'undefined') {
@@ -3945,7 +3954,7 @@ function igyo$uwVChUzI() {
                                         title: '🚨 Lỗi Cấu Hình',
                                         html: `
                                             <div style="text-align: left;">
-                                                <p><strong>Chunk 1 và Chunk 2 đều có dung lượng <= ${MIN_SIZE_KB} KB!</strong></p>
+                                                <p><strong>5 chunk đầu đều có dung lượng <= ${MIN_SIZE_KB} KB!</strong></p>
                                                 <hr>
                                                 <p><strong>⚠️ Nguyên nhân có thể:</strong></p>
                                                 <ul>
@@ -4070,15 +4079,18 @@ function igyo$uwVChUzI() {
                             // Reset web interface - CHỈ reset khi 1 chunk cụ thể render lỗi
                             await resetWebInterface();
                             
-                            // KIỂM TRA LỖI CẤU HÌNH: Nếu chunk 1 (index 0) có sóng âm không hợp lệ, đánh dấu
-                            if (currentChunkIndex === 0) {
-                                window.chunk1Failed = true;
-                                addLogEntry(`⚠️ [Chunk 1] Sóng âm không hợp lệ. Sẽ kiểm tra chunk 2...`, 'warning');
+                            // KIỂM TRA LỖI CẤU HÌNH: Đếm số chunk lỗi từ đầu (chunk 1-5)
+                            if (typeof window.failedChunksCount === 'undefined') {
+                                window.failedChunksCount = 0;
+                            }
+                            if (currentChunkIndex < 5) {
+                                window.failedChunksCount++;
+                                addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Sóng âm không hợp lệ. Đã có ${window.failedChunksCount}/5 chunk đầu lỗi...`, 'warning');
                             }
                             
-                            // KIỂM TRA LỖI CẤU HÌNH: Nếu chunk 1 đã lỗi và chunk 2 (index 1) cũng có sóng âm không hợp lệ
-                            if (window.chunk1Failed && currentChunkIndex === 1) {
-                                addLogEntry(`🚨 [LỖI CẤU HÌNH] Chunk 1 đã lỗi và Chunk 2 cũng có sóng âm không hợp lệ!`, 'error');
+                            // KIỂM TRA LỖI CẤU HÌNH: Nếu 5 chunk đầu đều lỗi
+                            if (window.failedChunksCount >= 5 && currentChunkIndex < 5) {
+                                addLogEntry(`🚨 [LỖI CẤU HÌNH] 5 chunk đầu đều có sóng âm không hợp lệ!`, 'error');
                                 addLogEntry(`💡 Tool yêu cầu: Vui lòng F5 (Refresh) trang và thao tác lại từ đầu!`, 'error');
                                 
                                 // Hiển thị thông báo lỗi cấu hình
@@ -4087,7 +4099,7 @@ function igyo$uwVChUzI() {
                                         title: '🚨 Lỗi Cấu Hình',
                                         html: `
                                             <div style="text-align: left;">
-                                                <p><strong>Chunk 1 và Chunk 2 đều có sóng âm không hợp lệ!</strong></p>
+                                                <p><strong>5 chunk đầu đều có sóng âm không hợp lệ!</strong></p>
                                                 <hr>
                                                 <p><strong>⚠️ Nguyên nhân có thể:</strong></p>
                                                 <ul>
