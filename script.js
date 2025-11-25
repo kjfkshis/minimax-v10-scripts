@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DUC LOI - Clone Voice (Không cần API) - Modded
 // @namespace    mmx-secure
-// @version      25.0
+// @version      26.0
 // @description  Tạo audio giọng nói clone theo ý của bạn. Không giới hạn. Thêm chức năng Ghép hội thoại, Đổi văn bản hàng loạt & Thiết lập dấu câu (bao gồm dấu xuống dòng).
 // @author       HUỲNH ĐỨC LỢI ( Zalo: 0835795597) - Đã chỉnh sửa
 // @match        https://www.minimax.io/audio*
@@ -3565,12 +3565,65 @@ function igyo$uwVChUzI() {
                         const qILAV = await FGrxK_RK[ndkpgKnjg(0x26f)]();
                         
                         // =======================================================
-                        // == KIỂM TRA DUNG LƯỢNG BLOB: PHẢI LỚN HƠN 40.41 KB ==
+                        // == HÀM KIỂM TRA SÓNG ÂM (AUDIO WAVEFORM) ==
                         // =======================================================
-                        const MIN_SIZE_KB = 40.41;
-                        const MIN_SIZE_BYTES = MIN_SIZE_KB * 1024; // 40.41 KB = 41379.84 bytes
-                        if (!qILAV || qILAV.size <= MIN_SIZE_BYTES) {
-                            addLogEntry(`❌ [Chunk ${currentChunkIndex + 1}] Dung lượng blob = ${(qILAV ? (qILAV.size / 1024).toFixed(2) : 0)} KB <= ${MIN_SIZE_KB} KB - không hợp lệ!`, 'error');
+                        async function checkAudioWaveform(blob) {
+                            try {
+                                const arrayBuffer = await blob.arrayBuffer();
+                                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                                const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+                                
+                                // Kiểm tra có dữ liệu âm thanh không
+                                if (!audioBuffer || audioBuffer.length === 0) {
+                                    await audioContext.close();
+                                    return false;
+                                }
+                                
+                                // Lấy channel đầu tiên (mono) hoặc channel đầu tiên của stereo
+                                const channelData = audioBuffer.getChannelData(0);
+                                const sampleRate = audioBuffer.sampleRate;
+                                const duration = audioBuffer.duration;
+                                
+                                // Kiểm tra có sóng âm: tính RMS (Root Mean Square) để xác định có tín hiệu âm thanh không
+                                let sumSquares = 0;
+                                let nonZeroSamples = 0;
+                                const threshold = 0.001; // Ngưỡng tối thiểu để coi là có sóng âm
+                                
+                                // Lấy mẫu một phần dữ liệu để kiểm tra (không cần kiểm tra toàn bộ)
+                                const sampleStep = Math.max(1, Math.floor(channelData.length / 1000)); // Lấy 1000 mẫu
+                                let sampleCount = 0;
+                                for (let i = 0; i < channelData.length; i += sampleStep) {
+                                    const sample = channelData[i];
+                                    sumSquares += sample * sample;
+                                    sampleCount++;
+                                    if (Math.abs(sample) > threshold) {
+                                        nonZeroSamples++;
+                                    }
+                                }
+                                
+                                const rms = sampleCount > 0 ? Math.sqrt(sumSquares / sampleCount) : 0;
+                                const hasWaveform = rms > threshold && nonZeroSamples > 10; // Phải có ít nhất 10 mẫu có tín hiệu
+                                
+                                await audioContext.close();
+                                
+                                return hasWaveform;
+                            } catch (error) {
+                                addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Lỗi khi kiểm tra sóng âm: ${error.message}`, 'warning');
+                                return false; // Nếu lỗi decode, coi như không có sóng âm
+                            }
+                        }
+                        
+                        // =======================================================
+                        // == KIỂM TRA DUNG LƯỢNG BLOB: 39.01 KB - 40.0 KB ==
+                        // =======================================================
+                        const MIN_SIZE_KB = 39.01;
+                        const MAX_SIZE_KB = 40.0;
+                        const MIN_SIZE_BYTES = MIN_SIZE_KB * 1024; // 39.01 KB = 39946.24 bytes
+                        const MAX_SIZE_BYTES = MAX_SIZE_KB * 1024; // 40.0 KB = 40960 bytes
+                        
+                        // Kiểm tra blob có tồn tại không
+                        if (!qILAV) {
+                            addLogEntry(`❌ [Chunk ${currentChunkIndex + 1}] Blob không tồn tại - không hợp lệ!`, 'error');
                             addLogEntry(`🔄 Kích hoạt cơ chế reset và đánh dấu thất bại (giống như timeout)...`, 'warning');
                             
                             // Hủy bỏ đánh dấu success (đã đánh dấu ở trên)
@@ -3629,8 +3682,6 @@ function igyo$uwVChUzI() {
                             // Reset web interface - CHỈ reset khi 1 chunk cụ thể render lỗi
                             await resetWebInterface();
                             
-                            addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Dung lượng blob = ${(qILAV ? (qILAV.size / 1024).toFixed(2) : 0)} KB <= ${MIN_SIZE_KB} KB.`, 'warning');
-                            
                             // Xử lý retry: Nếu đang trong retry mode, tiếp tục retry chunk hiện tại
                             // Nếu không phải retry mode, nhảy sang chunk tiếp theo
                             if (window.isFinalCheck) {
@@ -3647,10 +3698,109 @@ function igyo$uwVChUzI() {
                                 ttuo$y_KhCV = currentChunkIndex + 1; // Chuyển sang chunk tiếp theo
                                 addLogEntry(`🔄 Sau khi reset, tiếp tục với chunk ${ttuo$y_KhCV + 1}...`, 'info');
                                 addLogEntry(`📊 Trạng thái: ${window.chunkStatus ? window.chunkStatus.filter(s => s === 'success' || s === 'failed').length : 0}/${SI$acY.length} chunks đã xử lý`, 'info');
-                                addLogEntry(`💡 Chunk có dung lượng <= ${MIN_SIZE_KB} KB sẽ được retry vô hạn sau khi xong tất cả chunks`, 'info');
+                                addLogEntry(`💡 Chunk có blob null sẽ được retry vô hạn sau khi xong tất cả chunks`, 'info');
                                 setTimeout(uSTZrHUt_IC, 2000); // Chờ 2 giây rồi tiếp tục với chunk tiếp theo
                             }
                             return; // Dừng xử lý, không lưu blob
+                        }
+                        
+                        // Kiểm tra dung lượng trong khoảng 39.01 - 40.0 KB
+                        const chunkSizeKB = qILAV.size / 1024;
+                        const isInSuspiciousRange = chunkSizeKB >= MIN_SIZE_KB && chunkSizeKB <= MAX_SIZE_KB;
+                        
+                        if (isInSuspiciousRange) {
+                            addLogEntry(`🔍 [Chunk ${currentChunkIndex + 1}] Dung lượng blob = ${chunkSizeKB.toFixed(2)} KB nằm trong khoảng ${MIN_SIZE_KB} - ${MAX_SIZE_KB} KB. Đang kiểm tra sóng âm...`, 'warning');
+                            
+                            // Kiểm tra sóng âm
+                            const hasWaveform = await checkAudioWaveform(qILAV);
+                            
+                            if (!hasWaveform) {
+                                // Không có sóng âm → báo lỗi
+                                addLogEntry(`❌ [Chunk ${currentChunkIndex + 1}] Dung lượng blob = ${chunkSizeKB.toFixed(2)} KB trong khoảng ${MIN_SIZE_KB} - ${MAX_SIZE_KB} KB và KHÔNG có sóng âm - không hợp lệ!`, 'error');
+                                addLogEntry(`🔄 Kích hoạt cơ chế reset và đánh dấu thất bại...`, 'warning');
+                                
+                                // Hủy bỏ đánh dấu success (đã đánh dấu ở trên)
+                                if (window.chunkStatus) {
+                                    window.chunkStatus[currentChunkIndex] = 'failed';
+                                }
+                                
+                                // Thêm vào danh sách failedChunks
+                                if (!window.failedChunks) window.failedChunks = [];
+                                if (!window.failedChunks.includes(currentChunkIndex)) {
+                                    window.failedChunks.push(currentChunkIndex);
+                                }
+                                
+                                // QUAN TRỌNG: Đảm bảo vị trí này để trống (null) để sau này retry có thể lưu vào
+                                if (typeof window.chunkBlobs === 'undefined') {
+                                    window.chunkBlobs = new Array(SI$acY.length).fill(null);
+                                }
+                                // Đảm bảo window.chunkBlobs có đủ độ dài
+                                while (window.chunkBlobs.length <= currentChunkIndex) {
+                                    window.chunkBlobs.push(null);
+                                }
+                                window.chunkBlobs[currentChunkIndex] = null; // Đảm bảo vị trí này để trống
+                                
+                                // ĐỒNG BỘ HÓA ZTQj$LF$o: Đảm bảo ZTQj$LF$o cũng để trống
+                                while (ZTQj$LF$o.length <= currentChunkIndex) {
+                                    ZTQj$LF$o.push(null);
+                                }
+                                ZTQj$LF$o[currentChunkIndex] = null; // Đảm bảo vị trí này để trống
+                                
+                                addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Đã đánh dấu thất bại và để trống vị trí ${currentChunkIndex} để retry sau`, 'info');
+                                
+                                // Xóa khỏi processingChunks
+                                if (typeof window.processingChunks !== 'undefined') {
+                                    window.processingChunks.delete(currentChunkIndex);
+                                }
+                                
+                                // Reset flag sendingChunk khi chunk thất bại
+                                if (window.sendingChunk === currentChunkIndex) {
+                                    window.sendingChunk = null;
+                                }
+                                
+                                // Dừng observer nếu đang chạy
+                                if (xlgJHLP$MATDT$kTXWV) {
+                                    xlgJHLP$MATDT$kTXWV.disconnect();
+                                    xlgJHLP$MATDT$kTXWV = null;
+                                }
+                                // Reset flag để cho phép thiết lập observer mới
+                                window.isSettingUpObserver = false;
+                                
+                                // Clear timeout 60 giây cho chunk này
+                                if (typeof window.chunkTimeoutIds !== 'undefined' && window.chunkTimeoutIds[currentChunkIndex]) {
+                                    clearTimeout(window.chunkTimeoutIds[currentChunkIndex]);
+                                    delete window.chunkTimeoutIds[currentChunkIndex];
+                                }
+                                
+                                // Reset web interface - CHỈ reset khi 1 chunk cụ thể render lỗi
+                                await resetWebInterface();
+                                
+                                addLogEntry(`⚠️ [Chunk ${currentChunkIndex + 1}] Dung lượng blob = ${chunkSizeKB.toFixed(2)} KB trong khoảng ${MIN_SIZE_KB} - ${MAX_SIZE_KB} KB và không có sóng âm.`, 'warning');
+                                
+                                // Xử lý retry: Nếu đang trong retry mode, tiếp tục retry chunk hiện tại
+                                // Nếu không phải retry mode, nhảy sang chunk tiếp theo
+                                if (window.isFinalCheck) {
+                                    // Đang trong retry mode: tiếp tục retry chunk hiện tại cho đến khi thành công
+                                    addLogEntry(`🔄 [Chunk ${currentChunkIndex + 1}] Retry thất bại, sẽ tiếp tục retry chunk này...`, 'warning');
+                                    addLogEntry(`📊 Trạng thái: ${window.chunkStatus ? window.chunkStatus.filter(s => s === 'success' || s === 'failed').length : 0}/${SI$acY.length} chunks đã xử lý`, 'info');
+                                    addLogEntry(`💡 Chunk ${currentChunkIndex + 1} sẽ được retry vô hạn cho đến khi thành công`, 'info');
+                                    // Giữ nguyên ttuo$y_KhCV = currentChunkIndex để retry lại
+                                    ttuo$y_KhCV = currentChunkIndex;
+                                    setTimeout(uSTZrHUt_IC, 2000); // Chờ 2 giây rồi retry lại chunk này
+                                } else {
+                                    // Không phải retry mode: nhảy sang chunk tiếp theo
+                                    window.retryCount = 0; // Reset bộ đếm retry
+                                    ttuo$y_KhCV = currentChunkIndex + 1; // Chuyển sang chunk tiếp theo
+                                    addLogEntry(`🔄 Sau khi reset, tiếp tục với chunk ${ttuo$y_KhCV + 1}...`, 'info');
+                                    addLogEntry(`📊 Trạng thái: ${window.chunkStatus ? window.chunkStatus.filter(s => s === 'success' || s === 'failed').length : 0}/${SI$acY.length} chunks đã xử lý`, 'info');
+                                    addLogEntry(`💡 Chunk có dung lượng ${MIN_SIZE_KB} - ${MAX_SIZE_KB} KB và không có sóng âm sẽ được retry vô hạn sau khi xong tất cả chunks`, 'info');
+                                    setTimeout(uSTZrHUt_IC, 2000); // Chờ 2 giây rồi tiếp tục với chunk tiếp theo
+                                }
+                                return; // Dừng xử lý, không lưu blob
+                            } else {
+                                // Có sóng âm → hợp lệ, tiếp tục bình thường
+                                addLogEntry(`✅ [Chunk ${currentChunkIndex + 1}] Dung lượng blob = ${chunkSizeKB.toFixed(2)} KB trong khoảng ${MIN_SIZE_KB} - ${MAX_SIZE_KB} KB nhưng CÓ sóng âm - Hợp lệ!`, 'info');
+                            }
                         }
                         // =======================================================
                         // == END: KIỂM TRA DUNG LƯỢNG BLOB ==
@@ -6325,4 +6475,3 @@ async function waitForVoiceModelReady() {
             errorObserver.disconnect();
         }
     });
-
